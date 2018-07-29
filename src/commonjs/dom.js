@@ -11,7 +11,7 @@ export const dom = {
 	// el 要添加的元素
 	// className class 的名称
 	addClass (el, className) {
-		if (hasClass(el, className)) {
+		if (dom.hasClass(el, className)) {
 			return
 		}
 
@@ -24,14 +24,14 @@ export const dom = {
 	// el 要删除的元素
 	// className class 的名称
 	removeClass (el, className) {
-		if (hasClass(el, className)) {
+		if (dom.hasClass(el, className)) {
 			let newClass = el.className.split(' ')
 			newClass.forEach((value, index, array) => {
 				if (value === className) {
 					newClass.splice(index, 1)
 				}
 			})
-			el.className = newClass
+			el.className = newClass.join(' ')
 		}
 	},
 
