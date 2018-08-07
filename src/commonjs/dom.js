@@ -1,81 +1,50 @@
-export const dom = {
-	// 判断元素是否有某一个className
-	// el 被判断的元素
-	// className class 的名称
-	hasClass (el, className) {
-		let reg = new RegExp('(^|\\s)' + className + '(\\s|$)')
-		return reg.test(el.className)
+const dom = {
+	/**
+	 * 判断元素是否存在某个class类
+	 * @param { Element } el dom元素
+	 * @param { String } className class名称
+	 */
+	hasClass(el, className) {
+		return el.classList.contains(className)
 	},
 
-	// 给一个元素添加className
-	// el 要添加的元素
-	// className class 的名称
-	addClass (el, className) {
-		if (dom.hasClass(el, className)) {
-			return
-		}
-
-		let newClass = el.className.split(' ')
-		newClass.push(className)
-		el.className = newClass.join(' ')
-	},
-
-	// 给一个元素删除className
-	// el 要删除的元素
-	// className class 的名称
-	removeClass (el, className) {
-		if (dom.hasClass(el, className)) {
-			let newClass = el.className.split(' ')
-			newClass.forEach((value, index, array) => {
-				if (value === className) {
-					newClass.splice(index, 1)
+	/**
+	 * 元素添加class
+	 * @param { Element } el dom元素
+	 * @param { (String | Array) } className class名称，可以是多个
+	 */
+	addClass(el, className) {
+		if (Array.isArray(className)) {
+			className.forEach(item => {
+				if (!dom.hasClass(el, item)) {
+					el.classList.add(item)
 				}
 			})
-			el.className = newClass.join(' ')
+			return
+		}
+		if (!dom.hasClass(el, className)) {
+			el.classList.add(className)
 		}
 	},
 
-	// 获取 、添加属性
-	// el 要获取添加的元素
-	// dataname 属性的名字
-	// setValue 不存在则是获取的操作   存在就是设置的操作  其值就是设置的值
-	getData (el, dataname, setValue) {
-		if(setValue) {
-			el.setAttribute(dataname, setValue)
-		} else {
-			el.getAttribute(dataname)
+	/**
+	 * 元素删除class
+	 * @param { Element } el dom元素
+	 * @param { (String | Array) } className class名称，可以是多个
+	 */
+	rmClass(el, className) {
+		if (Array.isArray(className)) {
+			className.forEach(item => {
+				if (dom.hasClass(el, item)) {
+					el.classList.remove(item)
+				}
+			})
+			return
 		}
-	},
-
-	// 在页面中插入一个css的样式
-	// url 样式文件的地址
-	addCss (url) {
-		let linkElm = document.createElement('link');
-		linkElm.setAttribute('rel', 'stylesheet');
-		linkElm.setAttribute('type', 'text/css');
-		linkElm.setAttribute('href', url);
-		document.head.appendChild(linkElm);
-	},
-
-	// 在页面中插入一个js的样式
-	// src 为js的地址
-	addJs (src) {
-		let script = document.createElement("script");
-		script.type = "text/script";
-		script.src = src;
-		document.getElementsByTagName("html")[0].appendChild(script);
-	},
-
-	// 获取滚动条的宽度
-	getScrollWidth () {
-	let noScroll,   //没有scroll时候的 clientWidth
-		scroll,     //有scroll时候的 clientWidth
-		oDiv = document.createElement('div');    //创建一个div  之后再删除
-		oDiv.style.cssText = 'position:absolute; top:-1000px; width:100px; height:100px; overflow:hidden;';
-		noScroll = document.body.appendChild(oDiv).clientWidth;
-		oDiv.style.overflowY = 'scroll';
-		scroll = oDiv.clientWidth;
-		document.body.removeChild(oDiv);
-		return noScroll - scroll; 
+		if (dom.hasClass(el, className)) {
+			el.classList.remove(className)
+		}
 	}
 }
+
+export default dom

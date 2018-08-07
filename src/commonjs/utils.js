@@ -1,5 +1,5 @@
 // 浏览器相关方法
-export const utils = {
+const utils = {
 	// 设备信息
 	deviceVersion () {
 		const u = navigator.userAgent
@@ -200,3 +200,5 @@ export const utils = {
 
 // 初始化判断数据类型格式
 utils.initType()
+
+export default utils

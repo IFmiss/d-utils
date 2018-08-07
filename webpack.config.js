@@ -15,8 +15,7 @@ const resolve = function (dir) {
 
 module.exports = {
 	entry: {
-		index: './src/index.js',
-		about: './src/pages/about/about.js'
+		index: './src/index.js'
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
@@ -73,7 +72,7 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ["env"]
+						presets: ["env", "stage-2"]
 					}
 				}
 			},
@@ -96,19 +95,13 @@ module.exports = {
 			template: 'index.html',
 			inject: true
 		}),
-		new HtmlWebpackPlugin ({
-			path: path.resolve(__dirname, 'dist'),
-			filename: 'about.html',
-			template: './src/pages/about/about.html',
-			inject: true
-		}),
 		extractSass
 	],
 	devServer: {
 		// 当使用 HTML5 History API 时，任意的 404 响应都可能需要被替代为 index.html。通过传入以下启用：
 		contentBase: "./",
 		// 端口号
-		port: 1996,
+		port: 2001,
 		//当有编译器错误或警告时，在浏览器中显示全屏覆盖。默认禁用。如果您只想显示编译器错误：
 		noInfo: true,
 		// 配置端口号

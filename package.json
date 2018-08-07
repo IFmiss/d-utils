@@ -1,9 +1,10 @@
 {
-  "name": "webpack-tpl",
+  "name": "d-utils",
   "version": "1.0.0",
-  "description": "webpack-tpl",
+  "description": "d-utils",
   "main": "webpack.config.js",
   "dependencies": {
+    "d-loading": "^1.0.1",
     "hoek": "^5.0.3",
     "wx-audio": "^1.0.0"
   },
@@ -22,7 +23,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-latest": "^6.24.1",
     "better-scroll": "^1.8.4",
     "c-video": "^1.0.7",
