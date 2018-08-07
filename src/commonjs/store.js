@@ -93,6 +93,28 @@ const store = {
 				data.append(k, obj[k])
 			}
 		}
+	},
+
+	/**
+	 * 从数组中获取num 个随机不重复的元素
+	 * @param { Arrary } arr 数组
+	 * @param { Number } num 数量
+	 * @returns { Arrary } 返回数组集合
+	 */
+	getRandomDataFromArr (arr, num) {
+		let newNum = Number(num)
+		let newArr = Array.from(new Set(arr))
+		let resultArr = new Array();
+		if (!(newNum > 0)) throw new Error('数量必须大于0')
+		if (newArr && newArr.length > newNum) {
+			for (let i = 0; i < newNum; i++) {
+				let index = Math.floor(Math.random() * newArr.length);
+				resultArr.push(newArr[index]);
+				newArr.splice(index,1);
+			}
+			return resultArr;
+		}
+		throw new Error(`数组中没有超过${num}个不同的元素`)
 	}
 }
 export default store
