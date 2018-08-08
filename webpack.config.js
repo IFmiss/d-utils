@@ -42,12 +42,6 @@ module.exports = {
 						{
 							loader: 'sass-loader'
 						}
-						// {
-			   //            loader: 'sass-resources-loader',
-			   //            options: {
-			   //              resources: path.resolve(__dirname, 'src/scss/base.scss')
-			   //            }
-			   //          }
 					]
 				})
 			},
@@ -85,8 +79,13 @@ module.exports = {
 							limit: 8192
 						}
 					}
-        		]
+        ]
 			},
+			{
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader"
+      }
 		]
 	},
 	plugins: [
