@@ -1,4 +1,4 @@
-import utils from './commonjs/index'
+import utils from './lib/index'
 // import './style.scss'
 console.log(utils)
 let file = document.getElementById('file')
@@ -35,3 +35,4 @@ utils.utils.console(utils.store.getRandomDataFromArr([1,2,3,4,5,6,7,8,9,0,3,3,33
 // setTimeout(function () {
 //   utils.store.rmCookie('name')
 // }, 10000)
+// utils.utils.showLayoutFramework()
