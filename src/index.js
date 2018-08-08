@@ -1,4 +1,5 @@
 import utils from './commonjs/index'
+// import './style.scss'
 console.log(utils)
 let file = document.getElementById('file')
 
@@ -13,16 +14,24 @@ setTimeout(function () {
 
 utils.utils.console(utils.store.getRandomDataFromArr([1,2,3,4,5,6,7,8,9,0,3,3,3333,4,24,2,5,2], 8), false)
 
-utils.utils.notification({
-  title: '你好',
-  body: 'this is a test',
-  show: function () {
-    console.log('显示了')
-  },
-  click: function () {
-    console.log('点击了')
-  }
-})
+// utils.utils.notification({
+//   title: '你好',
+//   body: 'this is a test',
+//   show: function () {
+//     console.log('显示了')
+//   },
+//   click: function () {
+//     console.log('点击了')
+//   }
+// })
 
-console.log(utils.utils.parseUrl('www.daiwei.org?id=1'))
-console.log(utils.utils.parseUrl('www.daiwei.org?id=1&name=daiwei'))
+// console.log(utils.utils.parseUrl('www.daiwei.org?id=1'))
+// console.log(utils.utils.parseUrl('www.daiwei.org?id=1&name=daiwei'))
+
+// utils.store.setCookie('name', 'daiwei', 30 * 60 * 60 * 1000)
+
+// console.log(utils.store.getCookie('name'))
+
+// setTimeout(function () {
+//   utils.store.rmCookie('name')
+// }, 10000)
