@@ -36,3 +36,13 @@ utils.utils.console(utils.store.getRandomDataFromArr([1,2,3,4,5,6,7,8,9,0,3,3,33
 //   utils.store.rmCookie('name')
 // }, 10000)
 // utils.utils.showLayoutFramework()
+
+let str = ' a bsc d e f '
+console.log(utils.utils.strTrim(str, 0))
+console.log(utils.utils.strTrim(str, 1))
+console.log(utils.utils.strTrim(str, 2))
+console.log(utils.utils.strTrim(str, 3))
+
+window.onresize = utils.utils.throttle(function () {
+  console.log('resize')
+}, 200)

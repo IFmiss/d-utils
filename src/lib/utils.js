@@ -133,6 +133,53 @@ const utils = {
       a += count
     }
     return a
+  },
+
+  /**
+   * 字符串的去除空格
+   * @param { String } str 操作的字符串
+   * @param { Number } type 类型 0: 去除首位空格；1: 去除所有空格； 2: 去除左边空格； 3： 去除右边空格； 默认为去除首位空格
+   * @returns { String } 返回操作之后的字符串
+   */
+  strTrim (str, type = 0) {
+    switch (type) {
+    case 0:
+      return str.replace(/(^\s*)|(\s*$)/g, '')
+    case 1:
+      return str.replace(/\s/g, '')
+    case 2: 
+      return str.replace(/(^\s*)/g, '')
+    case 3:
+      return str.replace(/(\s*$)/g, '')
+    default:
+      return str.replace(/(^\s*)|(\s*$)/g, '')
+    }
+  },
+
+  /**
+   * 方法节流
+   * @param { Function } fn 需要截流的方法
+   * @param { Number } t 节流时间，多少时间执行一次方法 单位ms
+   */
+  throttle (fn, t = 1000) {
+    if (typeof fn !== 'function') throw new Error('第一个参数必须是方法')
+    let _fn = fn
+    let time = null
+    let first = true
+    return function () {
+      let _this = this
+      if (first) {
+        _fn.apply(_this, arguments)
+        first = false
+        return
+      }
+      if (time) return
+      time = setTimeout(function () {
+        clearInterval(time)
+        time = null
+        _fn.apply(_this, arguments)
+      }, t)
+    }
   }
 }
 
