@@ -43,6 +43,6 @@ console.log(utils.utils.strTrim(str, 1))
 console.log(utils.utils.strTrim(str, 2))
 console.log(utils.utils.strTrim(str, 3))
 
-window.onresize = utils.utils.throttle(function () {
+window.onresize = utils.utils.debounce(function () {
   console.log('resize')
-}, 200)
+}, 4200)

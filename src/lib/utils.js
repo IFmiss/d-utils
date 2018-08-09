@@ -157,9 +157,9 @@ const utils = {
   },
 
   /**
-   * 方法节流
-   * @param { Function } fn 需要截流的方法
-   * @param { Number } t 节流时间，多少时间执行一次方法 单位ms
+   * 函数节流
+   * @param { Function } fn 需要节流的函数
+   * @param { Number } t 节流时间，多久以后执行一次方法 单位ms
    */
   throttle (fn, t = 1000) {
     if (typeof fn !== 'function') throw new Error('第一个参数必须是方法')
@@ -175,9 +175,29 @@ const utils = {
       }
       if (time) return
       time = setTimeout(function () {
-        clearInterval(time)
+        setTimeout(time)
         time = null
         _fn.apply(_this, arguments)
+      }, t)
+    }
+  },
+
+  /**
+   * 函数防抖
+   * @param { Function } fn 需要防抖的函数
+   * @param { Number } t 防抖时间，多久以后才能再执行
+   */
+  debounce (fn, t) {
+    if (typeof fn !== 'function') throw new Error('第一个参数必须是方法')
+    let time
+    return function () {
+      clearTimeout(time)
+      if (!time) {
+        fn.apply(this, arguments)
+      }
+      time = setTimeout(function () {
+        setTimeout(time)
+        time = null
       }, t)
     }
   }
