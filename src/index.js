@@ -37,12 +37,14 @@ utils.utils.console(utils.store.getRandomDataFromArr([1,2,3,4,5,6,7,8,9,0,3,3,33
 // }, 10000)
 // utils.utils.showLayoutFramework()
 
-let str = ' a bsc d e f '
-console.log(utils.utils.strTrim(str, 0))
-console.log(utils.utils.strTrim(str, 1))
-console.log(utils.utils.strTrim(str, 2))
-console.log(utils.utils.strTrim(str, 3))
+// let str = ' a bsc d e f '
+// console.log(utils.utils.strTrim(str, 0))
+// console.log(utils.utils.strTrim(str, 1))
+// console.log(utils.utils.strTrim(str, 2))
+// console.log(utils.utils.strTrim(str, 3))
 
-window.onresize = utils.utils.debounce(function () {
-  console.log('resize')
-}, 4200)
+// window.onresize = utils.utils.debounce(function () {
+//   console.log('resize')
+// }, 4200)
+
+console.log(utils.dom.getComputedStyle(document.body, 'width'))

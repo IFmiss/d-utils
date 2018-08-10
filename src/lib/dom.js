@@ -44,6 +44,18 @@ const dom = {
     if (dom.hasClass(el, className)) {
       el.classList.remove(className)
     }
+  },
+  
+  /**
+   * 获取元素的css属性内容
+   * @param { Element } el dom元素
+   * @param { String } cssProp css的属性名称
+   * @returns { String } css对应的属性的值
+   */
+  getComputedStyle (el, cssProp) {
+    if (!el) throw new Error('dom元素不存在')
+    if (!cssProp) throw new Error('请输入需要查询的css属性名称')
+    return document.defaultView.getComputedStyle ? document.defaultView.getComputedStyle(el, false)[cssProp] : el.currentStyle[cssProp]
   }
 }
 
