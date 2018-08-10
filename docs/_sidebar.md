@@ -3,3 +3,4 @@
   * [快速开始](./other/_start.md)
 * 内容
   * [dom](./lib/_dom.md)
+  * [store](./lib/_store.md)
