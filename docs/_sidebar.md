@@ -4,3 +4,4 @@
 * 内容
   * [dom](./lib/_dom.md)
   * [store](./lib/_store.md)
+  * [utils](./lib/_utils.md)

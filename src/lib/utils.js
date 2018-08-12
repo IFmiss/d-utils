@@ -36,7 +36,7 @@ const utils = {
       'Function',
       'RegExp'
     ].forEach(function (t) {
-      _self.dataType['is' + t] = function (o) {
+      _self.dataType['is_' + t] = function (o) {
         return type(o) === t.toLowerCase()
       }
     })
@@ -185,7 +185,7 @@ const utils = {
   /**
    * 函数防抖
    * @param { Function } fn 需要防抖的函数
-   * @param { Number } t 防抖时间，多久以后才能再执行
+   * @param { Number } t 防抖时间，多久以后才能再执行 单位ms
    */
   debounce (fn, t) {
     if (typeof fn !== 'function') throw new Error('第一个参数必须是方法')
