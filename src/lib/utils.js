@@ -83,10 +83,10 @@ const utils = {
     })
   },
 
-  /*
+  /**
    * 返回rgba随机色
    * @param { Number } opacity 透明度 0～1之间
-   * @returns { String } rgba色值
+   * @return { String } rgba色值
    */
   randomColor (opacity = 1) {
     const r = Math.floor(Math.random() * 256)
@@ -105,7 +105,7 @@ const utils = {
   /**
    * 返回浏览器url的参数
    * @param { String } url 地址字符串
-   * @returns { Object } 返回一个参数对象
+   * @return { Object } 返回一个参数对象
    */
   parseUrl (url) {
     if (!url) return
@@ -122,7 +122,7 @@ const utils = {
    * 计算字符串长度 isStrict为true的时候 返回一个字符串的长度，汉字算2个字符长度
    * @param { String } str 要计算的字符串
    * @param { Boolean } isStrict true 返回一个字符串的长度，汉字算2个字符长度; false 直接返回长度
-   * @returns { Number } 返回字符串长度
+   * @return { Number } 返回字符串长度
    */
   calcStringLength (str, isStrict) {
     if (typeof str !== 'string') throw new Error ('需要计算的内容必须时字符串')
@@ -139,7 +139,7 @@ const utils = {
    * 字符串的去除空格
    * @param { String } str 操作的字符串
    * @param { Number } type 类型 0: 去除首位空格；1: 去除所有空格； 2: 去除左边空格； 3： 去除右边空格； 默认为去除首位空格
-   * @returns { String } 返回操作之后的字符串
+   * @return { String } 返回操作之后的字符串
    */
   strTrim (str, type = 0) {
     switch (type) {

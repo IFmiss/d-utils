@@ -50,7 +50,7 @@ const dom = {
    * 获取元素的css属性内容
    * @param { Element } el dom元素
    * @param { String } cssProp css的属性名称
-   * @returns { String } css对应的属性的值
+   * @return { String } css对应的属性的值
    */
   getComputedStyle (el, cssProp) {
     if (!el) throw new Error('dom元素不存在')

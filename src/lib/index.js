@@ -9,10 +9,13 @@ import dom from './dom.js'
 import utils from './utils.js'
 // 数据存储类
 import store from './store.js'
+// 验证类
+import exp from './exp.js'
 
 const D_UTILS = {
   store,
   dom,
-  utils
+  utils,
+  exp
 }
 export default D_UTILS

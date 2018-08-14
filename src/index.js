@@ -47,4 +47,6 @@ utils.utils.console(utils.store.getRandomDataFromArr([1,2,3,4,5,6,7,8,9,0,3,3,33
 //   console.log('resize')
 // }, 4200)
 
-console.log(utils.dom.getComputedStyle(document.body, 'width'))
+// console.log(utils.dom.getComputedStyle(document.body, 'width'))
+// console.log(utils.exp.isInvalidPhoneNum('15742617777'))
+utils.utils.console(utils.exp.isInvalidEmail('2@12.cj'))
