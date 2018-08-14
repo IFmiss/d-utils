@@ -10,4 +10,6 @@ npm i d-utils
 import Dutils from 'd-utils'
 Dutils.dom.addClass(document.body, 'd-utils')
 ```
+##### 后续demo都会使用实例化的`Dutils`
+
 ?> 具体方法的提示信息请点击 [more pages](./../lib/_dom.md)

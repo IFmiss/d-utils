@@ -13,6 +13,10 @@ dom对象是d-utlis里的一个属性，此属性下包含了已有的和dom相�
  * @param { String } className class名称
  */
 ```
+##### `Demo`:
+```js
+Dutils.dom.hasClass(document.body, 'd-utils')
+```
 
 ## addClass
 `addClass`给元素添加className
@@ -26,6 +30,10 @@ dom对象是d-utlis里的一个属性，此属性下包含了已有的和dom相�
  * @param { (String | Array) } className class名称，可以是多个
  */
 ```
+##### `Demo`:
+```js
+Dutils.dom.addClass(document.body, 'd-utils')
+```
 
 ## rmClass
 `addClass`删除元素的某个className
@@ -38,6 +46,10 @@ dom对象是d-utlis里的一个属性，此属性下包含了已有的和dom相�
  * @param { Element } el dom元素
  * @param { (String | Array) } className class名称，可以是多个
  */
+```
+##### `Demo`:
+```js
+Dutils.dom.rmClass(document.body, 'd-utils')
 ```
 
 ## getComputedStyle
@@ -53,3 +65,9 @@ dom对象是d-utlis里的一个属性，此属性下包含了已有的和dom相�
  * @returns { String } css对应的属性的值
  */
 ```
+##### `Demo`:
+```js
+Dutils.dom.getComputedStyle(document.body, 'width')
+```
+##### `return`
+    - 1920px

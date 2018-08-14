@@ -11,6 +11,12 @@ exp对象是d-utlis里的一个属性，此属性包含对于一些字符，或�
  * @param { String } num 手机号
  */
 ```
+##### `Demo`:
+```js
+Dutils.exp.isInvalidPhoneNum('13651971940')
+```
+##### `return`
+    - true
 
 ## isInvalidEmail
 `isInvalidEmail`判断是否是正确的邮箱地址格式
@@ -22,3 +28,9 @@ exp对象是d-utlis里的一个属性，此属性包含对于一些字符，或�
  * @param { String } num 邮箱
  */
 ```
+##### `Demo`:
+```js
+Dutils.exp.isInvalidEmail('185098535@qq.com')
+```
+##### `return`
+    - true

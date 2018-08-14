@@ -15,6 +15,11 @@ store对象是数据的一些操作
  * @param { Number } exp 过期时间 默认2小时 单位毫秒
  */
 ```
+##### `Demo`:
+```js
+// 设置name为test的值为12345，设置过期时间为1小时
+Dutils.store.setCookie('test', '12345', 60 * 60 * 1000)
+```
 
 ## getCookie
 `getCookie`根据name获取Cookie
@@ -27,6 +32,13 @@ store对象是数据的一些操作
  * @returns { (Array | Null) } 返回的数据
  */
 ```
+##### `Demo`:
+```js
+// 设置name为test的值为12345，设置过期时间为1小时
+Dutils.store.getCookie('test')
+```
+##### `return`
+    - 12345
 
 ## rmCookie
 `rmCookie`根据name删除Cookie
@@ -37,6 +49,10 @@ store对象是数据的一些操作
  * 删除Cookie
  * @param { String } name cookie名称 如果不传参数则设置所有cookie过期
  */
+```
+##### `Demo`:
+```js
+Dutils.store.rmCookie('test')
 ```
 
 ## saveDataAsFile
@@ -51,6 +67,10 @@ store对象是数据的一些操作
  * @param { File } file 要存储的数据 类似 e.target.files[0] 这种file对象
  */
 ```
+##### `Demo`:
+```js
+Dutils.store.saveDataAsFile('test.txt', e.target.files[0])
+```
 
 ## fileToFormData
 `fileToFormData`将File文件转换成FormData对象
@@ -62,6 +82,16 @@ store对象是数据的一些操作
  * @param {(Object|Blob)} obj 顺带传的参数如,文件内容必传
  * 如：{file: e.target.files[0], id: '100001', name: 'hello world'}
  */
+```
+##### `Demo`:
+```js
+const data = {
+  file: e.target.files[0],
+  name: 'd-utils',
+  id: 123,
+  desc: 'hello'
+}
+Dutils.store.fileToFormData(...data)
 ```
 
 ##getRandomDataFromArr
@@ -77,3 +107,9 @@ store对象是数据的一些操作
  * @returns { Arrary } 返回数组集合
  */
 ```
+##### `Demo`:
+```js
+Dutils.store.getRandomDataFromArr([1,2,3,4,5,44,3,2,1,9,0,45,678], 5)
+```
+##### `return`
+    - [4, 9, 45, 2, 0]
