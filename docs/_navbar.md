@@ -1,1 +1,1 @@
-* [github](https://www.github.com/ifmiss/d-utils)
+* [github](https://www.github.com/ifmiss/d-js-utils)
