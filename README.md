@@ -1,6 +1,6 @@
-## 关于d-utils
+## 关于d-js-utils
 
-[文档地址](https://ifmiss.github.io/d-utils/)
+[文档地址](https://ifmiss.github.io/d-js-utils/)
 
 #### 产生背景
 这是关于个人日常比较通用代码的收集，方便日后使用，编写文档为了以后方便查阅
@@ -19,13 +19,13 @@
 
 ## 快速使用
 #### 安装
-使用npm安装 `d-utils` 依赖
+使用npm安装 `d-js-utils` 依赖
 ```bash
-npm i d-utils
+npm i d-js-utils
 ```
 #### 使用
-引入`d-utils.js`可直接使用其方法
+引入`d-js-utils.js`可直接使用其方法
 ```js
-import Dutils from 'd-utils'
-Dutils.dom.addClass(document.body, 'd-utils')
+import Dutils from 'd-js-utils'
+Dutils.dom.addClass(document.body, 'd-js-utils')
 ```

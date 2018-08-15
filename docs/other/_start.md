@@ -1,14 +1,14 @@
 # 快速使用
 #### 安装
-使用npm安装 `d-utils` 依赖
+使用npm安装 `d-js-utils` 依赖
 ```bash
-npm i d-utils
+npm i d-js-utils
 ```
 #### 使用
-引入`d-utils.js`可直接使用其方法
+引入`d-js-utils.js`可直接使用其方法
 ```js
-import Dutils from 'd-utils'
-Dutils.dom.addClass(document.body, 'd-utils')
+import Dutils from 'd-js-utils'
+Dutils.dom.addClass(document.body, 'd-js-utils')
 ```
 ##### 后续demo都会使用实例化的`Dutils`
 

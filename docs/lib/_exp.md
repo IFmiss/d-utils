@@ -1,5 +1,5 @@
 # exp对象
-exp对象是d-utlis里的一个属性，此属性包含对于一些字符，或者元素判断是否符合要求
+exp对象是d-js-utlis里的一个属性，此属性包含对于一些字符，或者元素判断是否符合要求
 
 ## isInvalidPhoneNum
 `isInvalidPhoneNum`判断是否是正确的手机号格式

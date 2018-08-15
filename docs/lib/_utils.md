@@ -120,7 +120,7 @@ Dutils.utils.parseUrl('www.daiwei.org?name=daiwei&id=123')
 ```
 ##### `Demo`:
 ```js
-const str = 'd-utils组件'
+const str = 'd-js-utils组件'
 Dutils.utils.console(Dutils.utils.calcStringLength(str))
 Dutils.utils.console(Dutils.utils.calcStringLength(str, true))
 ```
@@ -142,7 +142,7 @@ Dutils.utils.console(Dutils.utils.calcStringLength(str, true))
 ```
 ##### `Demo`:
 ```js
-const str = ' d - ut ils '
+const str = ' d -js- ut ils '
 // 0: 去除首位空格 默认为0
 Dutils.utils.strTrim(str)
 Dutils.utils.strTrim(str, 0)
@@ -154,11 +154,11 @@ Dutils.utils.strTrim(str, 2)
 Dutils.utils.strTrim(str, 3)
 ```
 ##### `return` 为方便比较添加引号
-    - 第一个返回结果：'d - ut ils'
-    - 第二个返回结果：'d - ut ils'
-    - 第三个返回结果：'d-utils'
-    - 第四个返回结果：'d - ut ils '
-    - 第五个返回结果：' d - ut ils'
+    - 第一个返回结果：'d -js- ut ils'
+    - 第二个返回结果：'d -js- ut ils'
+    - 第三个返回结果：'d-js-utils'
+    - 第四个返回结果：'d -js- ut ils '
+    - 第五个返回结果：' d -js- ut ils'
 
 ## throttle
 `throttle`节流函数，设定多少秒执行下一次效果

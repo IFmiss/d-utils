@@ -12,10 +12,10 @@ import store from './store.js'
 // 验证类
 import exp from './exp.js'
 
-const D_UTILS = {
+const D_JS_UTILS = {
   store,
   dom,
   utils,
   exp
 }
-export default D_UTILS
+export default D_JS_UTILS

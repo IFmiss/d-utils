@@ -15,7 +15,7 @@ dom对象是d-utlis里的一个属性，此属性下包含了已有的和dom相�
 ```
 ##### `Demo`:
 ```js
-Dutils.dom.hasClass(document.body, 'd-utils')
+Dutils.dom.hasClass(document.body, 'd-js-utils')
 ```
 
 ## addClass
@@ -32,7 +32,7 @@ Dutils.dom.hasClass(document.body, 'd-utils')
 ```
 ##### `Demo`:
 ```js
-Dutils.dom.addClass(document.body, 'd-utils')
+Dutils.dom.addClass(document.body, 'd-js-utils')
 ```
 
 ## rmClass
@@ -49,7 +49,7 @@ Dutils.dom.addClass(document.body, 'd-utils')
 ```
 ##### `Demo`:
 ```js
-Dutils.dom.rmClass(document.body, 'd-utils')
+Dutils.dom.rmClass(document.body, 'd-js-utils')
 ```
 
 ## getComputedStyle

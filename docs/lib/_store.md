@@ -87,7 +87,7 @@ Dutils.store.saveDataAsFile('test.txt', e.target.files[0])
 ```js
 const data = {
   file: e.target.files[0],
-  name: 'd-utils',
+  name: 'd-js-utils',
   id: 123,
   desc: 'hello'
 }
