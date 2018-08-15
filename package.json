@@ -6,6 +6,7 @@
   "dependencies": {
     "d-loading": "^1.0.1",
     "hoek": "^5.0.3",
+    "url-parse": "^1.4.3",
     "wx-audio": "^1.0.0"
   },
   "scripts": {
