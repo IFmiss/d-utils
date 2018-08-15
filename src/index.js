@@ -1,3 +1,4 @@
+import './style.scss'
 /**
  * @author ifmiss
  * @version 1.0
