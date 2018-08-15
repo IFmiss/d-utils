@@ -197,3 +197,22 @@ window.resize = Dutils.utils.debounce(function () {
   console.log('resize')
 }, 1000)
 ```
+
+## formatDate
+`formatDate`是针对时间的格式化，可转化成自定义的格式类型
+  - `fmt`格式类型 如 `yyyy-MM-dd hh:mm:ss`
+  - `Date`时间 new Date()，时间戳等等
+```js
+/**
+ * 日期格式化 可转换成自己想要的格式
+ * @param { String } fmt 格式模板 'yyyy-MM-dd hh:mm:ss'
+ * @param { Date } date 日期内容  如 当前日期 new Date()
+ * @return { String } '2018-08-15 01:46:22'
+ */
+```
+##### `Demo`:
+```js
+Dutils.utils.formatDate(`yyyy-MM-dd hh:mm:ss`, new Date())
+```
+##### `return`
+`2018-08-15 01:46:22`
