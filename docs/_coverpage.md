@@ -4,5 +4,5 @@
 
 * 原生js，多种类型方法，工具函数
 
-[GitHub](https://github.com/docsifyjs/docsify/)
-[Get Started](#docsify)
+[GitHub](https://github.com/d-js-utils/)
+[Get Started](/other/_about.md)
