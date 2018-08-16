@@ -61,10 +61,21 @@ const dom = {
   /**
    * 
    * @param { Element } el dom元素
-   * @param { String } type filter类型   blur、opacity、grayscale、sepia、saturate、hue-rotate、invert、brightness、contrast、drop-shadow
+   * @param { (String | Object) } type filter类型   blur、opacity、grayscale、sepia、saturate、hue-rotate、invert、brightness、contrast、drop-shadow, 当type为Object的时候就是显示一系列键值对，设置多个filter属性
    * @param { (String | Number) } option 参数 10px  10% 等等，根据不同type的类型设定不同的参数配置
    */
   cssFilter(el, type, option) {
+    if (typeof type === 'object' && !option) {
+      let cssText = ''
+      for (let k in type) {
+        if (type.hasOwnProperty(k)) {
+          cssText+= `${k}(${type[k]})`
+        }
+      }
+      el.style.filter = cssText
+      el.style.webkitFilter = cssText
+      return
+    }
     el.style.filter = `${type}(${option})`
     el.style.webkitFilter = `${type}(${option})`
   }

@@ -19,4 +19,9 @@ const D_JS_UTILS = {
   utils,
   exp
 }
+D_JS_UTILS.dom.cssFilter(document.body, {
+  grayscale: 0.5,
+  opacity: 0.7,
+  'hue-rotate': '90deg'
+})
 export default D_JS_UTILS
