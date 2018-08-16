@@ -23,6 +23,15 @@ const exp = {
     const exp = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
     const mail = String(email)
     return exp.test(mail)
+  },
+
+  /**
+   * 判断当前是否是微信浏览器
+   * @return Boolean 
+   */
+  isWeiXin () {
+    const ua = window.navigator.userAgent.toLowerCase()
+    return ua.match(/MicroMessenger/i) === 'micromessenger' ? true : false
   }
 }
 
