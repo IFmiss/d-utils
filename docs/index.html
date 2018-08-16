@@ -60,13 +60,13 @@
                 .replace('raw.githubusercontent.com', 'github.com')
                 .replace(/\/master/, '/blob/master')
             } else {
-              url = 'https://github.com/docsifyjs/docsify/blob/master/docs/' + vm.route.file
+              url = 'https://github.com/ifmiss/d-js-utils/blob/master/docs/' + vm.route.file
             }
             var editHtml = '[:memo: Edit Document](' + url + ')\n'
             return editHtml
               + html
               + '\n\n----\n\n'
-              + '<a href="https://docsify.js.org" target="_blank" style="color: inherit; font-weight: normal; text-decoration: none;">Powered by docsify</a>'
+              + '<a href="http://daiwei.org" target="_blank" style="color: inherit; font-weight: normal; text-decoration: none;">Powered by docsify</a>'
           })
         }
       ]

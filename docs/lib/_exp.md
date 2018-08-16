@@ -38,14 +38,14 @@ Dutils.exp.isInvalidEmail('185098535@qq.com')
 ## isWeiXin
 `isWeiXin`判断当前是否是在微信浏览器中
 ```js
-/**
- * 判断当前是否是微信浏览器
- * @return Boolean 
- */
+ /**
+   * 判断当前是否是微信浏览器
+   * @return Boolean 
+   */
 ```
 ##### `Demo`:
 ```js
 Dutils.exp.isWeiXin()
 ```
 ##### `return`
-    - false
+  - true

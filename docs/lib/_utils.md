@@ -55,11 +55,11 @@ Array.is_Null([])
 ```
 ##### `Demo`:
 ```js
-const data = {
-  title: 'notification',
-  body: 'this is a test',
-  logo: 'http://www.daiwei.org/index/images/logo/dw1.png'
-}
+  const data = {
+      title: 'notification',
+      body: 'this is a test',
+      logo: 'http://www.daiwei.org/index/images/logo/dw1.png'
+  }
 Dutils.utils.notification(data)
 ```
 
@@ -174,9 +174,9 @@ Dutils.utils.strTrim(str, 3)
 ##### `Demo`:
 ```js
 // 在鼠标resize的过程中，1秒触发一次，如果resize了10秒相当于console.log('resize')只执行了10次
-window.resize = Dutils.utils.throttle(function () {
-  console.log('resize')
-}, 1000)
+  window.resize = Dutils.utils.throttle(function () {
+      console.log('resize')
+  }, 1000)
 ```
 
 ## debounce
@@ -193,9 +193,9 @@ window.resize = Dutils.utils.throttle(function () {
 ##### `Demo`:
 ```js
 // 在鼠标resize的过程中，1秒以后可以被执行，如果在1秒内触发resize，则从新计算下一个一秒再允许执行
-window.resize = Dutils.utils.debounce(function () {
-  console.log('resize')
-}, 1000)
+  window.resize = Dutils.utils.debounce(function () {
+      console.log('resize')
+  }, 1000)
 ```
 
 ## formatDate

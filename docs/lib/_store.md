@@ -85,12 +85,12 @@ Dutils.store.saveDataAsFile('test.txt', e.target.files[0])
 ```
 ##### `Demo`:
 ```js
-const data = {
-  file: e.target.files[0],
-  name: 'd-js-utils',
-  id: 123,
-  desc: 'hello'
-}
+  const data = {
+      file: e.target.files[0],
+      name: 'd-js-utils',
+      id: 123,
+      desc: 'hello'
+  }
 Dutils.store.fileToFormData(...data)
 ```
 
@@ -127,12 +127,12 @@ Dutils.store.getRandomDataFromArr([1,2,3,4,5,44,3,2,1,9,0,45,678], 5)
 ```
 ##### `Demo`:
 ```js
-let a = {
-  a: 1,
-  b: 2,
-  c: 3,
-  d: [1, 2]
-}
+  let a = {
+      a: 1,
+      b: 2,
+      c: 3,
+      d: [1, 2]
+  }
 let b = Dutils.store.deepClone(a)
 a.d[0] = 3
 console.log(a)
