@@ -71,3 +71,22 @@ Dutils.dom.getComputedStyle(document.body, 'width')
 ```
 ##### `return`
     - 1920px
+
+## cssFilter
+`cssFilter`设置元素的filter样式
+`blur、opacity、grayscale、sepia、saturate、hue-rotate、invert、brightness、contrast、drop-shadow` 目前一共十种，具体option的配置见filter的属性设置
+  - `el` dom元素
+  - `type` cssFilter的类型，字符串
+  - `option` 参数，可以是字符串也可以是数字
+```js
+/**
+ * 
+ * @param { Element } el dom元素
+ * @param { String } type filter类型   blur、opacity、grayscale、sepia、saturate、hue-rotate、invert、brightness、contrast、drop-shadow
+ * @param { (String | Number) } option 参数 10px  10% 等等，根据不同type的类型设定不同的参数配置
+ */
+```
+##### `Demo`:
+```js
+Dutils.dom.cssFilter(document.body, 'grayscale', 1)
+```

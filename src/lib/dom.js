@@ -56,6 +56,17 @@ const dom = {
     if (!el) throw new Error('dom元素不存在')
     if (!cssProp) throw new Error('请输入需要查询的css属性名称')
     return document.defaultView.getComputedStyle ? document.defaultView.getComputedStyle(el, false)[cssProp] : el.currentStyle[cssProp]
+  },
+
+  /**
+   * 
+   * @param { Element } el dom元素
+   * @param { String } type filter类型   blur、opacity、grayscale、sepia、saturate、hue-rotate、invert、brightness、contrast、drop-shadow
+   * @param { (String | Number) } option 参数 10px  10% 等等，根据不同type的类型设定不同的参数配置
+   */
+  cssFilter(el, type, option) {
+    el.style.filter = `${type}(${option})`
+    el.style.webkitFilter = `${type}(${option})`
   }
 }
 
