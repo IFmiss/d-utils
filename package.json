@@ -14,7 +14,9 @@
     "watch": "webpack --progress --colors --watch"
   },
   "keywords": [
-    "webpack"
+    "js",
+    "utils",
+    "js-utils"
   ],
   "author": "daiwei",
   "license": "ISC",

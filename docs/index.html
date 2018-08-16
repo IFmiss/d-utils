@@ -6,10 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="d-js-utils">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" title="vue">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/dark.css" title="dark" disabled>
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/buble.css" title="buble" disabled>
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/pure.css" title="pure" disabled>
   <!-- gitalk -->
   <!-- <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css"> -->
-  <link rel="stylesheet" href="//unpkg.com/docsify-copy-code/styles.css" >
+  <!-- <link rel="stylesheet" href="//unpkg.com/docsify-copy-code/styles.css" > -->
 </head>
 <body>
   <div id="app">
@@ -48,7 +51,25 @@
 
         // 搜索标题的最大程级, 1 - 6
         depth: 3
-      }
+      },
+      plugins: [
+        function (hook, vm) {
+          hook.beforeEach(function (html) {
+            if (/githubusercontent\.com/.test(vm.route.file)) {
+              url = vm.route.file
+                .replace('raw.githubusercontent.com', 'github.com')
+                .replace(/\/master/, '/blob/master')
+            } else {
+              url = 'https://github.com/docsifyjs/docsify/blob/master/docs/' + vm.route.file
+            }
+            var editHtml = '[:memo: Edit Document](' + url + ')\n'
+            return editHtml
+              + html
+              + '\n\n----\n\n'
+              + '<a href="https://docsify.js.org" target="_blank" style="color: inherit; font-weight: normal; text-decoration: none;">Powered by docsify</a>'
+          })
+        }
+      ]
     }
   </script>
   <script src="//unpkg.com/docsify-edit-on-github@1.0.1/index.js"></script>

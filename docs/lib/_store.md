@@ -94,7 +94,7 @@ const data = {
 Dutils.store.fileToFormData(...data)
 ```
 
-##getRandomDataFromArr
+## getRandomDataFromArr
 `getRandomDataFromArr`从数组中获取num 个随机不重复的元素
 ##### 参数
   - `arr` 数组内容
@@ -113,3 +113,34 @@ Dutils.store.getRandomDataFromArr([1,2,3,4,5,44,3,2,1,9,0,45,678], 5)
 ```
 ##### `return`
     - [4, 9, 45, 2, 0]
+
+## deepClone
+`deepClone`为深拷贝对象，改变原来的对象内容不会影响到已有的对象，可以使用递归遍历和JSON序列化，反序列化的方式，这里选择的是后者
+##### 参数
+  - `obj` 被拷贝的对象
+```js
+/**
+ * 深拷贝
+ * @param { Object } obj 被拷贝的对象
+ * @return { Object } 返回新的对象
+ */
+```
+##### `Demo`:
+```js
+let a = {
+  a: 1,
+  b: 2,
+  c: 3,
+  d: [1, 2]
+}
+let b = Dutils.store.deepClone(a)
+a.d[0] = 3
+console.log(a)
+console.log(b)
+```
+##### `return`
+```js
+a: {a: 1, b: 2, c: 3, d: [3, 2]}
+b: {a: 1, b: 2, c: 3, d: [1, 2]}
+// 此时修改a.d[0]的值， a对象变化了，b对象没有随之改变
+```

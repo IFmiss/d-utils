@@ -19,4 +19,14 @@ const D_JS_UTILS = {
   utils,
   exp
 }
+let a = {
+  a: 1,
+  b: 2,
+  c: 3,
+  d: [1, 2]
+}
+let b = D_JS_UTILS.store.deepClone(a)
+a.d[0] = 3
+console.log(a)
+console.log(b)
 export default D_JS_UTILS

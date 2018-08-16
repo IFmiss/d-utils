@@ -116,6 +116,15 @@ const store = {
       return resultArr
     }
     throw new Error(`数组中没有超过${num}个不同的元素`)
+  },
+
+  /**
+   * 深拷贝
+   * @param { Object } obj 被拷贝的对象
+   * @return { Object } 返回新的对象
+   */
+  deepClone (obj) {
+    return JSON.parse(JSON.stringify(obj))
   }
 }
 export default store
