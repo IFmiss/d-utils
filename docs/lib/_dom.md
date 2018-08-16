@@ -97,3 +97,6 @@ Dutils.dom.cssFilter(document.body, 'grayscale', 1)
       'hue-rotate': '90deg'
   })
 ```
+##### `result`
+    - style="filter: grayscale(1)"
+    - style="filter: grayscale(0.5) opacity(0.7) hue-rotate(90deg)"
