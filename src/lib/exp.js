@@ -32,6 +32,16 @@ const exp = {
   isWeiXin () {
     const ua = window.navigator.userAgent.toLowerCase()
     return ua.match(/MicroMessenger/i) === 'micromessenger' ? true : false
+  },
+
+  /**
+   * 判断字符串是否都是中文
+   * @param { String } str 
+   * @return Boolean 
+   */
+  isChinese (str) {
+    const exp = /^[\u3220-\uFA29]+$/
+    return exp.test(String(str))
   }
 }
 

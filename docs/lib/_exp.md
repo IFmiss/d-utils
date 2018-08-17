@@ -13,10 +13,8 @@ exp对象是d-js-utlis里的一个属性，此属性包含对于一些字符，�
 ```
 ##### `Demo`:
 ```js
-Dutils.exp.isInvalidPhoneNum('13651971940')
+Dutils.exp.isInvalidPhoneNum('13651971940')   // true
 ```
-##### `return`
-    - true
 
 ## isInvalidEmail
 `isInvalidEmail`判断是否是正确的邮箱地址格式
@@ -30,10 +28,8 @@ Dutils.exp.isInvalidPhoneNum('13651971940')
 ```
 ##### `Demo`:
 ```js
-Dutils.exp.isInvalidEmail('185098535@qq.com')
+Dutils.exp.isInvalidEmail('185098535@qq.com')  // true
 ```
-##### `return`
-    - true
 
 ## isWeiXin
 `isWeiXin`判断当前是否是在微信浏览器中
@@ -45,7 +41,21 @@ Dutils.exp.isInvalidEmail('185098535@qq.com')
 ```
 ##### `Demo`:
 ```js
-Dutils.exp.isWeiXin()
+Dutils.exp.isWeiXin()  // true
 ```
-##### `return`
-  - true
+
+## isChinese
+`isChinese`判断字符串是否是全中文
+```js
+/**
+ * 判断字符串是否都是中文
+ * @param { String } str 
+ * @return Boolean 
+ */
+```
+##### `Demo`:
+```js
+Dutils.exp.isChinese('你好，世界')  // false
+Dutils.exp.isChinese('你好')   // true
+Dutils.exp.isChinese('world')   // false
+```
