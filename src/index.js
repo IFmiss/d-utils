@@ -19,4 +19,5 @@ const D_JS_UTILS = {
   utils,
   exp
 }
+console.log(window)
 export default D_JS_UTILS

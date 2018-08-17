@@ -20,7 +20,10 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		publicPath: '',
-		filename: '[name]-[hash].js'
+		filename: 'd-js-utils.js',
+		libraryTarget: 'var',
+		library: 'Dutils',
+		libraryExport: 'default'
 	},
 	module: {
 		rules: [
