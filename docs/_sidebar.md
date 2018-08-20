@@ -1,4 +1,4 @@
-* Get Started
+* 开始
   * [关于 d-js-utils](/other/_about.md)
   * [快速开始](/other/_start.md)
   * [更新内容](/other/_update.md)
