@@ -26,6 +26,15 @@
 ```bash
 npm i d-js-utils
 ```
+
+或者直接引用js
+```html
+<script src="www.daiwei.org/d-js-utils"></script>
+<script>
+  Dutils.dom.addClass(document.body, 'd-js-utils')
+</script>
+```
+
 #### 使用
 引入`d-js-utils.js`可直接使用其方法
 ```js
