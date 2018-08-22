@@ -19,5 +19,3 @@ Dutils.dom.addClass(document.body, 'd-js-utils')
 ```
 
 ##### 后续demo都会使用实例化的`Dutils`
-
-?> 具体方法的提示信息请点击 [more pages](./../lib/_dom.md)
