@@ -5,17 +5,26 @@ utils 工具类
 `console`console的美化样式 默认是小的内容格式
 ##### 参数
   - `text` console 的内容
-  - `isMax` 类型  true 是显示三行大的内容   false 则是正常的一行显示
+  - `options` 一个对象，里面有两个属性配置
+    - `isMax` 类型  true 是显示三行大的内容   false 则是正常的一行显示
+    - `colors` 背景色列表，是一个从左向右渐变的过程cd
+
 ```js
 /**
  * console的美化样式
  * @param { String } text 内容
- * @param { Boolean } isMax 是否是较大显示console的高度，如果console的内容较多建议设置为false
+ * @param { Object } options 配置项，大小背景，和背景颜色设置
+ * @param { Boolean } options.isMax 是否是较大显示console的高度，如果console的内容较多建议设置为false 默认为小格式
+ * @param { Array } options.colors 背景色列表，是一个从左向右渐变的过程
  */
 ```
 ##### `Demo`:
 ```js
 Dutils.utils.console('hello world')
+Dutils.utils.console('这是一个console的方法，可以设置背景色的哦', {
+  isMax: false,
+  colors: ['#fa709a', '#fee140', '#ffb199']
+})
 ```
 
 ## initEsDataType
