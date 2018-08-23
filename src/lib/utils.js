@@ -21,33 +21,6 @@ const utils = {
   },
 
   /**
-   * 初始化类型判断方法
-   * 需要在调用isArray,isObjec之前初始化该方法则可使用
-   */
-  initEsDataType () {
-    this.dataType = {}
-    let type = (o) => {
-      let s = Object.prototype.toString.call(o)
-      return s.match(/\[object (.*?)\]/)[1].toLowerCase()
-    }
-    const _self = this;
-    ['Null',
-      'Undefined',
-      'Object',
-      'Array',
-      'String',
-      'Number',
-      'Boolean',
-      'Function',
-      'RegExp'
-    ].forEach(function (t) {
-      _self.dataType['is_' + t] = function (o) {
-        return type(o) === t.toLowerCase()
-      }
-    })
-  },
-
-  /**
    * 浏览器提示
    * @param { Object } options
    * @param { String } options.title 浏览器提示的标题  类似标题

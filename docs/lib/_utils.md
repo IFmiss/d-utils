@@ -27,19 +27,6 @@ Dutils.utils.console('这是一个console的方法，可以设置背景色的哦
 })
 ```
 
-## initEsDataType
-`initEsDataType`设置类型的判断
-```js
-/**
- * is_Null, is_Undefined, is_Object, is_Array, is_String, is_Number, is_Boolean, is_Function, is_RegExp
- */
-```
-##### `Demo`:
-```js
-Dutils.utils.initEsDataType()
-Array.is_Null([])
-```
-
 ## notification
 `notification`浏览器notification全局提示，并返回一个Promise
 #### 参数
