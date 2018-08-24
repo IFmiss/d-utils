@@ -1,3 +1,6 @@
+/**
+ * 数据操作类
+ */
 const store = {
   /**
    * 设置Cookie
