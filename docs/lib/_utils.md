@@ -212,3 +212,17 @@ Dutils.utils.formatDate(`yyyy-MM-dd hh:mm:ss`, new Date())
 ```
 ##### `return`
 `2018-08-15 01:46:22`
+
+## copyCode
+`copyCode`复制字符串到剪贴板
+  - `str`要复制的字符串内容
+```js
+/**
+ * 复制网页文字到剪切板，之后可以粘贴在任何可粘贴的地方
+ * @param { String } str 
+ */
+```
+### `Demo`:
+```js
+Dutils.utils.copyCode('hello world')
+```

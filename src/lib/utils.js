@@ -202,6 +202,20 @@ const utils = {
       if (new RegExp('(' + k + ')').test(fmt)) { fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length))) }
     }
     return fmt
+  },
+
+  /**
+   * 复制网页文字到剪切板，之后可以粘贴在任何可粘贴的地方
+   * @param { String } str 
+   */
+  copyCode (str) {
+    let textArea = document.createElement('textarea')
+    textArea.style.cssText = 'position: absolute; top: -1000px; right: -1000px; z-index: -1000;'
+    document.body.appendChild(textArea)
+    textArea.value = str
+    textArea.select()
+    document.execCommand('copy')
+    document.body.removeChild(textArea)
   }
 }
 
