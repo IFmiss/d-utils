@@ -1,8 +1,8 @@
 {
   "name": "d-js-utils",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "d-js-utils",
-  "main": "src/index.js",
+  "main": "src/lib/index.js",
   "dependencies": {
     "hoek": "^5.0.3",
     "url-parse": "^1.4.3"

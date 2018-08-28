@@ -13,6 +13,7 @@ const utils = {
     isMax: true,
     colors: ['#a18cd1', '#fbc2eb', '#8ec5fc']
   }) {
+    if (typeof options !== 'object') throw new Error(`options is an object & not array, but found ${typeof options}`)
     if (options.isMax) {
       console.log(`%c${text}`, `background-size: 100%;background-image: -moz-linear-gradient(left, ${options.colors.toString()});background-image: -webkit-linear-gradient(left, ${options.colors.toString()});background-image: linear-gradient(to right, ${options.colors.toString()});padding:20px 40px;color:#fff;font-size:18px;`)
     } else {
