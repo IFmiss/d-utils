@@ -90,7 +90,7 @@ const store = {
    * 如：{file: e.target.files[0], id: '100001', name: 'hello world'}
    */
   fileToFormData(obj) {
-    if (typeof obj !== 'object') throw new Error('参数必须为对象格式且包含file文件')
+    if (typeof obj !== 'object') throw new TypeError('参数必须为对象格式且包含file文件')
     let data = new FormData()
     for (let k in obj) {
       if (obj.hasOwnProperty(k)) {

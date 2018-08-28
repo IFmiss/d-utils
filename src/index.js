@@ -19,4 +19,5 @@ const D_JS_UTILS = {
   utils,
   exp
 }
+window.Dutils = D_JS_UTILS
 export default D_JS_UTILS

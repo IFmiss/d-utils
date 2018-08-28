@@ -9,15 +9,17 @@ const utils = {
    * @param { Boolean } options.isMax 是否是较大显示console的高度，如果console的内容较多建议设置为false 默认为小格式
    * @param { Array } options.colors 背景色列表，是一个从左向右渐变的过程
    */
-  console (text = '未曾遗忘的青春', options = {
-    isMax: true,
-    colors: ['#a18cd1', '#fbc2eb', '#8ec5fc']
-  }) {
-    if (typeof options !== 'object') throw new Error(`options is an object & not array, but found ${typeof options}`)
-    if (options.isMax) {
-      console.log(`%c${text}`, `background-size: 100%;background-image: -moz-linear-gradient(left, ${options.colors.toString()});background-image: -webkit-linear-gradient(left, ${options.colors.toString()});background-image: linear-gradient(to right, ${options.colors.toString()});padding:20px 40px;color:#fff;font-size:18px;`)
+  console (text = '未曾遗忘的青春', options) {
+    if (options && typeof options !== 'object') throw new TypeError(`options is an object, but found ${typeof options}`)
+    let data = {
+      isMax: true,
+      colors: ['#a18cd1', '#fbc2eb', '#8ec5fc']
+    }
+    let opt = Object.assign({}, data, options)
+    if (opt.isMax) {
+      console.log(`%c${text}`, `background-size: 100%;background-image: -moz-linear-gradient(left, ${opt.colors.toString()});background-image: -webkit-linear-gradient(left, ${opt.colors.toString()});background-image: linear-gradient(to right, ${opt.colors.toString()});padding:20px 40px;color:#fff;font-size:18px;`)
     } else {
-      console.log(`%c${text}`, `background-size: 100%;background-image: -moz-linear-gradient(left, ${options.colors.toString()});background-image: -webkit-linear-gradient(left, ${options.colors.toString()});background-image: linear-gradient(to right, ${options.colors.toString()});padding:2px 5px;color:#fff;font-size:12px;`)
+      console.log(`%c${text}`, `background-size: 100%;background-image: -moz-linear-gradient(left, ${opt.colors.toString()});background-image: -webkit-linear-gradient(left, ${opt.colors.toString()});background-image: linear-gradient(to right, ${opt.colors.toString()});padding:2px 5px;color:#fff;font-size:12px;`)
     }
   },
 
@@ -40,7 +42,7 @@ const utils = {
       show: () => {},
       click: () => {}
     }
-    let newOpt = Object.assign(defaultV, options)
+    let newOpt = Object.assign({}, defaultV, options)
     return new Promise((resolve, reject) => {
       if (window.Notification && Notification.permission !== 'denied') {
         Notification.requestPermission(function() {
@@ -55,9 +57,9 @@ const utils = {
             newOpt.click()
           }
         })
-        resolve(defaultV)
+        resolve(newOpt)
       } else {
-        reject(defaultV)
+        reject(newOpt)
       }
     })
   },
@@ -92,7 +94,7 @@ const utils = {
     let arr = newUrl.slice(1).split('&')
     let obj = {}
     for (let i = 0; i < arr.length; i++) {
-      obj[arr[i].split('=')[0]] = arr[i].split('=')[1]
+      if ((arr[i].split('=')[0])) obj[arr[i].split('=')[0]] = arr[i].split('=')[1]
     }
     return obj
   },
@@ -104,7 +106,7 @@ const utils = {
    * @return { Number } 返回字符串长度
    */
   calcStringLength (str, isStrict) {
-    if (typeof str !== 'string') throw new Error ('需要计算的内容必须时字符串')
+    if (typeof str !== 'string') throw new TypeError (`str must be string but found ${typeof str}`)
     if (!isStrict) return str.length
     let a = 0
     for (let i = 0; i < str.length; i++ ) {
@@ -121,6 +123,7 @@ const utils = {
    * @return { String } 返回操作之后的字符串
    */
   strTrim (str, type = 0) {
+    if (typeof str !== 'string') throw new TypeError (`str must be string but found ${typeof str}`)
     switch (type) {
     case 0:
       return str.replace(/(^\s*)|(\s*$)/g, '')
