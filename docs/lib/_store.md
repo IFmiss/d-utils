@@ -144,3 +144,24 @@ a: {a: 1, b: 2, c: 3, d: [3, 2]}
 b: {a: 1, b: 2, c: 3, d: [1, 2]}
 // 此时修改a.d[0]的值， a对象变化了，b对象没有随之改变
 ```
+
+## checkType
+`checkType`用于检索数据类型并返回类型名称, 该方法适用于任何数据格式，通过Object.prototype.toString.call()对数据的处理拿到数据类型格式
+```js
+/**
+ * 检索数据类型并返回数据类型名称 object array string undefined bool number null 等等...
+ * @param { Any } data 要判断的数据
+ */
+```
+##### `Demo`:
+```js
+Dutils.store.checkType('1')   // string
+Dutils.store.checkType({})   // object
+Dutils.store.checkType([])   // array
+Dutils.store.checkType(localStorage)   // storage
+```
+你可以在判断数据类型的时候用该方法判断
+```js
+// 判断data是否是数组
+Dutils.store.checkType(data) !== 'array'
+```

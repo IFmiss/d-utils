@@ -23,6 +23,18 @@ body{
 		font-size: 14px;
 		color: #f1f1f1;
 	}
+	.href{
+		margin-top: 20px;
+		@include colortext-l(#fff, #aaa);
+		transition: all 0.3s;
+		cursor: pointer;
+		&:link, &:active, &:visited{
+			color: #f1f1f1;
+		}
+		&:hover{
+			@include colortext-l(#fa709a, #fee140);
+		}
+	}
 	.github-info{
 		margin-top: 40px;
 		text-align: center;

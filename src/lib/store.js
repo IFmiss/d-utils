@@ -128,6 +128,15 @@ const store = {
    */
   deepClone (obj) {
     return JSON.parse(JSON.stringify(obj))
+  },
+
+  /**
+   * 检索数据类型并返回数据类型名称 object array string undefined bool number null 等等...
+   * @param { Any } data 要判断的数据
+   */
+  checkType (data) {
+    let str = Object.prototype.toString.call(data)
+    return str.substring(1, str.length - 1).split(' ')[1].toLowerCase()
   }
 }
 export default store

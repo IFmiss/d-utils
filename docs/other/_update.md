@@ -1,5 +1,7 @@
 # 更新内容
-- `2018-08-27` 添加[`copyCode`](lib/_utils#copycode)方法
+- `2018-08-29` 添加[`checkType`](lib/_store#checkType)方法
+
+- `2018-08-27` 添加[`copyCode`](lib/_utils#copyCode)方法
 
 - `2018-08-23`
   - 将initEsDataType方法放在exp下，且在引用exp时，初始化initEsDataType方法，给exp添加多个数据类型校验的方法
