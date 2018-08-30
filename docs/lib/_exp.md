@@ -60,11 +60,11 @@ Dutils.exp.isChinese('你好')   // true
 Dutils.exp.isChinese('world')   // false
 ```
 
-## initEsDataType(自执行函数)
+## initEsDataType
 在引入exp模块的时候会被执行，会在exp对象上动态添加一些匹配数据类型格式的方法
 `isNull, isUndefined, isObject, isArray, isString, isNumber, isBoolean, isFunction, isRegExp`，
 之后就可以通过Dutils.exp.isUndefined ...这些进行数据格式判断
-
+- 类似于[`checkType`](lib/_store#checkType)
 ## isNull
 `isNull`判断字符串是否是null
 ##### `Demo`:

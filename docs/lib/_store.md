@@ -147,6 +147,7 @@ b: {a: 1, b: 2, c: 3, d: [1, 2]}
 
 ## checkType
 `checkType`用于检索数据类型并返回类型名称, 该方法适用于任何数据格式，通过Object.prototype.toString.call()对数据的处理拿到数据类型格式
+- 类似于[`initEsDataType`](lib/_exp#initEsDataType)
 ```js
 /**
  * 检索数据类型并返回数据类型名称 object array string undefined bool number null 等等...
