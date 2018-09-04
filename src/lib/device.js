@@ -29,13 +29,14 @@ const device = {
 
   /**
    * 横竖屏的判断,如果是横屏幕显示,显示dom提示竖屏显示
+   * @param { String } 提示内容
    */
-  checkLayoutOrientation () {
+  checkLayoutOrientation (text = '请旋转屏幕，以达到更好的浏览效果') {
     if (!window.hasOwnProperty('orientation')) return
-    let ori = window.orientation
     let ele = null
     // 0 和 360 的时候是竖屏
     function initOrientation () {
+      let ori = window.orientation
       if (ori === 0 || ori === 360) {
         if (ele) {
           document.body.removeChild(ele)
@@ -55,14 +56,20 @@ const device = {
                            display:flex;
                            align-items:center;
                            justify-content:center;
-                           font-size: 18px;
+                           font-size: 20px;
                            background:#fff;
-                           z-index: 19940320;`
-      ele.innerText = '请旋转屏幕，以达到最好的浏览效果'
+                           z-index: 19940320;
+                           padding: 40px;`
+      ele.innerText = text
       document.body.appendChild(ele)
-      
+    }
+    function initEvent () {
+      window.addEventListener('orientationchange', () => {
+        initOrientation()
+      })
     }
     initOrientation()
+    initEvent()
   }
 }
 export default device
