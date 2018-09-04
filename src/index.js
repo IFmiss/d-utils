@@ -12,12 +12,15 @@ import utils from './lib/utils.js'
 import store from './lib/store.js'
 // 验证类
 import exp from './lib/exp.js'
+// 设备信息类
+import device from './lib/device.js'
 
 const D_JS_UTILS = {
   store,
   dom,
   utils,
-  exp
+  exp,
+  device
 }
 window.Dutils = D_JS_UTILS
 export default D_JS_UTILS

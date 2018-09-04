@@ -11,11 +11,14 @@ import utils from './utils.js'
 import store from './store.js'
 // 验证类
 import exp from './exp.js'
+// 设备信息类
+import device from './device.js'
 
 const D_JS_UTILS = {
   store,
   dom,
   utils,
-  exp
+  exp,
+  device
 }
 export default D_JS_UTILS

@@ -1,4 +1,6 @@
 # 更新内容
+- `2018-09-04` 添加[`device`](lib/_device)对象，初始化部分方法: [`isIOS`](lib/_device#isIOS), [`isMobile`](lib/_device#isMobile), [`isAndroid`](lib/_device#isAndroid)
+
 - `2018-08-29` 添加[`checkType`](lib/_store#checkType)方法
 
 - `2018-08-27` 添加[`copyCode`](lib/_utils#copyCode)方法

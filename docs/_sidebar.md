@@ -7,5 +7,6 @@
   * [store](/lib/_store.md)
   * [exp](/lib/_exp.md)
   * [utils](  /lib/_utils.md)
+  * [device](  /lib/_device.md)
 * 关于
   * [license](/about/_license.md)

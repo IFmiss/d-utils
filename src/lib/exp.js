@@ -70,7 +70,7 @@ const exp = {
         return type(o) === t.toLowerCase()
       }
     })
-  },
+  }
 }
 
 // 给exp动态添加数据类型验证方法，这是初始化的操作
