@@ -30,5 +30,39 @@ const device = {
   /**
    * 横竖屏的判断,如果是横屏幕显示,显示dom提示竖屏显示
    */
+  checkLayoutOrientation () {
+    if (!window.hasOwnProperty('orientation')) return
+    let ori = window.orientation
+    let ele = null
+    // 0 和 360 的时候是竖屏
+    function initOrientation () {
+      if (ori === 0 || ori === 360) {
+        if (ele) {
+          document.body.removeChild(ele)
+          ele = null
+        }
+      } else {
+        initTipInfo()
+      }
+    }
+    function initTipInfo () {
+      ele = document.createElement('div')
+      ele.style.cssText = `position: fixed;
+                           top: 0;
+                           left: 0;
+                           right:0;
+                           bottom:0;
+                           display:flex;
+                           align-items:center;
+                           justify-content:center;
+                           font-size: 18px;
+                           background:#fff;
+                           z-index: 19940320;`
+      ele.innerText = '请旋转屏幕，以达到最好的浏览效果'
+      document.body.appendChild(ele)
+      
+    }
+    initOrientation()
+  }
 }
 export default device
