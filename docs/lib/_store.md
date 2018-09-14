@@ -46,7 +46,7 @@ Dutils.store.getCookie('test')
   - `name` cookie名称
 ```js
 /**
- * 删除Cookie
+ * 删除Cookie 实际是设置Cookie过期
  * @param { String } name cookie名称 如果不传参数则设置所有cookie过期
  */
 ```
