@@ -137,6 +137,15 @@ const store = {
   checkType (data) {
     let str = Object.prototype.toString.call(data)
     return str.substring(1, str.length - 1).split(' ')[1].toLowerCase()
+  },
+
+  /**
+   * 数组去重
+   * @param { Arrary } arr 要去重的arr
+   * @return { Array } 返回一个新的数组，不改变原来的数组
+   */
+  uniqueArray (arr) {
+    return Array.from(new Set(arr))
   }
 }
 export default store
