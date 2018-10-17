@@ -220,6 +220,40 @@ const utils = {
     textArea.select()
     document.execCommand('copy')
     document.body.removeChild(textArea)
+  },
+
+  /**
+   * 设置元素在网页中全屏
+   * 兼容性支持 ie11及以上, firefox 10+, chrome 15+, safari 5.1+, opera 12.1+
+   * @param { element } ele  需要全屏的元素
+   */
+  openFullScreen (ele) {
+    if (ele.requestFullscreen) {
+      ele.requestFullscreen()
+    } else if (ele.mozRequestFullScreen) {
+      ele.mozRequestFullScreen()
+    } else if (ele.msRequestFullscreen) {
+      ele.msRequestFullscreen()
+    } else if (ele.webkitRequestFullscreen) {
+      ele.webkitRequestFullScreen()
+    }
+  },
+
+  /**
+   * 关闭网页全屏操作
+   */
+  exitFullScreen () {
+    if (document.exitFullscreen) {
+      document.exitFullscreen()
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen()
+    } else if (document.msExitFullscreen) {
+      document.msExiFullscreen()
+    } else if (document.webkitCancelFullScreen) {
+      document.webkitCancelFullScreen()
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen()
+    }
   }
 }
 
