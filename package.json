@@ -4,8 +4,7 @@
   "description": "d-js-utils",
   "main": "src/lib/index.js",
   "dependencies": {
-    "hoek": "^5.0.3",
-    "url-parse": "^1.4.3"
+    "hoek": "^5.0.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -41,6 +40,12 @@
     "url-loader": "^1.0.1",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12",
-    "webpack-dev-server": "^3.1.1"
+    "webpack-dev-server": "^3.1.1",
+    "url-parse": ">=1.4.3",
+    "deep-extend": ">=0.5.1",
+    "atob": ">=2.1.0",
+    "randomatic": ">=3.0.0",
+    "cryptiles": ">=4.1.2",
+    "macaddress": ">=0.2.9"
   }
 }
