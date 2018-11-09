@@ -70,6 +70,14 @@ const exp = {
         return type(o) === t.toLowerCase()
       }
     })
+  },
+
+  /**
+   * 判断对象是否是空对象
+   */
+  isEmptyObject (obj) {
+    if (!exp.isObject(obj)) throw TypeError('参数不是真正的object对象')
+    return JSON.stringify(obj) === '{}'
   }
 }
 

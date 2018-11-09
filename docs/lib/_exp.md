@@ -138,3 +138,16 @@ Dutils.exp.isFunction(b)   // true
 Dutils.exp.isRegExp(/abc/)  // true
 Dutils.exp.isRegExp('/abc/')   // false
 ```
+
+## isEmptyObject
+`isEmptyObject`判断对象是否是空对象
+#### `Demo`:
+```js
+let obj = {
+  a: 1,
+  b: 2
+}
+let obj1 = {}
+Dutils.exp.isEmptyObject(obj)   // false
+Dutils.exp.isEmptyObject(obj1)   // true
+```
