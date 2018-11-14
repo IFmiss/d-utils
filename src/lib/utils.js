@@ -149,9 +149,10 @@ const utils = {
     let time = null
     let first = true
     return function () {
+      let arg = arguments
       let _this = this
       if (first) {
-        _fn.apply(_this, arguments)
+        _fn.apply(_this, arg)
         first = false
         return
       }
@@ -159,7 +160,7 @@ const utils = {
       time = setTimeout(function () {
         setTimeout(time)
         time = null
-        _fn.apply(_this, arguments)
+        _fn.apply(_this, arg)
       }, t)
     }
   },
