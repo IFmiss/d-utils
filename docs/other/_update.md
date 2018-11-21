@@ -1,5 +1,7 @@
 # 更新内容
+### 1.0.7
 - `2018-11-09` 添加[`isEmptyObject`](lib/_exp#isEmptyObject)方法
+### 1.0.7 之前的版本
 - `2018-10-17` 添加[`openFullScreen`](lib/_utils#openFullScreen), [`exitFullScreen`](lib/_utils#exitFullScreen)
 - `2018-09-15` 添加[`uniqueArray`](lib/_store#uniqueArray)方法
 
