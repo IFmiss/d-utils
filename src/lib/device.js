@@ -1,9 +1,11 @@
 const ua = window.navigator.userAgent
 const device = {
   /**
-   * 判断是否是移动端
-   * isMobile
+   * @description 判断是否是移动端
    * @return { Boolean } 返回是否是移动端的布尔值
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_device?id=ismobile
+   * @example
+   * Dutils.device.isMobile() // false
    */
   isMobile () {
     const EXP_ISMOBILE = /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
@@ -11,8 +13,11 @@ const device = {
   },
 
   /**
-   * 判断是否是IOS操作系统
+   * @description 判断是否是IOS操作系统
    * @return { Boolean } 返回是否是IOS的布尔值
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_device?id=isios
+   * @example
+   * Dutils.device.isIOS() // false
    */
   isIOS () {
     const EXP_IOS = /(iPhone|iPad|iPod|iOS)/i
@@ -20,16 +25,24 @@ const device = {
   },
 
   /**
-   * 判断是否是Android操作系统
+   * @description 判断是否是Android操作系统
    * @return { Boolean } 返回是否是Android的布尔值
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_device?id=isandroid
+   * @example
+   * Dutils.device.isAndroid() // false
    */
   isAndroid () {
     return ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1
   },
 
   /**
-   * 横竖屏的判断,如果是横屏幕显示,显示dom提示竖屏显示
+   * @description 横竖屏的判断,如果是横屏幕显示,显示dom提示竖屏显示
    * @param { String } 提示内容
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_device?id=checklayoutorientation
+   * @example
+   * Dutils.device.checkLayoutOrientation() // 横屏时候提示 请旋转屏幕，以达到更好的浏览效果
+   * @example
+   * Dutils.device.checkLayoutOrientation('请竖直使用手机') // 横屏时候提示 请竖直使用手机
    */
   checkLayoutOrientation (text = '请旋转屏幕，以达到更好的浏览效果') {
     if (!window.hasOwnProperty('orientation')) return

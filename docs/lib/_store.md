@@ -34,7 +34,6 @@ Dutils.store.setCookie('test', '12345', 60 * 60 * 1000)
 ```
 ##### `Demo`:
 ```js
-// 设置name为test的值为12345，设置过期时间为1小时
 Dutils.store.getCookie('test')
 ```
 ##### `return`

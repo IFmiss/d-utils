@@ -4,9 +4,12 @@
 
 const exp = {
   /**
-   * 判断手机格式是否正确
+   * @description 判断手机格式是否正确
    * @param { String } num 手机号 字符串
    * @return { Boolean } true是有效  false无效
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_exp?id=isphonenum
+   * @example
+   * Dutils.exp.isPhoneNum('13651971940')   // true
    */
   isPhoneNum (num) {
     const exp = /^1[3-9]\d{9}$/
@@ -15,9 +18,12 @@ const exp = {
   },
 
   /**
-   * 判断email格式是否正确
+   * @description 判断email格式是否正确
    * @param { String } email 邮箱名称 字符串
    * @return { Boolean } true是有效  false无效
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_exp?id=isemail
+   * @example
+   * Dutils.exp.isEmail('185098535@qq.com')  // true
    */
   isEmail (email) {
     const exp = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
@@ -26,8 +32,11 @@ const exp = {
   },
 
   /**
-   * 判断当前是否是微信浏览器
-   * @return Boolean 
+   * @description 判断当前是否是微信浏览器
+   * @return Boolean
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_exp?id=isweixin
+   * @example
+   * Dutils.exp.isWeiXin()  // true
    */
   isWeiXin () {
     const ua = window.navigator.userAgent.toLowerCase()
@@ -35,9 +44,14 @@ const exp = {
   },
 
   /**
-   * 判断字符串是否都是中文
+   * @description 判断字符串是否都是中文
    * @param { String } str 
-   * @return Boolean 
+   * @return Boolean
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_exp?id=ischinese
+   * @example
+   * Dutils.exp.isChinese('你好，世界')  // false
+   * Dutils.exp.isChinese('你好')   // true
+   * Dutils.exp.isChinese('world')   // false
    */
   isChinese (str) {
     const exp = /^[\u3220-\uFA29]+$/
@@ -73,7 +87,18 @@ const exp = {
   },
 
   /**
-   * 判断对象是否是空对象
+   * @description 判断对象是否是空对象
+   * @param { Object } 传入的对象
+   * @return Boolean 是否是空对象
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_exp?id=isemptyobject
+   * @example
+   * let obj = {
+   *   a: 1,
+   *   b: 2
+   * }
+   * let obj1 = {}
+   * Dutils.exp.isEmptyObject(obj)   // false
+   * Dutils.exp.isEmptyObject(obj1)   // true
    */
   isEmptyObject (obj) {
     if (!exp.isObject(obj)) throw TypeError('参数不是真正的object对象')

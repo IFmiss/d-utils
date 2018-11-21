@@ -1,13 +1,22 @@
 /**
  * 工具类
+ * @module utils
  */
 const utils = {
   /**
-   * console的美化样式
+   * @description console的美化样式
    * @param { String } text 内容
-   * @param { Object } options 配置项，大小背景，和背景颜色设置
-   * @param { Boolean } options.isMax 是否是较大显示console的高度，如果console的内容较多建议设置为false 默认为小格式
-   * @param { Array } options.colors 背景色列表，是一个从左向右渐变的过程
+   * @param { Object } options 配置项，对象，大小背景，和背景颜色设置
+   * @property { Boolean } isMax 是否是较大显示console的高度，如果console的内容较多建议设置为false 默认为小格式
+   * @property { Array } colors 背景色列表，是一个从左向右渐变的过程
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=console
+   * @example
+   * Dutils.utils.console('hello world')
+   * @example
+   * Dutils.utils.console('这是一个console的方法，可以设置背景色的哦', {
+   *  isMax: false,
+   *  colors: ['#fa709a', '#fee140', '#ffb199']
+   * })
    */
   console (text = '未曾遗忘的青春', options) {
     if (options && typeof options !== 'object') throw new TypeError(`options is an object, but found ${typeof options}`)
@@ -24,15 +33,23 @@ const utils = {
   },
 
   /**
-   * 浏览器提示
-   * @param { Object } options
-   * @param { String } options.title 浏览器提示的标题  类似标题
-   * @param { String } options.body 浏览器提示的内容主体  类似正文
-   * @param { String } options.icon 浏览器提示的图标用于  类似logo效果
-   * @param { Function } options.show 浏览器提示的显示的时候执行的方法
-   * @param { Function } options.click 浏览器提示被鼠标点击执行的方法
+   * @description 浏览器提示
+   * @param { object } options  参数为对象，以下都是对象内的属性配置
+   * @property { String } title 浏览器提示的标题  类似标题
+   * @property { String } body 浏览器提示的内容主体  类似正文
+   * @property { String } icon 浏览器提示的图标用于  类似logo效果
+   * @property { Function } show 浏览器提示的显示的时候执行的方法
+   * @property { Function } click 浏览器提示被鼠标点击执行的方法
    * @returns { Promise } resolve(options) 浏览器可以显示
    * @returns { Promise } reject(options) 浏览器不可以显示
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=notification
+   * @example
+   * const data = {
+   *  title: 'notification',
+   *  body: 'this is a test',
+   *  logo: 'http://www.daiwei.org/index/images/logo/dw1.png'
+   * }
+   * Dutils.utils.notification(data)
    */
   notification (options) {
     const defaultV = {
@@ -65,9 +82,13 @@ const utils = {
   },
 
   /**
-   * 返回rgba随机色
-   * @param { Number } opacity 透明度 0～1之间
+   * @description 返回rgba随机色
+   * @param { Number } opacity    透明度 0～1之间
    * @return { String } rgba色值
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=randomcolor
+   * @example
+   * const color Dutils.utils.randomColor(1)
+   * Dutils.utils.console(color)
    */
   randomColor (opacity = 1) {
     const r = Math.floor(Math.random() * 256)
@@ -77,16 +98,23 @@ const utils = {
   },
 
   /**
-   * 显示元素的outline出现布局框架   by  Addy Osmani
+   * @description 显示元素的outline出现布局框架
+   * @author Addy Osmani
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=showlayoutframework
+   * @example
+   * Dutils.utils.showLayoutFramework()
    */
   showLayoutFramework() {
     [].forEach.call( document.querySelectorAll('*'),function(a){  a.style.outline='1px solid #'+(~~(Math.random()*(1<<24))).toString(16) })
   },
 
   /**
-   * 返回浏览器url的参数
-   * @param { String } url 地址字符串
+   * @description 返回浏览器url的参数
+   * @param { String } url   地址字符串
    * @return { Object } 返回一个参数对象
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=parseurl
+   * @example
+   * Dutils.utils.parseUrl('www.daiwei.org?name=daiwei&id=123')
    */
   parseUrl (url) {
     if (!url) return
@@ -100,10 +128,15 @@ const utils = {
   },
 
   /**
-   * 计算字符串长度 isStrict为true的时候 返回一个字符串的长度，汉字算2个字符长度
-   * @param { String } str 要计算的字符串
-   * @param { Boolean } isStrict true 返回一个字符串的长度，汉字算2个字符长度; false 直接返回长度
+   * @description 计算字符串长度 isStrict为true的时候 返回一个字符串的长度，汉字算2个字符长度
+   * @param { String } str  要计算的字符串
+   * @param { Boolean } isStrict  true 返回一个字符串的长度，汉字算2个字符长度; false 直接返回长度
    * @return { Number } 返回字符串长度
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=calcstringlength
+   * @example
+   * const str = 'd-js-utils组件'
+   * Dutils.utils.console(Dutils.utils.calcStringLength(str))
+   * Dutils.utils.console(Dutils.utils.calcStringLength(str, true))
    */
   calcStringLength (str, isStrict) {
     if (typeof str !== 'string') throw new TypeError (`str must be string but found ${typeof str}`)
@@ -117,10 +150,25 @@ const utils = {
   },
 
   /**
-   * 字符串的去除空格
+   * @description 字符串的去除空格
    * @param { String } str 操作的字符串
    * @param { Number } type 类型 0: 去除首位空格；1: 去除所有空格； 2: 去除左边空格； 3： 去除右边空格； 默认为去除首位空格
    * @return { String } 返回操作之后的字符串
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=strtrim
+   * @example
+   * const str = ' d -js- ut ils '
+   * // 0: 去除首位空格 默认为0
+   * Dutils.utils.strTrim(str)
+   * Dutils.utils.strTrim(str, 0)
+   * @example
+   * // 1: 去除所有空格
+   * Dutils.utils.strTrim(str, 1)
+   * @example
+   * // 2: 去除左边空格
+   * Dutils.utils.strTrim(str, 2)
+   * @example
+   * // 3: 去除右边空格
+   * Dutils.utils.strTrim(str, 3)
    */
   strTrim (str, type = 0) {
     if (typeof str !== 'string') throw new TypeError (`str must be string but found ${typeof str}`)
@@ -139,9 +187,20 @@ const utils = {
   },
 
   /**
-   * 函数节流
+   * @description 函数节流
    * @param { Function } fn 需要节流的函数
    * @param { Number } t 节流时间，多久以后执行一次方法 单位ms
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=throttle
+   * @example
+   * // 在鼠标resize的过程中，1秒触发一次，如果resize了10秒相当于console.log('resize')只执行了10次
+   * window.onresize = Dutils.utils.throttle(function () {
+   * // es5 获取参数
+   * let arg = Array.prototype.slice.call(arguments)
+   * // es6 获取参数
+   * let arg1 = Array.from(arguments)
+   * console.log('resize-throttle', arg)
+   * console.log('resize-throttle', arg1)
+   * }, 1000)
    */
   throttle (fn, t = 1000) {
     if (typeof fn !== 'function') throw new Error('第一个参数必须是方法')
@@ -166,9 +225,20 @@ const utils = {
   },
 
   /**
-   * 函数防抖
+   * @description 函数防抖
    * @param { Function } fn 需要防抖的函数
    * @param { Number } t 防抖时间，多久以后才能再执行 单位ms
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=debounce
+   * @example
+   * // 在鼠标resize的过程中，1秒以后可以被执行，如果在1秒内触发resize，则从新计算下一个一秒再允许执行
+   * window.onresize = Dutils.utils.debounce(function () {
+   * // es5 获取参数
+   * let arg = Array.prototype.slice.call(arguments)
+   * // es6 获取参数
+   * let arg1 = Array.from(arguments)
+   * console.log('resize-debounce', arg)
+   * console.log('resize-debounce', arg1)
+   * }, 1000)
    */
   debounce (fn, t) {
     if (typeof fn !== 'function') throw new Error('第一个参数必须是方法')
@@ -186,10 +256,15 @@ const utils = {
   },
 
   /**
-   * 日期格式化 可转换成自己想要的格式
+   * @description 日期格式化 可转换成自己想要的格式
    * @param { String } fmt 格式模板 'yyyy-MM-dd hh:mm:ss'
    * @param { Date } date 日期内容  如 当前日期 new Date()
    * @return { String } '2018-08-15 01:46:22'
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=formatdate
+   * @example
+   * Dutils.utils.formatDate(`yyyy-MM-dd hh:mm:ss`, new Date())
+   * @example
+   * Dutils.utils.formatDate(`yyyy-MM-dd`, new Date())
    */
   formatDate (fmt, date) { // author: meizz
     let newDate = new Date(date)
@@ -210,8 +285,11 @@ const utils = {
   },
 
   /**
-   * 复制网页文字到剪切板，之后可以粘贴在任何可粘贴的地方
-   * @param { String } str 
+   * @description 复制网页文字到剪切板，之后可以粘贴在任何可粘贴的地方
+   * @param { String } str 拷贝的内容
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=copycode
+   * @example
+   * Dutils.utils.copyCode('hello world')
    */
   copyCode (str) {
     let textArea = document.createElement('textarea')
@@ -224,9 +302,12 @@ const utils = {
   },
 
   /**
-   * 设置元素在网页中全屏
-   * 兼容性支持 ie11及以上, firefox 10+, chrome 15+, safari 5.1+, opera 12.1+
+   * @description 设置元素在网页中全屏
+   * @support 兼容性支持 ie11及以上, firefox 10+, chrome 15+, safari 5.1+, opera 12.1+
    * @param { element } ele  需要全屏的元素
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=openfullscreen
+   * @example
+   * Dutils.utils.openFullScreen(document.querySelector('video'))
    */
   openFullScreen (ele) {
     if (ele.requestFullscreen) {
@@ -241,7 +322,10 @@ const utils = {
   },
 
   /**
-   * 关闭网页全屏操作
+   * @description 关闭网页全屏操作
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=exitfullscreen
+   * @example
+   * Dutils.utils.exitFullScreen()
    */
   exitFullScreen () {
     if (document.exitFullscreen) {
