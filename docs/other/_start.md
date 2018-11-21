@@ -20,9 +20,11 @@ Dutils.dom.addClass(document.body, 'd-js-utils')
 复制一下代码在控制台打印一下，看会有什么变化
 ```js
 Dutils.dom.cssFilter(document.body, 'grayscale', 1)
-
-Dutils.utils.openFullScreen(document.querySelector('html'))
-
+```
+```js
+Dutils.utils.openFullScreen(document.getElementsByTagName('html')[0])
+```
+```js
 Dutils.utils.exitFullScreen()
 ```
 ##### 后续demo都会使用实例化的`Dutils`
