@@ -12,7 +12,7 @@ Dutils.dom.addClass(document.body, 'd-js-utils')
 ```
 直接引用js
 ```html
-<script src="www.daiwei.org/d-js-utils"></script>
+<script src="www.daiwei.org/d-js-utils.js"></script>
 <script>
   Dutils.dom.addClass(document.body, 'd-js-utils')
 </script>
