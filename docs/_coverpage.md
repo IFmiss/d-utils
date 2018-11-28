@@ -1,4 +1,4 @@
-# d-js-utils <small>1.0.7</small>
+# d-js-utils <small>1.0.8</small>
 
 > 通用js收集，方便日后使用和查阅
 
