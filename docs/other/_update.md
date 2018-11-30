@@ -1,6 +1,7 @@
 # 更新内容
-- `2018-11-30` 更新[`debounce`](lib/_utils#debounce)方法
-  - `debounce` 新增第三个参数 `immediate`: 
+- `2018-11-30`
+  - 优化[`getRandomDataFromArr`](lib/_store#getRandomDataFromArr)方法
+  - 优化[`debounce`](lib/_utils#debounce)方法, 新增第三个参数 `immediate`: 
     - true: 立刻执行方法且最后一次时间不执行
     - false: 等t时间之后再执行方法，如果t时间内执行，则在最后一次的t时间之后执行方法，类似动态搜索效果
 ---

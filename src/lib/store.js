@@ -132,17 +132,17 @@ const store = {
   getRandomDataFromArr (arr, num) {
     let newNum = Number(num)
     let newArr = Array.from(new Set(arr))
+    let l = newArr.length
     let resultArr = new Array()
     if (!(newNum > 0)) throw new Error('数量必须大于0')
-    if (newArr && newArr.length > newNum) {
-      for (let i = 0; i < newNum; i++) {
+    if (newArr) {
+      for (let i = 0; i < (newNum > l ? l : newNum) ; i++) {
         let index = Math.floor(Math.random() * newArr.length)
         resultArr.push(newArr[index])
         newArr.splice(index,1)
       }
       return resultArr
     }
-    throw new Error(`数组中没有超过${num}个不同的元素`)
   },
 
   /**
