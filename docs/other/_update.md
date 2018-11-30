@@ -1,4 +1,8 @@
 # 更新内容
+- `2018-11-30` 更新[`debounce`](lib/_utils#debounce)方法
+  - `debounce` 新增第三个参数 `immediate`: 
+    - true: 立刻执行方法且最后一次时间不执行
+    - false: 等t时间之后再执行方法，如果t时间内执行，则在最后一次的t时间之后执行方法，类似动态搜索效果
 ### 1.0.8
 - `2018-11-09` 添加[`isEmptyObject`](lib/_exp#isEmptyObject)方法
 ### 1.0.8 之前的版本
