@@ -166,7 +166,23 @@ const store = {
    * // 此时修改a.d[0]的值， a对象变化了，b对象没有随之改变
    */
   deepClone (obj) {
-    return JSON.parse(JSON.stringify(obj))
+    let result = {}
+    let keys = Object.keys(obj)
+    let type
+    for (let k of keys) {
+      type = store.checkType(obj[k])
+      switch (type) {
+      case 'object':
+        result[k] = store.deepClone(obj[k])
+        break
+      case 'array':
+        result[k] = [].concat(obj[k])
+        break
+      default:
+        result[k] = obj[k]
+      }
+    }
+    return result
   },
 
   /**
