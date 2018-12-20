@@ -1,16 +1,17 @@
 # 更新内容
-- `2018-12-19` 更新`deepClone`方法，不再使用JSON.parse(JSON.stringify(data))的方式，改为递归的方式层层赋值数据信息
-- `2018-11-30`
-  - 优化[`getRandomDataFromArr`](lib/_store#getRandomDataFromArr)方法
-  - 优化[`debounce`](lib/_utils#debounce)方法, 新增第三个参数 `immediate`: 
-    - true: 立刻执行方法且最后一次时间不执行
-    - false: 等t时间之后再执行方法，如果t时间内执行，则在最后一次的t时间之后执行方法，类似动态搜索效果
----
 
+  - `2018-12-19` 更新`deepClone`方法，不再使用JSON.parse(JSON.stringify(data))的方式，改为递归的方式层层赋值数据信息
+  - `2018-11-30`
+    - 优化[`getRandomDataFromArr`](lib/_store#getRandomDataFromArr)方法
+    - 优化[`debounce`](lib/_utils#debounce)方法, 新增第三个参数 `immediate`: 
+      - true: 立刻执行方法且最后一次时间不执行
+      - false: 等t时间之后再执行方法，如果t时间内执行，则在最后一次的t时间之后执行方法，类似动态搜索效果
+
+---
 ### 1.0.8
   - `2018-11-09` 添加[`isEmptyObject`](lib/_exp#isEmptyObject)方法
----
 
+---
 ### 1.0.8 之前的版本
   - `2018-10-17` 添加[`openFullScreen`](lib/_utils#openFullScreen), [`exitFullScreen`](lib/_utils#exitFullScreen)
   - `2018-09-15` 添加[`uniqueArray`](lib/_store#uniqueArray)方法
