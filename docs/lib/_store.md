@@ -54,23 +54,6 @@ Dutils.store.getCookie('test')
 Dutils.store.rmCookie('test')
 ```
 
-## saveDataAsFile
-`saveDataAsFile`获取元数据存储本地，相当于下载一个文件
-##### 参数
-  - `name` 相对路径的文件名称   如 ./test.txt
-  - `file` 要存储的数据 类似 e.target.files[0] 这种file对象
-```js
-/**
- * 数据存储本地  相当于下载一个文件  该文件是需要存储的数据   的方法
- * @param { String } name 相对路径的文件名称   如 ./test.txt
- * @param { File } file 要存储的数据 类似 e.target.files[0] 这种file对象
- */
-```
-##### `Demo`:
-```js
-Dutils.store.saveDataAsFile('test.txt', e.target.files[0])
-```
-
 ## fileToFormData
 `fileToFormData`将File文件转换成FormData对象
 ##### 参数
