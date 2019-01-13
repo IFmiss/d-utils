@@ -159,6 +159,18 @@ const store = {
   },
 
   /**
+   * @description extend继承方法 Object.assign(...arg)的包装
+   * @param { Any }   参数为object对象
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_store?id=extend
+   * @example
+   * Dutils.store.extend({a: 1}, {a: 2})   // {a: 1}
+   * ⚠️ Object.assign属于浅拷贝,为了后续的操作不影响到之前的数据,最好在extend的第一个参数设置为{}
+   */
+  extend (...arg) {
+    return store.deepClone(Object.assign(...arg))
+  },
+
+  /**
    * @description 检索数据类型并返回数据类型名称 object array string undefined bool number null 等等...
    * @param { Any } data 要判断的数据
    * @link https://ifmiss.github.io/d-js-utils/#/lib/_store?id=checktype

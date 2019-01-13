@@ -1,6 +1,7 @@
 # 更新内容
+  - `2019-1-13` 新增[`extend`](lib/_store#extend)方法
   - `2019-1-4` 移除`saveDataAsFile`方法
-  - `2018-12-19` 更新`deepClone`方法，不再使用JSON.parse(JSON.stringify(data))的方式，改为递归的方式层层赋值数据信息
+  - `2018-12-19` 更新[`deepClone`](lib/_store#deepClone)方法，不再使用JSON.parse(JSON.stringify(data))的方式，改为递归的方式层层赋值数据信息
   - `2018-11-30`
     - 优化[`getRandomDataFromArr`](lib/_store#getRandomDataFromArr)方法
     - 优化[`debounce`](lib/_utils#debounce)方法, 新增第三个参数 `immediate`: 

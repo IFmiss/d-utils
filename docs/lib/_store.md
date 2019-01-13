@@ -127,6 +127,19 @@ b: {a: 1, b: 2, c: 3, d: [1, 2]}
 // 此时修改a.d[0]的值， a对象变化了，b对象没有随之改变
 ```
 
+## extend
+`extend` 是基于Object.assign进行的对象继承
+```js
+/**
+ * extend继承方法 Object.assign(...arg)的包装
+ * b在a的属性上拓展且返回一个新的对象
+ */
+let a = {a: 1}
+let b = {a: 2}
+Dutils.store.extend(a, b)     // {a: 2}   但是此时 a的值也会变成{a: 2}
+Dutils.store.extend({}, a, b)     // {a: 2}   此时 a的值还是{a: 1}
+```
+
 ## checkType
 `checkType`用于检索数据类型并返回类型名称, 该方法适用于任何数据格式，通过Object.prototype.toString.call()对数据的处理拿到数据类型格式
 - 类似于[`initEsDataType`](lib/_exp#initEsDataType)
