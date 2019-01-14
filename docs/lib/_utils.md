@@ -264,3 +264,42 @@ Dutils.utils.openFullScreen(document.querySelector('video'))
 ```js
 Dutils.utils.exitFullScreen()
 ```
+
+## performance
+`performance` 用于监听网页的加载状况
+```js
+Dutils.utils.performance()
+// 返回数据 (ms)
+res = {
+  dnsT: 0,            // DNS查询耗时
+  loadT: 79,          // 白屏时间
+  onLoadT: 3210,      // onload时间(总下载时间)
+  readyDomT: 505,     // domready时间(用户可操作时间节点)
+  renderDomT: 2708,   // 解析dom树耗时
+  requestT: 7,        // request请求耗时
+  tcpT: 0,            // TCP链接耗时
+  timing: {           // 全局数据 window.performance.timing
+    connectEnd: 1547480432225,
+    connectStart: 1547480432225,
+    domComplete: 1547480435429,
+    domContentLoadedEventEnd: 1547480432727,
+    domContentLoadedEventStart: 1547480432721,
+    domInteractive: 1547480432721,
+    domLoading: 1547480432301,
+    domainLookupEnd: 1547480432225,
+    domainLookupStart: 1547480432225,
+    fetchStart: 1547480432225,
+    loadEventEnd: 1547480435432,
+    loadEventStart: 1547480435429,
+    navigationStart: 1547480432222,
+    redirectEnd: 0,
+    redirectStart: 0,
+    requestStart: 1547480432243,
+    responseEnd: 1547480432284,
+    responseStart: 1547480432277,
+    secureConnectionStart: 0,
+    unloadEventEnd: 1547480432288,
+    unloadEventStart: 1547480432287
+  }
+}
+```

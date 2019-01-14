@@ -353,6 +353,43 @@ const utils = {
     } else if (document.webkitExitFullscreen) {
       document.webkitExitFullscreen()
     }
+  },
+
+  /**
+   * @description 返回页面加载的相关信息
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=performance
+   * @returns { Object }  data 返回一个对象
+   * @returns { Object }  data.timing       全局数据 window.performance.timing
+   * @returns { number }  data.dnsT         DNS查询耗时
+   * @returns { number }  data.loadT        白屏时间
+   * @returns { number }  data.requestT     request请求耗时
+   * @returns { number }  data.tcpT         TCP链接耗时
+   * @returns { number }  data.renderDomT   解析dom树耗时
+   * @returns { number }  data.readyDomT    domready时间(用户可操作时间节点) 
+   * @returns { number }  data.onLoadT      onload时间(总下载时间)
+   * @example
+   * Dutils.utils.performance()
+   */
+  performance () {
+    const { timing } = window.performance
+    return {
+      // 全局数据, 返回的是一个对象
+      timing: timing,
+      // DNS查询耗时
+      dnsT: timing.domainLookupEnd - timing.domainLookupStart,
+      // 白屏时间
+      loadT: timing.domLoading - timing.navigationStart,
+      // request请求耗时
+      requestT: timing.responseEnd - timing.responseStart,
+      // TCP链接耗时
+      tcpT: timing.connectEnd - timing.connectStart,
+      // 解析dom树耗时
+      renderDomT: timing.domComplete - timing.domInteractive,
+      // domready时间(用户可操作时间节点) 
+      readyDomT: timing.domContentLoadedEventEnd - timing.navigationStart,
+      // onload时间(总下载时间)
+      onLoadT: timing.loadEventEnd - timing.navigationStart
+    }
   }
 }
 
