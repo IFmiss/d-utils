@@ -121,9 +121,9 @@ const utils = {
     let newUrl = url.slice(url.indexOf('?'))
     let arr = newUrl.slice(1).split('&')
     let obj = {}
-    for (let i = 0; i < arr.length; i++) {
-      if ((arr[i].split('=')[0])) obj[arr[i].split('=')[0]] = arr[i].split('=')[1]
-    }
+    arr.forEach(item => {
+      if (item.split('=')[0]) obj[item.split('=')[0]] = item.split('=')[1]
+    })
     return obj
   },
 
