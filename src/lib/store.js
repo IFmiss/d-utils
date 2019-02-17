@@ -200,6 +200,23 @@ const store = {
    */
   uniqueArray (arr) {
     return Array.from(new Set(arr))
+  },
+  
+  /**
+   * @description object对象转化成get请求的字符串形式
+   * @param { Object } obj  需要操作的对象
+   * @return { String } 返回一个字符串 a=1&b=2
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_store?id=objectToString
+   * @example
+   * // 'a=1&b=2'
+   * Dutils.store.objectToString({a: 1, b: 2})
+   */
+  objectToString (obj) {
+    return Object.keys(obj).reduce((prevAll, currentItem, index) => {
+      const prev = index > 1 ? prevAll :`${prevAll}=${obj[prevAll]}`
+      const current = `${currentItem}=${obj[currentItem]}`
+      return `${prev}&${current}`
+    })
   }
 }
 export default store

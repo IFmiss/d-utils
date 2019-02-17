@@ -161,6 +161,7 @@ Dutils.store.checkType(localStorage)   // storage
 // 判断data是否是数组
 Dutils.store.checkType(data) !== 'array'
 ```
+
 ## uniqueArray
 `uniqueArray`数组去重
 ```js
@@ -173,4 +174,18 @@ Dutils.store.checkType(data) !== 'array'
 ##### `Demo`:
 ```js
 Dutils.store.uniqueArray([1,2,3,3,,3,3,'4',"4",'4',])   // [1, 2, 3, undefined, "4"]
+```
+
+## objectToString
+`objectToString`将单层object对象且属性为基本数据类型(通常都为string)转换成`a=1&b=2&c=3`的格式效果
+```js
+/**
+ * 对象转字符串 属性=值&属性=值的字符串格式
+ * @param { Object } obj  需要操作的对象
+ * @return { String } 返回一个字符串 a=1&b=2
+ */
+```
+#### `Demo`:
+```js
+Dutils.store.objectToString({a: 1, b: 2}) // 'a=1&b=2'
 ```
