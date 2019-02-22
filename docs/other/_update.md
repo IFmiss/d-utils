@@ -1,4 +1,5 @@
 # 更新内容
+  - `2019-02-22` 新增[`initRem`](lib/_utils#initRem)方法
   - `2019-02-15` 新增[`objectToString`](lib/_store#objectToString)方法
   - `2019-01-14` 新增[`performance`](lib/_utils#performance)方法
   - `2019-01-13` 新增[`extend`](lib/_store#extend)方法

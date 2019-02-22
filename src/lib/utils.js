@@ -390,6 +390,38 @@ const utils = {
       // onload时间(总下载时间)
       onLoadT: timing.loadEventEnd - timing.navigationStart
     }
+  },
+
+  /**
+   * @description 移动端REM的初始化js的方法，默认基于750的设计稿，限制的区间为 320-414，页面的总宽度为7.5rem，所有的基于750的设计稿的宽度为 px / 100 的结果，单位为rem
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=initRem
+   * @param { number }  BaseWidth   基础的设计稿宽度        默认750
+   * @param { number }  MinWidth    移动端最小比例的宽度点   默认320
+   * @param { number }  MaxWidth    移动端最大的比例宽度点   默认414
+   * @example
+   * Dutils.utils.initRem()
+   */
+  initRem (BaseWidth = 750, MinWidth = 320, MaxWidth = 414) {
+    const r = {}
+    const MinWidthP = MinWidth / BaseWidth
+    const MaxWidthP = MaxWidth / BaseWidth
+
+    r.Html = document.getElementsByTagName('html')[0]
+    
+    r.intiFontSize = function () {
+        let p = parseFloat((window.innerWidth / BaseWidth).toFixed(4))
+        const s = (p = p > MaxWidthP ? MaxWidthP : p) < MinWidthP ? MinWidthP : p
+        return s
+    }
+    
+    r.updateFontSize = function () {
+      r.Html.setAttribute('style', 'font-size:' + r.intiFontSize() * 100 + 'px')
+    }
+
+    if (!document.addEventListener) return
+
+    window.addEventListener('resize', r.updateFontSize, false)
+    document.addEventListener('DOMContentLoaded', r.updateFontSize, false)
   }
 }
 
