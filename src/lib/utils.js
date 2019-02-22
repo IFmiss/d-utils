@@ -409,9 +409,9 @@ const utils = {
     r.Html = document.getElementsByTagName('html')[0]
     
     r.intiFontSize = function () {
-        let p = parseFloat((window.innerWidth / BaseWidth).toFixed(4))
-        const s = (p = p > MaxWidthP ? MaxWidthP : p) < MinWidthP ? MinWidthP : p
-        return s
+      let p = parseFloat((window.innerWidth / BaseWidth).toFixed(4))
+      const s = (p = p > MaxWidthP ? MaxWidthP : p) < MinWidthP ? MinWidthP : p
+      return s
     }
     
     r.updateFontSize = function () {

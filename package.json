@@ -1,6 +1,6 @@
 {
   "name": "d-js-utils",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "d-js-utils",
   "main": "src/lib/index.js",
   "dependencies": {

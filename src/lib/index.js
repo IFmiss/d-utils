@@ -1,6 +1,6 @@
 /**
  * @author ifmiss
- * @version 1.0.8
+ * @version 1.0.9
  * @description 关于通用js的收录以及整合方便日后使用
  */
 // dom操作
