@@ -393,29 +393,32 @@ const utils = {
   },
 
   /**
-   * @description 移动端REM的初始化js的方法，默认基于750的设计稿，限制的区间为 320-414，页面的总宽度为7.5rem，所有的基于750的设计稿的宽度为 px / 100 的结果，单位为rem
+   * @description 移动端REM的初始化js的方法，默认基于750的设计稿，可以限制最大显示宽度, 超出需要isFullOverMax 判断是否全屏幕显示, 不全屏则是body居中
    * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=initRem
    * @param { number }  BaseWidth   基础的设计稿宽度        默认750
-   * @param { number }  MinWidth    移动端最小比例的宽度点   默认320
-   * @param { number }  MaxWidth    移动端最大的比例宽度点   默认414
+   * @param { number }  MaxWidth    移动端最大的比例宽度点   默认window.screen.availWidth
+   * @param { boolean } isFullOverMax   超出{MaxWidth}最大宽度的时候是否居中显示(body居中的前提是超出设定的宽度以及isFullOverMax=false) 默认false
    * @example
    * Dutils.utils.initRem()
    */
-  initRem (BaseWidth = 750, MinWidth = 320, MaxWidth = 414) {
+  initRem (BaseWidth = 750, MaxWidth = window.screen.availWidth, isFullOverMax = false) {
     const r = {}
-    const MinWidthP = MinWidth / BaseWidth
     const MaxWidthP = MaxWidth / BaseWidth
 
     r.Html = document.getElementsByTagName('html')[0]
     
     r.intiFontSize = function () {
-      let p = parseFloat((window.innerWidth / BaseWidth).toFixed(4))
-      const s = (p = p > MaxWidthP ? MaxWidthP : p) < MinWidthP ? MinWidthP : p
+      let p = parseFloat((window.screen.availWidth / BaseWidth).toFixed(4))
+      let s = p > MaxWidthP ? MaxWidthP : p
+      if (isFullOverMax) s = p
       return s
     }
     
     r.updateFontSize = function () {
       r.Html.setAttribute('style', 'font-size:' + r.intiFontSize() * 100 + 'px')
+      if (!isFullOverMax && window.screen.availWidth >= MaxWidth) {
+        document.body.setAttribute('style', 'margin: 0 auto; width: 7.5rem')
+      }
     }
 
     if (!document.addEventListener) return

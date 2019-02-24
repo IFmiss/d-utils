@@ -1,4 +1,6 @@
 # 更新内容
+  - `2019-02-24` 更新[`initRem`](lib/_utils#initRem)方法
+    - 参数发生变化，具体见最新文档
 ### 1.0.9
   - `2019-02-22` 新增[`initRem`](lib/_utils#initRem)方法
   - `2019-02-15` 新增[`objectToString`](lib/_store#objectToString)方法

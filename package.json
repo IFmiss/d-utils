@@ -1,6 +1,6 @@
 {
   "name": "@dw/d-utils",
-  "version": "1.0.92",
+  "version": "1.0.94",
   "description": "d-utils",
   "main": "es5/d-utils.js",
   "dependencies": {

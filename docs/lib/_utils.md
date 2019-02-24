@@ -305,17 +305,18 @@ res = {
 ```
 
 ## initRem
-`initRem` 移动端REM的初始化js的方法，默认基于750的设计稿，限制的区间为 320-414，页面的总宽度为7.5rem，所有的基于750的设计稿的宽度为 px / 100 的结果，单位为rem
+`initRem` 移动端REM的初始化js的方法，默认基于750的设计稿，页面的总宽度为7.5rem，
 ```js
 /**
  * @param { number }  BaseWidth   基础的设计稿宽度        默认750
- * @param { number }  MinWidth    移动端最小比例的宽度点   默认320
- * @param { number }  MaxWidth    移动端最大的比例宽度点   默认414 
+ * @param { number }  MaxWidth    移动端最大的比例宽度点   默认window.innerWidth
+ * @param { boolean } isFullOverMax   超出{MaxWidth}最大宽度的时候是否居中显示(body居中的前提是超出设定的宽度以及isFullOverMax=false)   默认false
  */
 ```
 ### `Demo`:
 ```js
 Dutils.utils.initRem()
-Dutils.utils.initRem(720) // 设计稿按照 720像素来
-Dutils.utils.initRem(750, 320, 414) // 750的设计稿，限制的区间为 320-414
+Dutils.utils.initRem(720) // 设计稿按照 720像素来 
+Dutils.utils.initRem(750, 400) // 750的设计稿，375宽度为基准， 超过400 限制为400，且默认不铺满
+Dutils.utils.initRem(750, 400, true)  // 铺满
 ```
