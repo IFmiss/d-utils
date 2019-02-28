@@ -40,7 +40,7 @@ const exp = {
    */
   isWeiXin () {
     const ua = window.navigator.userAgent.toLowerCase()
-    return ua.match(/MicroMessenger/i) === 'micromessenger'
+    return String(ua.match(/MicroMessenger/i)) === 'micromessenger'
   },
 
   /**
