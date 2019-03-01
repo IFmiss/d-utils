@@ -56,6 +56,7 @@ const device = {
           ele = null
         }
       } else {
+        if (ele) return
         initTipInfo()
       }
     }

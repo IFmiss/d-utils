@@ -24,4 +24,6 @@ const D_JS_UTILS = {
 }
 window.Dutils = D_JS_UTILS
 
+D_JS_UTILS.device.checkLayoutOrientation()
+
 export default D_JS_UTILS
