@@ -31,7 +31,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.css$/,
-        		use: ExtractTextPlugin.extract({
+        use: ExtractTextPlugin.extract({
 					fallback:"style-loader",
 					use:["css-loader"]
 				})
@@ -71,7 +71,8 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ["env", "stage-2"]
+						presets: ["env", "stage-2"],
+						plugins: ['transform-decorators-legacy']
 					}
 				}
 			},

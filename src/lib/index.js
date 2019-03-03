@@ -13,12 +13,15 @@ import store from './store.js'
 import exp from './exp.js'
 // 设备信息类
 import device from './device.js'
+// 设备信息类
+import decorator from './decorator.js'
 
 const D_JS_UTILS = {
   store,
   dom,
   utils,
   exp,
-  device
+  device,
+  decorator
 }
 export default D_JS_UTILS
