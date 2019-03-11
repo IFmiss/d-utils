@@ -4,17 +4,19 @@
  * @description 关于通用js的收录以及整合方便日后使用
  */
 // dom操作
-import dom from './dom.js'
+import dom from './dom'
 // 工具类
-import utils from './utils.js'
+import utils from './utils'
 // 数据存储类
-import store from './store.js'
+import store from './store'
 // 验证类
-import exp from './exp.js'
+import exp from './exp'
 // 设备信息类
-import device from './device.js'
-// 设备信息类
-import decorator from './decorator.js'
+import device from './device'
+// 注解
+import decorator from './decorator'
+// 微信相关
+import weixin from './weixin'
 
 const D_JS_UTILS = {
   store,
@@ -22,6 +24,7 @@ const D_JS_UTILS = {
   utils,
   exp,
   device,
-  decorator
+  decorator,
+  weixin
 }
 export default D_JS_UTILS

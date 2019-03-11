@@ -20,7 +20,7 @@ const weixin = {
   },
 
   /**
-   * IOS 或者 Android 微信版本小于6.3.31 需要种植首次进入页面的URL，用于解决微信签名错误
+   * @description IOS 或者 Android 微信版本小于6.3.31 需要种植首次进入页面的URL，用于解决微信签名错误
    */
   plantSdkUrlIosOrLowerAndorid () {
     window._d_utils_wx_first_open_url_ = window.location.href.split('#')[0]
@@ -52,10 +52,11 @@ const weixin = {
 
   /**
    * 初始化微信配置签名
-   * @param { Object } data
+   * @param { Object } data  微信的签名配置
+   * @param { sharInfo } sharInfo 分享所需要的分享信息
    * @returns { Promise } 返回一个promise对象
    */
-  initWxConfig (data) {
+  initWxShareConfig (data, sharInfo) {
     /**
      * 验证相关信息
      */
@@ -64,10 +65,65 @@ const weixin = {
     })
 
     // 返回promise
-    // return new Promise((resolve, reject) => {
-    //   wx.ready(() => {
-    //     data.jsApiList
-    //   })
-    // })
+    return new Promise((resolve, reject) => {
+      wx.ready(() => {
+        // 分享给好友
+        wx.onMenuShareAppMessage({
+          title: sharInfo.title,    // 分享的title
+          desc: sharInfo.desc,      // 分享描述
+          link: sharInfo.link,      // 分享链接
+          imgUrl: sharInfo.imgUrl,  // 分享图标
+          success: function () {
+            resolve('onMenuShareAppMessage')
+          },
+          cancel: function () {
+            reject('onMenuShareAppMessage')
+          }
+        })
+
+        // 自定义“分享给朋友”及“分享到QQ”按钮的分享内容（1.4.0）
+        // wx.updateAppMessageShareData({
+        //   title: sharInfo.title,    // 分享的title
+        //   desc: sharInfo.desc,      // 分享描述
+        //   link: sharInfo.link,      // 分享链接
+        //   imgUrl: sharInfo.imgUrl,  // 分享图标
+        //   success: function () {
+        //     resolve('updateAppMessageShareData')
+        //   },
+        //   cancel: function () {
+        //     reject('updateAppMessageShareData')
+        //   }
+        // })
+
+        // 分享到朋友圈
+        wx.onMenuShareTimeline({
+          title: obj.title,
+          link: obj.link, // 分享链接
+          imgUrl: obj.imgUrl, // 分享图标
+          success: function () {
+            resolve('onMenuShareTimeline')
+          },
+          cancel: function () {
+            reject('onMenuShareTimeline')
+          }
+        })
+
+        // 自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容（1.4.0）
+        // wx.updateTimelineShareData({
+        //   title: sharInfo.title,    // 分享的title
+        //   desc: sharInfo.desc,      // 分享描述
+        //   link: sharInfo.link,      // 分享链接
+        //   imgUrl: sharInfo.imgUrl,  // 分享图标
+        //   success: function () {
+        //     resolve('updateTimelineShareData')
+        //   },
+        //   cancel: function () {
+        //     reject('updateTimelineShareData')
+        //   }
+        // })
+      })
+    })
   }
 }
+
+export default weixin
