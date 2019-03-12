@@ -27,7 +27,9 @@ const weixin = {
   },
 
   /**
-   * 是否高于微信某一个版本
+   * @description 是否高于微信某一个版本
+   * @param { String } version
+   * @returns { Boolean } 返回是否满足条件
    */
   isUpThanWxVersion (version) {
     const str = window.navigator.userAgent;
@@ -51,28 +53,40 @@ const weixin = {
   },
 
   /**
-   * 初始化微信配置签名
+   * @description 初始化微信配置签名
    * @param { Object } data  微信的签名配置
-   * @param { sharInfo } sharInfo 分享所需要的分享信息
-   * @returns { Promise } 返回一个promise对象
+   * @param { Boolean } data.debug  开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+   * @param { String } data.appId  必填，公众号的唯一标识
+   * @param { Number } data.timestamp  必填，生成签名的时间戳
+   * @param { String } data.nonceStr  必填，生成签名的随机串
+   * @param { String } data.signature  必填，签名
+   * @param { Array } data.jsApiList  必填，需要使用的JS接口列表
+   * @link 接口列表地址 https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
    */
-  initWxShareConfig (data, sharInfo) {
-    /**
-     * 验证相关信息
-     */
+  initWxConfig (data) {
     wx.config({
       ...data
     })
+  },
 
+  /**
+   * @description 微信分享初始化
+   * @param { Object } sharInfo  分享的内容
+   * @param { String } sharInfo.title 分享的title
+   * @param { String } sharInfo.desc 分享描述
+   * @param { String } sharInfo.link 分享链接
+   * @param { String } sharInfo.imgUrl 分享图标
+   */
+  wxShare (sharInfo) {
     // 返回promise
     return new Promise((resolve, reject) => {
       wx.ready(() => {
         // 分享给好友
         wx.onMenuShareAppMessage({
-          title: sharInfo.title,    // 分享的title
-          desc: sharInfo.desc,      // 分享描述
-          link: sharInfo.link,      // 分享链接
-          imgUrl: sharInfo.imgUrl,  // 分享图标
+          title: sharInfo.title,
+          desc: sharInfo.desc,
+          link: sharInfo.link,
+          imgUrl: sharInfo.imgUrl,
           success: function () {
             resolve('onMenuShareAppMessage')
           },
@@ -83,10 +97,10 @@ const weixin = {
 
         // 自定义“分享给朋友”及“分享到QQ”按钮的分享内容（1.4.0）
         // wx.updateAppMessageShareData({
-        //   title: sharInfo.title,    // 分享的title
-        //   desc: sharInfo.desc,      // 分享描述
-        //   link: sharInfo.link,      // 分享链接
-        //   imgUrl: sharInfo.imgUrl,  // 分享图标
+        //   title: sharInfo.title,
+        //   desc: sharInfo.desc,
+        //   link: sharInfo.link,
+        //   imgUrl: sharInfo.imgUrl,
         //   success: function () {
         //     resolve('updateAppMessageShareData')
         //   },
@@ -98,8 +112,8 @@ const weixin = {
         // 分享到朋友圈
         wx.onMenuShareTimeline({
           title: obj.title,
-          link: obj.link, // 分享链接
-          imgUrl: obj.imgUrl, // 分享图标
+          link: obj.link,
+          imgUrl: obj.imgUrl,
           success: function () {
             resolve('onMenuShareTimeline')
           },
@@ -110,10 +124,10 @@ const weixin = {
 
         // 自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容（1.4.0）
         // wx.updateTimelineShareData({
-        //   title: sharInfo.title,    // 分享的title
-        //   desc: sharInfo.desc,      // 分享描述
-        //   link: sharInfo.link,      // 分享链接
-        //   imgUrl: sharInfo.imgUrl,  // 分享图标
+        //   title: sharInfo.title,
+        //   desc: sharInfo.desc,
+        //   link: sharInfo.link,
+        //   imgUrl: sharInfo.imgUrl,
         //   success: function () {
         //     resolve('updateTimelineShareData')
         //   },
