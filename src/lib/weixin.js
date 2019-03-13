@@ -32,8 +32,8 @@ const weixin = {
    * @returns { Boolean } 返回是否满足条件
    */
   isUpThanWxVersion (version) {
-    const str = window.navigator.userAgent;
-    const v0 = version.split('.');
+    const str = window.navigator.userAgent
+    const v0 = version.split('.')
     const regExp = /MicroMessenger\/([\d|\.]+)/
     if (regExp.exec(str) === null) {
       return false
@@ -41,10 +41,10 @@ const weixin = {
     const vv = regExp.exec(str) || []
     let v1 = vv[1].split('.')
 
-    if (v1.length >= 4) v1 = v1.slice(0, 3);
+    if (v1.length >= 4) v1 = v1.slice(0, 3)
 
     v1 = v1.map((v) => {
-        return parseInt(v, 10);
+      return parseInt(v, 10)
     })
     if (v1[0] > v0[0]) return true
     if (v1[0] === v0[0] && v1[1] > v0[1]) return true
@@ -111,9 +111,9 @@ const weixin = {
 
         // 分享到朋友圈
         wx.onMenuShareTimeline({
-          title: obj.title,
-          link: obj.link,
-          imgUrl: obj.imgUrl,
+          title: sharInfo.title,
+          link: sharInfo.link,
+          imgUrl: sharInfo.imgUrl,
           success: function () {
             resolve('onMenuShareTimeline')
           },

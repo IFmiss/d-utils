@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const extractSass = new ExtractTextPlugin({
-    filename: "css/[name]-[contenthash].css",
+    filename: "css/[name]-[hash].css",
     disable: process.env.NODE_ENV === "development"
 });
 
@@ -71,7 +71,7 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ["env", "stage-2"],
+						presets: ["env"],
 						plugins: ['transform-decorators-legacy']
 					}
 				}

@@ -1,6 +1,6 @@
 {
   "name": "@dw/d-utils",
-  "version": "1.0.94",
+  "version": "1.0.95",
   "description": "d-utils",
   "main": "es5/d-utils.js",
   "scripts": {
@@ -43,11 +43,13 @@
     "stylus-loader": "^3.0.2",
     "url-loader": "^1.0.1",
     "url-parse": ">=1.4.3",
-    "webpack": "^4.1.1",
-    "webpack-cli": "^2.0.12",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
-    "babel-eslint": "^10.0.1"
+    "babel-eslint": "^10.0.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "weixin-js-sdk": "^1.4.0-test"
   }
 }
