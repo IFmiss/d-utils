@@ -23,5 +23,16 @@ const decorator = {
   //     return descriptor
   //   }
   // }
+  /**
+   * Thunck 函数
+   * 相当于后一个方法获取前一个参数并执行
+   */
+  // thunk: (fn) => {
+  //   return function (...args) {
+  //     return function (callback) {
+  //       return fn.call(this, ...args, callback)
+  //     }
+  //   }
+  // }
 }
 export default decorator

@@ -12,7 +12,7 @@ import store from './store'
 // 验证类
 import exp from './exp'
 // 设备信息类
-import device from './device'
+import device from './device.ts'
 // 注解
 import decorator from './decorator'
 // 微信相关

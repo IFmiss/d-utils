@@ -3,7 +3,7 @@
  * 微信相关 api
  */
 import wx from 'weixin-js-sdk'
-import device from './device'
+import device from './device.ts'
 const weixin = {
   /**
    * @description 初始化微信请求 js-sdk 的url地址 需要区分两种情况
