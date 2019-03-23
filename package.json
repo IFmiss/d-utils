@@ -3,6 +3,7 @@
   "version": "1.0.95",
   "description": "d-utils",
   "main": "es5/d-utils.js",
+  "types": "es5/d-utils.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
@@ -10,6 +11,11 @@
     "watch": "webpack --progress --colors --watch",
     "publish": "npm publish --access=public"
   },
+  "files": [
+    "es5/d-utils.js",
+    "es5/d-utils.d.ts",
+    "README.md"
+  ],
   "keywords": [
     "js",
     "utils",
