@@ -102,7 +102,7 @@ const exp = {
    */
   isEmptyObject (obj) {
     if (!exp.isObject(obj)) throw TypeError('参数不是真正的object对象')
-    return JSON.stringify(obj) === '{}'
+    return Object.keys(obj).length === 0
   }
 }
 

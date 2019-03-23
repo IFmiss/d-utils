@@ -7,7 +7,7 @@ const device = {
    * @example
    * Dutils.device.isMobile() // false
    */
-  isMobile () {
+  isMobile: () => {
     const EXP_ISMOBILE = /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
     return EXP_ISMOBILE.test(ua)
   },
@@ -19,7 +19,7 @@ const device = {
    * @example
    * Dutils.device.isIOS() // false
    */
-  isIOS () {
+  isIOS: () => {
     const EXP_IOS = /(iPhone|iPad|iPod|iOS)/i
     return EXP_IOS.test(ua)
   },
@@ -31,7 +31,7 @@ const device = {
    * @example
    * Dutils.device.isAndroid() // false
    */
-  isAndroid () {
+  isAndroid: () => {
     return ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1
   },
 
@@ -44,7 +44,7 @@ const device = {
    * @example
    * Dutils.device.checkLayoutOrientation('请竖直使用手机') // 横屏时候提示 请竖直使用手机
    */
-  checkLayoutOrientation (text = '请旋转屏幕，以达到更好的浏览效果') {
+  checkLayoutOrientation: (text = '请旋转屏幕，以达到更好的浏览效果') => {
     if (!window.hasOwnProperty('orientation')) return
     let ele = null
     // 0 和 360 的时候是竖屏

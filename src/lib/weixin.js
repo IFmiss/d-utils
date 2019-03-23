@@ -11,7 +11,7 @@ const weixin = {
    * 当前这种只支持与VUE单页面模式
    */
   getSdkUrlIosOrLowerAndorid () {
-    if (device.isIOS() || device.isAndroid && !this.isUpThanWxVersion('6.3.31')) {
+    if (device.isIOS() || device.isAndroid() && !this.isUpThanWxVersion('6.3.31')) {
       if (window._d_utils_wx_first_open_url_) return window._d_utils_wx_first_open_url_
       console.error('需要在页面加载的时候全局种植： _d_utils_wx_first_open_url_ 属性， 需要执行 plantSdkUrlIosOrLowerAndorid 方法')
     } else {
