@@ -1,17 +1,11 @@
 {
   "compilerOptions": {
-<<<<<<< HEAD
     "target": "ES6", 
     "module": "commonjs",                     
-    "declaration": true
-=======
     "declaration": true,
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "commonjs",
-    "target": "es5",
     "jsx": "react"
->>>>>>> 3493d691af81eee36e3d78ff773e017e6eba4760
   }
 }

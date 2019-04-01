@@ -6,8 +6,9 @@ import './style.scss'
  */
 // dom操作
 import D_JS_UTILS from './lib/index'
+import PerformanceUtils from './lib/performanceUtils/index.ts'
 window.Dutils = D_JS_UTILS
 
 D_JS_UTILS.device.checkLayoutOrientation()
-
+console.log(PerformanceUtils.loadTime())
 export default D_JS_UTILS

@@ -16,8 +16,8 @@ const resolve = function (dir) {
 module.exports = {
 	entry: {
 		// 这里只是编译的时候用的
-		// index: './src/index.js'
-		index: './src/lib/index.js'
+		index: './src/index.js'
+		// index: './src/lib/index.js'
 	},
 	output: {
 		path: path.resolve(__dirname, 'libs'),
@@ -110,11 +110,11 @@ module.exports = {
 		]
 	},
 	plugins: [
-		// new HtmlWebpackPlugin ({
-		// 	filename: 'index.html',
-		// 	template: 'index.html',
-		// 	inject: true
-		// }),
+		new HtmlWebpackPlugin ({
+			filename: 'index.html',
+			template: 'index.html',
+			inject: true
+		}),
 		extractSass
 	],
 	devServer: {

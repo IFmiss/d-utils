@@ -17,6 +17,8 @@ import device from './device'
 import decorator from './decorator'
 // 微信相关
 import weixin from './weixin'
+// 性能
+import performance from './index.js'
 
 const D_JS_UTILS = {
   store,
@@ -25,6 +27,7 @@ const D_JS_UTILS = {
   exp,
   device,
   decorator,
-  weixin
+  weixin,
+  performance
 }
 export default D_JS_UTILS
