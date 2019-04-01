@@ -1,9 +1,8 @@
 {
   "name": "@dw/d-utils",
-  "version": "1.0.96",
+  "version": "1.1.0",
   "description": "d-utils",
-  "main": "es5/d-utils.js",
-  "types": "es5/d-utils.d.ts",
+  "main": "libs/d-utils.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
@@ -12,8 +11,7 @@
     "publish": "npm publish --access=public"
   },
   "files": [
-    "es5/d-utils.js",
-    "es5/d-utils.d.ts",
+    "libs/",
     "README.md"
   ],
   "keywords": [
