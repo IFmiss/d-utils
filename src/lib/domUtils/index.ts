@@ -7,7 +7,7 @@ export default class DomUtils {
    * @example
    * Dutils.dom.hasClass(document.body, 'd-js-utils')
 	 */
-  static hasClass (el: any, className: string): boolean {
+  static hasClass = (el: any, className: string): boolean => {
     return el.classList.contains(className)
   }
 
@@ -19,7 +19,7 @@ export default class DomUtils {
    * @example
    * Dutils.dom.addClass(document.body, 'd-js-utils')
 	 */
-  static addClass (el: Element, className: string | string[]): void {
+  static addClass = (el: Element, className: string | string[]): void => {
     if (Array.isArray(className)) {
       className.forEach((item: string) => {
         if (!DomUtils.hasClass(el, item)) {
@@ -41,7 +41,7 @@ export default class DomUtils {
    * @example
    * Dutils.dom.removeClass(document.body, 'd-js-utils')
    */
-  static removeClass (el: any, className: string | string[]) {
+  static removeClass = (el: any, className: string | string[]): void => {
     if (Array.isArray(className)) {
       className.forEach((item: string) => {
         if (DomUtils.hasClass(el, item)) {
@@ -60,11 +60,11 @@ export default class DomUtils {
    * @param { Element } el dom元素
    * @param { String } cssProp css的属性名称
    * @return { String } css对应的属性的值
-   * @link https://ifmiss.github.io/d-js-utils/#/lib/_dom?id=getcomputedstyle
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_dom?id=computedStyle
    * @example
-   * Dutils.dom.getComputedStyle(document.body, 'width')
+   * Dutils.dom.computedStyle(document.body, 'width')
    */
-  static getComputedStyle (el: any, cssProp: any) {
+  static computedStyle = (el: any, cssProp: any): void => {
     if (!el) throw new Error('dom元素不存在')
     if (!cssProp) throw new Error('请输入需要查询的css属性名称')
     return document.defaultView.getComputedStyle ? document.defaultView.getComputedStyle(el, '')[cssProp] : el.currentStyle[cssProp]
@@ -86,7 +86,7 @@ export default class DomUtils {
    *   'hue-rotate': '90deg'
    * })
    */
-  cssFilter(el: any, type: any, option: string | number) {
+  static cssFilter = (el: any, type: any, option: string | number): void => {
     if (typeof type === 'object' && !option) {
       let cssText = ''
       for (let k in type) {

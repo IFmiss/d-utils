@@ -1,11 +1,24 @@
 {
   "compilerOptions": {
-    "target": "ES6", 
-    "module": "commonjs",                     
-    "declaration": true,
+    "target": "es5", 
+    "module": "commonjs",
+    "removeComments": false,
     "outDir": "./dist/",
+    "lib": [
+      "dom",
+      "es2015"
+    ],
     "sourceMap": true,
     "noImplicitAny": true,
-    "jsx": "react"
-  }
+    "allowJs": true
+  },
+  "files": [
+    "./src/index.ts"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

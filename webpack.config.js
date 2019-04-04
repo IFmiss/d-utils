@@ -90,7 +90,7 @@ module.exports = {
 			{
 				test: /\.ts$/,
 				use: [
-					{loader: 'babel-loader',},
+					{loader: 'babel-loader'},
 					{
 						loader: 'ts-loader',
 						options: {
@@ -136,7 +136,9 @@ module.exports = {
 			'stylus': resolve('src/stylus'),
 			'script': resolve('src/script'),
 			'static': resolve('static'),
-		}
+		},
+		extensions: ['.ts', '.tsx', '.js'],
+    modules: ['src' ,'node_modules']
 	},
 	optimization: {
 		splitChunks: {
