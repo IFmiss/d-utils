@@ -1,24 +1,66 @@
 export default class LogUtils {
+  /**
+   * 提示色  '#0099FF'   蓝色
+   */
   static infoColor: string = '#0099FF'
+
+  /**
+   * 提示色  '#00CC99'   绿色
+   */
   static successColor: string = '#00CC99'
+
+  /**
+   * 提示色  '#CC3366'   红色
+   */
   static errorColor: string = '#CC3366'
+
+  /**
+   * 提示色  '#CC9966'   黄色
+   */
   static warningColor: string = '#CC9966'
+
+  /**
+   * console提示信息
+   * @param { any } data  打印的数据信息
+   * @param { string } dataTitile  提示文案
+   * @param { string } color  颜色
+   */
   static console = (data: any, dataTitile: string = '数据信息', color: string = '#9E9E9E'): void => {
     console.log(`%c ${dataTitile}`, `color: ${color}; font-weight: bold`, data)
   }
 
+  /**
+   * logInfo提示信息
+   * @param { any } data  打印的数据信息
+   * @param { string } dataTitile  提示文案
+   */
   static logInfo = (data: any, dataTitile: string = 'Info ===>'): void => {
     LogUtils.console(data, dataTitile, LogUtils.infoColor)
   }
 
+  /**
+   * logSuccess提示信息
+   * @param { any } data  打印的数据信息
+   * @param { string } dataTitile  提示文案
+   */
   static logSuccess = (data: any, dataTitile: string = 'Sucsess ===>'): void => {
     LogUtils.console(data, dataTitile, LogUtils.successColor)
   }
 
+  /**
+   * logError提示信息
+   * @param { any } data  打印的数据信息
+   * @param { string } dataTitile  提示文案
+   */
   static logError = (data: any, dataTitile: string = 'Error ===>'): void => {
-    LogUtils.console(data, dataTitile, LogUtils.errorColor)
+    console.error(`%c ${dataTitile}`, `color: ${LogUtils.errorColor}; font-weight: bold`, data)
   }
 
+  /**
+   * logWarning提示信息
+   * @param { any } data  打印的数据信息
+   * @param { string } dataTitile  提示文案
+   */
   static logWarning = (data: any, dataTitile: string = 'Warning ===>'): void => {
     LogUtils.console(data, dataTitile, LogUtils.warningColor)
   }
