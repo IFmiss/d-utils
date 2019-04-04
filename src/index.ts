@@ -9,6 +9,7 @@ import { DomUtils } from './lib/index'
 import { PerformanceUtils } from './lib/index'
 import { DeviceUtils } from './lib/index'
 import { StoreUtils } from './lib/index'
+import { LogUtils } from './lib/index'
 import Dutils from './lib/index'
 console.log(DomUtils)
 console.log(PerformanceUtils.timing)
@@ -20,4 +21,9 @@ DeviceUtils.checkLayoutOrientation()
 console.log(Dutils)
 
 console.log(StoreUtils)
+LogUtils.logInfo(window.screen)
+LogUtils.logSuccess(window.screen)
+LogUtils.logError(window.screen)
+LogUtils.logWarning(window.screen)
+LogUtils.logBeauty('-----------------')
 window.StoreUtils = StoreUtils

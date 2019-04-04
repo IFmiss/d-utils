@@ -19,11 +19,14 @@ import decorator from './decorator'
 import weixin from './weixin'
 // 性能
 import performance from './performanceUtils/index'
+// 打印
+import log from './logUtils/index'
 
 export const DomUtils = dom
 export const PerformanceUtils = performance
 export const DeviceUtils = device
 export const StoreUtils = store
+export const LogUtils = log
 
 export default {
   dom,
@@ -32,6 +35,7 @@ export default {
   exp,
   device,
   decorator,
+  log,
   weixin,
   performance
 }
