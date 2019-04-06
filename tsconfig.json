@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5", 
+    "target": "es6", 
     "module": "commonjs",
     "removeComments": false,
     "outDir": "./dist/",
@@ -9,7 +9,7 @@
       "es2015"
     ],
     "sourceMap": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "allowJs": true
   },
   "files": [

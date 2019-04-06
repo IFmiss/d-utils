@@ -16,7 +16,7 @@ import device from './deviceUtils/index'
 // 注解
 import decorator from './decorator'
 // 微信相关
-import weixin from './weixin'
+import weixin from './weixinUtils/index'
 // 性能
 import performance from './performanceUtils/index'
 // 打印
@@ -31,6 +31,7 @@ export const StoreUtils = store
 export const LogUtils = log
 export const GenericUtils = utils
 export const UrlParse = url
+export const WeixinUtils = weixin
 
 export default {
   dom,

@@ -214,4 +214,90 @@ export default class GenericUtils {
       }
     }
   }
+
+  /**
+   * @description 日期格式化 可转换成自己想要的格式
+   * @param { String } fmt 格式模板 'yyyy-MM-dd hh:mm:ss'
+   * @param { Date } date 日期内容  如 当前日期 new Date()
+   * @return { String } '2018-08-15 01:46:22'
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=formatdate
+   * @example
+   * Dutils.utils.formatDate(`yyyy-MM-dd hh:mm:ss`, new Date())
+   * @example
+   * Dutils.utils.formatDate(`yyyy-MM-dd`, new Date())
+   */
+  static formatDate = (fmt: string, date: any = new Date()): any => { // author: meizz
+    const newDate = new Date(date)
+    let o: any = {
+      'M+': newDate.getMonth() + 1, // 月份
+      'd+': newDate.getDate(), // 日
+      'h+': newDate.getHours(), // 小时
+      'm+': newDate.getMinutes(), // 分
+      's+': newDate.getSeconds(), // 秒
+      'q+': Math.floor((newDate.getMonth() + 3) / 3), // 季度
+      'S': newDate.getMilliseconds() // 毫秒
+    }
+    if (/(y+)/.test(fmt)) { fmt = fmt.replace(RegExp.$1, (newDate.getFullYear() + '').substr(4 - RegExp.$1.length)) }
+    for (let k in o) {
+      if (new RegExp('(' + k + ')').test(fmt)) { fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length))) }
+    }
+    return fmt
+  }
+
+  /**
+   * @description 复制网页文字到剪切板，之后可以粘贴在任何可粘贴的地方
+   * @param { String } str 拷贝的内容
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=copycode
+   * @example
+   * Dutils.utils.copyCode('hello world')
+   */
+  static copyCode = (str: string): void => {
+    const textArea = document.createElement('textarea')
+    textArea.style.cssText = 'position: absolute; top: -1000px; right: -1000px; z-index: -1000;'
+    document.body.appendChild(textArea)
+    textArea.value = str
+    textArea.select()
+    document.execCommand('copy')
+    document.body.removeChild(textArea)
+  }
+
+  /**
+   * @description 设置元素在网页中全屏
+   * @support 兼容性支持 ie11及以上, firefox 10+, chrome 15+, safari 5.1+, opera 12.1+
+   * @param { element } ele  需要全屏的元素
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=openfullscreen
+   * @example
+   * Dutils.utils.openFullScreen(document.querySelector('video'))
+   */
+  static openFullScreen = (ele: any): void => {
+    if (ele.requestFullscreen) {
+      ele.requestFullscreen()
+    } else if (ele.mozRequestFullScreen) {
+      ele.mozRequestFullScreen()
+    } else if (ele.msRequestFullscreen) {
+      ele.msRequestFullscreen()
+    } else if (ele.webkitRequestFullscreen) {
+      ele.webkitRequestFullScreen()
+    }
+  }
+
+  /**
+   * @description 关闭网页全屏操作
+   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=exitfullscreen
+   * @example
+   * Dutils.utils.exitFullScreen()
+   */
+  static exitFullScreen = (): void => {
+    if (document.exitFullscreen) {
+      document.exitFullscreen()
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen()
+    } else if (document.msExitFullscreen) {
+      document.msExiFullscreen()
+    } else if (document.webkitCancelFullScreen) {
+      document.webkitCancelFullScreen()
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen()
+    }
+  }
 }
