@@ -9,7 +9,7 @@ import { DomUtils } from './lib/index'
 import { PerformanceUtils } from './lib/index'
 import { DeviceUtils } from './lib/index'
 import { StoreUtils } from './lib/index'
-import { LogUtils } from './lib/index'
+import { LogUtils, GenericUtils, UrlParse } from './lib/index'
 import Dutils from './lib/index'
 console.log(DomUtils)
 console.log(PerformanceUtils.timing)
@@ -18,12 +18,19 @@ console.log(DeviceUtils.isIOS())
 console.log(DeviceUtils.isAndroid())
 DeviceUtils.checkLayoutOrientation()
 
-console.log(Dutils)
+console.log(Dutils.utils)
 
-console.log(StoreUtils)
+console.log(GenericUtils.notification)
 LogUtils.logInfo(window.screen)
 LogUtils.logSuccess(window.screen)
 LogUtils.logError(window.screen)
-LogUtils.logWarning(window.screen)
+LogUtils.logWarning(111)
 LogUtils.logBeauty('-----------------')
+console.log(UrlParse)
+document.getElementById('title').onclick = GenericUtils.debounce(function () {
+  console.log('你点击了一次')
+}, 1000)
+document.getElementById('username').onclick = GenericUtils.throttle(function () {
+  console.log('你点击了一次')
+}, 1000)
 window.StoreUtils = StoreUtils

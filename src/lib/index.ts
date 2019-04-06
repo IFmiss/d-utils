@@ -6,7 +6,7 @@
 // dom操作
 import dom from './domUtils/index'
 // 工具类
-import utils from './utils'
+import utils from './genericUtils/index'
 // 数据存储类
 import store from './storeUtils/index'
 // 验证类
@@ -21,12 +21,16 @@ import weixin from './weixin'
 import performance from './performanceUtils/index'
 // 打印
 import log from './logUtils/index'
+// url相关
+import url from './urlUtils/index'
 
 export const DomUtils = dom
 export const PerformanceUtils = performance
 export const DeviceUtils = device
 export const StoreUtils = store
 export const LogUtils = log
+export const GenericUtils = utils
+export const UrlParse = url
 
 export default {
   dom,
@@ -37,5 +41,6 @@ export default {
   decorator,
   log,
   weixin,
-  performance
+  performance,
+  url
 }

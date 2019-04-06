@@ -47,10 +47,12 @@
     "url-loader": "^1.0.1",
     "url-parse": ">=1.4.3",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3",
+    "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
+    "@types/node": "^11.13.0",
+    "axios": "^0.18.0",
     "babel-eslint": "^10.0.1",
     "babel-preset-stage-2": "^6.24.1",
     "lodash": "^4.17.11",

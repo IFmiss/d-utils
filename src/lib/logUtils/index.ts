@@ -34,7 +34,7 @@ export default class LogUtils {
    * @param { any } data  打印的数据信息
    * @param { string } dataTitile  提示文案
    */
-  static logInfo = (data: any, dataTitile: string = 'Info ===>'): void => {
+  static logInfo = (data: any, dataTitile: string = 'LogUtils: Info => '): void => {
     LogUtils.console(data, dataTitile, LogUtils.infoColor)
   }
 
@@ -43,7 +43,7 @@ export default class LogUtils {
    * @param { any } data  打印的数据信息
    * @param { string } dataTitile  提示文案
    */
-  static logSuccess = (data: any, dataTitile: string = 'Sucsess ===>'): void => {
+  static logSuccess = (data: any, dataTitile: string = 'LogUtils: Sucsess => '): void => {
     LogUtils.console(data, dataTitile, LogUtils.successColor)
   }
 
@@ -52,8 +52,8 @@ export default class LogUtils {
    * @param { any } data  打印的数据信息
    * @param { string } dataTitile  提示文案
    */
-  static logError = (data: any, dataTitile: string = 'Error ===>'): void => {
-    console.error(`%c ${dataTitile}`, `color: ${LogUtils.errorColor}; font-weight: bold`, data)
+  static logError = (data: any, dataTitile: string = 'LogUtils: Error => '): void => {
+    LogUtils.console(data, dataTitile, LogUtils.errorColor)
   }
 
   /**
@@ -61,7 +61,7 @@ export default class LogUtils {
    * @param { any } data  打印的数据信息
    * @param { string } dataTitile  提示文案
    */
-  static logWarning = (data: any, dataTitile: string = 'Warning ===>'): void => {
+  static logWarning = (data: any, dataTitile: string = 'LogUtils: Warning => '): void => {
     LogUtils.console(data, dataTitile, LogUtils.warningColor)
   }
 
