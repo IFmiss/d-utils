@@ -1,3 +1,6 @@
+/**
+ * 设备
+ */
 export default class DeviceUtils {
   /**
    * @description 浏览器 信息 window.navigator.userAgent
@@ -21,33 +24,30 @@ export default class DeviceUtils {
   /**
    * @description 判断是否是移动端
    * @return { Boolean } 返回是否是移动端的布尔值
-   * @link https://ifmiss.github.io/d-js-utils/#/lib/_device?id=ismobile
    * @example
-   * Dutils.device.isMobile() // false
+   * DeviceUtils.isMobile() // false
    */
-  static isMobile = (): boolean => {
+  static isMobile (): boolean {
     return DeviceUtils.EXP_ISMOBILE.test(DeviceUtils.ua)
   }
 
   /**
    * @description 判断是否是IOS操作系统
    * @return { Boolean } 返回是否是IOS的布尔值
-   * @link https://ifmiss.github.io/d-js-utils/#/lib/_device?id=isios
    * @example
-   * Dutils.device.isIOS() // false
+   * DeviceUtils.isIOS() // false
    */
-  static isIOS = (): boolean => {
+  static isIOS (): boolean {
     return DeviceUtils.EXP_IOS.test(DeviceUtils.ua)
   }
 
   /**
    * @description 判断是否是Android操作系统
    * @return { Boolean } 返回是否是Android的布尔值
-   * @link https://ifmiss.github.io/d-js-utils/#/lib/_device?id=isandroid
    * @example
-   * Dutils.device.isAndroid() // false
+   * DeviceUtils.isAndroid() // false
    */
-  static isAndroid = (): boolean => {
+  static isAndroid (): boolean {
     return DeviceUtils.ua.indexOf('Android') > -1 ||
            DeviceUtils.ua.indexOf('Adr') > -1
   }
@@ -55,13 +55,12 @@ export default class DeviceUtils {
   /**
    * @description 横竖屏的判断,如果是横屏幕显示,显示dom提示竖屏显示
    * @param { String } 提示内容
-   * @link https://ifmiss.github.io/d-js-utils/#/lib/_device?id=checklayoutorientation
    * @example
-   * Dutils.device.checkLayoutOrientation() // 横屏时候提示 请旋转屏幕，以达到更好的浏览效果
+   * DeviceUtils.checkLayoutOrientation() // 横屏时候提示 请旋转屏幕，以达到更好的浏览效果
    * @example
-   * Dutils.device.checkLayoutOrientation('请竖直使用手机') // 横屏时候提示 请竖直使用手机
+   * DeviceUtils.checkLayoutOrientation('请竖直使用手机') // 横屏时候提示 请竖直使用手机
    */
-  static checkLayoutOrientation = (text: string = '请旋转屏幕，以达到更好的浏览效果'): void => {
+  static checkLayoutOrientation (text: string = '请旋转屏幕，以达到更好的浏览效果'): void {
     if (!window.hasOwnProperty('orientation')) return
     let ele: any = null
     // 0 和 360 的时候是竖屏
@@ -105,12 +104,11 @@ export default class DeviceUtils {
 
   /**
    * @description 移动端REM的初始化js的方法，默认基于750的设计稿，可以限制最大显示宽度, 超出需要isFullOverMax 判断是否全屏幕显示, 不全屏则是body居中
-   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=initRem
    * @param { number }  BaseWidth   基础的设计稿宽度        默认750
    * @param { number }  MaxWidth    移动端最大的比例宽度点   默认document.body.clientWidth
    * @param { boolean } isFullOverMax   超出{MaxWidth}最大宽度的时候是否居中显示(body居中的前提是超出设定的宽度以及isFullOverMax=false) 默认false
    * @example
-   * Dutils.utils.initRem()
+   * DeviceUtils.initRem()
    */
   static initRem = (BaseWidth: number = 750, MaxWidth: number = document.body.clientWidth, isFullOverMax: boolean = false): void => {
     const r:any = {}
