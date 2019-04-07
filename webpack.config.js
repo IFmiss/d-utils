@@ -1,8 +1,8 @@
 const webpack = require('webpack'); 	// 用于访问内置插件
 const path = require('path');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin({
     filename: "css/[name]-[hash].css",
@@ -16,13 +16,13 @@ const resolve = function (dir) {
 module.exports = {
 	entry: {
 		// 这里只是编译的时候用的
-		index: './src/index.ts'
-		// index: './src/lib/index.js'
+		// index: './src/index.ts'
+		index: './src/lib/index.ts'
 	},
 	output: {
 		path: path.resolve(__dirname, 'libs'),
 		publicPath: '',
-		filename: 'd-utils.js',
+		filename: '[name].js',
 		libraryTarget: 'umd',
 		library: 'Dutils',
 		libraryExport: 'default'
@@ -110,12 +110,15 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new HtmlWebpackPlugin ({
-			filename: 'index.html',
-			template: 'index.html',
-			inject: true
-		}),
-		extractSass
+		// new HtmlWebpackPlugin ({
+		// 	filename: 'index.html',
+		// 	template: 'index.html',
+		// 	inject: true
+		// }),
+		extractSass,
+		new CleanWebpackPlugin({
+			verbose: false
+    })
 	],
 	devServer: {
 		// 当使用 HTML5 History API 时，任意的 404 响应都可能需要被替代为 index.html。通过传入以下启用：
@@ -137,7 +140,7 @@ module.exports = {
 			'script': resolve('src/script'),
 			'static': resolve('static'),
 		},
-		extensions: ['.ts', '.tsx', '.js'],
+		extensions: ['.ts', '.tsx', '.js', '.d.ts'],
     modules: ['src' ,'node_modules']
 	},
 	optimization: {

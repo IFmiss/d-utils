@@ -1,19 +1,26 @@
 {
   "compilerOptions": {
-    "target": "es6", 
+    "target": "es5", 
     "module": "commonjs",
     "removeComments": false,
-    "outDir": "./dist/",
+    "declaration": true,
+    "outDir": "./",
+    // "declarationDir": "./dist/types/",
+    "baseUrl": "./",
+    "jsx": "react",
+    "allowJs": false,
+    // "typeRoots": [
+    //   "./node_modules/@types"
+    // ],
     "lib": [
       "dom",
       "es2015"
     ],
-    "sourceMap": true,
-    "noImplicitAny": false,
-    "allowJs": true
+    "sourceMap": false,
+    "noImplicitAny": false
   },
   "files": [
-    "./src/index.ts"
+    "./src/lib/index.ts"
   ],
   "include": [
     "src/**/*.ts"

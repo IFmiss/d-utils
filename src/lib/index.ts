@@ -10,7 +10,7 @@ import utils from './genericUtils/index'
 // 数据存储类
 import store from './storeUtils/index'
 // 验证类
-import exp from './exp'
+// import exp from './exp'
 // 设备信息类
 import device from './deviceUtils/index'
 // 注解
@@ -34,14 +34,13 @@ export const UrlParse = url
 export const WeixinUtils = weixin
 
 export default {
-  dom,
-  utils,
-  store,
-  exp,
-  device,
-  decorator,
-  log,
-  weixin,
-  performance,
-  url
+  DomUtils: dom,
+  GenericUtils: utils,
+  StoreUtils: store,
+  // exp,
+  DeviceUtils: device,
+  LogUtils: log,
+  WeixinUtils: weixin,
+  PerformanceUtils: performance,
+  UrlParse: url
 }
