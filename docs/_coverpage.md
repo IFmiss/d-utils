@@ -1,8 +1,8 @@
-# d-js-utils typescript <small>1.1.0</small>
+# d-js-utils <small>2.0</small>
 
 > 通用js收集，方便日后使用和查阅
 
-* 原生js，多种类型方法，工具函数
+* 基于TypeScript，多种类型方法，工具函数
 
 [GitHub](https://github.com/d-js-utils/)
 [Get Started](/other/_about.md)
