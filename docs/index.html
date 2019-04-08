@@ -27,7 +27,7 @@
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md'
       },
-      repo: 'https://github.com/ifmiss/d-js-utils/tree/typescript/',
+      repo: 'https://github.com/ifmiss/d-js-utils/',
       maxLevel: 4,
       subMaxLevel: 2,
       search: {
@@ -60,7 +60,7 @@
                 .replace('raw.githubusercontent.com', 'github.com')
                 .replace(/\/master/, '/blob/master')
             } else {
-              url = 'https://github.com/ifmiss/d-js-utils/blob/master/docs/' + vm.route.file
+              url = 'https://github.com/ifmiss/d-js-utils/blob/typescript/docs/' + vm.route.file
             }
             var editHtml = '[:memo: Edit Document](' + url + ')\n'
             return editHtml
