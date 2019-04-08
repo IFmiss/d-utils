@@ -1,3 +1,6 @@
+/**
+ * 网页性能监测
+ */
 export default class PerformanceUtils {
   /**
    * @description window.performance对象
@@ -14,7 +17,7 @@ export default class PerformanceUtils {
    * @description timing.domainLookupEnd - timing.domainLookupStart
    * @returns { number } 时差 单位：ms
    */
-  static dnsTime = (): number => {
+  static dnsTime (): number {
     return PerformanceUtils.timing.domainLookupEnd - PerformanceUtils.timing.domainLookupStart
   }
 
@@ -23,7 +26,7 @@ export default class PerformanceUtils {
    * @description timing.domLoading - timing.navigationStart
    * @returns { number } 时差 单位：ms
    */
-  static loadTime = (): number => {
+  static loadTime (): number {
     return PerformanceUtils.timing.domLoading - PerformanceUtils.timing.navigationStart
   }
 
@@ -32,7 +35,7 @@ export default class PerformanceUtils {
    * @description timing.responseEnd - timing.responseStart
    * @returns { number } 时差 单位：ms
    */
-  static requestTime = (): number => {
+  static requestTime (): number {
     return PerformanceUtils.timing.responseEnd - PerformanceUtils.timing.responseStart
   }
 
@@ -41,7 +44,7 @@ export default class PerformanceUtils {
    * @description timing.connectEnd - timing.connectStart
    * @returns { number } 时差 单位：ms
    */
-  static tcpTime = (): number => {
+  static tcpTime (): number {
     return PerformanceUtils.timing.connectEnd - PerformanceUtils.timing.connectStart
   }
 
@@ -50,7 +53,7 @@ export default class PerformanceUtils {
    * @description timing.domComplete - timing.domInteractive
    * @returns { number } 时差 单位：ms
    */
-  static renderDomTime = (): number => {
+  static renderDomTime (): number {
     return PerformanceUtils.timing.domComplete - PerformanceUtils.timing.domInteractive
   }
 
@@ -59,7 +62,7 @@ export default class PerformanceUtils {
    * @description timing.domContentLoadedEventEnd - timing.navigationStart
    * @returns { number } 时差 单位：ms
    */
-  static readyDomTime = (): number => {
+  static readyDomTime (): number {
     return PerformanceUtils.timing.domContentLoadedEventEnd - PerformanceUtils.timing.navigationStart
   }
 
@@ -68,7 +71,7 @@ export default class PerformanceUtils {
    * @description timing.loadEventEnd - timing.navigationStart
    * @returns { number } 时差 单位：ms
    */
-  static loadFullTime = (): number => {
+  static loadFullTime (): number {
     return PerformanceUtils.timing.loadEventEnd - PerformanceUtils.timing.navigationStart
   }
 }

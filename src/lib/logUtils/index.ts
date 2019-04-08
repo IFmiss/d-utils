@@ -1,3 +1,6 @@
+/**
+ * 日志的打印封装
+ */
 export default class LogUtils {
   /**
    * 提示色  '#0099FF'   蓝色
@@ -24,8 +27,10 @@ export default class LogUtils {
    * @param { any } data  打印的数据信息
    * @param { string } dataTitile  提示文案
    * @param { string } color  颜色
+   * @example
+   * LogUtils.console(window.screen, 'window:', 'red')
    */
-  static console = (data: any, dataTitile: string = '数据信息', color: string = '#9E9E9E'): void => {
+  static console (data: any, dataTitile: string = '数据信息', color: string = '#9E9E9E'): void {
     console.log(`%c ${dataTitile}`, `color: ${color}; font-weight: bold`, data)
   }
 
@@ -33,8 +38,10 @@ export default class LogUtils {
    * logInfo提示信息
    * @param { any } data  打印的数据信息
    * @param { string } dataTitile  提示文案
+   * @example
+   * LogUtils.logInfo('date', 'logInfo')
    */
-  static logInfo = (data: any, dataTitile: string = 'Info ===>'): void => {
+  static logInfo (data: any, dataTitile: string = 'LogUtils: Info => '): void {
     LogUtils.console(data, dataTitile, LogUtils.infoColor)
   }
 
@@ -42,8 +49,10 @@ export default class LogUtils {
    * logSuccess提示信息
    * @param { any } data  打印的数据信息
    * @param { string } dataTitile  提示文案
+   * @example
+   * LogUtils.logInfo('date', 'logSuccess')
    */
-  static logSuccess = (data: any, dataTitile: string = 'Sucsess ===>'): void => {
+  static logSuccess (data: any, dataTitile: string = 'LogUtils: Sucsess => '): void {
     LogUtils.console(data, dataTitile, LogUtils.successColor)
   }
 
@@ -51,17 +60,21 @@ export default class LogUtils {
    * logError提示信息
    * @param { any } data  打印的数据信息
    * @param { string } dataTitile  提示文案
+   * @example
+   * LogUtils.logInfo('date', 'logError')
    */
-  static logError = (data: any, dataTitile: string = 'Error ===>'): void => {
-    console.error(`%c ${dataTitile}`, `color: ${LogUtils.errorColor}; font-weight: bold`, data)
+  static logError (data: any, dataTitile: string = 'LogUtils: Error => '): void {
+    LogUtils.console(data, dataTitile, LogUtils.errorColor)
   }
 
   /**
    * logWarning提示信息
    * @param { any } data  打印的数据信息
    * @param { string } dataTitile  提示文案
+   * @example
+   * LogUtils.logInfo('date', 'logWarning')
    */
-  static logWarning = (data: any, dataTitile: string = 'Warning ===>'): void => {
+  static logWarning (data: any, dataTitile: string = 'LogUtils: Warning => '): void {
     LogUtils.console(data, dataTitile, LogUtils.warningColor)
   }
 
@@ -71,16 +84,15 @@ export default class LogUtils {
    * @param { Object } options 配置项，对象，大小背景，和背景颜色设置
    * @property { Boolean } isMax 是否是较大显示console的高度，如果console的内容较多建议设置为false 默认为小格式
    * @property { Array } colors 背景色列表，是一个从左向右渐变的过程
-   * @link https://ifmiss.github.io/d-js-utils/#/lib/_utils?id=console
    * @example
-   * Dutils.utils.logBeauty('hello world')
+   * LogUtils.logBeauty('hello world')
    * @example
-   * Dutils.utils.logBeauty('这是一个console的方法，可以设置背景色的哦', {
+   * LogUtils.logBeauty('这是一个console的方法，可以设置背景色的哦', {
    *  isMax: false,
    *  colors: ['#fa709a', '#fee140', '#ffb199']
    * })
    */
-  static logBeauty = (text: string = '未曾遗忘的青春', options?: any): void => {
+  static logBeauty (text: string = '未曾遗忘的青春', options?: any): void {
     if (options && typeof options !== 'object') throw new TypeError(`options is an object, but found ${typeof options}`)
     let data = {
       isMax: false,
