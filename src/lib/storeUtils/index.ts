@@ -1,3 +1,4 @@
+import LogUtils from './../logUtils/index'
 /**
  * 数据的操作存储以及数据处理
  */
@@ -82,7 +83,10 @@ export default class StoreUtils {
     const newArr = Array.from(new Set(arr))
     const l = newArr.length
     const resultArr = new Array()
-    if (!(num > 0)) throw new Error('数量必须大于0')
+    if (!(num > 0)) {
+      LogUtils.logError(`数量必须大于0`, 'StoreUtils.randomDataFromArr => error')
+      return
+    }
     if (newArr) {
       for (let i = 0; i < (num > l ? l : num) ; i++) {
         let index = Math.floor(Math.random() * newArr.length)

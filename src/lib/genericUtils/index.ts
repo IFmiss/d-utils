@@ -1,3 +1,4 @@
+import LogUtils from './../logUtils/index'
 /**
  * 通用工具类
  */
@@ -84,7 +85,10 @@ export default class GenericUtils {
    * console(GenericUtils.calcStringLength(str, true))
    */
   static calcStringLength (str: string, isStrict: boolean): number {
-    if (typeof str !== 'string') throw new TypeError (`str must be string but found ${typeof str}`)
+    if (typeof str !== 'string') {
+      LogUtils.logError(`str must be string but found ${typeof str}`, 'GenericUtils.calcStringLength => error')
+      return
+    }
     if (!isStrict) return str.length
     let a = 0
     for (let i = 0; i < str.length; i++ ) {
@@ -115,7 +119,10 @@ export default class GenericUtils {
    * GenericUtils.strTrim(str, 3)
    */
   static strTrim (str: string, type: number = 0): string {
-    if (typeof str !== 'string') throw new TypeError (`str must be string but found ${typeof str}`)
+    if (typeof str !== 'string') {
+      LogUtils.logError(`str must be string but found ${typeof str}`, 'GenericUtils.strTrim => error')
+      return
+    }
     switch (type) {
     case 0:
       return str.replace(/(^\s*)|(\s*$)/g, '')
@@ -146,7 +153,10 @@ export default class GenericUtils {
    * }, 1000)
    */
   static throttle (fn: Function, t = 1000): any {
-    if (typeof fn !== 'function') throw new Error('第一个参数必须是方法')
+    if (typeof fn !== 'function') {
+      LogUtils.logError(`第一个参数必须是方法`, 'GenericUtils.throttle => error')
+      return
+    }
     const _fn = fn
     let time: any = null
     let first = true
@@ -184,7 +194,10 @@ export default class GenericUtils {
    * }, 1000)
    */
   static debounce (fn: Function, t: number, immediate = true): any {
-    if (typeof fn !== 'function') throw new Error('第一个参数必须是方法')
+    if (typeof fn !== 'function') {
+      LogUtils.logError(`第一个参数必须是方法`, 'GenericUtils.debounce => error')
+      return
+    }
     let time: any
     //  立刻执行第一次该方法
     if (immediate) {

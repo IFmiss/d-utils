@@ -1,4 +1,4 @@
-import DeviceUtils from './../deviceUtils/index'
+import ExpUtils from './../expUtils/index'
 import LogUtils from './../logUtils/index'
 const wx = require('weixin-js-sdk')
 /**
@@ -14,8 +14,8 @@ export default class WeixinUtils {
    * @returns 返回获取jssdk的url参数值
    */
   static sdkUrlIosOrAndorid (): string {
-    while (DeviceUtils.isIOS() ||
-          (DeviceUtils.isAndroid() && !WeixinUtils.isUpThanWxVersion('6.3.31'))) {
+    while (ExpUtils.isIOS() ||
+          (ExpUtils.isAndroid() && !WeixinUtils.isUpThanWxVersion('6.3.31'))) {
           if (window.__D_UTILS_WX_FIRST_URL_HOOK__) {
             return window.__D_UTILS_WX_FIRST_URL_HOOK__
           }

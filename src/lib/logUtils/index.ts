@@ -15,12 +15,12 @@ export default class LogUtils {
   /**
    * 提示色  '#CC3366'   红色
    */
-  static errorColor: string = '#CC3366'
+  static errorColor: string = '#CC0000'
 
   /**
    * 提示色  '#CC9966'   黄色
    */
-  static warningColor: string = '#CC9966'
+  static warningColor: string = '#FF9966'
 
   /**
    * console提示信息

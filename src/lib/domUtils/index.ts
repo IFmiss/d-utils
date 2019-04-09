@@ -1,3 +1,4 @@
+import LogUtils from './../logUtils/index'
 export default class DomUtils {
   /**
 	 * @description 判断元素是否存在某个class类
@@ -61,8 +62,14 @@ export default class DomUtils {
    * DomUtils.computedStyle(document.body, 'width')
    */
   static computedStyle (el: any, cssProp: any): void {
-    if (!el) throw new Error('dom元素不存在')
-    if (!cssProp) throw new Error('请输入需要查询的css属性名称')
+    if (!el) {
+      LogUtils.logError('dom元素不存在', 'DomUtils.computedStyle => error')
+      return
+    }
+    if (!cssProp) {
+      LogUtils.logError('请输入需要查询的css属性名称', 'DomUtils.computedStyle => error')
+      return
+    }
     return document.defaultView.getComputedStyle ? document.defaultView.getComputedStyle(el, '')[cssProp] : el.currentStyle[cssProp]
   }
 

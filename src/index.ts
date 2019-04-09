@@ -9,14 +9,9 @@ import './style.scss'
 import { PerformanceUtils } from './lib/index'
 import { DeviceUtils } from './lib/index'
 import { StoreUtils } from './lib/index'
-import { LogUtils, GenericUtils, UrlParse, WeixinUtils } from './lib/index'
-
+import { LogUtils, GenericUtils, UrlParse, WeixinUtils, ExpUtils, HttpRequestUtils } from './lib/index'
+import { axiosConfig } from './lib/httpRequestUtils/axiosConfig'
 import Dutils from './lib/index'
-// console.log(DomUtils)
-console.log(PerformanceUtils.timing)
-console.log(DeviceUtils.EXP_IOS)
-console.log(DeviceUtils.isIOS())
-console.log(DeviceUtils.isAndroid())
 DeviceUtils.checkLayoutOrientation()
 
 console.log(Dutils.GenericUtils)
@@ -36,20 +31,24 @@ document.getElementById('title').onclick = GenericUtils.debounce(function () {
 document.getElementById('username').onclick = GenericUtils.throttle(function () {
   console.log('你点击了一次')
 }, 1000)
-WeixinUtils.initWxConfig({
-  debug: true,
-  appId: '1111',
-  timestamp: '123123123',
-  nonceStr: '123123123123',
-  signature: '23123123',
-  jsApiList: ['onMenuShareAppMessage']
-})
-WeixinUtils.wxShare({
-  title: '111',
-  desc: '2222',
-  link: '44444'
-}).then(() => {
-  alert('success')
-}).catch(() => {
-  alert('error')
-})
+console.log(ExpUtils.isObject({'a': 12}))
+ExpUtils.isEmptyObject(1)
+HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php?inAjax=1&do=isNeedUpdate')
+// ExpUtils.isPhoneNum(1)
+// WeixinUtils.initWxConfig({
+//   debug: true,
+//   appId: '1111',
+//   timestamp: '123123123',
+//   nonceStr: '123123123123',
+//   signature: '23123123',
+//   jsApiList: ['onMenuShareAppMessage']
+// })
+// WeixinUtils.wxShare({
+//   title: '111',
+//   desc: '2222',
+//   link: '44444'
+// }).then(() => {
+//   alert('success')
+// }).catch(() => {
+//   alert('error')
+// })

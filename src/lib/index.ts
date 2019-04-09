@@ -1,6 +1,6 @@
 /**
  * @author ifmiss
- * @version 1.1.0
+ * @version 2.0
  * @description 关于通用js的收录以及整合方便日后使用
  */
 // dom操作
@@ -10,7 +10,7 @@ import utils from './genericUtils/index'
 // 数据存储类
 import store from './storeUtils/index'
 // 验证类
-// import exp from './exp'
+import exp from './expUtils/index'
 // 设备信息类
 import device from './deviceUtils/index'
 // 注解
@@ -23,6 +23,8 @@ import performance from './performanceUtils/index'
 import log from './logUtils/index'
 // url相关
 import url from './urlUtils/index'
+// http相关
+import http from './httpRequestUtils/index'
 
 export const DomUtils = dom
 export const PerformanceUtils = performance
@@ -32,15 +34,18 @@ export const LogUtils = log
 export const GenericUtils = utils
 export const UrlParse = url
 export const WeixinUtils = weixin
+export const ExpUtils = exp
+export const HttpRequestUtils = http
 
 export default {
   DomUtils: dom,
   GenericUtils: utils,
   StoreUtils: store,
-  // exp,
+  ExpUtils: exp,
   DeviceUtils: device,
   LogUtils: log,
   WeixinUtils: weixin,
   PerformanceUtils: performance,
-  UrlParse: url
+  UrlParse: url,
+  HttpRequestUtils: http
 }

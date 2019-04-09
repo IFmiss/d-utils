@@ -3,56 +3,6 @@
  */
 export default class DeviceUtils {
   /**
-   * @description 浏览器 信息 window.navigator.userAgent
-   */
-  static ua = window.navigator.userAgent
-
-  /**
-   * @description 正则表达式 判断是否为移动设备
-   */
-  static EXP_ISMOBILE = /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
-
-  /**
-   * @description 正则表达式 判断是否为IOS设备
-   */
-  static EXP_IOS = /(iPhone|iPad|iPod|iOS)/i
-
-  // ==============================================
-  // =========== 以下是方法  以上是属性 ===========
-  // ==============================================
-
-  /**
-   * @description 判断是否是移动端
-   * @return { Boolean } 返回是否是移动端的布尔值
-   * @example
-   * DeviceUtils.isMobile() // false
-   */
-  static isMobile (): boolean {
-    return DeviceUtils.EXP_ISMOBILE.test(DeviceUtils.ua)
-  }
-
-  /**
-   * @description 判断是否是IOS操作系统
-   * @return { Boolean } 返回是否是IOS的布尔值
-   * @example
-   * DeviceUtils.isIOS() // false
-   */
-  static isIOS (): boolean {
-    return DeviceUtils.EXP_IOS.test(DeviceUtils.ua)
-  }
-
-  /**
-   * @description 判断是否是Android操作系统
-   * @return { Boolean } 返回是否是Android的布尔值
-   * @example
-   * DeviceUtils.isAndroid() // false
-   */
-  static isAndroid (): boolean {
-    return DeviceUtils.ua.indexOf('Android') > -1 ||
-           DeviceUtils.ua.indexOf('Adr') > -1
-  }
-
-  /**
    * @description 横竖屏的判断,如果是横屏幕显示,显示dom提示竖屏显示
    * @param { String } 提示内容
    * @example
