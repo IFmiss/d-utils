@@ -33,7 +33,9 @@ document.getElementById('username').onclick = GenericUtils.throttle(function () 
 }, 1000)
 console.log(ExpUtils.isObject({'a': 12}))
 ExpUtils.isEmptyObject(1)
-HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php?inAjax=1&do=isNeedUpdate')
+HttpRequestUtils.init().post('http://www.daiwei.org/vue/server/home.php?inAjax=1&do=updataTipsInfo', {
+  tipsName: '上班族'
+})
 // ExpUtils.isPhoneNum(1)
 // WeixinUtils.initWxConfig({
 //   debug: true,
