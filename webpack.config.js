@@ -16,7 +16,7 @@ const resolve = function (dir) {
 module.exports = {
 	entry: {
 		// 这里只是编译的时候用的
-		index: './src/index.ts'
+		index: './src/index.js'
 		// index: './src/lib/index.js'
 	},
 	output: {
