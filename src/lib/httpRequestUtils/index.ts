@@ -32,8 +32,9 @@ export default class HttpRequestUtils {
    * @return { Function } HttpRequestUtils 返回一个构造函数
    */
   static init (fn?: Function): any {
+    LogUtils.logInfo('https://github.com/IFmiss/d-js-utils/blob/typescript/src/lib/httpRequestUtils/axiosConfig.ts',
+                       `HttpRequestUtils.init 需要自定义aixos的响应拦截以及基本配置 =>`)
     if (fn && typeof fn === 'function') {
-      LogUtils.logInfo('需要自定义aixos的响应拦截以及基本配置: http://www.daiwei.org', `HttpRequestUtils.init => info`)
       fn.call(null, axios, HttpRequestUtils)
       return HttpRequestUtils
     }
@@ -46,7 +47,7 @@ export default class HttpRequestUtils {
    * @param { string } url 请求的url
    * @param { object } config 相关axios的配置信息
    */
-  static get (url: string, config?: AxiosRequestConfig): Promise<any> | void {
+  static get (url: string, config?: AxiosRequestConfig): Promise<any> {
     if (!HttpRequestUtils.isInit) {
       LogUtils.logError('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作', `http-request: => error`)
       return
@@ -54,10 +55,10 @@ export default class HttpRequestUtils {
     LogUtils.logWarning('请求开始', `http-request: [get] start => ${url}`)
     axios.get(url, config).then((res: any) => {
       LogUtils.logSuccess(res, `http-request: [get] success => ${url}`)
-      Promise.resolve(res)
+      return Promise.resolve(res)
     }).catch((e: any) => {
       LogUtils.logError(e, `http-request: [get] error => ${url}`)
-      Promise.reject(e)
+      return Promise.reject(e)
     }).finally(() => {
       LogUtils.logInfo('请求结束', `http-request: [get] complete => ${url}`)
     })
@@ -69,7 +70,7 @@ export default class HttpRequestUtils {
    * @param { object } data 请求的参数
    * @param { object } config 相关axios的配置信息
    */
-  static post (url: string, data?: any, config?: AxiosRequestConfig): Promise<any> | void {
+  static post (url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
     if (!HttpRequestUtils.isInit) {
       LogUtils.logError('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作', `http-request: => error`)
       return
@@ -78,10 +79,10 @@ export default class HttpRequestUtils {
     LogUtils.logWarning('请求开始', `http-request: [post] start => ${url}`)
     axios.post(url, postInfo).then((res: any) => {
       LogUtils.logSuccess(res, `http-request: [post] success => ${url}`)
-      Promise.resolve(res)
+      return Promise.resolve(res)
     }).catch((e: any) => {
       LogUtils.logError(e, `http-request: [post] error => ${url}`)
-      Promise.reject(e)
+      return Promise.reject(e)
     }).finally(() => {
       LogUtils.logInfo('请求结束', `http-request: [post] complete => ${url}`)
     })
