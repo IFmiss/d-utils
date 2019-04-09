@@ -25,6 +25,8 @@ import log from './logUtils/index'
 import url from './urlUtils/index'
 // http相关
 import http from './httpRequestUtils/index'
+// 图片合成操作
+import img from './imageUtils/index'
 
 export const DomUtils = dom
 export const PerformanceUtils = performance
@@ -36,6 +38,7 @@ export const UrlParse = url
 export const WeixinUtils = weixin
 export const ExpUtils = exp
 export const HttpRequestUtils = http
+export const ImageUtils = img
 
 export default {
   DomUtils: dom,
@@ -47,5 +50,6 @@ export default {
   WeixinUtils: weixin,
   PerformanceUtils: performance,
   UrlParse: url,
-  HttpRequestUtils: http
+  HttpRequestUtils: http,
+  ImageUtils: img
 }
