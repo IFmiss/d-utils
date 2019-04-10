@@ -4,8 +4,8 @@
     "module": "commonjs",
     "removeComments": false,
     "declaration": true,
-    "outDir": "./",
-    // "declarationDir": "./dist/types/",
+    "outDir": "./typescript",
+    "declarationDir": "./lib",
     "baseUrl": "./",
     "jsx": "react",
     "allowJs": false,
@@ -23,7 +23,7 @@
     "./src/lib/index.ts"
   ],
   "include": [
-    "src/**/*.ts"
+    "src/lib/*.ts"
   ],
   "exclude": [
     "node_modules"

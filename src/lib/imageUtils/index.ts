@@ -16,14 +16,29 @@ export default class ImageUtils {
    */
   pr: number = window.devicePixelRatio
 
+  /**
+   * 基于当前屏幕的比例
+   */
   persent: number = 1
 
+  /**
+   * canvas的元素
+   */
   canvas: any = null
 
+  /**
+   * 合并的背景地址
+   */
   bgSrc: string = ''
 
+  /**
+   * canvas的宽度  实际上数合并背景的宽度
+   */
   canvasWidth: number = 0
 
+  /**
+   * canvas的高度  实际上数合并背景的高度
+   */
   canvasHeight: number = 0
 
   /**

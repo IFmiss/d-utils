@@ -1,53 +1,53 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-require("./style.scss");
 /**
  * @author ifmiss
- * @version 1.1.0
+ * @version 2.0
  * @description 关于通用js的收录以及整合方便日后使用
  */
 // dom操作
-// import { DomUtils } from './../dist/lib/index'
-var index_1 = require("./lib/index");
-var index_2 = require("./lib/index");
-var index_3 = require("./lib/index");
-var index_4 = require("./lib/index");
-// console.log(DomUtils)
-console.log(index_1.PerformanceUtils.timing);
-console.log(index_2.DeviceUtils.EXP_IOS);
-console.log(index_2.DeviceUtils.isIOS());
-console.log(index_2.DeviceUtils.isAndroid());
-index_2.DeviceUtils.checkLayoutOrientation();
-console.log(index_4.default.GenericUtils);
-console.log(index_3.GenericUtils.notification);
-console.log(index_3.GenericUtils.formatDate('yyyy-MM-dd', new Date()));
-index_3.LogUtils.logInfo(window.screen);
-index_3.LogUtils.logSuccess(window.screen);
-index_3.LogUtils.logError(window.screen);
-index_3.LogUtils.logWarning(111);
-index_3.LogUtils.logBeauty('-----------------');
-console.log(index_3.UrlParse);
-console.log(index_3.WeixinUtils.plantSdkUrlIosOrAndorid());
-document.getElementById('title').onclick = index_3.GenericUtils.debounce(function () {
-    console.log('你点击了一次');
-}, 1000);
-document.getElementById('username').onclick = index_3.GenericUtils.throttle(function () {
-    console.log('你点击了一次');
-}, 1000);
-index_3.WeixinUtils.initWxConfig({
-    debug: true,
-    appId: '1111',
-    timestamp: '123123123',
-    nonceStr: '123123123123',
-    signature: '23123123',
-    jsApiList: ['onMenuShareAppMessage']
-});
-index_3.WeixinUtils.wxShare({
-    title: '111',
-    desc: '2222',
-    link: '44444'
-}).then(function () {
-    alert('success');
-}).catch(function () {
-    alert('error');
-});
+var index_1 = require("./domUtils/index");
+// 工具类
+var index_2 = require("./genericUtils/index");
+// 数据存储类
+var index_3 = require("./storeUtils/index");
+// 验证类
+var index_4 = require("./expUtils/index");
+// 设备信息类
+var index_5 = require("./deviceUtils/index");
+// 微信相关
+var index_6 = require("./weixinUtils/index");
+// 性能
+var index_7 = require("./performanceUtils/index");
+// 打印
+var index_8 = require("./logUtils/index");
+// url相关
+var index_9 = require("./urlUtils/index");
+// http相关
+var index_10 = require("./httpRequestUtils/index");
+// 图片合成操作
+var index_11 = require("./imageUtils/index");
+exports.DomUtils = index_1.default;
+exports.PerformanceUtils = index_7.default;
+exports.DeviceUtils = index_5.default;
+exports.StoreUtils = index_3.default;
+exports.LogUtils = index_8.default;
+exports.GenericUtils = index_2.default;
+exports.UrlParse = index_9.default;
+exports.WeixinUtils = index_6.default;
+exports.ExpUtils = index_4.default;
+exports.HttpRequestUtils = index_10.default;
+exports.ImageUtils = index_11.default;
+exports.default = {
+    DomUtils: index_1.default,
+    GenericUtils: index_2.default,
+    StoreUtils: index_3.default,
+    ExpUtils: index_4.default,
+    DeviceUtils: index_5.default,
+    LogUtils: index_8.default,
+    WeixinUtils: index_6.default,
+    PerformanceUtils: index_7.default,
+    UrlParse: index_9.default,
+    HttpRequestUtils: index_10.default,
+    ImageUtils: index_11.default
+};

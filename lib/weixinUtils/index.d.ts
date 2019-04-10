@@ -1,3 +1,7 @@
+/**
+ * 微信相关的工具
+ * 微信jssdk的操作
+ */
 export default class WeixinUtils {
     static wxInfo: any;
     /**
@@ -6,17 +10,17 @@ export default class WeixinUtils {
      * 当前这种只支持与VUE单页面模式
      * @returns 返回获取jssdk的url参数值
      */
-    static sdkUrlIosOrAndorid: () => string;
+    static sdkUrlIosOrAndorid(): string;
     /**
      * @description IOS 或者 Android 微信版本小于6.3.31 需要种植首次进入页面的URL，用于解决微信签名错误
      */
-    static plantSdkUrlIosOrAndorid: () => void;
+    static plantSdkUrlIosOrAndorid(): void;
     /**
      * @description 是否高于微信某一个版本
      * @param { String } version
      * @returns { Boolean } 返回是否满足条件
      */
-    static isUpThanWxVersion: (version: string) => boolean;
+    static isUpThanWxVersion(version: string): boolean;
     /**
      * @description 初始化微信配置签名
      * @param { Object } data  微信的签名配置
@@ -28,7 +32,7 @@ export default class WeixinUtils {
      * @props { Array } data.jsApiList  必填，需要使用的JS接口列表
      * @link 接口列表地址 https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
      */
-    static initWxConfig: (data: any) => void;
+    static initWxConfig(data: any): void;
     /**
      * @description 微信分享初始化
      * @param { Object } sharInfo  分享的内容
@@ -37,5 +41,5 @@ export default class WeixinUtils {
      * @param { String } sharInfo.link 分享链接
      * @param { String } sharInfo.imgUrl 分享图标
      */
-    static wxShare: (sharInfo: any) => Promise<any>;
+    static wxShare(sharInfo: any): Promise<any>;
 }

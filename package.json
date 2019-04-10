@@ -1,11 +1,12 @@
 {
   "name": "@dw/d-utils",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "description": "d-utils",
   "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build:tsc": "tsc",
+    "build": "webpack --mode production && tsc",
     "dev": "webpack-dev-server --mode development --progress --colors",
     "watch": "webpack --progress --colors --watch",
     "publish": "npm publish --access=public"
