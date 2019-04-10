@@ -36,32 +36,33 @@ ExpUtils.isEmptyObject(1)
 HttpRequestUtils.init().get('http://www.daiwei.org/vue/server/home.php?inAjax=1&do=updataTipsInfo', {
 })
 
-// const imageCanvas = new ImageUtils()
-// imageCanvas.bgSrc = 'http://www.bing.com/th?id=OHR.BlueTide_ZH-CN4055424992_1920x1080.jpg'
-// imageCanvas.persent = 0.5
-// imageCanvas.initCanvas(document.getElementById('canvas'))
-// .then((context) => {
-//   console.log(context)
-//   imageCanvas.printImage({
-//     src: 'http://www.bing.com/th?id=OHR.BlueTide_ZH-CN4055424992_1920x1080.jpg',
-//     with: 0.1,
-//     height: 0.1,
-//     left: 0.1,
-//     top: 0.1,
-//     needRound: false
-//   }).then(() => {
-//     imageCanvas.printImage({
-//       src: 'http://www.bing.com/th?id=OHR.BlueTide_ZH-CN4055424992_1920x1080.jpg',
-//       with: 0.2,
-//       height: 0.2,
-//       left: 0.2,
-//       top: 0.2,
-//       needRound: true
-//     }).then(() => {
-//       console.log(imageCanvas.convertCanvasToImage(imageCanvas.canvas))
-//     })
-//   })
-// })
+const imageCanvas = new ImageUtils('http://www.bing.com/th?id=OHR.BlueTide_ZH-CN4055424992_1920x1080.jpg')
+imageCanvas.persent = 0.5
+imageCanvas.initCanvas()
+.then((context) => {
+  console.log(context)
+  imageCanvas.printImage({
+    content: 'http://www.bing.com/th?id=OHR.BlueTide_ZH-CN4055424992_1920x1080.jpg',
+    with: 0.1,
+    height: 0.1,
+    left: 0.1,
+    top: 0.1,
+    type: 'text',
+    needRound: false
+  }).then(() => {
+    imageCanvas.printImage({
+      content: 'http://www.bing.com/th?id=OHR.BlueTide_ZH-CN4055424992_1920x1080.jpg',
+      with: 0.2,
+      height: 0.2,
+      left: 0.2,
+      top: 0.2,
+      type: 'text',
+      needRound: true
+    }).then(() => {
+      console.log(imageCanvas.convertCanvasToImage(imageCanvas.canvas))
+    })
+  })
+})
 // ExpUtils.isPhoneNum(1)
 WeixinUtils.initWxConfig({
   debug: true,
