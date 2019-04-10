@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios'
 import LogUtils from './../logUtils/index'
+require('promise.prototype.finally').shim()
 /**
  * 网页请求的操作
  * axios
@@ -36,7 +37,6 @@ export default class HttpRequestUtils {
                        `HttpRequestUtils.init 需要自定义aixos的响应拦截以及基本配置 =>`)
     if (fn && typeof fn === 'function') {
       fn.call(null, axios, HttpRequestUtils)
-      return HttpRequestUtils
     }
     HttpRequestUtils.isInit = true
     return HttpRequestUtils
