@@ -36,7 +36,7 @@ export default class LogUtils {
      */
     static logInfo(data: any, dataTitile?: string): void;
     /**
-     * logSuccess提示信息
+     * logSuccess成功信息
      * @param { any } data  打印的数据信息
      * @param { string } dataTitile  提示文案
      * @example
@@ -44,7 +44,7 @@ export default class LogUtils {
      */
     static logSuccess(data: any, dataTitile?: string): void;
     /**
-     * logError提示信息
+     * logError失败信息
      * @param { any } data  打印的数据信息
      * @param { string } dataTitile  提示文案
      * @example
@@ -52,7 +52,7 @@ export default class LogUtils {
      */
     static logError(data: any, dataTitile?: string): void;
     /**
-     * logWarning提示信息
+     * logWarning警告信息
      * @param { any } data  打印的数据信息
      * @param { string } dataTitile  提示文案
      * @example

@@ -11,7 +11,7 @@ interface ImageInfo {
 }
 export default class ImageUtils {
     /**
-     * 图片显示比例
+     * 设备像素比
      */
     pr: number;
     /**
@@ -22,6 +22,10 @@ export default class ImageUtils {
      * canvas的元素
      */
     canvas: any;
+    /**
+     * context canvas 上下文
+     */
+    context: any;
     /**
      * 合并的背景地址
      */
@@ -36,16 +40,18 @@ export default class ImageUtils {
     canvasHeight: number;
     /**
      * 初始化canvas的设置
-     * @param canvas
+     * @param { Element } canvas  canvas 元素
+     * @return { Promise } 返回
      */
     initCanvas(canvasRef: any): any;
     /**
      * canvas合成操作
      * @param canvas
      */
-    printImage(context: any, imageInfo: ImageInfo): Promise<{}>;
+    printImage(imageInfo: ImageInfo): Promise<{}>;
     /**
      * @description canvase转换成图片
+     * @return { Image } 返回一个new Image的实例
      * @param canvas
      */
     convertCanvasToImage(canvas: any): any;

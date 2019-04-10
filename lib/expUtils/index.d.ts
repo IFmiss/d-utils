@@ -63,6 +63,9 @@ export default class ExpUtils {
      * ExpUtils.isWeiXin()  // true
      */
     static isWeiXin(): boolean;
+    /**
+     * @description 正则表达式是否全部是
+     */
     static EXP_CHINESE: RegExp;
     /**
      * @description 判断字符串是否都是中文

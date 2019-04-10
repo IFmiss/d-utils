@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var axios_1 = require("axios");
 var index_1 = require("./../logUtils/index");
+require('promise.prototype.finally').shim();
 /**
  * 网页请求的操作
  * axios
@@ -13,13 +14,12 @@ var HttpRequestUtils = /** @class */ (function () {
      * @description 初始化axios的基础信息以及 axios的响应拦截的操作
      * @param fn
      * 方法内部有两个参数，一个是axios，另外一个是 HttpRequestUtils 的class
-     * @return { Function } HttpRequestUtils 返回一个构造函数
+     * @return { class } HttpRequestUtils 返回一个构造函数
      */
     HttpRequestUtils.init = function (fn) {
         index_1.default.logInfo('https://github.com/IFmiss/d-js-utils/blob/typescript/src/lib/httpRequestUtils/axiosConfig.ts', "HttpRequestUtils.init \u9700\u8981\u81EA\u5B9A\u4E49aixos\u7684\u54CD\u5E94\u62E6\u622A\u4EE5\u53CA\u57FA\u672C\u914D\u7F6E =>");
         if (fn && typeof fn === 'function') {
             fn.call(null, axios_1.default, HttpRequestUtils);
-            return HttpRequestUtils;
         }
         HttpRequestUtils.isInit = true;
         return HttpRequestUtils;
@@ -28,6 +28,7 @@ var HttpRequestUtils = /** @class */ (function () {
      * @description get的请求操作
      * @param { string } url 请求的url
      * @param { object } config 相关axios的配置信息
+     * @return { Promise }
      */
     HttpRequestUtils.get = function (url, config) {
         if (!HttpRequestUtils.isInit) {
@@ -50,6 +51,7 @@ var HttpRequestUtils = /** @class */ (function () {
      * @param { string } url 请求的url
      * @param { object } data 请求的参数
      * @param { object } config 相关axios的配置信息
+     * @return { Promise }
      */
     HttpRequestUtils.post = function (url, data, config) {
         if (!HttpRequestUtils.isInit) {

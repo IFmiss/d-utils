@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var ImageUtils = /** @class */ (function () {
     function ImageUtils() {
         /**
-         * 图片显示比例
+         * 设备像素比
          */
         this.pr = window.devicePixelRatio;
         /**
@@ -14,6 +14,10 @@ var ImageUtils = /** @class */ (function () {
          * canvas的元素
          */
         this.canvas = null;
+        /**
+         * context canvas 上下文
+         */
+        this.context = null;
         /**
          * 合并的背景地址
          */
@@ -29,7 +33,8 @@ var ImageUtils = /** @class */ (function () {
     }
     /**
      * 初始化canvas的设置
-     * @param canvas
+     * @param { Element } canvas  canvas 元素
+     * @return { Promise } 返回
      */
     ImageUtils.prototype.initCanvas = function (canvasRef) {
         var _this = this;
@@ -38,6 +43,7 @@ var ImageUtils = /** @class */ (function () {
         // 绘制canvas结合背景图片
         var img = new Image();
         img.crossOrigin = 'anonymous';
+        this.context = context;
         context.save();
         context.scale(1 / this.pr, 1 / this.pr);
         img.src = this.bgSrc;
@@ -50,7 +56,7 @@ var ImageUtils = /** @class */ (function () {
                 _this.canvas.width = _this.canvasWidth;
                 _this.canvas.height = _this.canvasHeight;
                 context.drawImage(img, 0, 0, _this.canvasWidth, _this.canvasHeight);
-                resolve(context);
+                resolve();
             };
             img.onerror = function () {
                 console.error('err');
@@ -62,7 +68,7 @@ var ImageUtils = /** @class */ (function () {
      * canvas合成操作
      * @param canvas
      */
-    ImageUtils.prototype.printImage = function (context, imageInfo) {
+    ImageUtils.prototype.printImage = function (imageInfo) {
         var _this = this;
         var newImageInfo = {
             src: imageInfo.src,
@@ -75,25 +81,25 @@ var ImageUtils = /** @class */ (function () {
         // context
         var img = new Image();
         img.crossOrigin = 'anonymous';
-        console.log(context);
-        context.save();
-        context.scale(1 / this.pr, 1 / this.pr);
+        console.log(this.context);
+        this.context.save();
+        this.context.scale(1 / this.pr, 1 / this.pr);
         img.src = newImageInfo.src;
         return new Promise(function (resolve, reject) {
             img.onload = function () {
                 if (newImageInfo.needRound) {
                     // 走圆形绘制图片 此时都视为正方形
-                    context.arc(newImageInfo.width / 2 + newImageInfo.left, newImageInfo.width / 2 + newImageInfo.top, newImageInfo.width / 2, 0, Math.PI * 2, false);
-                    context.clip();
-                    context.drawImage(img, newImageInfo.left + _this.pr / 2, newImageInfo.top + _this.pr / 2, newImageInfo.width, newImageInfo.width);
-                    context.restore();
+                    _this.context.arc(newImageInfo.width / 2 + newImageInfo.left, newImageInfo.width / 2 + newImageInfo.top, newImageInfo.width / 2, 0, Math.PI * 2, false);
+                    _this.context.clip();
+                    _this.context.drawImage(img, newImageInfo.left + _this.pr / 2, newImageInfo.top + _this.pr / 2, newImageInfo.width, newImageInfo.width);
+                    _this.context.restore();
                 }
                 else {
                     // 走正常绘制
-                    context.drawImage(img, newImageInfo.left, newImageInfo.top, newImageInfo.width, newImageInfo.height);
-                    context.restore();
+                    _this.context.drawImage(img, newImageInfo.left, newImageInfo.top, newImageInfo.width, newImageInfo.height);
+                    _this.context.restore();
                 }
-                resolve(context);
+                resolve();
             };
             img.onerror = function () {
                 console.error('err');
@@ -103,6 +109,7 @@ var ImageUtils = /** @class */ (function () {
     };
     /**
      * @description canvase转换成图片
+     * @return { Image } 返回一个new Image的实例
      * @param canvas
      */
     ImageUtils.prototype.convertCanvasToImage = function (canvas) {

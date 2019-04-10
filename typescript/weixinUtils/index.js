@@ -92,10 +92,10 @@ var WeixinUtils = /** @class */ (function () {
     /**
      * @description 微信分享初始化
      * @param { Object } sharInfo  分享的内容
-     * @param { String } sharInfo.title 分享的title
-     * @param { String } sharInfo.desc 分享描述
-     * @param { String } sharInfo.link 分享链接
-     * @param { String } sharInfo.imgUrl 分享图标
+     * @props { String } sharInfo.title 分享的title
+     * @props { String } sharInfo.desc 分享描述
+     * @props { String } sharInfo.link 分享链接
+     * @props { String } sharInfo.imgUrl 分享图标
      */
     WeixinUtils.wxShare = function (sharInfo) {
         // 返回promise

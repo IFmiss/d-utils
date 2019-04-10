@@ -140,6 +140,9 @@ var ExpUtils = /** @class */ (function () {
      * @description 正则表达式 邮箱是否合法
      */
     ExpUtils.EXP_EMAIL = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+    /**
+     * @description 正则表达式是否全部是
+     */
     ExpUtils.EXP_CHINESE = /^[\u3220-\uFA29]+$/;
     return ExpUtils;
 }());
