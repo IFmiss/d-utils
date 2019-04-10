@@ -1,5 +1,5 @@
-# store对象
-store对象是数据的一些操作
+# StoreUtils 静态类
+StoreUtils 类是数据的一些操作
 
 ## setCookie
 `hasClass`设置Cookie
@@ -18,7 +18,7 @@ store对象是数据的一些操作
 ##### `Demo`:
 ```js
 // 设置name为test的值为12345，设置过期时间为1小时
-Dutils.store.setCookie('test', '12345', 60 * 60 * 1000)
+StoreUtils.setCookie('test', '12345', 60 * 60 * 1000)
 ```
 
 ## getCookie
@@ -34,13 +34,13 @@ Dutils.store.setCookie('test', '12345', 60 * 60 * 1000)
 ```
 ##### `Demo`:
 ```js
-Dutils.store.getCookie('test')
+StoreUtils.getCookie('test')
 ```
 ##### `return`
     - 12345
 
-## rmCookie
-`rmCookie`根据name删除Cookie
+## removeCookie
+`removeCookie`根据name删除Cookie
 ##### 参数
   - `name` cookie名称
 ```js
@@ -51,7 +51,7 @@ Dutils.store.getCookie('test')
 ```
 ##### `Demo`:
 ```js
-Dutils.store.rmCookie('test')
+StoreUtils.removeCookie('test')
 ```
 
 ## fileToFormData
@@ -73,11 +73,11 @@ Dutils.store.rmCookie('test')
       id: 123,
       desc: 'hello'
   }
-Dutils.store.fileToFormData(...data)
+StoreUtils.fileToFormData(...data)
 ```
 
-## getRandomDataFromArr
-`getRandomDataFromArr`从数组中获取num 个随机不重复的元素
+## randomDataFromArr
+`randomDataFromArr`从数组中获取num 个随机不重复的元素
 ##### 参数
   - `arr` 数组内容
   - `num` 取出的数量
@@ -91,13 +91,13 @@ Dutils.store.fileToFormData(...data)
 ```
 ##### `Demo`:
 ```js
-Dutils.store.getRandomDataFromArr([1,2,3,4,5,44,3,2,1,9,0,45,678], 5)
+StoreUtils.randomDataFromArr([1,2,3,4,5,44,3,2,1,9,0,45,678], 5)
 ```
 ##### `return`
     - [4, 9, 45, 2, 0]
 
 ## deepClone
-`deepClone`为深拷贝对象，改变原来的对象内容不会影响到已有的对象，可以使用递归遍历和JSON序列化，反序列化的方式，这里选择的是后者
+`deepClone`为深拷贝对象，改变原来的对象内容不会影响到已有的对象，可以使用递归遍历和JSON序列化，反序列化的方式，这里选择的是前者
 ##### 参数
   - `obj` 被拷贝的对象
 ```js
@@ -115,7 +115,7 @@ Dutils.store.getRandomDataFromArr([1,2,3,4,5,44,3,2,1,9,0,45,678], 5)
       c: 3,
       d: [1, 2]
   }
-let b = Dutils.store.deepClone(a)
+let b = StoreUtils.deepClone(a)
 a.d[0] = 3
 console.log(a)
 console.log(b)
@@ -136,13 +136,12 @@ b: {a: 1, b: 2, c: 3, d: [1, 2]}
  */
 let a = {a: 1}
 let b = {a: 2}
-Dutils.store.extend(a, b)     // {a: 2}   但是此时 a的值也会变成{a: 2}
-Dutils.store.extend({}, a, b)     // {a: 2}   此时 a的值还是{a: 1}
+StoreUtils.extend(a, b)     // {a: 2}   但是此时 a的值也会变成{a: 2}
+StoreUtils.extend({}, a, b)     // {a: 2}   此时 a的值还是{a: 1}
 ```
 
 ## checkType
 `checkType`用于检索数据类型并返回类型名称, 该方法适用于任何数据格式，通过Object.prototype.toString.call()对数据的处理拿到数据类型格式
-- 类似于[`initEsDataType`](lib/_exp#initEsDataType)
 ```js
 /**
  * 检索数据类型并返回数据类型名称 object array string undefined bool number null 等等...
@@ -151,15 +150,15 @@ Dutils.store.extend({}, a, b)     // {a: 2}   此时 a的值还是{a: 1}
 ```
 ##### `Demo`:
 ```js
-Dutils.store.checkType('1')   // string
-Dutils.store.checkType({})   // object
-Dutils.store.checkType([])   // array
-Dutils.store.checkType(localStorage)   // storage
+StoreUtils.checkType('1')   // string
+StoreUtils.checkType({})   // object
+StoreUtils.checkType([])   // array
+StoreUtils.checkType(localStorage)   // storage
 ```
 你可以在判断数据类型的时候用该方法判断
 ```js
 // 判断data是否是数组
-Dutils.store.checkType(data) !== 'array'
+StoreUtils.checkType(data) !== 'array'
 ```
 
 ## uniqueArray
@@ -173,7 +172,7 @@ Dutils.store.checkType(data) !== 'array'
 ```
 ##### `Demo`:
 ```js
-Dutils.store.uniqueArray([1,2,3,3,,3,3,'4',"4",'4',])   // [1, 2, 3, undefined, "4"]
+StoreUtils.uniqueArray([1,2,3,3,,3,3,'4',"4",'4',])   // [1, 2, 3, undefined, "4"]
 ```
 
 ## objectToString
@@ -187,5 +186,5 @@ Dutils.store.uniqueArray([1,2,3,3,,3,3,'4',"4",'4',])   // [1, 2, 3, undefined, 
 ```
 #### `Demo`:
 ```js
-Dutils.store.objectToString({a: 1, b: 2}) // 'a=1&b=2'
+StoreUtils.objectToString({a: 1, b: 2}) // 'a=1&b=2'
 ```

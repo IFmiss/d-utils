@@ -96,6 +96,9 @@ export default class ExpUtils {
     return String(uaLower.match(/MicroMessenger/i)) === 'micromessenger'
   }
 
+  /**
+   * @description 正则表达式是否全部是
+   */
   static EXP_CHINESE: RegExp = /^[\u3220-\uFA29]+$/
 
   /**

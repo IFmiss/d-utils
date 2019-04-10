@@ -5,32 +5,35 @@
 #### 功能描述
 该方法一共包含以下属性，每个属性收集了对应的方法内容
 
-- `domUtils`
+- `DomUtils`
   该属性主要时针对dom元素相关的方法，针对于元素的一些操作
 
-- `deviceUtils`
+- `DeviceUtils`
   设备相关的检测与方法
 
-- `storeUtils`
+- `StoreUtils`
   该属性主要是对于数据的操作
 
-- `expUtils`
+- `HttpRequestUtils`
+  基于axios请求的封装
+
+- `ExpUtils`
   该属性是d-js-utlis里的一个类，此属性包含对于一些字符，或者元素判断是否符合要求
 
-- `genericUtils`
+- `GenericUtils`
   其他相关js工具代码，通用工具类
 
-- `logUtils`
+- `LogUtils`
   日志相关
 
-- `performanceUtils`
+- `PerformanceUtils`
   浏览器性能相关
 
-- `urlUtils`
+- `UrlUtils`
   url地址的一系列操作
 
-- `weixinUtils`
+- `WeixinUtils`
   微信jssdk相关的方法
 
-- `genericUtils`
-  其他相关js工具代码，通用工具类
+- `ImageUtils`
+  图片合成相关

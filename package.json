@@ -5,8 +5,8 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:tsc": "tsc",
     "build": "webpack --mode production && tsc",
+    "btp": "webpack --mode production && tsc && npm publish --access=public",
     "dev": "webpack-dev-server --mode development --progress --colors",
     "watch": "webpack --progress --colors --watch",
     "publish": "npm publish --access=public"

@@ -1,31 +1,5 @@
-# utils
-utils 工具类
-
-## console
-`console`console的美化样式 默认是小的内容格式
-##### 参数
-  - `text` console 的内容
-  - `options` 一个对象，里面有两个属性配置
-    - `isMax` 类型  true 是显示三行大的内容   false 则是正常的一行显示
-    - `colors` 背景色列表，是一个从左向右渐变的过程cd
-
-```js
-/**
- * console的美化样式
- * @param { String } text 内容
- * @param { Object } options 配置项，大小背景，和背景颜色设置
- * @param { Boolean } options.isMax 是否是较大显示console的高度，如果console的内容较多建议设置为false 默认为小格式
- * @param { Array } options.colors 背景色列表，是一个从左向右渐变的过程
- */
-```
-##### `Demo`:
-```js
-Dutils.utils.console('hello world')
-Dutils.utils.console('这是一个console的方法，可以设置背景色的哦', {
-  isMax: false,
-  colors: ['#fa709a', '#fee140', '#ffb199']
-})
-```
+# GenericUtils 类
+GenericUtils 通用工具类
 
 ## notification
 `notification`浏览器notification全局提示，并返回一个Promise
@@ -56,7 +30,7 @@ Dutils.utils.console('这是一个console的方法，可以设置背景色的哦
       body: 'this is a test',
       logo: 'http://www.daiwei.org/index/images/logo/dw1.png'
   }
-Dutils.utils.notification(data)
+GenericUtils.notification(data)
 ```
 
 ## randomColor
@@ -72,35 +46,16 @@ Dutils.utils.notification(data)
 ```
 ##### `Demo`:
 ```js
-const color Dutils.utils.randomColor(1)
-Dutils.utils.console(color)
+const color GenericUtils.randomColor(1)
+console.log(color)
 ```
 
-## showLayoutFramework
+## layoutFramework
 显示元素的outline出现布局框架，会在所有的dom元素上添加一个outline的随机颜色样式，方法来自Addy Osmani
 ##### `Demo`:
 ```js
-Dutils.utils.showLayoutFramework()
+GenericUtils.layoutFramework()
 ```
-
-## parseUrl
-`parseUrl`将url的参数解析成对象的格式
-#### 参数
-  - `url` 解析的地址链接
-```js
-/**
- * 返回浏览器url的参数
- * @param { String } url 地址字符串
- * @returns { Object } 返回一个参数对象
- */
-```
-##### `Demo`:
-```js
-Dutils.utils.parseUrl('www.daiwei.org?name=daiwei&id=123')
-```
-##### `return`
-    - `name`: daiwei
-    - `id`: 123
 
 ## calcStringLength
 `calcStringLength`计算字符串的长度
@@ -117,8 +72,8 @@ Dutils.utils.parseUrl('www.daiwei.org?name=daiwei&id=123')
 ##### `Demo`:
 ```js
 const str = 'd-js-utils组件'
-Dutils.utils.console(Dutils.utils.calcStringLength(str))
-Dutils.utils.console(Dutils.utils.calcStringLength(str, true))
+console.log(GenericUtils.calcStringLength(str))
+console.log(GenericUtils.calcStringLength(str, true))
 ```
 ##### `return`
     - 第一个返回结果：9
@@ -140,14 +95,14 @@ Dutils.utils.console(Dutils.utils.calcStringLength(str, true))
 ```js
 const str = ' d -js- ut ils '
 // 0: 去除首位空格 默认为0
-Dutils.utils.strTrim(str)
-Dutils.utils.strTrim(str, 0)
+GenericUtils.strTrim(str)
+GenericUtils.strTrim(str, 0)
 // 1: 去除所有空格
-Dutils.utils.strTrim(str, 1)
+GenericUtils.strTrim(str, 1)
 // 2: 去除左边空格
-Dutils.utils.strTrim(str, 2)
+GenericUtils.strTrim(str, 2)
 // 3: 去除右边空格
-Dutils.utils.strTrim(str, 3)
+GenericUtils.strTrim(str, 3)
 ```
 ##### `return` 为方便比较添加引号
     - 第一个返回结果：'d -js- ut ils'
@@ -170,7 +125,7 @@ Dutils.utils.strTrim(str, 3)
 ##### `Demo`:
 ```js
 // 在鼠标resize的过程中，1秒触发一次，如果resize了10秒相当于console.log('resize')只执行了10次
-  window.onresize = Dutils.utils.throttle(function () {
+  window.onresize = GenericUtils.throttle(function () {
     // es5 获取参数
     let arg = Array.prototype.slice.call(arguments)
     // es6 获取参数
@@ -195,7 +150,7 @@ Dutils.utils.strTrim(str, 3)
 ##### `Demo`:
 ```js
 // 在鼠标resize的过程中，1秒以后可以被执行，如果在1秒内触发resize，则从新计算下一个一秒再允许执行
-  window.onresize = Dutils.utils.debounce(function () {
+  window.onresize = GenericUtils.debounce(function () {
     // es5 获取参数
     let arg = Array.prototype.slice.call(arguments)
     // es6 获取参数
@@ -219,7 +174,7 @@ Dutils.utils.strTrim(str, 3)
 ```
 ##### `Demo`:
 ```js
-Dutils.utils.formatDate(`yyyy-MM-dd hh:mm:ss`, new Date())
+GenericUtils.formatDate(`yyyy-MM-dd hh:mm:ss`, new Date())
 ```
 ##### `return`
 `2018-08-15 01:46:22`
@@ -235,7 +190,7 @@ Dutils.utils.formatDate(`yyyy-MM-dd hh:mm:ss`, new Date())
 ```
 ### `Demo`:
 ```js
-Dutils.utils.copyCode('hello world')
+GenericUtils.copyCode('hello world')
 ```
 
 ## openFullScreen
@@ -250,7 +205,7 @@ Dutils.utils.copyCode('hello world')
 ```
 ### `Demo`:
 ```js
-Dutils.utils.openFullScreen(document.querySelector('video'))
+GenericUtils.openFullScreen(document.querySelector('video'))
 ```
 
 ## exitFullScreen
@@ -262,13 +217,13 @@ Dutils.utils.openFullScreen(document.querySelector('video'))
 ```
 ### `Demo`:
 ```js
-Dutils.utils.exitFullScreen()
+GenericUtils.exitFullScreen()
 ```
 
 ## performance
 `performance` 用于监听网页的加载状况
 ```js
-Dutils.utils.performance()
+GenericUtils.performance()
 // 返回数据 (ms)
 res = {
   dnsT: 0,            // DNS查询耗时
@@ -315,8 +270,8 @@ res = {
 ```
 ### `Demo`:
 ```js
-Dutils.utils.initRem()
-Dutils.utils.initRem(720) // 设计稿按照 720像素来 
-Dutils.utils.initRem(750, 400) // 750的设计稿，375宽度为基准， 超过400 限制为400，且默认不铺满
-Dutils.utils.initRem(750, 400, true)  // 铺满
+GenericUtils.initRem()
+GenericUtils.initRem(720) // 设计稿按照 720像素来 
+GenericUtils.initRem(750, 400) // 750的设计稿，375宽度为基准， 超过400 限制为400，且默认不铺满
+GenericUtils.initRem(750, 400, true)  // 铺满
 ```

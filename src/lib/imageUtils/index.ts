@@ -12,7 +12,7 @@ interface ImageInfo {
 
 export default class ImageUtils {
   /**
-   * 图片显示比例
+   * 设备像素比
    */
   pr: number = window.devicePixelRatio
 
@@ -25,6 +25,11 @@ export default class ImageUtils {
    * canvas的元素
    */
   canvas: any = null
+
+  /**
+   * context canvas 上下文
+   */
+  context: any = null
 
   /**
    * 合并的背景地址
@@ -43,7 +48,8 @@ export default class ImageUtils {
 
   /**
    * 初始化canvas的设置
-   * @param canvas 
+   * @param { Element } canvas  canvas 元素
+   * @return { Promise } 返回
    */
   initCanvas (canvasRef): any {
     this.canvas = canvasRef
@@ -52,6 +58,7 @@ export default class ImageUtils {
     // 绘制canvas结合背景图片
     const img = new Image()
     img.crossOrigin = 'anonymous'
+    this.context = context
     context.save()
     context.scale(1 / this.pr, 1 / this.pr)
     img.src = this.bgSrc
@@ -68,7 +75,7 @@ export default class ImageUtils {
                           0,
                           this.canvasWidth,
                           this.canvasHeight)
-        resolve(context)
+        resolve()
       }
       img.onerror = () => {
         console.error('err')
@@ -81,7 +88,7 @@ export default class ImageUtils {
    * canvas合成操作
    * @param canvas
    */
-  printImage (context, imageInfo: ImageInfo) {
+  printImage (imageInfo: ImageInfo) {
     const newImageInfo = {
       src: imageInfo.src,
       left: imageInfo.left * this.canvasWidth * this.pr,
@@ -93,36 +100,36 @@ export default class ImageUtils {
     // context
     const img = new Image()
     img.crossOrigin = 'anonymous'
-    console.log(context)
-    context.save()
-    context.scale(1 / this.pr, 1 / this.pr)
+    console.log(this.context)
+    this.context.save()
+    this.context.scale(1 / this.pr, 1 / this.pr)
     img.src = newImageInfo.src
     return new Promise ((resolve, reject) => {
       img.onload = () => {
         if (newImageInfo.needRound) {
           // 走圆形绘制图片 此时都视为正方形
-          context.arc(newImageInfo.width / 2 + newImageInfo.left,
+          this.context.arc(newImageInfo.width / 2 + newImageInfo.left,
                       newImageInfo.width / 2 + newImageInfo.top,
                       newImageInfo.width / 2,
                       0,
                       Math.PI * 2,
                       false)
-          context.clip()
-          context.drawImage(img,
+          this.context.clip()
+          this.context.drawImage(img,
                             newImageInfo.left + this.pr / 2,
                             newImageInfo.top + this.pr / 2,
                             newImageInfo.width,
                             newImageInfo.width)
-          context.restore()
+          this.context.restore()
         } else {
           // 走正常绘制
-          context.drawImage(img, newImageInfo.left,
+          this.context.drawImage(img, newImageInfo.left,
                                  newImageInfo.top,
                                  newImageInfo.width,
                                  newImageInfo.height)
-          context.restore()
+          this.context.restore()
         }
-        resolve(context)
+        resolve()
       }
       img.onerror = () => {
         console.error('err')
@@ -133,6 +140,7 @@ export default class ImageUtils {
 
   /**
    * @description canvase转换成图片
+   * @return { Image } 返回一个new Image的实例
    * @param canvas 
    */
   convertCanvasToImage (canvas: any): any {
