@@ -13,9 +13,9 @@ export default class WeixinUtils {
    * 当前这种只支持与VUE单页面模式
    * @returns 返回获取jssdk的url参数值
    */
-  static sdkUrlIosOrAndorid (): string {
+  public sdkUrlIosOrAndorid (): string {
     while (ExpUtils.isIOS() ||
-          (ExpUtils.isAndroid() && !WeixinUtils.isUpThanWxVersion('6.3.31'))) {
+          (ExpUtils.isAndroid() && !this.isUpThanWxVersion('6.3.31'))) {
           if (window.__D_UTILS_WX_FIRST_URL_HOOK__) {
             return window.__D_UTILS_WX_FIRST_URL_HOOK__
           }
@@ -38,7 +38,7 @@ export default class WeixinUtils {
    * @param { String } version
    * @returns { Boolean } 返回是否满足条件
    */
-  static isUpThanWxVersion (version: string): boolean {
+  private isUpThanWxVersion (version: string): boolean {
     const str = window.navigator.userAgent
     const v0 = version.split('.')
     const regExp = /MicroMessenger\/([\d|\.]+)/

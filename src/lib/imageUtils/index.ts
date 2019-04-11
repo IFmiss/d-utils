@@ -1,87 +1,131 @@
 /**
  * 图片合成等操作
  */
-interface ImageInfo {
-  src: string;
-  with: number;
-  height: number;
+import LogUtils from './../logUtils/index'
+
+interface Resourse {
+  content: string;
   left: number;
   top: number;
   needRound: boolean;
+  type: string;
+  fanmily?: string;
+  color?: string;
+}
+
+enum FontStyle {
+  fanmily = '28px Arial',
+  color = '#d4546f'
+}
+
+enum TextType {
+  Text = 'text',
+  Image = 'image'
 }
 
 export default class ImageUtils {
   /**
    * 设备像素比
    */
-  pr: number = window.devicePixelRatio
+  private pr: number = window.devicePixelRatio
 
   /**
    * 基于当前屏幕的比例
    */
-  persent: number = 1
+  public persent: number = 1
 
   /**
    * canvas的元素
    */
-  canvas: any = null
+  private canvas: any = null
 
   /**
    * context canvas 上下文
    */
-  context: any = null
+  private context: any = null
 
   /**
    * 合并的背景地址
    */
-  bgSrc: string = ''
+  private mainResource: string = ''
 
   /**
    * canvas的宽度  实际上数合并背景的宽度
    */
-  canvasWidth: number = 0
+  private canvasWidth: number = 0
 
   /**
    * canvas的高度  实际上数合并背景的高度
    */
-  canvasHeight: number = 0
+  private canvasHeight: number = 0
+
+  public constructor (backgroud: string) {
+    this.mainResource = backgroud
+  }
+
+  /**
+   * 资源列表 
+   */
+  private resourceList: Resourse[] = []
+
+  public addSourse (resourse: Resourse): ImageUtils {
+    this.resourceList.push(resourse)
+    return this
+  }
+
+  /**
+   * 加载图片
+   */
+  private async loadResourse (src: string, resourse: Resourse | any = {}): Promise<any> {
+    const image = new Image()
+    image.src = src
+    return new Promise((resolve, reject) => {
+      image.onload = () => {
+        resolve(resourse)
+      }
+
+      image.onerror = () => {
+        console.error('err')
+        reject()
+      }
+    })
+  }
+
+  private composeMainResource (image: any) {
+    const radio = image.width / image.height
+    this.canvasWidth = image.width
+    this.canvasHeight = this.canvasWidth / radio
+    // 设置canvas的宽高
+    this.canvas.width = this.canvasWidth
+    this.canvas.height = this.canvasHeight
+    this.context.drawImage(image,
+                            0,
+                            0,
+                            this.canvasWidth,
+                            this.canvasHeight)
+  }
 
   /**
    * 初始化canvas的设置
    * @param { Element } canvas  canvas 元素
    * @return { Promise } 返回
    */
-  initCanvas (canvasRef): any {
-    this.canvas = canvasRef
+  public async compose (): Promise<any> {
+    this.canvas = document.createElement('canvas')
     const context = this.canvas.getContext('2d')
 
     // 绘制canvas结合背景图片
-    const img = new Image()
-    img.crossOrigin = 'anonymous'
+    const image = new Image()
+    image.crossOrigin = 'anonymous'
     this.context = context
     context.save()
     context.scale(1 / this.pr, 1 / this.pr)
-    img.src = this.bgSrc
-    return new Promise ((resolve, reject) => {
-      img.onload = () => {
-        const radio = img.width / img.height
-        this.canvasWidth = img.width * this.persent
-        this.canvasHeight = this.canvasWidth / radio
-        // 设置canvas的宽高
-        this.canvas.width = this.canvasWidth
-        this.canvas.height = this.canvasHeight
-        context.drawImage(img,
-                          0,
-                          0,
-                          this.canvasWidth,
-                          this.canvasHeight)
-        resolve()
-      }
-      img.onerror = () => {
-        console.error('err')
-        reject()
-      }
-    })
+
+    const mainResource = await this.loadResourse(this.mainResource)
+    this.composeMainResource(mainResource)
+
+    // 开始执行
+    const composeQueue: any[] = []
   }
 
   /**
@@ -95,7 +139,8 @@ export default class ImageUtils {
       top: imageInfo.top * this.canvasHeight * this.pr,
       width: imageInfo.with * this.canvasWidth * this.pr,
       height: imageInfo.height * this.canvasHeight * this.pr,
-      needRound: imageInfo.needRound
+      needRound: imageInfo.needRound,
+      type: imageInfo.type || TextType.Image
     }
     // context
     const img = new Image()
