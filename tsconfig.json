@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5", 
+    "target": "es6", 
     "module": "commonjs",
     "removeComments": false,
     "declaration": true,
@@ -10,7 +10,7 @@
     "jsx": "react",
     "allowJs": false,
     // "typeRoots": [
-    //   "./node_modules/@types"
+    //   "./lib/@types"
     // ],
     "lib": [
       "dom",
