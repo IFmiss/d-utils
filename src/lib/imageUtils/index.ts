@@ -62,8 +62,11 @@ export default class ImageUtils {
    */
   private canvasHeight: number = 0
 
-  public constructor (backgroud: string) {
+  public constructor (backgroud: string, persent?: number) {
     this.mainResource = backgroud
+    if (persent) {
+      this.persent = persent
+    }
   }
 
   /**
@@ -93,6 +96,7 @@ export default class ImageUtils {
       }
 
       image.onerror = () => {
+        LogUtils.logError(src, 'ImageUtils.loadResourse 裁剪图片加载错误')
         reject()
       }
     })
@@ -113,6 +117,10 @@ export default class ImageUtils {
     this.context.restore()
   }
 
+  /**
+   * @description cavans绘制效果
+   * @param image addSourse 添加的数据信息
+   */
   private renderResource (image: any) {
     const newImageInfo = {
       left: image.left * this.canvasWidth,
@@ -160,7 +168,6 @@ export default class ImageUtils {
     const mainResource = await this.loadResourse(this.mainResource)
     this.composeMainResource(mainResource)
 
-    LogUtils.logSuccess('composeMainResource 执行结束')
     // 开始执行
     const composeQueue: any[] = []
     const resourceL = this.resourceList.reduce((total: any[], item: Resourse, index: number): any[] => {
@@ -179,7 +186,6 @@ export default class ImageUtils {
 
     const resolveQueue: any = await Promise.all(resourceL)
 
-    LogUtils.logSuccess(this.resourceList)
     // 再次绘制
     await resolveQueue.forEach((item: Resourse) => {
       this.renderResource(item)
@@ -194,6 +200,7 @@ export default class ImageUtils {
   public convertCanvasToImage (): any {
     const image = new Image()
     image.src = this.canvas.toDataURL('image/png', 1)
+    LogUtils.logSuccess(image, 'ImageUtils.convertCanvasToImage 图片对象创建成功')
     return image
   }
 }

@@ -37,7 +37,6 @@ HttpRequestUtils.init().get('http://www.daiwei.org/vue/server/home.php?inAjax=1&
 })
 
 const imageCanvas = new ImageUtils('https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=423417954,3961017340&fm=27&gp=0.jpg')
-imageCanvas.persent = 1
 imageCanvas.addSourse({
   content: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=423417954,3961017340&fm=27&gp=0.jpg',
   width: 0.1,
@@ -53,7 +52,7 @@ imageCanvas.addSourse({
   left: 0.2,
   top: 0.2,
   type: 'image',
-  needRound: false
+  needRound: true
 }).addSourse({
   content: '你好世界',
   left: 0.45,
@@ -61,6 +60,22 @@ imageCanvas.addSourse({
   type: 'text',
   color: '#fff',
   needRound: true
+}).addSourse({
+  content: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3023616063,229979107&fm=27&gp=0.jpg',
+  width: 0.2,
+  height: 0.2,
+  left: 0.5,
+  top: 0.5,
+  type: 'image',
+  needRound: true
+}).addSourse({
+  content: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3023616063,229979107&fm=27&gp=0.jpg',
+  width: 0.2,
+  height: 0.2,
+  left: 0.8,
+  top: 0.6,
+  type: 'image',
+  needRound: false
 }).compose().then(() => {
   document.body.appendChild(imageCanvas.convertCanvasToImage())
 })
