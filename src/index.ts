@@ -25,21 +25,21 @@ LogUtils.logWarning(111)
 LogUtils.logBeauty('-----------------')
 console.log(UrlParse)
 console.log(WeixinUtils.plantSdkUrlIosOrAndorid())
-document.getElementById('title').onclick = GenericUtils.debounce(function () {
-  console.log('你点击了一次')
-}, 1000)
-document.getElementById('username').onclick = GenericUtils.throttle(function () {
-  console.log('你点击了一次')
-}, 1000)
+// document.getElementById('title').onclick = GenericUtils.debounce(function () {
+//   console.log('你点击了一次')
+// }, 1000)
+// document.getElementById('username').onclick = GenericUtils.throttle(function () {
+//   console.log('你点击了一次')
+// }, 1000)
 console.log(ExpUtils.isObject({'a': 12}))
 ExpUtils.isEmptyObject(1)
 HttpRequestUtils.init().get('http://www.daiwei.org/vue/server/home.php?inAjax=1&do=updataTipsInfo', {
 })
 
-const imageCanvas = new ImageUtils('http://www.bing.com/th?id=OHR.BlueTide_ZH-CN4055424992_1920x1080.jpg')
-imageCanvas.persent = 0.2
+const imageCanvas = new ImageUtils('https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=423417954,3961017340&fm=27&gp=0.jpg')
+imageCanvas.persent = 1
 imageCanvas.addSourse({
-  content: 'http://www.bing.com/th?id=OHR.BlueTide_ZH-CN4055424992_1920x1080.jpg',
+  content: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=423417954,3961017340&fm=27&gp=0.jpg',
   width: 0.1,
   height: 0.1,
   left: 0.1,
@@ -47,37 +47,38 @@ imageCanvas.addSourse({
   type: 'image',
   needRound: false
 }).addSourse({
-  content: 'http://www.bing.com/th?id=OHR.BlueTide_ZH-CN4055424992_1920x1080.jpg',
+  content: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3023616063,229979107&fm=27&gp=0.jpg',
   width: 0.2,
   height: 0.2,
   left: 0.2,
   top: 0.2,
   type: 'image',
-  needRound: true
+  needRound: false
 }).addSourse({
   content: '你好世界',
   left: 0.45,
-  top: 0.2,
+  top: 0.32,
   type: 'text',
+  color: '#fff',
   needRound: true
 }).compose().then(() => {
-  console.log(imageCanvas.convertCanvasToImage())
+  document.body.appendChild(imageCanvas.convertCanvasToImage())
 })
 // ExpUtils.isPhoneNum(1)
-WeixinUtils.initWxConfig({
-  debug: true,
-  appId: '1111',
-  timestamp: '123123123',
-  nonceStr: '123123123123',
-  signature: '23123123',
-  jsApiList: ['onMenuShareAppMessage']
-})
-WeixinUtils.wxShare({
-  title: '111',
-  desc: '2222',
-  link: '44444'
-}).then(() => {
-  alert('success')
-}).catch(() => {
-  alert('error')
-})
+// WeixinUtils.initWxConfig({
+//   debug: false,
+//   appId: '1111',
+//   timestamp: '123123123',
+//   nonceStr: '123123123123',
+//   signature: '23123123',
+//   jsApiList: ['onMenuShareAppMessage']
+// })
+// WeixinUtils.wxShare({
+//   title: '111',
+//   desc: '2222',
+//   link: '44444'
+// }).then(() => {
+//   alert('success')
+// }).catch(() => {
+//   alert('error')
+// })
