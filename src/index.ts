@@ -53,31 +53,8 @@ imageCanvas.addSourse({
   top: 0.2,
   type: 'image',
   needRound: true
-}).addSourse({
-  content: '你好世界',
-  left: 0.45,
-  top: 0.32,
-  type: 'text',
-  color: '#fff',
-  needRound: true
-}).addSourse({
-  content: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3023616063,229979107&fm=27&gp=0.jpg',
-  width: 0.2,
-  height: 0.2,
-  left: 0.5,
-  top: 0.5,
-  type: 'image',
-  needRound: true
-}).addSourse({
-  content: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3023616063,229979107&fm=27&gp=0.jpg',
-  width: 0.2,
-  height: 0.2,
-  left: 0.8,
-  top: 0.6,
-  type: 'image',
-  needRound: false
-}).compose().then(() => {
-  document.body.appendChild(imageCanvas.convertCanvasToImage())
+}).compose().then((res) => {
+  document.body.appendChild(res)
 })
 // ExpUtils.isPhoneNum(1)
 // WeixinUtils.initWxConfig({

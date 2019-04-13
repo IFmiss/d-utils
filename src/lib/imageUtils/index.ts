@@ -159,7 +159,7 @@ export default class ImageUtils {
   /**
    * 初始化canvas的设置
    * @param { Element } canvas  canvas 元素
-   * @return { Promise } 返回
+   * @return { Promise } 返回合成成功的image对象信息
    */
   public async compose (): Promise<any> {
     this.canvas = document.createElement('canvas')
@@ -190,6 +190,8 @@ export default class ImageUtils {
     await resolveQueue.forEach((item: Resourse) => {
       this.renderResource(item)
     })
+    
+    return Promise.resolve(this.convertCanvasToImage())
   }
 
   /**
