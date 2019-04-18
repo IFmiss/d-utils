@@ -56,15 +56,13 @@ export default class ImageUtils {
      */
     private renderResource;
     /**
-     * 初始化canvas的设置
-     * @param { Element } canvas  canvas 元素
+     * @description 初始化canvas的设置
      * @return { Promise } 返回合成成功的image对象信息
      */
     compose(): Promise<any>;
     /**
      * @description canvase转换成图片
      * @return { Image } 返回一个new Image的实例
-     * @param canvas
      */
     convertCanvasToImage(): any;
 }
