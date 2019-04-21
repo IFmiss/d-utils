@@ -14,6 +14,7 @@ import log from './logUtils/index';
 import url from './urlUtils/index';
 import http from './httpRequestUtils/index';
 import img from './imageUtils/index';
+import event from './eventUtils/index';
 export declare const DomUtils: typeof dom;
 export declare const PerformanceUtils: typeof performance;
 export declare const DeviceUtils: typeof device;
@@ -25,6 +26,7 @@ export declare const WeixinUtils: typeof weixin;
 export declare const ExpUtils: typeof exp;
 export declare const HttpRequestUtils: typeof http;
 export declare const ImageUtils: typeof img;
+export declare const EventUtils: typeof event;
 declare const _default: {
     DomUtils: typeof dom;
     GenericUtils: typeof utils;
@@ -37,5 +39,6 @@ declare const _default: {
     UrlParse: typeof url;
     HttpRequestUtils: typeof http;
     ImageUtils: typeof img;
+    EventUtils: typeof event;
 };
 export default _default;
