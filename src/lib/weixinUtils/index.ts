@@ -1,8 +1,8 @@
 import ExpUtils from './../expUtils/index'
 import LogUtils from './../logUtils/index'
-import sha1 from 'sha1'
 import { IwxSign } from './types'
 const wx = require('weixin-js-sdk')
+const sha1 = require('sha1')
 
 /**
  * 微信相关的工具
@@ -16,9 +16,9 @@ export default class WeixinUtils {
    * 当前这种只支持与VUE单页面模式
    * @returns 返回获取jssdk的url参数值
    */
-  private static sdkUrlIosOrAndorid (): string {
-    while (ExpUtils.isIOS() ||
-          (ExpUtils.isAndroid() && !WeixinUtils.isUpThanWxVersion('6.3.31'))) {
+  static sdkUrlIosOrAndorid (): string {
+    if (ExpUtils.isIOS() ||
+        ExpUtils.isAndroid() && !WeixinUtils.isUpThanWxVersion('6.3.31')) {
           if (window.__D_UTILS_WX_FIRST_URL_HOOK__) {
             return window.__D_UTILS_WX_FIRST_URL_HOOK__
           }
@@ -39,10 +39,10 @@ export default class WeixinUtils {
   }
 
   /**
-   * wxSign
+   * @description wxSign
    */
 
-  public static wxSign (ticket: string): IwxSign {
+  static wxSign (ticket: string): IwxSign {
     const nonceStr = WeixinUtils.randomWord(16)
     const timestamp = (Date.now() + '').substr(0, 10)
     const url = WeixinUtils.sdkUrlIosOrAndorid()

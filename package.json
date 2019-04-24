@@ -1,6 +1,6 @@
 {
   "name": "@dw/d-utils",
-  "version": "1.1.20",
+  "version": "1.1.29",
   "description": "d-utils",
   "main": "./lib/index.js",
   "typings": "types/index.d.ts",
@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production && tsc",
     "build:wt": "webpack --mode production && tsc",
-    "build:btp": "webpack --mode production && tsc && npm publish --access=public",
+    "build:publish": "webpack --mode production && tsc && npm publish --access=public",
     "build:tsc": "tsc",
     "dev": "webpack-dev-server --mode development --progress --colors",
     "watch": "webpack --progress --colors --watch",

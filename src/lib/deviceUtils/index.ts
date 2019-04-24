@@ -60,7 +60,7 @@ export default class DeviceUtils {
    * @example
    * DeviceUtils.initRem()
    */
-  static initRem = (BaseWidth: number = 750, MaxWidth: number = document.body.clientWidth, isFullOverMax: boolean = false): void => {
+  static initRem = (BaseWidth: number = 750, MaxWidth: number = document.body.clientWidth, isFullOverMax: boolean = true): void => {
     const r:any = {}
     const MaxWidthP = MaxWidth / BaseWidth
 

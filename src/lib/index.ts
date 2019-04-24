@@ -36,7 +36,7 @@ export const DeviceUtils = device
 export const StoreUtils = store
 export const LogUtils = log
 export const GenericUtils = utils
-export const UrlParse = url
+export const UrlUtils = url
 export const WeixinUtils = weixin
 export const ExpUtils = exp
 export const HttpRequestUtils = http
@@ -52,7 +52,7 @@ export default {
   LogUtils: log,
   WeixinUtils: weixin,
   PerformanceUtils: performance,
-  UrlParse: url,
+  UrlUtils: url,
   HttpRequestUtils: http,
   ImageUtils: img,
   // EventUtils: event

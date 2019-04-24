@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from 'axios'
+import axios from 'axios'
 import LogUtils from './../logUtils/index'
 require('promise.prototype.finally').shim()
 /**
@@ -48,7 +48,7 @@ export default class HttpRequestUtils {
    * @param { object } config 相关axios的配置信息
    * @return { Promise }
    */
-  static get (url: string, config?: AxiosRequestConfig): Promise<any> {
+  static get (url: string, config?: any): Promise<any> {
     if (!HttpRequestUtils.isInit) {
       LogUtils.logError('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作', `http-request: => error`)
       return
@@ -72,7 +72,7 @@ export default class HttpRequestUtils {
    * @param { object } config 相关axios的配置信息
    * @return { Promise }
    */
-  static post (url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
+  static post (url: string, data?: any, config?: any): Promise<any> {
     if (!HttpRequestUtils.isInit) {
       LogUtils.logError('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作', `http-request: => error`)
       return
