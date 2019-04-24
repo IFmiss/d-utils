@@ -27,6 +27,8 @@ import url from './urlUtils/index'
 import http from './httpRequestUtils/index'
 // 图片合成操作
 import img from './imageUtils/index'
+// event事件
+import event from './eventUtils/index'
 
 export const DomUtils = dom
 export const PerformanceUtils = performance
@@ -39,6 +41,7 @@ export const WeixinUtils = weixin
 export const ExpUtils = exp
 export const HttpRequestUtils = http
 export const ImageUtils = img
+export const EventUtils = event
 
 export default {
   DomUtils: dom,
@@ -51,5 +54,6 @@ export default {
   PerformanceUtils: performance,
   UrlParse: url,
   HttpRequestUtils: http,
-  ImageUtils: img
+  ImageUtils: img,
+  EventUtils: event
 }
