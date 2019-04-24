@@ -1,7 +1,9 @@
 .DS_Store
 node_modules/
-dist/
-lib/
+/dist
+/lib
+/typescript
+/types
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
