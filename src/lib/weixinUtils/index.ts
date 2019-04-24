@@ -1,6 +1,9 @@
 import ExpUtils from './../expUtils/index'
 import LogUtils from './../logUtils/index'
+import sha1 from 'sha1'
+import { IwxSign } from './types'
 const wx = require('weixin-js-sdk')
+
 /**
  * 微信相关的工具
  * 微信jssdk的操作
@@ -13,9 +16,9 @@ export default class WeixinUtils {
    * 当前这种只支持与VUE单页面模式
    * @returns 返回获取jssdk的url参数值
    */
-  public sdkUrlIosOrAndorid (): string {
+  private static sdkUrlIosOrAndorid (): string {
     while (ExpUtils.isIOS() ||
-          (ExpUtils.isAndroid() && !this.isUpThanWxVersion('6.3.31'))) {
+          (ExpUtils.isAndroid() && !WeixinUtils.isUpThanWxVersion('6.3.31'))) {
           if (window.__D_UTILS_WX_FIRST_URL_HOOK__) {
             return window.__D_UTILS_WX_FIRST_URL_HOOK__
           }
@@ -27,10 +30,57 @@ export default class WeixinUtils {
    * @description IOS 或者 Android 微信版本小于6.3.31 需要种植首次进入页面的URL，用于解决微信签名错误
    */
   static plantSdkUrlIosOrAndorid (): void {
-    window.__D_UTILS_WX_FIRST_URL_HOOK__ = window
+    if (!window.__D_UTILS_WX_FIRST_URL_HOOK__) {
+      window.__D_UTILS_WX_FIRST_URL_HOOK__ = window
                                          .location
                                          .href
                                          .split('#')[0]
+    }
+  }
+
+  /**
+   * wxSign
+   */
+
+  public static wxSign (ticket: string): IwxSign {
+    const nonceStr = WeixinUtils.randomWord(16)
+    const timestamp = (Date.now() + '').substr(0, 10)
+    const url = WeixinUtils.sdkUrlIosOrAndorid()
+    const str = `jsapi_ticket=${ticket}&noncestr=${nonceStr}&timestamp=${timestamp}&url=${url}`
+    const signature = sha1(str)
+    return { timestamp, nonceStr, signature }
+  }
+
+  /**
+   * 跳转微信oauth2授权登录
+   * @param { String }  appId
+   */
+  static routerAuthorized (appId: string): void {
+    let redirectUrl = window.location.href
+    redirectUrl = encodeURIComponent(redirectUrl)
+    window.location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appId}&redirect_uri=${redirectUrl}&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect`
+  }
+
+  /**
+   * randomWord 产生任意长度随机字母数字组合
+   * min-任意长度最小位[固定位数]
+   * max-任意长度最大位
+   */
+  private static randomWord (min: number, max?: number): string {
+    let str = ''
+    let range = min
+    const arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+    // 随机产生
+    if (max && max > min) {
+      range = Math.round(Math.random() * (max - min)) + min
+    } else {
+      for (let i = 0; i < range; i++) {
+        const pos: number = Math.round(Math.random() * (arr.length - 1))
+        str += arr[pos];
+      }
+    }
+    return str;
   }
 
   /**
@@ -38,7 +88,7 @@ export default class WeixinUtils {
    * @param { String } version
    * @returns { Boolean } 返回是否满足条件
    */
-  private isUpThanWxVersion (version: string): boolean {
+  private static isUpThanWxVersion (version: string): boolean {
     const str = window.navigator.userAgent
     const v0 = version.split('.')
     const regExp = /MicroMessenger\/([\d|\.]+)/
@@ -71,9 +121,7 @@ export default class WeixinUtils {
    * @link 接口列表地址 https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
    */
   static initWxConfig (data: any): void {
-    wx.config({
-      ...data
-    })
+    wx.config(data)
 
     wx.error((res: any) => {
       LogUtils.logError(res, 'wx.config => error')

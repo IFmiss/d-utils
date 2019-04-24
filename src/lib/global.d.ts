@@ -1,4 +1,5 @@
 declare module 'weixin-js-sdk'
+declare module 'sha1'
 
 interface Window {
   Notification: any

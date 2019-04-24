@@ -4,7 +4,7 @@
     "module": "commonjs",
     "removeComments": false,
     "declaration": true,
-    "outDir": "./lib",
+    "outDir": "./typescript",
     "declarationDir": "./types",
     "baseUrl": "./",
     "jsx": "react",
