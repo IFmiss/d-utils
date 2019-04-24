@@ -6,7 +6,7 @@ import './style.scss'
  */
 // dom操作
 // import { DomUtils } from './../dist/lib/index'
-import EventUtils from './lib/eventUtils/index'
+// import EventUtils from './lib/eventUtils/index'
 import { PerformanceUtils } from './lib/index'
 import { DeviceUtils } from './lib/index'
 import { StoreUtils } from './lib/index'
