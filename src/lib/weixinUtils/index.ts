@@ -40,6 +40,7 @@ export default class WeixinUtils {
 
   /**
    * @description wxSign
+   * @param { String }  jsapi_ticket  公众号用于调用微信JS接口的临时票据
    */
 
   static wxSign (ticket: string): IwxSign {
@@ -136,7 +137,7 @@ export default class WeixinUtils {
    * @props { String } sharInfo.link 分享链接
    * @props { String } sharInfo.imgUrl 分享图标
    */
-  static wxShare (sharInfo: any): Promise<any> {
+  static wxShare (sharInfo: any): Promise<string> {
     // 返回promise
     return new Promise((resolve, reject) => {
       wx.ready(() => {
