@@ -1,3 +1,6 @@
+/**
+ * dom 常用操作方法
+ */
 import LogUtils from './../logUtils/index'
 export default class DomUtils {
   /**

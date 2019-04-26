@@ -1,4 +1,4 @@
-import './style.scss'
+import './style.less'
 /**
  * @author ifmiss
  * @version 1.1.0

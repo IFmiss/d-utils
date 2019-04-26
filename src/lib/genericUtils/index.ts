@@ -1,4 +1,5 @@
 import LogUtils from './../logUtils/index'
+import DecoratorUtils from './../decoratorUtils/index'
 /**
  * 通用工具类
  */
@@ -84,7 +85,8 @@ export default class GenericUtils {
    * console(GenericUtils.calcStringLength(str))
    * console(GenericUtils.calcStringLength(str, true))
    */
-  static calcStringLength (str: string, isStrict: boolean): number {
+  @DecoratorUtils.log
+  static calcStringLength (str: string, isStrict?: boolean): number {
     if (typeof str !== 'string') {
       LogUtils.logError(`str must be string but found ${typeof str}`, 'GenericUtils.calcStringLength => error')
       return
