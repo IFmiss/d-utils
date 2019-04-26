@@ -85,6 +85,7 @@ export default class GenericUtils {
    * console(GenericUtils.calcStringLength(str))
    * console(GenericUtils.calcStringLength(str, true))
    */
+  @DecoratorUtils.fnTime
   @DecoratorUtils.log
   static calcStringLength (str: string, isStrict?: boolean): number {
     if (typeof str !== 'string') {
