@@ -24,7 +24,7 @@ export default class HttpRequestUtils {
   /**
    * 是否初始化了
    */
-  static isInit: boolean = false
+  private static isInit: boolean = false
 
   /**
    * @description 初始化axios的基础信息以及 axios的响应拦截的操作
@@ -34,7 +34,7 @@ export default class HttpRequestUtils {
    */
   static init (fn?: Function): any {
     LogUtils.logInfo('https://github.com/IFmiss/d-js-utils/blob/typescript/src/lib/httpRequestUtils/axiosConfig.ts',
-                       `HttpRequestUtils.init 需要自定义aixos的响应拦截以及基本配置 =>`)
+                       `[d-utils] HttpRequestUtils.init 需要自定义aixos的响应拦截以及基本配置 =>`)
     if (fn && typeof fn === 'function') {
       fn.call(null, axios, HttpRequestUtils)
     }
@@ -50,18 +50,19 @@ export default class HttpRequestUtils {
    */
   static get (url: string, config?: any): Promise<any> {
     if (!HttpRequestUtils.isInit) {
-      LogUtils.logError('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作', `http-request: => error`)
+      LogUtils.logError('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作', `[d-utils] http-request: => error`)
       return
     }
-    LogUtils.logWarning('请求开始', `http-request: [get] start => ${url}`)
+    LogUtils.logWarning(`请求开始: `, `[d-utils] http-request: [get] start => ${url}`)
     axios.get(url, config).then((res: any) => {
-      LogUtils.logSuccess(res, `http-request: [get] success => ${url}`)
+      LogUtils.logSuccess(res, `[d-utils] http-request: [get] success => ${url}`)
       return Promise.resolve(res)
     }).catch((e: any) => {
-      LogUtils.logError(e, `http-request: [get] error => ${url}`)
+      LogUtils.logError(e, `[d-utils] http-request: [get] error => ${url}`)
       return Promise.reject(e)
     }).finally(() => {
-      LogUtils.logInfo('请求结束', `http-request: [get] complete => ${url}`)
+      LogUtils.logInfo('请求结束', `[d-utils] http-request: [get] complete => ${url}`)
+      LogUtils.groupEnd()
     })
   }
 

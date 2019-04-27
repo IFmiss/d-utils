@@ -1,7 +1,7 @@
 .DS_Store
 node_modules/
 dist/
-lib/
+# lib/
 typescript/
 types/
 npm-debug.log*

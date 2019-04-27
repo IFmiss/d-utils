@@ -13,8 +13,6 @@ import store from './storeUtils/index'
 import exp from './expUtils/index'
 // 设备信息类
 import device from './deviceUtils/index'
-// 注解
-import decorator from './decorator'
 // 微信相关
 import weixin from './weixinUtils/index'
 // 性能
@@ -27,19 +25,56 @@ import url from './urlUtils/index'
 import http from './httpRequestUtils/index'
 // 图片合成操作
 import img from './imageUtils/index'
+// 装饰器相关
+// import decorator from './decoratorUtils/index'
 // event事件
 // import event from './eventUtils/index'
 
+/**
+ * Dom相关静态类
+ */
 export const DomUtils = dom
+
+/**
+ * 性能相关静态类
+ */
 export const PerformanceUtils = performance
+
+/**
+ * 设备相关静态类
+ */
 export const DeviceUtils = device
+
+/**
+ * 数据存储静态类
+ */
 export const StoreUtils = store
+
+/**
+ * 日志 打印静态类
+ */
 export const LogUtils = log
+
+/**
+ * 通用工具静态类
+ */
 export const GenericUtils = utils
 export const UrlUtils = url
 export const WeixinUtils = weixin
+
+/**
+ * 正则相关静态类
+ */
 export const ExpUtils = exp
+
+/**
+ * axios二次封装
+ */
 export const HttpRequestUtils = http
+
+/**
+ * 图片合成类
+ */
 export const ImageUtils = img
 // export const EventUtils = event
 

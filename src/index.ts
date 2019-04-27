@@ -1,4 +1,4 @@
-import './style.scss'
+import './style.less'
 /**
  * @author ifmiss
  * @version 1.1.0
@@ -13,7 +13,9 @@ import { StoreUtils } from './lib/index'
 import { LogUtils, GenericUtils, UrlUtils, WeixinUtils, ExpUtils, HttpRequestUtils, ImageUtils } from './lib/index'
 import { axiosConfig } from './lib/httpRequestUtils/axiosConfig'
 import Dutils from './lib/index'
-
-// console.log(WeixinUtils.wxSign('HoagFKDcsGMVCIY2vOjf9gUuR1N2dskxdgrAWwJ6fbraN3NPWHKE4OcYgJR6YOalAIoo5ZbUlQZX4L9l-I6Mhg'))
+// HttpRequestUtils.init(function () {
+//   console.log('init')
+// })
+// HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php?inAjax=1&do=getImageByBingJson')
 DeviceUtils.checkLayoutOrientation()
-console.log(WeixinUtils.sdkUrlIosOrAndorid())
+GenericUtils.calcStringLength('1111')

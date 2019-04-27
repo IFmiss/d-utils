@@ -1,7 +1,13 @@
+import ExpUtils from './../expUtils/index'
 /**
  * 日志的打印封装
  */
 export default class LogUtils {
+  /**
+   * 提示色  '#9E9E9E'   默认灰色
+   */
+  static defaultColor: string = '#9E9E9E'
+
   /**
    * 提示色  '#0099FF'   蓝色
    */
@@ -30,8 +36,27 @@ export default class LogUtils {
    * @example
    * LogUtils.console(window.screen, 'window:', 'red')
    */
-  static console (data: any, dataTitile: string = '数据信息', color: string = '#9E9E9E'): void {
+  static console (data: any, dataTitile: string = '数据信息', color: string = LogUtils.defaultColor): void {
+    if (ExpUtils.isObject(data)) {
+      if (ExpUtils.isArray(data)) {
+        console.log(`%c ${dataTitile}`, `color: ${color}; font-weight: bold`, data)
+      } else {
+        console.log(`%c ${dataTitile}`, `color: ${color}; font-weight: bold`, {...data})
+      }
+      return
+    }
     console.log(`%c ${dataTitile}`, `color: ${color}; font-weight: bold`, data)
+  }
+
+  /**
+   * logDefault提示信息
+   * @param { any } data  打印的数据信息
+   * @param { string } dataTitile  提示文案
+   * @example
+   * LogUtils.logDefault('date', 'logDefault')
+   */
+  static logDefault (data: any, dataTitile: string = '【LogUtils: Info】 =>'): void {
+    LogUtils.console(data, dataTitile, LogUtils.defaultColor)
   }
 
   /**
@@ -41,7 +66,7 @@ export default class LogUtils {
    * @example
    * LogUtils.logInfo('date', 'logInfo')
    */
-  static logInfo (data: any, dataTitile: string = 'LogUtils: Info => '): void {
+  static logInfo (data: any, dataTitile: string = '【LogUtils: Info】 =>'): void {
     LogUtils.console(data, dataTitile, LogUtils.infoColor)
   }
 
@@ -104,5 +129,34 @@ export default class LogUtils {
     } else {
       console.log(`%c${text}`, `background-size: 100%;background-image: -moz-linear-gradient(left, ${opt.colors.toString()});background-image: -webkit-linear-gradient(left, ${opt.colors.toString()});background-image: linear-gradient(to right, ${opt.colors.toString()});padding:2px 5px;color:#fff;font-size:12px;`)
     }
+  }
+
+  /**
+   * log打印一个group组  默认全部展示折叠
+   */
+  static group (dataTitile: string = '数据信息', color: string = LogUtils.defaultColor): void {
+    console.group(`%c ${dataTitile}`, `color: ${color}; font-weight: bold`)
+  }
+
+  /**
+   * log打印一个group组  折叠的
+   */
+  static groupCollapsed (dataTitile: string = '数据信息', color: string = LogUtils.defaultColor): void {
+    console.groupCollapsed(`%c ${dataTitile}`, `color: ${color}; font-weight: bold`)
+  }
+
+  /**
+   * 关闭一个console.group
+   */
+  static groupEnd (): void {
+    console.groupEnd()
+  }
+
+  /**
+   * 打印一个table的表格数据
+   * @param data 数组对象数据
+   */
+  static table (data: any[]): void {
+    console.table(data)
   }
 }
