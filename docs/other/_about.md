@@ -11,11 +11,17 @@
 - `DeviceUtils`
   设备相关的检测与方法
 
+- `DecoratorUtils`
+  通用的装饰器
+
 - `StoreUtils`
   该属性主要是对于数据的操作
 
 - `HttpRequestUtils`
   基于axios请求的封装
+
+- `EventUtils`
+  一个简单的发布订阅者模式
 
 - `ExpUtils`
   该属性是d-js-utlis里的一个类，此属性包含对于一些字符，或者元素判断是否符合要求

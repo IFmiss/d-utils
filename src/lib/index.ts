@@ -59,7 +59,15 @@ export const LogUtils = log
  * 通用工具静态类
  */
 export const GenericUtils = utils
+
+/**
+ * url相关
+ */
 export const UrlUtils = url
+
+/**
+ * 微信相关
+ */
 export const WeixinUtils = weixin
 
 /**
@@ -76,7 +84,11 @@ export const HttpRequestUtils = http
  * 图片合成类
  */
 export const ImageUtils = img
-// export const EventUtils = event
+
+/**
+ * 事件相关
+ */
+export const EventUtils = event
 
 export default {
   DomUtils: dom,
@@ -90,5 +102,5 @@ export default {
   UrlUtils: url,
   HttpRequestUtils: http,
   ImageUtils: img,
-  // EventUtils: event
+  EventUtils: event
 }

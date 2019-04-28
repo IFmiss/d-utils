@@ -16,9 +16,9 @@ const resolve = function (dir) {
 module.exports = {
 	entry: {
 		// 这里只是编译的时候用的
-		// index: './src/index.ts'
+		index: './src/index.ts'
 		// index: './lib/index.js'
-		index: './src/lib/index.ts'
+		// index: './src/lib/index.ts'
 	},
 	output: {
 		path: path.resolve(__dirname, 'lib'),
@@ -106,11 +106,11 @@ module.exports = {
 		]
 	},
 	plugins: [
-		// new HtmlWebpackPlugin ({
-		// 	filename: 'index.html',
-		// 	template: 'index.html',
-		// 	inject: true
-		// }),
+		new HtmlWebpackPlugin ({
+			filename: 'index.html',
+			template: 'index.html',
+			inject: true
+		}),
 		extractSass,
 		new CleanWebpackPlugin({
 			verbose: false
@@ -161,3 +161,31 @@ module.exports = {
 		}
 	}
 }
+
+// // 获取Ip
+// function getIPAdress() {
+// 	let localIPAddress = "";
+// 	let interfaces = os.networkInterfaces();
+// 	for (let devName in interfaces) {
+// 			let iface = interfaces[devName];
+// 			for (let i = 0; i < iface.length; i++) {
+// 					let alias = iface[i];
+// 					if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+// 							localIPAddress = alias.address;
+// 					}
+// 			}
+// 	}
+// 	localIp = localIPAddress;
+// 	return localIPAddress;
+// }
+
+// console.log(process.env.NODE_ENV)
+
+// // 打印返回信息
+// if (process.env.NODE_ENV === 'development') {
+// 	let host = dev.devServer.host ? dev.devServer.host : 'localhost'
+// 	// getIPAdress
+// 	if (host === '0.0.0.0') host = getIPAdress()
+// 	const text = `server will start at： http://${host}:${dev.devServer.port}`
+// 	console.log(chalk.green(text))
+// }
