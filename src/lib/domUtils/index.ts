@@ -66,11 +66,11 @@ export default class DomUtils {
    */
   static computedStyle (el: any, cssProp: any): void {
     if (!el) {
-      LogUtils.logError('dom元素不存在', 'DomUtils.computedStyle => error')
+      LogUtils.logError('dom元素不存在', '[d-utils] DomUtils computedStyle error => ')
       return
     }
     if (!cssProp) {
-      LogUtils.logError('请输入需要查询的css属性名称', 'DomUtils.computedStyle => error')
+      LogUtils.logError('请输入需要查询的css属性名称', '[d-utils] DomUtils computedStyle error => ')
       return
     }
     return document.defaultView.getComputedStyle ? document.defaultView.getComputedStyle(el, '')[cssProp] : el.currentStyle[cssProp]

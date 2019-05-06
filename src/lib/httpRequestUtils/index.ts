@@ -34,7 +34,7 @@ export default class HttpRequestUtils {
    */
   static init (fn?: Function): any {
     LogUtils.logInfo('https://github.com/IFmiss/d-js-utils/blob/typescript/src/lib/httpRequestUtils/axiosConfig.ts',
-                       `[d-utils] HttpRequestUtils.init 需要自定义aixos的响应拦截以及基本配置 =>`)
+                       `[d-utils] http_request HttpRequestUtils.init 需要自定义aixos的响应拦截以及基本配置 => `)
     if (fn && typeof fn === 'function') {
       fn.call(null, axios, HttpRequestUtils)
     }
@@ -50,19 +50,19 @@ export default class HttpRequestUtils {
    */
   static get (url: string, config?: any): Promise<any> {
     if (!HttpRequestUtils.isInit) {
-      LogUtils.logError('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作', `[d-utils] http-request: => error`)
+      LogUtils.logError('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作', `[d-utils] http_request: => error`)
       return
     }
-    LogUtils.logWarning(`请求开始: `, `[d-utils] http-request: [get] start => ${url}`)
     axios.get(url, config).then((res: any) => {
-      LogUtils.logSuccess(res, `[d-utils] http-request: [get] success => ${url}`)
+      LogUtils.groupCollapsed(`[d-utils] http_request get 请求成功 => ${url}`, LogUtils.successColor)
+      LogUtils.logInfo(res, `http_request response => `)
+      LogUtils.groupEnd()
       return Promise.resolve(res)
     }).catch((e: any) => {
-      LogUtils.logError(e, `[d-utils] http-request: [get] error => ${url}`)
-      return Promise.reject(e)
-    }).finally(() => {
-      LogUtils.logInfo('请求结束', `[d-utils] http-request: [get] complete => ${url}`)
+      LogUtils.groupCollapsed(`[d-utils] http_request get 请求成功 ${url}`, LogUtils.successColor)
+      LogUtils.logInfo(e, `http_request error => `)
       LogUtils.groupEnd()
+      return Promise.reject(e)
     })
   }
 
@@ -75,19 +75,20 @@ export default class HttpRequestUtils {
    */
   static post (url: string, data?: any, config?: any): Promise<any> {
     if (!HttpRequestUtils.isInit) {
-      LogUtils.logError('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作', `http-request: => error`)
+      LogUtils.logError('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作', `[d-utils] http_request error => `)
       return
     }
     const postInfo:any = Object.assign({}, {data: data}, config)
-    LogUtils.logWarning('请求开始', `http-request: [post] start => ${url}`)
     axios.post(url, postInfo).then((res: any) => {
-      LogUtils.logSuccess(res, `http-request: [post] success => ${url}`)
+      LogUtils.groupCollapsed(`[d-utils] http_request post 请求成功 => ${url}`, LogUtils.successColor)
+      LogUtils.logInfo(res, `http_request response => `)
+      LogUtils.groupEnd()
       return Promise.resolve(res)
     }).catch((e: any) => {
-      LogUtils.logError(e, `http-request: [post] error => ${url}`)
+      LogUtils.groupCollapsed(`[d-utils] http_request post 请求失败 => ${url}`, LogUtils.errorColor)
+      LogUtils.logInfo(e, `http_request error => `)
+      LogUtils.groupEnd()
       return Promise.reject(e)
-    }).finally(() => {
-      LogUtils.logInfo('请求结束', `http-request: [post] complete => ${url}`)
     })
   }
 }

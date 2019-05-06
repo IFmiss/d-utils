@@ -84,7 +84,7 @@ export default class StoreUtils {
     const l = newArr.length
     const resultArr = new Array()
     if (!(num > 0)) {
-      LogUtils.logError(`数量必须大于0`, 'StoreUtils.randomDataFromArr => error')
+      LogUtils.logError(`数量必须大于0`, '[d-utils] StoreUtils randomDataFromArr => ')
       return
     }
     if (newArr) {

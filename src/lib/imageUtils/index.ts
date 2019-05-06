@@ -96,7 +96,7 @@ export default class ImageUtils {
       }
 
       image.onerror = () => {
-        LogUtils.logError(src, 'ImageUtils.loadResourse 裁剪图片加载错误')
+        LogUtils.logError(src, '[d-utils] ImageUtils loadResourse 裁剪图片加载错误')
         reject()
       }
     })
@@ -200,7 +200,7 @@ export default class ImageUtils {
   public convertCanvasToImage (): any {
     const image = new Image()
     image.src = this.canvas.toDataURL('image/png', 1)
-    LogUtils.logSuccess(image, 'ImageUtils.convertCanvasToImage 图片对象创建成功')
+    LogUtils.logSuccess(image, '[d-utils] ImageUtils convertCanvasToImage 图片对象创建成功')
     return image
   }
 }

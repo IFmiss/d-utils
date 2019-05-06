@@ -63,7 +63,7 @@ export default class ExpUtils {
    */
   static isPhoneNum (num: string): boolean {
     if (typeof num !== 'string') {
-      LogUtils.logError(`参数需要为string类型，但是发现为: ${typeof num}`, 'ExpUtils.isPhoneNum => error')
+      LogUtils.logError(`参数需要为string类型，但是发现为: ${typeof num}`, '[d-utils] ExpUtils isPhoneNum error => ')
       return false
     }
     return ExpUtils.EXP_PHONE_NUM.test(num)
@@ -151,7 +151,7 @@ export default class ExpUtils {
    */
   static isEmptyObject (obj: any): boolean {
     if (!ExpUtils.isObject(obj)) {
-      LogUtils.logError('参数不是真正的object对象', 'ExpUtils.isEmptyObject => error')
+      LogUtils.logError('参数不是真正的object对象', '[d-utils] ExpUtils isEmptyObject error => ')
       return false
     }
     return Object.keys(obj).length === 0

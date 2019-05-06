@@ -13,9 +13,9 @@ import { StoreUtils } from './lib/index'
 import { LogUtils, GenericUtils, UrlUtils, WeixinUtils, ExpUtils, HttpRequestUtils, ImageUtils } from './lib/index'
 import { axiosConfig } from './lib/httpRequestUtils/axiosConfig'
 import Dutils from './lib/index'
-// HttpRequestUtils.init(function () {
-//   console.log('init')
-// })
-// HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php?inAjax=1&do=getImageByBingJson')
+HttpRequestUtils.init(function () {
+  console.log('init')
+})
+HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php?inAjax=1&do=getImageByBingJson')
 DeviceUtils.checkLayoutOrientation()
 GenericUtils.calcStringLength('1111')

@@ -10,7 +10,7 @@ export default class DecoratorUtils {
     const fn = descriptor.value;
     descriptor.value = (...args) => {
       let result
-      LogUtils.groupCollapsed(`[d-utils] => ${name}方法`, LogUtils.defaultColor)
+      LogUtils.groupCollapsed(`[d-utils] DecoratorUtils ${name}方法的执行信息`, LogUtils.defaultColor)
       LogUtils.logDefault(`${name}(${args})`, `方法准备执行:`)
       LogUtils.logInfo(args, '详细的参数值: ')
       try {
@@ -29,7 +29,7 @@ export default class DecoratorUtils {
   static fnTime (target, name, descriptor) {
     const fn = descriptor.value
     if (typeof fn !== 'function') {
-      LogUtils.logError(`${name}必须为方法`, `[d-utils] fnTime 执行失败结果:`)
+      LogUtils.logError(`${name}必须为方法`, `[d-utils] fnTime 执行失败结果: `)
       return
     }
 

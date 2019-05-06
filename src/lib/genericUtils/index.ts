@@ -89,7 +89,7 @@ export default class GenericUtils {
   @DecoratorUtils.log
   static calcStringLength (str: string, isStrict?: boolean): number {
     if (typeof str !== 'string') {
-      LogUtils.logError(`str must be string but found ${typeof str}`, 'GenericUtils.calcStringLength => error')
+      LogUtils.logError(`str must be string but found ${typeof str}`, '[d-utils] GenericUtils calcStringLength error => ')
       return
     }
     if (!isStrict) return str.length
@@ -123,7 +123,7 @@ export default class GenericUtils {
    */
   static strTrim (str: string, type: number = 0): string {
     if (typeof str !== 'string') {
-      LogUtils.logError(`str must be string but found ${typeof str}`, 'GenericUtils.strTrim => error')
+      LogUtils.logError(`str must be string but found ${typeof str}`, '[d-utils] GenericUtils strTrim error => ')
       return
     }
     switch (type) {
@@ -157,7 +157,7 @@ export default class GenericUtils {
    */
   static throttle (fn: Function, t = 1000): any {
     if (typeof fn !== 'function') {
-      LogUtils.logError(`第一个参数必须是方法`, 'GenericUtils.throttle => error')
+      LogUtils.logError(`第一个参数必须是方法`, '[d-utils] GenericUtils throttle error => ')
       return
     }
     const _fn = fn
@@ -198,7 +198,7 @@ export default class GenericUtils {
    */
   static debounce (fn: Function, t: number, immediate = true): any {
     if (typeof fn !== 'function') {
-      LogUtils.logError(`第一个参数必须是方法`, 'GenericUtils.debounce => error')
+      LogUtils.logError(`第一个参数必须是方法`, '[d-utils] GenericUtils debounce error => ')
       return
     }
     let time: any

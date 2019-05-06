@@ -125,7 +125,7 @@ export default class WeixinUtils {
     wx.config(data)
 
     wx.error((res: any) => {
-      LogUtils.logError(res, 'wx.config => error')
+      LogUtils.logError(res, '[d-utils] wx.config error => ')
     })
   }
 
