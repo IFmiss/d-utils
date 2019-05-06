@@ -26,9 +26,11 @@ import http from './httpRequestUtils/index'
 // 图片合成操作
 import img from './imageUtils/index'
 // 装饰器相关
-// import decorator from './decoratorUtils/index'
+import decorator from './decoratorUtils/index'
 // event事件
-// import event from './eventUtils/index'
+import event from './eventUtils/index'
+// promise
+import promise from './promiseUtils/index'
 
 /**
  * Dom相关静态类
@@ -90,17 +92,24 @@ export const ImageUtils = img
  */
 export const EventUtils = event
 
+/**
+ * promise相关
+ */
+export const PromiseUtils = promise
+
 export default {
+  DecoratorUtils: decorator,
+  DeviceUtils: device,
   DomUtils: dom,
   GenericUtils: utils,
   StoreUtils: store,
   ExpUtils: exp,
-  DeviceUtils: device,
   LogUtils: log,
   WeixinUtils: weixin,
   PerformanceUtils: performance,
   UrlUtils: url,
   HttpRequestUtils: http,
   ImageUtils: img,
-  EventUtils: event
+  EventUtils: event,
+  PromiseUtils: promise
 }
