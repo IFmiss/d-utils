@@ -76,3 +76,14 @@ PerformanceUtils 是浏览器性能相关的监控
  * @returns { number } 时差 单位：ms
  */
 ```
+
+## logger
+`logger` 在页面加载300毫秒之后打印数据信息
+```js
+/**
+ * @description onload时间(总下载时间)
+ * @description timing.loadEventEnd - timing.navigationStart
+ * @returns { number } 时差 单位：ms
+ */
+  PerformanceUtils.logger()
+```

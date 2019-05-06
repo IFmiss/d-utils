@@ -1,6 +1,9 @@
 # LogUtils 类
 LogUtils 是log打印相关的封装
 
+## defaultColor
+`defaultColor`: 属性， 提示色  '#9E9E9E'   默认灰色
+
 ## infoColor
 `infoColor`: 属性， 提示色  '#0099FF'   蓝色
 
@@ -31,6 +34,14 @@ LogUtils 是log打印相关的封装
 #### `Demo:`
 ```js
 LogUtils.console(window.screen, 'window:', 'red')
+```
+## logDefault
+`logDefault`: 方法，提示信息 颜色为 defaultColor
+#### 参数
+- `data` 打印的数据信息
+- `dataTitile` 提示文案
+```js
+LogUtils.logDefault('date', 'logDefault')
 ```
 
 ## logInfo
@@ -93,4 +104,38 @@ LogUtils.logBeauty('这是一个console的方法，可以设置背景色的哦',
   isMax: false,
   colors: ['#fa709a', '#fee140', '#ffb199']
 })
+```
+
+## group (自动展开)
+`group` : 方法，建立一个log分组
+#### 参数
+- `dataTitile` 提示文案
+- `color` 文字颜色
+```js
+LogUtils.group('提示文案', LogUtils.defaultColor)
+LogUtils.group('提示文案', 'blue')
+```
+
+## groupCollapsed （折叠）
+`groupCollapsed` : 方法，建立一个log分组
+#### 参数
+- `dataTitile` 提示文案
+- `color` 文字颜色
+```js
+LogUtils.groupCollapsed('提示文案', LogUtils.defaultColor)
+LogUtils.groupCollapsed('提示文案', 'blue')
+```
+
+## groupEnd
+`groupEnd` 配合`group`或者`groupCollapsed`使用
+```js
+LogUtils.groupEnd()
+```
+
+## table
+`table` 打印一个table的表格数据
+#### 参数
+- `data` 数组对象数据
+```js
+LogUtils.groupEnd(data)
 ```

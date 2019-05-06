@@ -1,6 +1,7 @@
 /**
  * 网页性能监测
  */
+import LogUtils from './../logUtils/index'
 export default class PerformanceUtils {
   /**
    * @description window.performance对象
@@ -73,5 +74,24 @@ export default class PerformanceUtils {
    */
   static loadFullTime (): number {
     return PerformanceUtils.timing.loadEventEnd - PerformanceUtils.timing.navigationStart
+  }
+
+  /**
+   * @description 打印已知的所有数据信息
+   */
+  static logger (): void {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        LogUtils.groupCollapsed('[d-utils] PerformanceUtils logger', LogUtils.infoColor)
+        LogUtils.logDefault(PerformanceUtils.dnsTime(), 'DNS查询耗时')
+        LogUtils.logDefault(PerformanceUtils.loadTime(), '白屏时间')
+        LogUtils.logDefault(PerformanceUtils.requestTime(), 'request请求耗时')
+        LogUtils.logDefault(PerformanceUtils.tcpTime(), 'TCP链接耗时')
+        LogUtils.logDefault(PerformanceUtils.renderDomTime(), '解析dom树耗时')
+        LogUtils.logDefault(PerformanceUtils.readyDomTime(), '用户可操作时间节点')
+        LogUtils.logDefault(PerformanceUtils.loadFullTime(), 'onload时间')
+        LogUtils.groupEnd()
+      }, 300)
+    })
   }
 }
