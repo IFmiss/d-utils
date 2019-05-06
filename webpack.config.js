@@ -3,7 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-
+const WebpackPromptPlugin = require('@dw/webpack-prompt-plugin');
 const extractSass = new ExtractTextPlugin({
     filename: "css/[name]-[hash].css",
     disable: process.env.NODE_ENV === "development"
@@ -114,7 +114,8 @@ module.exports = {
 		extractSass,
 		new CleanWebpackPlugin({
 			verbose: false
-    })
+		}),
+		new WebpackPromptPlugin()
 	],
 	devServer: {
 		// 当使用 HTML5 History API 时，任意的 404 响应都可能需要被替代为 index.html。通过传入以下启用：
@@ -161,31 +162,3 @@ module.exports = {
 		}
 	}
 }
-
-// // 获取Ip
-// function getIPAdress() {
-// 	let localIPAddress = "";
-// 	let interfaces = os.networkInterfaces();
-// 	for (let devName in interfaces) {
-// 			let iface = interfaces[devName];
-// 			for (let i = 0; i < iface.length; i++) {
-// 					let alias = iface[i];
-// 					if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
-// 							localIPAddress = alias.address;
-// 					}
-// 			}
-// 	}
-// 	localIp = localIPAddress;
-// 	return localIPAddress;
-// }
-
-// console.log(process.env.NODE_ENV)
-
-// // 打印返回信息
-// if (process.env.NODE_ENV === 'development') {
-// 	let host = dev.devServer.host ? dev.devServer.host : 'localhost'
-// 	// getIPAdress
-// 	if (host === '0.0.0.0') host = getIPAdress()
-// 	const text = `server will start at： http://${host}:${dev.devServer.port}`
-// 	console.log(chalk.green(text))
-// }
