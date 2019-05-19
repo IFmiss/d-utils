@@ -24,12 +24,17 @@ setTimeout(() => {
 }, 5000)
 
 async function aaa () {
+  console.log('start')
   await PromiseUtils.wait(() => {
     return t > 0
+  }, 1000, 3000).then(() => {
+    console.log(1111)
+  }).catch(() => {
+    console.log(22222)
   })
   console.log('哈哈哈哈啊哈哈哈哈')
 }
 aaa()
 
 DeviceUtils.checkLayoutOrientation()
-GenericUtils.calcStringLength('1111')
+GenericUtils.calcStringLength('1111', 11111)

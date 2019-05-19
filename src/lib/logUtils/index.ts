@@ -135,14 +135,14 @@ export default class LogUtils {
    * log打印一个group组  默认全部展示折叠
    */
   static group (dataTitile: string = '[d-utils] log_utils group => ', color: string = LogUtils.defaultColor): void {
-    console.group(`%c ${dataTitile}`, `color: ${color}; font-weight: bold`)
+    console.group(`%c${dataTitile}`, `color: ${color}; font-weight: bold`)
   }
 
   /**
    * log打印一个group组  折叠的
    */
   static groupCollapsed (dataTitile: string = '[d-utils] log_utils group_collapsed => ', color: string = LogUtils.defaultColor): void {
-    console.groupCollapsed(`%c ${dataTitile}`, `color: ${color}; font-weight: bold`)
+    console.groupCollapsed(`%c${dataTitile}`, `color: ${color}; font-weight: bold`)
   }
 
   /**

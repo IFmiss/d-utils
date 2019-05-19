@@ -36,11 +36,11 @@ export default class DecoratorUtils {
     return {
       ...descriptor,
       value () {
-        console.time(`${name}方法执行时间: `);
+        console.time(`[d-utils] ${name}方法执行时间: `);
         try {
           return fn.apply(target, arguments)
         } finally {
-          console.timeEnd(`${name}方法执行时间: `)
+          console.timeEnd(`[d-utils] ${name}方法执行时间: `)
         }
       }
     }
