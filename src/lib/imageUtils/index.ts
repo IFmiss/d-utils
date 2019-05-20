@@ -28,11 +28,6 @@ enum TextType {
 
 export default class ImageUtils {
   /**
-   * 设备像素比
-   */
-  private pr: number = window.devicePixelRatio
-
-  /**
    * 基于当前屏幕的比例
    */
   public persent: number = 1

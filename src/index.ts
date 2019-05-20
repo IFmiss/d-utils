@@ -16,7 +16,10 @@ PerformanceUtils.logger()
 HttpRequestUtils.init(function () {
   console.log('init')
 })
-HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php?inAjax=1&do=getImageByBingJson')
+HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
+  inAjax: 1,
+  do: 'getImageByBingJson'
+})
 
 let t = 0
 setTimeout(() => {
@@ -37,4 +40,4 @@ async function aaa () {
 aaa()
 
 DeviceUtils.checkLayoutOrientation()
-GenericUtils.calcStringLength('1111', 11111)
+GenericUtils.calcStringLength('1111')

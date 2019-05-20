@@ -48,12 +48,13 @@ export default class HttpRequestUtils {
    * @param { object } config 相关axios的配置信息
    * @return { Promise }
    */
-  static get (url: string, config?: any): Promise<any> {
+  static get (url: string, params?: any, config?: any): Promise<any> {
     if (!HttpRequestUtils.isInit) {
       LogUtils.logError('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作', `[d-utils] http_request: => error`)
       return
     }
-    axios.get(url, config).then((res: any) => {
+    const getInfo: any = Object.assign({}, {params}, config)
+    axios.get(url, getInfo).then((res: any) => {
       LogUtils.groupCollapsed(`[d-utils] http_request get 请求成功 => ${url}`, LogUtils.successColor)
       LogUtils.logInfo(res, `http_request response => `)
       LogUtils.groupEnd()

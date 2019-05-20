@@ -72,7 +72,7 @@ export default class GenericUtils {
    * GenericUtils.showLayoutFramework()
    */
   static layoutFramework (): void {
-    [].forEach.call( document.querySelectorAll('*'),function(a: any){  a.style.outline='1px solid #'+(~~(Math.random()*(1<<24))).toString(16) })
+    Array.prototype.forEach.call( document.querySelectorAll('*'),function(a: any){  a.style.outline='1px solid #'+(~~(Math.random()*(1<<24))).toString(16) })
   }
 
   /**
@@ -81,7 +81,7 @@ export default class GenericUtils {
    * @param { Boolean } isStrict  true 返回一个字符串的长度，汉字算2个字符长度; false 直接返回长度
    * @return { Number } 返回字符串长度
    * @example
-   * const str = 'd-utils组件'
+   * const str = 'd-utils库'
    * console(GenericUtils.calcStringLength(str))
    * console(GenericUtils.calcStringLength(str, true))
    */
