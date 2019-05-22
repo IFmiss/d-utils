@@ -41,3 +41,9 @@ aaa()
 
 DeviceUtils.checkLayoutOrientation()
 GenericUtils.calcStringLength('1111')
+
+async function bbb () {
+  await PromiseUtils.sleep(5000)
+  console.log('bbbbbbbbbbbbbbbbbb')
+} 
+bbb()

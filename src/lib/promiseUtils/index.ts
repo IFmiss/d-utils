@@ -25,4 +25,12 @@ export default class PromiseUtils {
   static requestOnLoad (requestQueues: Promise<any>[]): Promise<any> {
     return Promise.all(requestQueues)
   }
+
+  static sleep (timer) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve()
+      }, timer)
+    })
+  }
 }
