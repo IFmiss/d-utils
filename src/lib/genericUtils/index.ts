@@ -308,4 +308,22 @@ export default class GenericUtils {
       document.webkitExitFullscreen()
     }
   }
+
+  /**
+   * @description 字符串转成base64编码
+   * @param str 字符串
+   * @return str base64 字符串
+   */
+  static base64Encode (str: string): string {
+    return window.btoa(str)
+  }
+
+  /**
+   * @description 字符串转成base64编码
+   * @param str base64字符串
+   * @return 返回str字符串
+   */
+  static base64Decode (str: string): string {
+    return window.atob(decodeURIComponent(str))
+  }
 }
