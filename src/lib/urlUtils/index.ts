@@ -17,4 +17,20 @@ export default class UrlUtils {
     })
     return obj
   }
+
+  /**
+   * @description object对象转化成get请求的字符串形式
+   * @param { Object } obj  需要操作的对象
+   * @return { String } 返回一个字符串 a=1&b=2
+   * @example
+   * // 'a=1&b=2'
+   * UrlUtils.stringifyUrl({a: 1, b: 2})
+   */
+  static stringifyUrl (obj: any): any {
+    return Object.keys(obj).reduce((prevAll, currentItem, index) => {
+      const prev = index > 1 ? prevAll :`${prevAll}=${obj[prevAll]}`
+      const current = `${currentItem}=${obj[currentItem]}`
+      return `${prev}&${current}`
+    })
+  }
 }

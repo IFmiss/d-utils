@@ -220,58 +220,30 @@ GenericUtils.openFullScreen(document.querySelector('video'))
 GenericUtils.exitFullScreen()
 ```
 
-## performance
-`performance` 用于监听网页的加载状况
-```js
-GenericUtils.performance()
-// 返回数据 (ms)
-res = {
-  dnsT: 0,            // DNS查询耗时
-  loadT: 79,          // 白屏时间
-  onLoadT: 3210,      // onload时间(总下载时间)
-  readyDomT: 505,     // domready时间(用户可操作时间节点)
-  renderDomT: 2708,   // 解析dom树耗时
-  requestT: 7,        // request请求耗时
-  tcpT: 0,            // TCP链接耗时
-  timing: {           // 全局数据 window.performance.timing
-    connectEnd: 1547480432225,
-    connectStart: 1547480432225,
-    domComplete: 1547480435429,
-    domContentLoadedEventEnd: 1547480432727,
-    domContentLoadedEventStart: 1547480432721,
-    domInteractive: 1547480432721,
-    domLoading: 1547480432301,
-    domainLookupEnd: 1547480432225,
-    domainLookupStart: 1547480432225,
-    fetchStart: 1547480432225,
-    loadEventEnd: 1547480435432,
-    loadEventStart: 1547480435429,
-    navigationStart: 1547480432222,
-    redirectEnd: 0,
-    redirectStart: 0,
-    requestStart: 1547480432243,
-    responseEnd: 1547480432284,
-    responseStart: 1547480432277,
-    secureConnectionStart: 0,
-    unloadEventEnd: 1547480432288,
-    unloadEventStart: 1547480432287
-  }
-}
-```
-
-## initRem
-`initRem` 移动端REM的初始化js的方法，默认基于750的设计稿，页面的总宽度为7.5rem，
-```js
+## base64Encode
+`base64Encode` 字符串转成base64编码
+```ts
 /**
- * @param { number }  BaseWidth   基础的设计稿宽度        默认750
- * @param { number }  MaxWidth    移动端最大的比例宽度点   默认window.innerWidth
- * @param { boolean } isFullOverMax   超出{MaxWidth}最大宽度的时候是否居中显示(body居中的前提是超出设定的宽度以及isFullOverMax=false)   默认false
+ * @description 字符串转成base64编码
+ * @param str 字符串
+ * @return str base64 字符串
  */
 ```
-### `Demo`:
-```js
-GenericUtils.initRem()
-GenericUtils.initRem(720) // 设计稿按照 720像素来 
-GenericUtils.initRem(750, 400) // 750的设计稿，375宽度为基准， 超过400 限制为400，且默认不铺满
-GenericUtils.initRem(750, 400, true)  // 铺满
+### `Demo`: 
+```ts
+GenericUtils.base64Encode('hello world!');    // aGVsbG8gd29ybGQh
+```
+
+## base64Decode
+`base64Decode` base64解码成字符串
+```ts
+/**
+ * @description base64解码成字符串
+ * @param str base64字符串
+ * @return 返回str字符串
+ */
+```
+### `Demo`: 
+```ts
+GenericUtils.base64Decode('aGVsbG8gd29ybGQh');    // hello world!
 ```

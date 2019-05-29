@@ -3,6 +3,7 @@
   * [快速开始](/other/_start.md)
   * [更新内容](/other/_update.md)
 * 内容
+  * [DecoratorUtils](/lib/_DecoratorUtils.md)
   * [DomUtils](/lib/_DomUtils.md)
   * [StoreUtils](/lib/_StoreUtils.md)
   * [ExpUtils](/lib/_ExpUtils.md)

@@ -86,4 +86,12 @@ PerformanceUtils 是浏览器性能相关的监控
  * @returns { number } 时差 单位：ms
  */
   PerformanceUtils.logger()
+
+// DNS查询耗时 0
+// 白屏时间 34
+// request请求耗时 1
+// TCP链接耗时 0
+// 解析dom树耗时 1162
+// 用户可操作时间节点 207
+// onload时间 1366
 ```

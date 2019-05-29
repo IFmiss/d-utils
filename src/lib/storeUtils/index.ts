@@ -181,22 +181,6 @@ export default class StoreUtils {
   }
 
   /**
-   * @description object对象转化成get请求的字符串形式
-   * @param { Object } obj  需要操作的对象
-   * @return { String } 返回一个字符串 a=1&b=2
-   * @example
-   * // 'a=1&b=2'
-   * StoreUtils.objectToString({a: 1, b: 2})
-   */
-  static objectToString (obj: any): any {
-    return Object.keys(obj).reduce((prevAll, currentItem, index) => {
-      const prev = index > 1 ? prevAll :`${prevAll}=${obj[prevAll]}`
-      const current = `${currentItem}=${obj[currentItem]}`
-      return `${prev}&${current}`
-    })
-  }
-
-  /**
    * @description 文件转成blob流
    * @param { File } dataUrl  单个file
    * @return { Blob } 返回新的文件流  可以append到formdata中

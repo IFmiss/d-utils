@@ -175,16 +175,16 @@ StoreUtils.checkType(data) !== 'array'
 StoreUtils.uniqueArray([1,2,3,3,,3,3,'4',"4",'4',])   // [1, 2, 3, undefined, "4"]
 ```
 
-## objectToString
-`objectToString`将单层object对象且属性为基本数据类型(通常都为string)转换成`a=1&b=2&c=3`的格式效果
-```js
+## dataUrlToBlob
+`dataUrlToBlob` file转成blob数据流的格式
+```ts
 /**
- * 对象转字符串 属性=值&属性=值的字符串格式
- * @param { Object } obj  需要操作的对象
- * @return { String } 返回一个字符串 a=1&b=2
+ * @description 文件转成blob流
+ * @param { File } dataUrl  单个file
+ * @return { Blob } 返回新的文件流  可以append到formdata中
  */
 ```
-#### `Demo`:
-```js
-StoreUtils.objectToString({a: 1, b: 2}) // 'a=1&b=2'
+##### `Demo`:
+```ts
+StoreUtils.dataUrlToBlob(file[0])
 ```

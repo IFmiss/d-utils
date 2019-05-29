@@ -45,6 +45,7 @@ export default class HttpRequestUtils {
   /**
    * @description get的请求操作
    * @param { string } url 请求的url
+   * @param { object } params 请求的参数
    * @param { object } config 相关axios的配置信息
    * @return { Promise }
    */

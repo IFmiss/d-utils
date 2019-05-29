@@ -66,18 +66,16 @@ HttpRequestUtils.init(axiosConfig).get(url)
 - `config` 相关axios的配置信息
 ```js
 /**
- * @description post的请求操作
+ * @description get的请求操作
  * @param { string } url 请求的url
- * @param { object } data 请求的参数
+ * @param { object } params 请求的参数
  * @param { object } config 相关axios的配置信息
  * @return { Promise }
  */
 ```
 #### `Demo`
 ```js
-HttpRequestUtils.get('http://www.test.com', {
-  // axios config
-}).then((res) => {
+HttpRequestUtils.get('http://www.test.com').then((res) => {
     alert('成功')
 }, (err) => {
     alert('失败')

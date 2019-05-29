@@ -319,7 +319,7 @@ export default class GenericUtils {
   }
 
   /**
-   * @description 字符串转成base64编码
+   * @description base64解码成字符串
    * @param str base64字符串
    * @return 返回str字符串
    */

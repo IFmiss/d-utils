@@ -26,7 +26,13 @@ enum TextType {
   Image = 'image'
 }
 
-export default class ImageUtils {
+interface IImageUtils {
+  addSourse: (resourse: Resourse) => ImageUtils;
+  compose: () => Promise<any>;
+  convertCanvasToImage: () => any;
+}
+
+export default class ImageUtils implements IImageUtils {
   /**
    * 基于当前屏幕的比例
    */

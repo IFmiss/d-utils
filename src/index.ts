@@ -12,6 +12,7 @@ import { StoreUtils } from './lib/index'
 import { LogUtils, GenericUtils, UrlUtils, WeixinUtils, ExpUtils, HttpRequestUtils, ImageUtils, PerformanceUtils, PromiseUtils } from './lib/index'
 import { axiosConfig } from './lib/httpRequestUtils/axiosConfig'
 import Dutils from './lib/index'
+import DomUtils from './lib/domUtils';
 PerformanceUtils.logger()
 HttpRequestUtils.init(function () {
   console.log('init')
@@ -30,10 +31,10 @@ async function aaa () {
   console.log('start')
   await PromiseUtils.wait(() => {
     return t > 0
-  }, 1000, 3000).then(() => {
-    console.log(1111)
+  }, 1000, 10000).then(() => {
+    console.log('end')
   }).catch(() => {
-    console.log(22222)
+    console.log('time out')
   })
   console.log('哈哈哈哈啊哈哈哈哈')
 }
@@ -47,3 +48,8 @@ async function bbb () {
   console.log('bbbbbbbbbbbbbbbbbb')
 } 
 bbb()
+
+DomUtils.cssFilter(document.body, 'grayscale', '1')
+
+console.log(GenericUtils.base64Encode('hello world!'))
+console.log(GenericUtils.base64Decode('aGVsbG8gd29ybGQh'))

@@ -1,4 +1,7 @@
 # 更新内容
+### 之后
+  - `2019-05-29` 更新 StoreUtils.objectToString 至 UrlUtils.stringifyUrl
+
 ### 1.1.14
   - `2019-04-10` 更新版本为1.1.14，改动很大，基本所有的api路径都改了，详情见文档内容
 

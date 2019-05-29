@@ -12,7 +12,7 @@ body,html{
 	margin: 0;
 	padding: 0;
 	height:100%;
-	background: #111010;
+	background: #fff;
 }
 
 body{
@@ -26,24 +26,21 @@ body{
 	.title{
 		font-size: 42px;
 		display: inline-block;
-		.colortext-lt(rgba(50, 219, 154, 0.856), rgba(209, 163, 47, 0.808));
+		.colortext-lt(#CF8BF3, #FDB99B);
 		margin-top: 0;
 	}
 	.disc{
 		font-size: 14px;
-		color: #f1f1f1;
+		color: #333;
 	}
 
 	.href{
 		margin-top: 20px;
-		.colortext-lt(#FFF, #AAA);
+		color: #333;
 		transition: all 0.3s;
 		cursor: pointer;
 		&:link, &:active, &:visited{
-			color: #f1f1f1;
-		}
-		&:hover{
-			.colortext-lt(#fa709a, rgba(#fee140));
+			color: #333;
 		}
 	}
 
@@ -53,7 +50,7 @@ body{
 		display: flex;
 		justify-content: center;
 		span{
-			color: #ffffff;
+			color: #666;
 			font: Arial,"Helvetica Neue",Helvetica,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
 			font-size:14px;
 		}

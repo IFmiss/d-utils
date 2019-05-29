@@ -15,3 +15,17 @@ url的操作，浏览器相关
 ```js
 UrlUtils.parseUrl('http://www.daiwei.org/?a=1&b=2')
 ```
+
+## stringifyUrl
+`stringifyUrl`将单层object对象且属性为基本数据类型(通常都为string)转换成`a=1&b=2&c=3`的格式效果
+```js
+/**
+ * 对象转字符串 属性=值&属性=值的字符串格式
+ * @param { Object } obj  需要操作的对象
+ * @return { String } 返回一个字符串 a=1&b=2
+ */
+```
+#### `Demo`:
+```js
+UrlUtils.stringifyUrl({a: 1, b: 2}) // 'a=1&b=2'
+```
