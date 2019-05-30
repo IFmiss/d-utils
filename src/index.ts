@@ -13,6 +13,8 @@ import { LogUtils, GenericUtils, UrlUtils, WeixinUtils, ExpUtils, HttpRequestUti
 import { axiosConfig } from './lib/httpRequestUtils/axiosConfig'
 import Dutils from './lib/index'
 import DomUtils from './lib/domUtils';
+import PromiseSelf from './lib/PromiseSelf';
+import { rejects } from 'assert';
 PerformanceUtils.logger()
 HttpRequestUtils.init(function () {
   console.log('init')
@@ -53,3 +55,39 @@ DomUtils.cssFilter(document.body, 'grayscale', '1')
 
 console.log(GenericUtils.base64Encode('hello world!'))
 console.log(GenericUtils.base64Decode('aGVsbG8gd29ybGQh'))
+
+// const promiseS = new PromiseSelf((reslove, reject) => {
+//   console.log('start reslove')
+//   setTimeout(() => {
+//     reject(100)
+//   }, 3000)
+// })
+
+const PromiseS1 = new PromiseSelf((resolve, reject) => {
+  console.log('this is PromiseS1')
+  resolve('PromiseS1')
+})
+
+const PromiseS2 = new PromiseSelf((resolve, reject) => {
+  console.log('this is PromiseS2')
+  resolve('PromiseS2')
+})
+
+const PromiseS3 = PromiseSelf.reject('失败')
+
+PromiseSelf.all([PromiseS3, PromiseS1, PromiseS2]).then((res) => {
+  console.log('Promise.all', res);
+})
+
+// PromiseSelf.race([PromiseS3, PromiseS2, PromiseS1]).then((res) => {
+//   console.log('Promise.race', res);
+// })
+
+// console.log(promiseS)
+
+// promiseS.then().then((res) => {
+//   console.log('next onFulfilled', res)
+//   return res
+// }).catch((e) => {
+//   console.log('catch', e)
+// })
