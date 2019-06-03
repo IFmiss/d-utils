@@ -1,6 +1,10 @@
 import ExpUtils from './../expUtils/index'
 import LogUtils from './../logUtils/index'
-import { IwxSign } from './types'
+import { IWxSign,
+         IWxShareToFriend,
+         IWxCallBackType,
+         IWxShareToFriendsCircle,
+         IWxConfig } from './types'
 const wx = require('weixin-js-sdk')
 const sha1 = require('sha1')
 
@@ -9,7 +13,7 @@ const sha1 = require('sha1')
  * 微信jssdk的操作
  */
 export default class WeixinUtils {
-  static wxInfo: any = wx
+  static wx: any = wx
   /**
    * @description 初始化微信请求 js-sdk 的url地址 需要区分两种情况
    * IOS 或者 Android 微信版本小于6.3.31, Android 微信版本大于6.3.31
@@ -43,7 +47,7 @@ export default class WeixinUtils {
    * @param { String }  jsapi_ticket  公众号用于调用微信JS接口的临时票据
    */
 
-  static wxSign (ticket: string): IwxSign {
+  static wxSign (ticket: string): IWxSign {
     const nonceStr = WeixinUtils.randomWord(16)
     const timestamp = (Date.now() + '').substr(0, 10)
     const url = WeixinUtils.sdkUrlIosOrAndorid()
@@ -121,11 +125,133 @@ export default class WeixinUtils {
    * @props { Array } data.jsApiList  必填，需要使用的JS接口列表
    * @link 接口列表地址 https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
    */
-  static initWxConfig (data: any): void {
-    wx.config(data)
+  static initWxConfig (config: IWxConfig): void {
+    this.wx.config(Object.assign({}, {
+      debug: false
+    }, config))
 
-    wx.error((res: any) => {
+    this.wx.error((res: any) => {
       LogUtils.logError(res, '[d-utils] wx.config error => ')
+    })
+  }
+
+  /**
+   * 分享给朋友
+   * @param sharInfo 
+   */
+  static wxShareToFriend (sharInfo: IWxShareToFriend): Promise<string> {
+    return new Promise ((resolve, reject) => {
+      try {
+        this.wx.ready(() => {
+          this.wx.onMenuShareAppMessage({
+            title: sharInfo.title,
+            desc: sharInfo.desc,
+            link: sharInfo.link,
+            imgUrl: sharInfo.imgUrl,
+            success: function (res) {
+              sharInfo.success({
+                type: 'onMenuShareAppMessage',
+                data: res
+              })
+              resolve('onMenuShareAppMessage')
+            },
+            cancel: function (res) {
+              sharInfo.cancel({
+                type: 'onMenuShareAppMessage',
+                data: res
+              })
+              resolve('onMenuShareAppMessage')
+            }
+          })
+        })
+      } catch (e) {
+        reject(e)
+      }
+    })
+  }
+
+  /**
+   * 分享到朋友圈
+   * @param sharInfo 
+   */
+  static wxShareToFriendCircle (sharInfo: IWxShareToFriendsCircle): Promise<string> {
+    return new Promise ((resolve, reject) => {
+      try {
+        this.wx.ready(() => {
+          this.wx.onMenuShareTimeline({
+            title: sharInfo.title,
+            link: sharInfo.link,
+            imgUrl: sharInfo.imgUrl,
+            success: function (res) {
+              sharInfo.success({
+                type: 'onMenuShareTimeline',
+                data: res
+              })
+              resolve('onMenuShareTimeline')
+            },
+            cancel: function (res) {
+              sharInfo.cancel({
+                type: 'onMenuShareTimeline',
+                data: res
+              })
+              resolve('onMenuShareTimeline')
+            }
+          })
+        })
+      } catch (e) {
+        reject(e)
+      }
+    })
+  }
+  
+  /**
+   * 隐藏所有非基础按钮接口
+   */
+  static hideAllNonBaseMenuItem (): Promise<string | object> {
+    return new Promise((resolve, reject) => {
+      this.wx.ready(() => {
+          try {
+              this.wx.hideAllNonBaseMenuItem()
+              const data: IWxCallBackType = {
+                type: 'hideAllNonBaseMenuItem',
+                data: '成功'
+              }
+              resolve(data)
+          } catch (e) {
+              const data: IWxCallBackType = {
+                type: 'hideAllNonBaseMenuItem',
+                data: e
+              }
+              reject(data)
+          }
+      });
+    })
+  }
+
+  /**
+   * 批量隐藏功能按钮接口
+   * @param { array } arr // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+   */
+  static hideMenuItems (arr: string[] = []): Promise<string | object> {
+    return new Promise((resolve, reject) => {
+      this.wx.ready(() => {
+        try {
+            this.wx.hideMenuItems({
+                menuList: arr
+            })
+            const data: IWxCallBackType = {
+              type: 'hideMenuItems',
+              data: `成功, 隐藏的数组名称: ${arr}`
+            }
+            resolve(data)
+        } catch (e) {
+            const data: IWxCallBackType = {
+              type: 'hideMenuItems',
+              data: e
+            }
+            reject(data)
+        }
+      })
     })
   }
 
@@ -140,9 +266,9 @@ export default class WeixinUtils {
   static wxShare (sharInfo: any): Promise<string> {
     // 返回promise
     return new Promise((resolve, reject) => {
-      wx.ready(() => {
+      this.wx.ready(() => {
         // 分享给好友
-        wx.onMenuShareAppMessage({
+        this.wx.onMenuShareAppMessage({
           title: sharInfo.title,
           desc: sharInfo.desc,
           link: sharInfo.link,
@@ -156,7 +282,7 @@ export default class WeixinUtils {
         })
 
         // 自定义“分享给朋友”及“分享到QQ”按钮的分享内容（1.4.0）
-        // wx.updateAppMessageShareData({
+        // this.wx.updateAppMessageShareData({
         //   title: sharInfo.title,
         //   desc: sharInfo.desc,
         //   link: sharInfo.link,
@@ -170,7 +296,7 @@ export default class WeixinUtils {
         // })
 
         // 分享到朋友圈
-        wx.onMenuShareTimeline({
+        this.wx.onMenuShareTimeline({
           title: sharInfo.title,
           link: sharInfo.link,
           imgUrl: sharInfo.imgUrl,
@@ -183,7 +309,7 @@ export default class WeixinUtils {
         })
 
         // 自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容（1.4.0）
-        // wx.updateTimelineShareData({
+        // this.wx.updateTimelineShareData({
         //   title: sharInfo.title,
         //   desc: sharInfo.desc,
         //   link: sharInfo.link,

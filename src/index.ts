@@ -15,6 +15,7 @@ import Dutils from './lib/index'
 import DomUtils from './lib/domUtils';
 import PromiseSelf from './lib/PromiseSelf';
 import { rejects } from 'assert';
+import './lib/fnUtils'
 PerformanceUtils.logger()
 HttpRequestUtils.init(function () {
   console.log('init')
@@ -91,3 +92,42 @@ PromiseSelf.all([PromiseS3, PromiseS1, PromiseS2]).then((res) => {
 // }).catch((e) => {
 //   console.log('catch', e)
 // })
+
+WeixinUtils.initWxConfig({
+  appId: '11111',
+  timestamp: new Date().getTime(),
+  nonceStr: '11111',
+  signature: '111111',
+  jsApiList: ['hideMenuItems', 'showMenuItems']
+})
+
+
+let Person = {
+  name: 'Tom',
+  say (self = '1111', other) {
+    console.log('Person.say')
+    console.log(`我叫${this.name}---${self}---${other}`)
+  }
+}
+// Person.say()
+
+let Student = {
+  firstName: 'dai',
+  lastName: 'wei',
+  getName () {
+    console.log(`FullName: ${this.firstName} -- ${this.lastName}`)
+  }
+}
+
+let Person1 = {
+  name: 'Tom 1',
+  firstName: 'd',
+  lastName: 'w',
+}
+
+Person.say.selfCall(Person1, 222, '111')
+Person.say.selfCall(Person1, 999)
+Student.getName.selfCall(Person1)
+Person.say.selfApply(Person1, [333, 111, 222])
+Person.say.selfApply(Person1, 333, 111, 222)
+Person.say.selfBind(Person1, 'dwdwdwdwdwdwdw', '111')()

@@ -91,7 +91,7 @@ imageCanvas.addSourse({
  * @return { Image } 返回一个new Image的实例
  */
 ```
-## `Demo:`
+#### `Demo:`
 ```js
 imageCanvas.convertCanvasToImage()
 ```
