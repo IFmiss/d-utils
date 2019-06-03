@@ -33,7 +33,7 @@ export default class HttpRequestUtils {
    * @return { class } HttpRequestUtils 返回一个构造函数
    */
   static init (fn?: Function): any {
-    LogUtils.logInfo('https://github.com/IFmiss/d-js-utils/blob/typescript/src/lib/httpRequestUtils/axiosConfig.ts',
+    LogUtils.logInfo('https://github.com/IFmiss/d-utils/blob/typescript/src/lib/httpRequestUtils/axiosConfig.ts',
                        `[d-utils] http_request HttpRequestUtils.init 需要自定义aixos的响应拦截以及基本配置 => `)
     if (fn && typeof fn === 'function') {
       fn.call(null, axios, HttpRequestUtils)

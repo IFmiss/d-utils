@@ -1,4 +1,4 @@
-## 关于d-js-utils
+## 关于d-utils
 
 #### 产生背景
 这是关于个人日常比较通用代码的收集，方便日后使用，编写文档为了以后方便查阅
@@ -23,22 +23,27 @@
 
 ## 快速使用
 #### 安装
-使用npm安装 `d-js-utils` 依赖
+使用npm安装 `d-utils` 依赖
 ```bash
-npm i d-js-utils
+npm i @dw/d-utils
+```
+
+使用yarn安装 `d-utils` 依赖
+```bash
+yarn add @dw/d-utils
 ```
 
 或者直接引用js
 ```html
-<script src="www.daiwei.org/d-js-utils"></script>
+<script src="www.daiwei.org/d-utils"></script>
 <script>
-  Dutils.dom.addClass(document.body, 'd-js-utils')
+  Dutils.dom.addClass(document.body, 'd-utils')
 </script>
 ```
 
 #### 使用
-引入`d-js-utils.js`可直接使用其方法
+引入`d-utils.js`可直接使用其方法
 ```js
-import Dutils from 'd-js-utils'
-Dutils.dom.addClass(document.body, 'd-js-utils')
+import Dutils from 'd-utils'
+Dutils.dom.addClass(document.body, 'd-utils')
 ```

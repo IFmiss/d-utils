@@ -71,7 +71,7 @@ GenericUtils.layoutFramework()
 ```
 ##### `Demo`:
 ```js
-const str = 'd-js-utils组件'
+const str = 'd-utils组件'
 console.log(GenericUtils.calcStringLength(str))
 console.log(GenericUtils.calcStringLength(str, true))
 ```
@@ -107,7 +107,7 @@ GenericUtils.strTrim(str, 3)
 ##### `return` 为方便比较添加引号
     - 第一个返回结果：'d -js- ut ils'
     - 第二个返回结果：'d -js- ut ils'
-    - 第三个返回结果：'d-js-utils'
+    - 第三个返回结果：'d-utils'
     - 第四个返回结果：'d -js- ut ils '
     - 第五个返回结果：' d -js- ut ils'
 

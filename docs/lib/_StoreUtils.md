@@ -69,7 +69,7 @@ StoreUtils.removeCookie('test')
 ```js
   const data = {
       file: e.target.files[0],
-      name: 'd-js-utils',
+      name: 'd-utils',
       id: 123,
       desc: 'hello'
   }

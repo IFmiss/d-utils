@@ -4,5 +4,5 @@
 
 * 基于TypeScript，多种类型方法，工具函数
 
-[GitHub](https://github.com/d-js-utils/)
+[GitHub](https://github.com/d-utils/)
 [Get Started](/other/_about.md)
