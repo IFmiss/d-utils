@@ -38,14 +38,16 @@ export interface IWxShareToFriend {
   desc: string;
   link: string;
   imgUrl: string;
-  success: (res: IWxCallBackType) => void;
-  cancel: (res: IWxCallBackType) => void;
+  success?: (res: IWxCallBackType) => void;
+  cancel?: (res: IWxCallBackType) => void;
+  complete?: (res: IWxCallBackType) => void;
 }
 
 export interface IWxShareToFriendsCircle {
   title: string;
   link: string;
   imgUrl: string;
-  success: (res: IWxCallBackType) => void;
-  cancel: (res: IWxCallBackType) => void;
+  success?: (res: IWxCallBackType) => void;
+  cancel?: (res: IWxCallBackType) => void;
+  complete?: (res: IWxCallBackType) => void;
 }

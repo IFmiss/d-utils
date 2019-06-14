@@ -5,14 +5,17 @@
     "removeComments": false,
     "declaration": true,
     "outDir": "./lib",
-    "declarationDir": "./types",
+    "declarationDir": "./lib",
     "baseUrl": "./",
     "jsx": "react",
     "experimentalDecorators": true,
     "allowJs": false,
-    // "typeRoots": [
-    //   "./lib/@types"
-    // ],
+    "skipLibCheck": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "global.d.ts",
+      "typings"
+    ],
     "lib": [
       "dom",
       "es2015"

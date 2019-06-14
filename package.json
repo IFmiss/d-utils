@@ -1,13 +1,14 @@
 {
   "name": "@dw/d-utils",
-  "version": "1.1.29",
+  "version": "1.1.34",
   "description": "d-utils",
   "main": "lib/index.js",
-  "typings": "types/index.d.ts",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production && tsc",
+    "build": "webpack --mode production",
     "build:wt": "webpack --mode production && tsc",
+    "build:tw": "tsc && webpack --mode production",
     "build:publish": "webpack --mode production && tsc && npm publish --access=public",
     "build:tsc": "tsc",
     "dev": "webpack-dev-server --mode development --progress --colors",
@@ -68,6 +69,7 @@
     "axios": "^0.18.0",
     "promise.prototype.finally": "^3.1.0",
     "sha1": "^1.1.1",
+    "webpack-node-externals": "^1.7.2",
     "weixin-js-sdk": "^1.4.0-test"
   }
 }

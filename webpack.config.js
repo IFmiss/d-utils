@@ -2,8 +2,12 @@ const webpack = require('webpack'); 	// 用于访问内置插件
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+// const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackPromptPlugin = require('@dw/webpack-prompt-plugin');
+const nodeExternals = require('webpack-node-externals');
+const rootPath = path.join(__dirname, './');
+const srcPath = path.join(rootPath, 'src');
+const importType = "commonjs";
 const extractSass = new ExtractTextPlugin({
     filename: "css/[name]-[hash].css",
     disable: process.env.NODE_ENV === "development"
@@ -16,17 +20,20 @@ const resolve = function (dir) {
 module.exports = {
 	entry: {
 		// 这里只是编译的时候用的
-		index: './src/index.ts'
+		// index: './src/index.ts'
 		// index: './lib/index.js'
-		// index: './src/lib/index.ts'
+		index: './src/lib/index.ts'
 	},
 	output: {
 		path: path.resolve(__dirname, 'lib'),
 		publicPath: '',
 		filename: '[name].js',
-		libraryTarget: 'umd',
+		// libraryTarget: 'umd',
+		// library: 'Dutils',
+		// libraryExport: 'default'
+		libraryTarget: importType,
 		library: 'Dutils',
-		libraryExport: 'default'
+		umdNamedDefine: true,
 	},
 	module: {
 		rules: [
@@ -96,7 +103,8 @@ module.exports = {
 							configFile: path.resolve(__dirname, './tsconfig.json')
 						}
 					}
-				]
+				],
+				include: [srcPath]
 			},
 			{
         test: /\.js$/,
@@ -106,15 +114,15 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new HtmlWebpackPlugin ({
-			filename: 'index.html',
-			template: 'index.html',
-			inject: true
-		}),
+		// new HtmlWebpackPlugin ({
+		// 	filename: 'index.html',
+		// 	template: 'index.html',
+		// 	inject: true
+		// }),
 		extractSass,
-		new CleanWebpackPlugin({
-			verbose: false
-		}),
+		// new CleanWebpackPlugin({
+		// 	verbose: false
+		// }),
 		new WebpackPromptPlugin()
 	],
 	devServer: {
@@ -128,6 +136,7 @@ module.exports = {
 		// 配置端口号
 		overlay: true,
 	},
+	devtool: process.env.NODE_ENV === "production" ? false : "source-map",
 	resolve: {
 		alias: {
 			'src': resolve('src'),
@@ -140,6 +149,9 @@ module.exports = {
 		extensions: ['.ts', '.tsx', '.js', '.d.ts'],
     modules: ['src' ,'node_modules']
 	},
+	externals: [nodeExternals({
+		importType: importType,
+	})],
 	optimization: {
 		splitChunks: {
 			chunks: "all",

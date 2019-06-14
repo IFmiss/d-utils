@@ -16,9 +16,43 @@ import DomUtils from './lib/domUtils';
 import PromiseSelf from './lib/PromiseSelf';
 import { rejects } from 'assert';
 import './lib/fnUtils'
+import EventUtils from './lib/eventUtils';
+EventUtils.on('axios-loading', (res) => {
+  alert(1)
+})
 PerformanceUtils.logger()
-HttpRequestUtils.init(function () {
-  console.log('init')
+HttpRequestUtils.init(axiosConfig)
+HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
+  inAjax: 1,
+  do: 'getImageByBingJson'
+})
+HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
+  inAjax: 1,
+  do: 'getImageByBingJson'
+})
+HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
+  inAjax: 1,
+  do: 'getImageByBingJson'
+})
+HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
+  inAjax: 1,
+  do: 'getImageByBingJson'
+})
+HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
+  inAjax: 1,
+  do: 'getImageByBingJson'
+})
+HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
+  inAjax: 1,
+  do: 'getImageByBingJson'
+})
+HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
+  inAjax: 1,
+  do: 'getImageByBingJson'
+})
+HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
+  inAjax: 1,
+  do: 'getImageByBingJson'
 })
 HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
   inAjax: 1,

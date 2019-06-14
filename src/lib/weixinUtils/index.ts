@@ -20,6 +20,17 @@ export default class WeixinUtils {
    * 当前这种只支持与VUE单页面模式
    * @returns 返回获取jssdk的url参数值
    */
+
+   private static defaultShareInfo = {
+    title: '这是一个微信分享的title',
+    desc: '这是一个微信分享的desc',
+    link: '这是一个微信分享的link',
+    imgUrl: '这是一个微信分享的imgUrl',
+    success: (): void => {},
+    cancel: (): void => {},
+    complete: (): void => {}
+   }
+
   static sdkUrlIosOrAndorid (): string {
     if (ExpUtils.isIOS() ||
         ExpUtils.isAndroid() && !WeixinUtils.isUpThanWxVersion('6.3.31')) {
@@ -137,26 +148,38 @@ export default class WeixinUtils {
 
   /**
    * 分享给朋友
-   * @param sharInfo 
+   * @param {Object} sharInfo
+   * @props { String } sharInfo.title 分享的title
+   * @props { String } sharInfo.desc 分享描述
+   * @props { String } sharInfo.link 分享链接
+   * @props { String } sharInfo.imgUrl 分享图标
    */
   static wxShareToFriend (sharInfo: IWxShareToFriend): Promise<string> {
+    const selfShareInfo = Object.assign({}, this.defaultShareInfo, sharInfo)
     return new Promise ((resolve, reject) => {
       try {
         this.wx.ready(() => {
           this.wx.onMenuShareAppMessage({
-            title: sharInfo.title,
-            desc: sharInfo.desc,
-            link: sharInfo.link,
-            imgUrl: sharInfo.imgUrl,
+            title: selfShareInfo.title,
+            desc: selfShareInfo.desc,
+            link: selfShareInfo.link,
+            imgUrl: selfShareInfo.imgUrl,
             success: function (res) {
-              sharInfo.success({
+              selfShareInfo.success({
                 type: 'onMenuShareAppMessage',
                 data: res
               })
               resolve('onMenuShareAppMessage')
             },
             cancel: function (res) {
-              sharInfo.cancel({
+              selfShareInfo.cancel({
+                type: 'onMenuShareAppMessage',
+                data: res
+              })
+              resolve('onMenuShareAppMessage')
+            },
+            complete: function (res) {
+              selfShareInfo.complete({
                 type: 'onMenuShareAppMessage',
                 data: res
               })
@@ -172,25 +195,36 @@ export default class WeixinUtils {
 
   /**
    * 分享到朋友圈
-   * @param sharInfo 
+   * @param {Object} sharInfo
+   * @props { String } sharInfo.title 分享的title
+   * @props { String } sharInfo.link 分享链接
+   * @props { String } sharInfo.imgUrl 分享图标
    */
   static wxShareToFriendCircle (sharInfo: IWxShareToFriendsCircle): Promise<string> {
+    const selfShareInfo = Object.assign({}, this.defaultShareInfo, sharInfo)
     return new Promise ((resolve, reject) => {
       try {
         this.wx.ready(() => {
           this.wx.onMenuShareTimeline({
-            title: sharInfo.title,
-            link: sharInfo.link,
-            imgUrl: sharInfo.imgUrl,
+            title: selfShareInfo.title,
+            link: selfShareInfo.link,
+            imgUrl: selfShareInfo.imgUrl,
             success: function (res) {
-              sharInfo.success({
+              selfShareInfo.success({
                 type: 'onMenuShareTimeline',
                 data: res
               })
               resolve('onMenuShareTimeline')
             },
             cancel: function (res) {
-              sharInfo.cancel({
+              selfShareInfo.cancel({
+                type: 'onMenuShareTimeline',
+                data: res
+              })
+              resolve('onMenuShareTimeline')
+            },
+            complete: function (res) {
+              selfShareInfo.complete({
                 type: 'onMenuShareTimeline',
                 data: res
               })
@@ -278,6 +312,9 @@ export default class WeixinUtils {
           },
           cancel: function () {
             reject('onMenuShareAppMessage')
+          },
+          complete: function () {
+            resolve('onMenuShareAppMessage')
           }
         })
 
@@ -305,6 +342,9 @@ export default class WeixinUtils {
           },
           cancel: function () {
             reject('onMenuShareTimeline')
+          },
+          complete: function () {
+            resolve('onMenuShareTimeline')
           }
         })
 
