@@ -97,19 +97,19 @@ export const EventUtils = event
  */
 export const PromiseUtils = promise
 
-export default {
-  DecoratorUtils: decorator,
-  DeviceUtils: device,
-  DomUtils: dom,
-  GenericUtils: utils,
-  StoreUtils: store,
-  ExpUtils: exp,
-  LogUtils: log,
-  WeixinUtils: weixin,
-  PerformanceUtils: performance,
-  UrlUtils: url,
-  HttpRequestUtils: http,
-  ImageUtils: img,
-  EventUtils: event,
-  PromiseUtils: promise
-}
+// export default {
+//   DecoratorUtils: decorator,
+//   DeviceUtils: device,
+//   DomUtils: dom,
+//   GenericUtils: utils,
+//   StoreUtils: store,
+//   ExpUtils: exp,
+//   LogUtils: log,
+//   WeixinUtils: weixin,
+//   PerformanceUtils: performance,
+//   UrlUtils: url,
+//   HttpRequestUtils: http,
+//   ImageUtils: img,
+//   EventUtils: event,
+//   PromiseUtils: promise
+// }
