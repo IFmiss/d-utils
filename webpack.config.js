@@ -5,8 +5,6 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 // const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackPromptPlugin = require('@dw/webpack-prompt-plugin');
 const nodeExternals = require('webpack-node-externals');
-const rootPath = path.join(__dirname, './');
-const srcPath = path.join(rootPath, 'src');
 const importType = "commonjs";
 const extractSass = new ExtractTextPlugin({
     filename: "css/[name]-[hash].css",
@@ -20,20 +18,20 @@ const resolve = function (dir) {
 module.exports = {
 	entry: {
 		// 这里只是编译的时候用的
-		// index: './src/index.ts'
+		index: './src/index.ts'
 		// index: './lib/index.js'
-		index: './src/lib/index.ts'
+		// index: './src/lib/index.ts'
 	},
 	output: {
 		path: path.resolve(__dirname, 'lib'),
 		publicPath: '',
 		filename: '[name].js',
-		// libraryTarget: 'umd',
+		libraryTarget: 'umd',
 		// library: 'Dutils',
-		// libraryExport: 'default'
-		libraryTarget: importType,
-		library: 'Dutils',
-		umdNamedDefine: true,
+		libraryExport: 'default'
+		// libraryTarget: importType,
+		// library: 'Dutils',
+		// umdNamedDefine: true,
 	},
 	module: {
 		rules: [
@@ -104,7 +102,6 @@ module.exports = {
 						}
 					}
 				],
-				include: [srcPath]
 			},
 			{
         test: /\.js$/,
@@ -114,11 +111,11 @@ module.exports = {
 		]
 	},
 	plugins: [
-		// new HtmlWebpackPlugin ({
-		// 	filename: 'index.html',
-		// 	template: 'index.html',
-		// 	inject: true
-		// }),
+		new HtmlWebpackPlugin ({
+			filename: 'index.html',
+			template: 'index.html',
+			inject: true
+		}),
 		extractSass,
 		// new CleanWebpackPlugin({
 		// 	verbose: false
@@ -149,9 +146,9 @@ module.exports = {
 		extensions: ['.ts', '.tsx', '.js', '.d.ts'],
     modules: ['src' ,'node_modules']
 	},
-	externals: [nodeExternals({
-		importType: importType,
-	})],
+	// externals: [nodeExternals({
+	// 	importType: importType,
+	// })],
 	optimization: {
 		splitChunks: {
 			chunks: "all",

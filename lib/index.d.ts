@@ -14,7 +14,6 @@ import log from './logUtils/index';
 import url from './urlUtils/index';
 import http from './httpRequestUtils/index';
 import img from './imageUtils/index';
-import decorator from './decoratorUtils/index';
 import event from './eventUtils/index';
 import promise from './promiseUtils/index';
 /**
@@ -69,20 +68,3 @@ export declare const EventUtils: typeof event;
  * promise相关
  */
 export declare const PromiseUtils: typeof promise;
-declare const _default: {
-    DecoratorUtils: typeof decorator;
-    DeviceUtils: typeof device;
-    DomUtils: typeof dom;
-    GenericUtils: typeof utils;
-    StoreUtils: typeof store;
-    ExpUtils: typeof exp;
-    LogUtils: typeof log;
-    WeixinUtils: typeof weixin;
-    PerformanceUtils: typeof performance;
-    UrlUtils: typeof url;
-    HttpRequestUtils: typeof http;
-    ImageUtils: typeof img;
-    EventUtils: typeof event;
-    PromiseUtils: typeof promise;
-};
-export default _default;

@@ -74,7 +74,7 @@ export default class WeixinUtils {
   static routerAuthorized (appId: string): void {
     let redirectUrl = window.location.href
     redirectUrl = encodeURIComponent(redirectUrl)
-    window.location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appId}&redirect_uri=${redirectUrl}&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect`
+    window.location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appId}&redirect_uri=${redirectUrl}&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect`
   }
 
   /**
@@ -106,7 +106,9 @@ export default class WeixinUtils {
    */
   private static isUpThanWxVersion (version: string): boolean {
     const str = window.navigator.userAgent
-    const v0 = version.split('.')
+    const v0 = version.split('.').map((v) => {
+      return parseInt(v, 10);
+    })
     const regExp = /MicroMessenger\/([\d|\.]+)/
     if (regExp.exec(str) === null) {
       return false
@@ -137,11 +139,11 @@ export default class WeixinUtils {
    * @link 接口列表地址 https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
    */
   static initWxConfig (config: IWxConfig): void {
-    this.wx.config(Object.assign({}, {
+    wx.config(Object.assign({}, {
       debug: false
     }, config))
 
-    this.wx.error((res: any) => {
+    wx.error((res: any) => {
       LogUtils.logError(res, '[d-utils] wx.config error => ')
     })
   }
@@ -153,13 +155,16 @@ export default class WeixinUtils {
    * @props { String } sharInfo.desc 分享描述
    * @props { String } sharInfo.link 分享链接
    * @props { String } sharInfo.imgUrl 分享图标
+   * @props { Function } sharInfo.success 成功的回调
+   * @props { Function } sharInfo.cancel  取消的回调
+   * @props { Function } sharInfo.complete 完成的回调
    */
   static wxShareToFriend (sharInfo: IWxShareToFriend): Promise<string> {
     const selfShareInfo = Object.assign({}, this.defaultShareInfo, sharInfo)
     return new Promise ((resolve, reject) => {
       try {
-        this.wx.ready(() => {
-          this.wx.onMenuShareAppMessage({
+        wx.ready(() => {
+          wx.onMenuShareAppMessage({
             title: selfShareInfo.title,
             desc: selfShareInfo.desc,
             link: selfShareInfo.link,
@@ -199,13 +204,16 @@ export default class WeixinUtils {
    * @props { String } sharInfo.title 分享的title
    * @props { String } sharInfo.link 分享链接
    * @props { String } sharInfo.imgUrl 分享图标
+   * @props { Function } sharInfo.success 成功的回调
+   * @props { Function } sharInfo.cancel  取消的回调
+   * @props { Function } sharInfo.complete 完成的回调
    */
   static wxShareToFriendCircle (sharInfo: IWxShareToFriendsCircle): Promise<string> {
     const selfShareInfo = Object.assign({}, this.defaultShareInfo, sharInfo)
     return new Promise ((resolve, reject) => {
       try {
-        this.wx.ready(() => {
-          this.wx.onMenuShareTimeline({
+        wx.ready(() => {
+          wx.onMenuShareTimeline({
             title: selfShareInfo.title,
             link: selfShareInfo.link,
             imgUrl: selfShareInfo.imgUrl,
@@ -243,9 +251,9 @@ export default class WeixinUtils {
    */
   static hideAllNonBaseMenuItem (): Promise<string | object> {
     return new Promise((resolve, reject) => {
-      this.wx.ready(() => {
+      wx.ready(() => {
           try {
-              this.wx.hideAllNonBaseMenuItem()
+              wx.hideAllNonBaseMenuItem()
               const data: IWxCallBackType = {
                 type: 'hideAllNonBaseMenuItem',
                 data: '成功'
@@ -268,9 +276,9 @@ export default class WeixinUtils {
    */
   static hideMenuItems (arr: string[] = []): Promise<string | object> {
     return new Promise((resolve, reject) => {
-      this.wx.ready(() => {
+      wx.ready(() => {
         try {
-            this.wx.hideMenuItems({
+            wx.hideMenuItems({
                 menuList: arr
             })
             const data: IWxCallBackType = {
@@ -300,9 +308,9 @@ export default class WeixinUtils {
   static wxShare (sharInfo: any): Promise<string> {
     // 返回promise
     return new Promise((resolve, reject) => {
-      this.wx.ready(() => {
+      wx.ready(() => {
         // 分享给好友
-        this.wx.onMenuShareAppMessage({
+        wx.onMenuShareAppMessage({
           title: sharInfo.title,
           desc: sharInfo.desc,
           link: sharInfo.link,
@@ -319,7 +327,7 @@ export default class WeixinUtils {
         })
 
         // 自定义“分享给朋友”及“分享到QQ”按钮的分享内容（1.4.0）
-        // this.wx.updateAppMessageShareData({
+        // wx.updateAppMessageShareData({
         //   title: sharInfo.title,
         //   desc: sharInfo.desc,
         //   link: sharInfo.link,
@@ -333,7 +341,7 @@ export default class WeixinUtils {
         // })
 
         // 分享到朋友圈
-        this.wx.onMenuShareTimeline({
+        wx.onMenuShareTimeline({
           title: sharInfo.title,
           link: sharInfo.link,
           imgUrl: sharInfo.imgUrl,
@@ -349,7 +357,7 @@ export default class WeixinUtils {
         })
 
         // 自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容（1.4.0）
-        // this.wx.updateTimelineShareData({
+        // wx.updateTimelineShareData({
         //   title: sharInfo.title,
         //   desc: sharInfo.desc,
         //   link: sharInfo.link,

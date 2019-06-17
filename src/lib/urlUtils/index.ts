@@ -26,11 +26,16 @@ export default class UrlUtils {
    * // 'a=1&b=2'
    * UrlUtils.stringifyUrl({a: 1, b: 2})
    */
-  static stringifyUrl (obj: any): any {
-    return Object.keys(obj).reduce((prevAll, currentItem, index) => {
-      const prev = index > 1 ? prevAll :`${prevAll}=${obj[prevAll]}`
-      const current = `${currentItem}=${obj[currentItem]}`
-      return `${prev}&${current}`
-    })
+  static stringifyUrl (obj: object): string {
+    const props = Object.keys(obj)
+    if (props && !props.length) return
+    if (props.length > 1) {
+      return Object.keys(obj).reduce((prevAll, currentItem, index) => {
+        const prev = `${prevAll}=${obj[prevAll]}`
+        const current = `${currentItem}=${obj[currentItem]}`
+        return `${prev}&${current}`
+      })
+    }
+    return `${props[0]}=${obj[props[0]]}`
   }
 }

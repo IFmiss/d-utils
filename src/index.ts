@@ -11,7 +11,7 @@ import { DeviceUtils } from './lib/index'
 import { StoreUtils } from './lib/index'
 import { LogUtils, GenericUtils, UrlUtils, WeixinUtils, ExpUtils, HttpRequestUtils, ImageUtils, PerformanceUtils, PromiseUtils } from './lib/index'
 import { axiosConfig } from './lib/httpRequestUtils/axiosConfig'
-import Dutils from './lib/index'
+import * as Dutils from './lib/index'
 import DomUtils from './lib/domUtils';
 import PromiseSelf from './lib/PromiseSelf';
 import { rejects } from 'assert';
@@ -26,38 +26,8 @@ HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
   inAjax: 1,
   do: 'getImageByBingJson'
 })
-HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
-  inAjax: 1,
-  do: 'getImageByBingJson'
-})
-HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
-  inAjax: 1,
-  do: 'getImageByBingJson'
-})
-HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
-  inAjax: 1,
-  do: 'getImageByBingJson'
-})
-HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
-  inAjax: 1,
-  do: 'getImageByBingJson'
-})
-HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
-  inAjax: 1,
-  do: 'getImageByBingJson'
-})
-HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
-  inAjax: 1,
-  do: 'getImageByBingJson'
-})
-HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
-  inAjax: 1,
-  do: 'getImageByBingJson'
-})
-HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
-  inAjax: 1,
-  do: 'getImageByBingJson'
-})
+
+LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1}))
 
 let t = 0
 setTimeout(() => {
