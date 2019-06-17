@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2015", 
-    "module": "CommonJS",
+    "target": "es6", 
+    "module": "esnext",
     "removeComments": false,
     "declaration": true,
     "outDir": "./lib",
@@ -9,6 +9,7 @@
     "baseUrl": "./",
     "jsx": "react",
     "experimentalDecorators": true,
+    "downlevelIteration": true,
     "allowJs": false,
     "skipLibCheck": true,
     "typeRoots": [

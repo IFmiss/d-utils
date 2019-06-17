@@ -58,6 +58,9 @@ export default class WeixinUtils {
      * @props { String } sharInfo.desc 分享描述
      * @props { String } sharInfo.link 分享链接
      * @props { String } sharInfo.imgUrl 分享图标
+     * @props { Function } sharInfo.success 成功的回调
+     * @props { Function } sharInfo.cancel  取消的回调
+     * @props { Function } sharInfo.complete 完成的回调
      */
     static wxShareToFriend(sharInfo: IWxShareToFriend): Promise<string>;
     /**
@@ -66,6 +69,9 @@ export default class WeixinUtils {
      * @props { String } sharInfo.title 分享的title
      * @props { String } sharInfo.link 分享链接
      * @props { String } sharInfo.imgUrl 分享图标
+     * @props { Function } sharInfo.success 成功的回调
+     * @props { Function } sharInfo.cancel  取消的回调
+     * @props { Function } sharInfo.complete 完成的回调
      */
     static wxShareToFriendCircle(sharInfo: IWxShareToFriendsCircle): Promise<string>;
     /**

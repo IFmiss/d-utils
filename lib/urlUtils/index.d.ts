@@ -17,5 +17,5 @@ export default class UrlUtils {
      * // 'a=1&b=2'
      * UrlUtils.stringifyUrl({a: 1, b: 2})
      */
-    static stringifyUrl(obj: any): any;
+    static stringifyUrl(obj: object): string;
 }

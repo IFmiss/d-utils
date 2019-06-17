@@ -1,4 +1,4 @@
-import LogUtils from './../logUtils'
+import LogUtils from './../logUtils/index'
 
 export default class PromiseUtils {
   /**

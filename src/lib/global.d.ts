@@ -1,4 +1,5 @@
 declare module 'weixin-js-sdk'
+declare module 'axios'
 
 interface Window {
   Notification: any
