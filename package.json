@@ -1,9 +1,9 @@
 {
   "name": "@dw/d-utils",
-  "version": "1.1.40",
+  "version": "1.1.47",
   "description": "d-utils",
   "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "typings": "types/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
@@ -43,7 +43,6 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-stage-2": "^6.24.1",
     "clean-webpack-plugin": "^2.0.1",
-    "compass-mixins": "^0.12.10",
     "cryptiles": ">=4.1.2",
     "css-loader": "^0.28.10",
     "deep-extend": ">=0.5.1",
@@ -54,6 +53,7 @@
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "lodash": "^4.17.11",
+    "loglevel": "^1.6.3",
     "macaddress": ">=0.2.9",
     "randomatic": ">=3.0.0",
     "style-loader": "^0.20.3",
@@ -68,7 +68,6 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "loglevel": "^1.6.3",
     "promise.prototype.finally": "^3.1.0",
     "sha1": "^1.1.1",
     "weixin-js-sdk": "^1.4.0-test"

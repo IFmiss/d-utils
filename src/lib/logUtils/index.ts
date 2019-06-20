@@ -1,4 +1,4 @@
-import ExpUtils from './../expUtils/index'
+import { isObject } from './../expUtils/index'
 /**
  * 日志的打印封装
  */
@@ -37,8 +37,8 @@ export default class LogUtils {
    * LogUtils.console(window.screen, 'window:', 'red')
    */
   static console (data: any, dataTitile: string = '数据信息', color: string = LogUtils.defaultColor): void {
-    if (ExpUtils.isObject(data)) {
-      if (ExpUtils.isArray(data)) {
+    if (isObject(data)) {
+      if (Array.isArray(data)) {
         console.log(`%c${dataTitile}`, `color: ${color}; font-weight: bold`, data)
       } else {
         console.log(`%c${dataTitile}`, `color: ${color}; font-weight: bold`, {...data})

@@ -12,7 +12,7 @@ import { StoreUtils } from './lib/index'
 import { LogUtils, GenericUtils, UrlUtils, WeixinUtils, ExpUtils, HttpRequestUtils, ImageUtils, PerformanceUtils, PromiseUtils } from './lib/index'
 import { axiosConfig } from './lib/httpRequestUtils/axiosConfig'
 import * as Dutils from './lib/index'
-import DomUtils from './lib/domUtils';
+import * as DomUtils from './lib/domUtils';
 import PromiseSelf from './lib/PromiseSelf';
 import { rejects } from 'assert';
 import './lib/fnUtils'

@@ -1,4 +1,4 @@
-import GenericUtils from './../genericUtils'
+import { debounce } from './../genericUtils'
 import EventUtils from './../eventUtils'
 
 let loadingRequestCount: number = 0
@@ -19,7 +19,7 @@ export const hideLoading = () => {
   loadingRequestCount--
 
   if (loadingRequestCount === 0) {
-    GenericUtils.debounce(tryToClose, 500)()
+    debounce(tryToClose, 500)()
   }
 }
 

@@ -1,4 +1,8 @@
 # 更新内容
+### 1.1.47
+  - `2019-02-20` 代码优化，支持部分utils tree-shaking的功能
+  - 可树摇的模块：`decoratorUtils, deviceUtils, domUtils, expUtils, genericUtils, storeUtils, urlUtils`, 引入的时候需要单独引入‘@dw/d-utils/lib/decoratorUtils’的方式
+
 ### 之后
   - `2019-05-29` 更新 StoreUtils.objectToString 至 UrlUtils.stringifyUrl
 

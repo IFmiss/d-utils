@@ -1,4 +1,4 @@
-import ExpUtils from './../expUtils/index'
+import { isIOS, isAndroid } from './../expUtils/index'
 import LogUtils from './../logUtils/index'
 import { IWxSign,
          IWxShareToFriend,
@@ -32,8 +32,8 @@ export default class WeixinUtils {
    }
 
   static sdkUrlIosOrAndorid (): string {
-    if (ExpUtils.isIOS() ||
-        ExpUtils.isAndroid() && !WeixinUtils.isUpThanWxVersion('6.3.31')) {
+    if (isIOS() ||
+        isAndroid() && !WeixinUtils.isUpThanWxVersion('6.3.31')) {
           if (window.__D_UTILS_WX_FIRST_URL_HOOK__) {
             return window.__D_UTILS_WX_FIRST_URL_HOOK__
           }
