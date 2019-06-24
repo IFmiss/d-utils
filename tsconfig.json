@@ -5,7 +5,7 @@
     "removeComments": false,
     "declaration": true,
     "outDir": "./lib",
-    "declarationDir": "./types",
+    "declarationDir": "./lib",
     "baseUrl": "./",
     "jsx": "react",
     "experimentalDecorators": true,
