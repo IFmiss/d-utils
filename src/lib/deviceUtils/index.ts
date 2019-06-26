@@ -15,7 +15,7 @@ export function checkLayoutOrientation (text: string = '请旋转屏幕，以达
   let ele: any = null
   // 0 和 360 的时候是竖屏
   function initOrientation () {
-    let ori = window.orientation
+    const ori = window.orientation
     if (ori === 0 || ori === 360) {
       if (ele) {
         document.body.removeChild(ele)
@@ -67,7 +67,8 @@ export function initRem (BaseWidth: number = 750, MaxWidth: number = document.bo
   r.Html = document.getElementsByTagName('html')[0]
 
   r.intiFontSize = function () {
-    let p = parseFloat((document.body.clientWidth / BaseWidth).toFixed(4))
+    const baseOrientation = Math.min(document.body.clientWidth, document.body.clientHeight)
+    let p = parseFloat((baseOrientation / BaseWidth).toFixed(4))
     let s = p > MaxWidthP ? MaxWidthP : p
     if (isFullOverMax) s = p
     return s

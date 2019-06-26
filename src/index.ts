@@ -47,7 +47,8 @@ async function aaa () {
 }
 aaa()
 
-DeviceUtils.checkLayoutOrientation()
+DeviceUtils.initRem()
+// DeviceUtils.checkLayoutOrientation()
 GenericUtils.calcStringLength('1111')
 
 async function bbb () {
