@@ -5,7 +5,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 // const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackPromptPlugin = require('@dw/webpack-prompt-plugin');
 // const nodeExternals = require('webpack-node-externals');
-const importType = "commonjs";
+const importType = "umd";
 const extractSass = new ExtractTextPlugin({
     filename: "css/[name]-[hash].css",
     disable: process.env.NODE_ENV === "development"
@@ -18,16 +18,16 @@ const resolve = function (dir) {
 module.exports = {
 	entry: {
 		// 这里只是编译的时候用的
-		index: './src/index.ts'
+		// index: './src/index.ts'
 		// index: './lib/index.js'
-		// index: './src/lib/index.ts'
+		index: './src/lib/index.ts'
 	},
 	output: {
-		path: path.resolve(__dirname, 'es5'),
+		path: path.resolve(__dirname, 'commonjs'),
 		publicPath: '',
 		filename: '[name].js',
-		libraryTarget: 'var',
-		library: 'Dutils',
+		libraryTarget: importType,
+		// library: 'Dutils',
 		// libraryExport: 'Dutils'
 		// libraryTarget: importType,
 		// library: 'Dutils',
@@ -111,11 +111,11 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new HtmlWebpackPlugin ({
-			filename: 'index.html',
-			template: 'index.html',
-			inject: true
-		}),
+		// new HtmlWebpackPlugin ({
+		// 	filename: 'index.html',
+		// 	template: 'index.html',
+		// 	inject: true
+		// }),
 		extractSass,
 		// new CleanWebpackPlugin({
 		// 	verbose: false

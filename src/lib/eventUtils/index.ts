@@ -1,3 +1,7 @@
+/**
+ * 一个简单的发布订阅者模式
+ */
+
 interface IHandler {
   fn: Function,
   type: string,

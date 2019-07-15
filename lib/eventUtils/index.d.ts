@@ -1,3 +1,6 @@
+/**
+ * 一个简单的发布订阅者模式
+ */
 export default class EventUtils {
     /**
      * 键值对 对应事件名称以及数组的值

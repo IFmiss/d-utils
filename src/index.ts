@@ -27,8 +27,6 @@ HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
   do: 'getImageByBingJson'
 })
 
-LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1}))
-
 let t = 0
 setTimeout(() => {
   t = 1
@@ -136,3 +134,9 @@ Student.getName.selfCall(Person1)
 Person.say.selfApply(Person1, [333, 111, 222])
 Person.say.selfApply(Person1, 333, 111, 222)
 Person.say.selfBind(Person1, 'dwdwdwdwdwdwdw', '111')()
+
+LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1}))
+LogUtils.logDefault(UrlUtils.stringifyUrl({}))
+LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1, b: '2'}))
+LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1, b: '2', c: 3, d: 'c'}))
+LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1, b: '2', c: 3, d: 'c', e: 'f'}))

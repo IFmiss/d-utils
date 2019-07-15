@@ -28,10 +28,10 @@ export function parseUrl (url: string = window.location.href): any {
  */
 export function stringifyUrl (obj: object): string {
   const props = Object.keys(obj)
-  if (props && !props.length) return
+  if (props && !props.length) return ''
   if (props.length > 1) {
     return Object.keys(obj).reduce((prevAll, currentItem, index) => {
-      const prev = `${prevAll}=${obj[prevAll]}`
+      const prev = index === 1 ? `${prevAll}=${obj[prevAll]}` : prevAll
       const current = `${currentItem}=${obj[currentItem]}`
       return `${prev}&${current}`
     })
