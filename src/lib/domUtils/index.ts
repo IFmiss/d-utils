@@ -64,7 +64,7 @@ export function removeClass (el: HTMLElement, className: string | string[]): voi
  * @example
  * computedStyle(document.body, 'width')
  */
-export function computedStyle (el: HTMLElement, cssProp: any): void {
+export function computedStyle (el: any, cssProp: any): void {
   if (!el) {
     LogUtils.logError('dom元素不存在', '[d-utils] DomUtils computedStyle error => ')
     return
