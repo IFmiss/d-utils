@@ -5,23 +5,23 @@ import LogUtils from './../logUtils/index'
 
 /**
  * @description 判断元素是否存在某个class类
- * @param { Element } el dom元素
+ * @param { HTMLElement } el dom元素
  * @param { String } className class名称
  * @example
  * hasClass(document.body, 'd-utils')
  */
-export function hasClass (el: any, className: string): boolean {
+export function hasClass (el: HTMLElement, className: string): boolean {
   return el.classList.contains(className)
 }
 
 /**
  * @description 判断元素是否存在某个class类
- * @param { Element } el dom元素
+ * @param { HTMLElement } el dom元素
  * @param { String } className class名称
  * @example
  * hasClass(document.body, 'd-utils')
  */
-export function addClass (el: Element, className: string | string[]): void {
+export function addClass (el: HTMLElement, className: string | string[]): void {
   if (Array.isArray(className)) {
     className.forEach((item: string) => {
       if (!hasClass(el, item)) {
@@ -37,12 +37,12 @@ export function addClass (el: Element, className: string | string[]): void {
 
 /**
  * @description 元素删除class
- * @param { Element } el dom元素
+ * @param { HTMLElement } el dom元素
  * @param { (String | Array) } className class名称，可以是多个
  * @example
  * removeClass(document.body, 'd-utils')
  */
-export function removeClass (el: any, className: string | string[]): void {
+export function removeClass (el: HTMLElement, className: string | string[]): void {
   if (Array.isArray(className)) {
     className.forEach((item: string) => {
       if (hasClass(el, item)) {
@@ -58,13 +58,13 @@ export function removeClass (el: any, className: string | string[]): void {
 
 /**
  * @description 获取元素的css属性内容
- * @param { Element } el dom元素
+ * @param { HTMLElement } el dom元素
  * @param { String } cssProp css的属性名称
  * @return { String } css对应的属性的值
  * @example
  * computedStyle(document.body, 'width')
  */
-export function computedStyle (el: any, cssProp: any): void {
+export function computedStyle (el: HTMLElement, cssProp: any): void {
   if (!el) {
     LogUtils.logError('dom元素不存在', '[d-utils] DomUtils computedStyle error => ')
     return
@@ -78,7 +78,7 @@ export function computedStyle (el: any, cssProp: any): void {
 
 /**
  * @description js设置元素的filter样式
- * @param { Element } el dom元素
+ * @param { HTMLElement } el dom元素
  * @param { (String | Object) } type filter类型   blur、opacity、grayscale、sepia、saturate、hue-rotate、invert、brightness、contrast、drop-shadow, 当type为Object的时候就是显示一系列键值对，设置多个filter属性 `blur、opacity、grayscale、sepia、saturate、hue-rotate、invert、brightness、contrast、drop-shadow
  * @param { (String | Number) } option 参数 10px  10% 等等，根据不同type的类型设定不同的参数配置
  * @example
@@ -91,7 +91,7 @@ export function computedStyle (el: any, cssProp: any): void {
  *   'hue-rotate': '90deg'
  * })
  */
-export function cssFilter (el: any, type: any, option: string | number): void {
+export function cssFilter (el: HTMLElement, type: any, option: string | number): void {
   if (typeof type === 'object' && !option) {
     let cssText = ''
     for (let k in type) {
