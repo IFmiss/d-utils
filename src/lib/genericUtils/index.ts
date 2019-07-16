@@ -70,7 +70,7 @@ export function randomColor (opacity: number = 1): string {
  * showLayoutFramework()
  */
 export function  layoutFramework (): void {
-  Array.prototype.forEach.call( document.querySelectorAll('*'),function(a: any){  a.style.outline='1px solid #'+(~~(Math.random()*(1<<24))).toString(16) })
+  Array.from( document.querySelectorAll('*'),function(a: any){  a.style.outline='1px solid #'+(~~(Math.random()*(1<<24))).toString(16) })
 }
 
 /**
