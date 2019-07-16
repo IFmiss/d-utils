@@ -32,6 +32,19 @@ setTimeout(() => {
   t = 1
 }, 5000)
 
+const log = function () {
+  console.log('clickHandler')
+}
+
+const clickHandler = function () {
+  GenericUtils.throttle(log, 1000)()
+}
+document.getElementById('disc').addEventListener('click', () => {
+  GenericUtils.debounce((e) => {
+    console.log('this is disc', e)
+  }, 1000, false)
+})
+
 async function aaa () {
   console.log('start')
   await PromiseUtils.wait(() => {
@@ -41,7 +54,6 @@ async function aaa () {
   }).catch(() => {
     console.log('time out')
   })
-  console.log('哈哈哈哈啊哈哈哈哈')
 }
 aaa()
 

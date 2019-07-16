@@ -149,5 +149,5 @@ export function isEmptyObject (obj: any): boolean {
  * @return Boolean 是否是空字符串
  */
 export function isEmptyStr (str): boolean {
-  return str.replace(/(^\s*)|(\s*$)/g, '').length > 0
+  return str.replace(/(^\s*)|(\s*$)/g, '').length === 0
 }
