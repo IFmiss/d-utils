@@ -43,24 +43,24 @@
 
 
 # 快速使用
-#### 安装 （1.1.14及以上的版本）
+#### 安装 （3.0及以上的版本）
 使用npm安装 `d-utils` 依赖
 ```bash
-npm i @dw/d-utils
+npm i d-utils
 ```
 yarn
 ```hash
-yarn add @dw/d-utils
+yarn add d-utils
 ```
 #### 使用
 获取所有方法
 ```js
-import Dutils from '@dw/d-utils'
+import Dutils from 'd-utils'
 Dutils.DomUtils.addClass(document.body, 'd-utils')
 ```
 按需引入
 ```js
-import { DomUtils, LogUtils } from '@dw/d-utils'
+import { DomUtils, LogUtils } from 'd-utils'
 DomUtils.addClass(document.body, 'd-utils')
 LogUtils.logInfo('d-utils')
 ```
@@ -75,9 +75,4 @@ LogUtils.logInfo('d-utils')
 ```js
 Dutils.DomUtils.cssFilter(document.body, 'grayscale', 1)
 ```
-```js
-Dutils.GenericUtils.openFullScreen(document.getElementsByTagName('html')[0])
-```
-```js
-Dutils.GenericUtils.exitFullScreen()
-```
+
