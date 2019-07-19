@@ -1,6 +1,6 @@
 {
-  "name": "@dw/d-utils",
-  "version": "1.1.52",
+  "name": "d-utils",
+  "version": "3.0.0",
   "description": "d-utils",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -9,11 +9,11 @@
     "build": "webpack --mode production",
     "build:wt": "webpack --mode production && tsc",
     "build:tw": "tsc && webpack --mode production",
-    "build:publish": "webpack --mode production && tsc && npm publish --access=public",
+    "build:publish": "webpack --mode production && tsc && npm publish",
     "build:tsc": "tsc",
     "dev": "webpack-dev-server --mode development --progress --colors",
     "watch": "webpack --progress --colors --watch",
-    "publish": "npm publish --access=public"
+    "publish": "npm publish"
   },
   "files": [
     "lib/",
