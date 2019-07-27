@@ -25,12 +25,12 @@
 #### 安装
 使用npm安装 `d-utils` 依赖
 ```bash
-npm i @dw/d-utils
+npm i d-utils
 ```
 
 使用yarn安装 `d-utils` 依赖
 ```bash
-yarn add @dw/d-utils
+yarn add d-utils
 ```
 
 或者直接引用js
