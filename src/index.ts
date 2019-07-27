@@ -32,18 +32,15 @@ setTimeout(() => {
   t = 1
 }, 5000)
 
-const log = function () {
-  console.log('clickHandler')
+const log = function (e) {
+  console.log('clickHandler', e)
 }
 
-const clickHandler = function () {
-  GenericUtils.throttle(log, 1000)()
-}
-document.getElementById('disc').addEventListener('click', () => {
-  GenericUtils.debounce((e) => {
-    console.log('this is disc', e)
-  }, 1000, false)
-})
+const clickHandler = GenericUtils.debounce(function (e) {
+  log(e)
+}, 1000)
+
+document.getElementById('disc').onclick = clickHandler
 
 async function aaa () {
   console.log('start')
@@ -152,3 +149,6 @@ LogUtils.logDefault(UrlUtils.stringifyUrl({}))
 LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1, b: '2'}))
 LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1, b: '2', c: 3, d: 'c'}))
 LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1, b: '2', c: 3, d: 'c', e: 'f'}))
+
+LogUtils.logDefault(UrlUtils.parseUrl('http://www.daiwei.org/?a=1&b=2&url=a.html?b=1&c=1'))
+
