@@ -152,3 +152,4 @@ LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1, b: '2', c: 3, d: 'c', e: 'f'}))
 
 LogUtils.logDefault(UrlUtils.parseUrl('http://www.daiwei.org/?a=1&b=2&url=a.html?b=1&c=1'))
 
+LogUtils.logInfo(UrlUtils.deleteUrlParam(['code', 'name']))
