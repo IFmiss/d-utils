@@ -14,14 +14,14 @@ const sha1 = require('sha1')
  */
 export default class WeixinUtils {
   static wx: any = wx
+
   /**
    * @description 初始化微信请求 js-sdk 的url地址 需要区分两种情况
    * IOS 或者 Android 微信版本小于6.3.31, Android 微信版本大于6.3.31
    * 当前这种只支持与VUE单页面模式
    * @returns 返回获取jssdk的url参数值
    */
-
-   private static defaultShareInfo = {
+  private static defaultShareInfo = {
     title: '这是一个微信分享的title',
     desc: '这是一个微信分享的desc',
     link: '这是一个微信分享的link',
@@ -29,7 +29,11 @@ export default class WeixinUtils {
     success: (): void => {},
     cancel: (): void => {},
     complete: (): void => {}
-   }
+  }
+
+  static hackPlantStorageIfCode (): void {
+    // code
+  }
 
   static sdkUrlIosOrAndorid (): string {
     if (isIOS() ||
@@ -68,7 +72,7 @@ export default class WeixinUtils {
   }
 
   /**
-   * 跳转微信oauth2授权登录
+   * 跳转微信oauth2授权登录 非静默授权
    * @param { String }  appId
    */
   static routerAuthorized (appId: string): void {
@@ -104,7 +108,7 @@ export default class WeixinUtils {
    * @param { String } version
    * @returns { Boolean } 返回是否满足条件
    */
-  private static isUpThanWxVersion (version: string): boolean {
+  private static isUpThanWxVersion (version: string = '6.3.31'): boolean {
     const str = window.navigator.userAgent
     const v0 = version.split('.').map((v) => {
       return parseInt(v, 10);
@@ -293,82 +297,6 @@ export default class WeixinUtils {
             }
             reject(data)
         }
-      })
-    })
-  }
-
-  /**
-   * @description 微信分享初始化
-   * @param { Object } sharInfo  分享的内容
-   * @props { String } sharInfo.title 分享的title
-   * @props { String } sharInfo.desc 分享描述
-   * @props { String } sharInfo.link 分享链接
-   * @props { String } sharInfo.imgUrl 分享图标
-   */
-  static wxShare (sharInfo: any): Promise<string> {
-    // 返回promise
-    return new Promise((resolve, reject) => {
-      wx.ready(() => {
-        // 分享给好友
-        wx.onMenuShareAppMessage({
-          title: sharInfo.title,
-          desc: sharInfo.desc,
-          link: sharInfo.link,
-          imgUrl: sharInfo.imgUrl,
-          success: function () {
-            resolve('onMenuShareAppMessage')
-          },
-          cancel: function () {
-            reject('onMenuShareAppMessage')
-          },
-          complete: function () {
-            resolve('onMenuShareAppMessage')
-          }
-        })
-
-        // 自定义“分享给朋友”及“分享到QQ”按钮的分享内容（1.4.0）
-        // wx.updateAppMessageShareData({
-        //   title: sharInfo.title,
-        //   desc: sharInfo.desc,
-        //   link: sharInfo.link,
-        //   imgUrl: sharInfo.imgUrl,
-        //   success: function () {
-        //     resolve('updateAppMessageShareData')
-        //   },
-        //   cancel: function () {
-        //     reject('updateAppMessageShareData')
-        //   }
-        // })
-
-        // 分享到朋友圈
-        wx.onMenuShareTimeline({
-          title: sharInfo.title,
-          link: sharInfo.link,
-          imgUrl: sharInfo.imgUrl,
-          success: function () {
-            resolve('onMenuShareTimeline')
-          },
-          cancel: function () {
-            reject('onMenuShareTimeline')
-          },
-          complete: function () {
-            resolve('onMenuShareTimeline')
-          }
-        })
-
-        // 自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容（1.4.0）
-        // wx.updateTimelineShareData({
-        //   title: sharInfo.title,
-        //   desc: sharInfo.desc,
-        //   link: sharInfo.link,
-        //   imgUrl: sharInfo.imgUrl,
-        //   success: function () {
-        //     resolve('updateTimelineShareData')
-        //   },
-        //   cancel: function () {
-        //     reject('updateTimelineShareData')
-        //   }
-        // })
       })
     })
   }

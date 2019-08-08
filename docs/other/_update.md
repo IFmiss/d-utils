@@ -1,5 +1,6 @@
 # 更新内容
 ### 3.0.0
+  - `2019-08-01` 移除 `weixinUtils` 的`wxShare` 方法
   - 从@dw/d-utils包移到d-utils
 ### 1.1.47
   - `2019-02-20` 代码优化，支持部分utils tree-shaking的功能
