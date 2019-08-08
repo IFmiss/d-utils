@@ -29,3 +29,20 @@ UrlUtils.parseUrl('http://www.daiwei.org/?a=1&b=2')
 ```js
 UrlUtils.stringifyUrl({a: 1, b: 2}) // 'a=1&b=2'
 ```
+
+## deleteUrlParam
+`deleteUrlParam` 用于移除url中某些不想要的参数信息并返回新的url地址
+
+```js
+/**
+ * @description 移除url的某一个参数
+ * @param { Array } paramNames 参数名称的数组
+ * @param { URL } url url地址
+ * @return { String } 返回一个新地址
+ */
+```
+#### `Demo`:
+```js
+UrlUtils.deleteUrlParam(['code', 'name'], 'http://localhost:2008/#a?a=22&b=2&code=3')
+// 'http://localhost:2008/#a?a=22&b=2'
+```
