@@ -2,6 +2,8 @@
  * 通用工具类
  */
 import LogUtils from './../logUtils/index'
+import { GenericType } from './../type'
+
 /**
  * @description 浏览器提示
  * @param { object } options  参数为对象，以下都是对象内的属性配置
@@ -20,7 +22,7 @@ import LogUtils from './../logUtils/index'
  * }
  * notification(data)
  */
-export function notification (options?: any):Promise<any> {
+export function notification (options?: GenericType.INotification):Promise<any> {
   const defaultV = {
     title: '未曾遗忘的青春',
     body: 'Hello World !!!',
@@ -70,7 +72,7 @@ export function randomColor (opacity: number = 1): string {
  * showLayoutFramework()
  */
 export function  layoutFramework (): void {
-  Array.from( document.querySelectorAll('*'),function(a: any){  a.style.outline='1px solid #'+(~~(Math.random()*(1<<24))).toString(16) })
+  Array.from(document.querySelectorAll('*'),function(a: any){  a.style.outline='1px solid #'+(~~(Math.random()*(1<<24))).toString(16) })
 }
 
 /**
@@ -89,12 +91,10 @@ export function calcStringLength (str: string, isStrict?: boolean): number {
     return
   }
   if (!isStrict) return str.length
-  let a = 0
-  for (let i = 0; i < str.length; i++ ) {
-    let count = str.charCodeAt(i) > 255 ? 2 : 1
-    a += count
-  }
-  return a
+
+  return Array.from(str).reduce((total, current) => {
+    return total += current.charCodeAt(0) > 255 ? 2 : 1
+  }, 0)
 }
 
 /**
@@ -104,7 +104,7 @@ export function calcStringLength (str: string, isStrict?: boolean): number {
  * @return { String } 返回操作之后的字符串
  * @example
  * const str = ' d -js- ut ils '
- * // 0: 去除首位空格 默认为0
+ * // 0: 去除首尾空格 默认为0
  * strTrim(str)
  * strTrim(str, 0)
  * @example
@@ -117,7 +117,7 @@ export function calcStringLength (str: string, isStrict?: boolean): number {
  * // 3: 去除右边空格
  * strTrim(str, 3)
  */
-export function strTrim (str: string, type: number = 0): string {
+export function strTrim (str: string, type: GenericType.StrTrimType = GenericType.StrTrimType.LEFT_RIGHT): string {
   if (typeof str !== 'string') {
     LogUtils.logError(`str must be string but found ${typeof str}`, '[d-utils] GenericUtils strTrim error => ')
     return

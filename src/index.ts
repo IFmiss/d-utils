@@ -56,7 +56,8 @@ aaa()
 
 DeviceUtils.initRem()
 // DeviceUtils.checkLayoutOrientation()
-GenericUtils.calcStringLength('1111')
+console.log('-----------------------')
+console.log(GenericUtils.calcStringLength('♋☮✌☏1{', true))
 
 async function bbb () {
   await PromiseUtils.sleep(5000)
@@ -153,3 +154,9 @@ LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1, b: '2', c: 3, d: 'c', e: 'f'}))
 LogUtils.logDefault(UrlUtils.parseUrl('http://www.daiwei.org/?a=1&b=2&url=a.html?b=1&c=1'))
 
 LogUtils.logInfo(UrlUtils.deleteUrlParam(['code', 'name']))
+
+LogUtils.logInfo(StoreUtils.uniqueArray([1, 2, 3, 4, 5, 3, 2, 1, 0]))
+
+LogUtils.logInfo(GenericUtils.strTrim(' asda '))
+
+// GenericUtils.notification()

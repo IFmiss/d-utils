@@ -174,7 +174,7 @@ export function extend (...arg: any): any {
  * uniqueArray([1,2,3,3,,3,3,'4',"4",'4',])
  */
 export function uniqueArray (arr: any[]): any[] {
-  return Array.from(new Set(arr))
+  return [...new Set(arr)]
 }
 
 /**
