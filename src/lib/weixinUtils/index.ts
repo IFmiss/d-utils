@@ -1,5 +1,6 @@
 import { isIOS, isAndroid } from './../expUtils/index'
 import LogUtils from './../logUtils/index'
+import { parseUrl } from './../urlUtils/index'
 import { IWxSign,
          IWxShareToFriend,
          IWxCallBackType,
@@ -299,5 +300,32 @@ export default class WeixinUtils {
         }
       })
     })
+  }
+
+  /**
+   * ios 手机在code过期之后会重新静默授权，会导致分享失败，通过url中是否存在code，针对ios用户执行reload的操作
+   */
+  static plantIosReloadShim = () => {
+    const query = parseUrl()
+    if (Object.keys(query).includes('code') && isIOS()) {
+      localStorage.setItem('weixin-utils-reload', 'true')
+    }
+  }
+
+  /**
+   * 在其他页面都需要添加改方法，用户在页面加载之后重新reload，已保证微信分享正常
+   */
+  static reloadIosWhenCode = () => {
+    const hostAndPath = window.location.href.split('?')[0]
+    const reload = localStorage.getItem('weixin-utils-reload')
+    const urlSearch = new URLSearchParams(window.location.search)
+    urlSearch.delete('code')
+    const newUrl = urlSearch.toString() ?  `${hostAndPath}?${urlSearch.toString()}` : hostAndPath
+    if (reload === 'true') {
+      localStorage.removeItem('weixin-utils-reload')
+      setTimeout(() => {
+        location.replace(newUrl)
+      }, 88)
+    }
   }
 }
