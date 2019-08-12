@@ -138,12 +138,6 @@ let Person1 = {
   lastName: 'w',
 }
 
-Person.say.selfCall(Person1, 222, '111')
-Person.say.selfCall(Person1, 999)
-Student.getName.selfCall(Person1)
-Person.say.selfApply(Person1, [333, 111, 222])
-Person.say.selfApply(Person1, 333, 111, 222)
-Person.say.selfBind(Person1, 'dwdwdwdwdwdwdw', '111')()
 
 LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1}))
 LogUtils.logDefault(UrlUtils.stringifyUrl({}))
