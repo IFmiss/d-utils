@@ -192,7 +192,7 @@ export function throttle (fn: Function, t = 1000): any {
  * console.log('resize-debounce', arg1)
  * }, 1000)
  */
-export function debounce (fn: Function, t: number, immediate = true): any {
+export function debounce (fn: Function, t: number, immediate: boolean = true): any {
   if (typeof fn !== 'function') {
     LogUtils.logError(`第一个参数必须是方法`, '[d-utils] GenericUtils debounce error => ')
     return

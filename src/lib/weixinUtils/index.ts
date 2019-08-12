@@ -32,10 +32,6 @@ export default class WeixinUtils {
     complete: (): void => {}
   }
 
-  static hackPlantStorageIfCode (): void {
-    // code
-  }
-
   static sdkUrlIosOrAndorid (): string {
     if (isIOS() ||
         isAndroid() && !WeixinUtils.isUpThanWxVersion('6.3.31')) {
@@ -59,8 +55,9 @@ export default class WeixinUtils {
   }
 
   /**
-   * @description wxSign
+   * @description wxSign 微信验签的动作
    * @param { String }  jsapi_ticket  公众号用于调用微信JS接口的临时票据
+   * @return { IWxSign } 返回 timestamp， nonceStr， signature
    */
 
   static wxSign (ticket: string): IWxSign {
@@ -304,6 +301,7 @@ export default class WeixinUtils {
 
   /**
    * ios 手机在code过期之后会重新静默授权，会导致分享失败，通过url中是否存在code，针对ios用户执行reload的操作
+   * @since 3.0.1
    */
   static plantIosReloadShim = () => {
     const query = parseUrl()
@@ -314,6 +312,7 @@ export default class WeixinUtils {
 
   /**
    * 在其他页面都需要添加改方法，用户在页面加载之后重新reload，已保证微信分享正常
+   * @since 3.0.1
    */
   static reloadIosWhenCode = () => {
     const hostAndPath = window.location.href.split('?')[0]

@@ -2,6 +2,7 @@
  * 网页性能监测
  */
 import LogUtils from './../logUtils/index'
+
 export default class PerformanceUtils {
   /**
    * @description window.performance对象
