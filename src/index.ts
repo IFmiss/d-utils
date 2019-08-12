@@ -93,19 +93,6 @@ PromiseSelf.all([PromiseS3, PromiseS1, PromiseS2]).then((res) => {
   console.log('Promise.all', res);
 })
 
-// PromiseSelf.race([PromiseS3, PromiseS2, PromiseS1]).then((res) => {
-//   console.log('Promise.race', res);
-// })
-
-// console.log(promiseS)
-
-// promiseS.then().then((res) => {
-//   console.log('next onFulfilled', res)
-//   return res
-// }).catch((e) => {
-//   console.log('catch', e)
-// })
-
 WeixinUtils.initWxConfig({
   appId: '11111',
   timestamp: new Date().getTime(),
