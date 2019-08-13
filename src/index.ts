@@ -13,9 +13,7 @@ import { LogUtils, GenericUtils, UrlUtils, WeixinUtils, ExpUtils, HttpRequestUti
 import { axiosConfig } from './lib/httpRequestUtils/axiosConfig'
 import * as Dutils from './lib/index'
 import * as DomUtils from './lib/domUtils';
-import PromiseSelf from './lib/PromiseSelf';
 import { rejects } from 'assert';
-import './lib/fnUtils'
 import EventUtils from './lib/eventUtils';
 EventUtils.on('axios-loading', (res) => {
   alert(1)
@@ -44,18 +42,28 @@ document.getElementById('disc').onclick = clickHandler
 
 async function aaa () {
   console.log('start')
-  await PromiseUtils.wait(() => {
-    return t > 0
-  }, 1000, 10000).then(() => {
-    console.log('end')
-  }).catch(() => {
-    console.log('time out')
-  })
+  // const [err, res] = await PromiseUtils.wrap(PromiseUtils.wait(() => {
+  //   console.log('t', t)
+  //   return t > 0
+  // }, 1000, 500).then(() => {
+  //   console.log('end')
+  // }).catch(e => {
+  //   console.log(e)
+  // }))
+  // console.log(err, res)
+  await PromiseUtils.sleep(3000)
+  const [err, res] = await PromiseUtils.wrap(HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
+    inAjax: 1,
+    do: 'getImageByBingJson'
+  }))
+  console.log(err, res)
+  console.log('this is realy end')
 }
 aaa()
 
+
 DeviceUtils.initRem()
-// DeviceUtils.checkLayoutOrientation()
+DeviceUtils.checkLayoutOrientation()
 console.log('-----------------------')
 console.log(GenericUtils.calcStringLength('♋☮✌☏1{', true))
 
@@ -69,29 +77,6 @@ DomUtils.cssFilter(document.body, 'grayscale', '1')
 
 console.log(GenericUtils.base64Encode('hello world!'))
 console.log(GenericUtils.base64Decode('aGVsbG8gd29ybGQh'))
-
-// const promiseS = new PromiseSelf((reslove, reject) => {
-//   console.log('start reslove')
-//   setTimeout(() => {
-//     reject(100)
-//   }, 3000)
-// })
-
-const PromiseS1 = new PromiseSelf((resolve, reject) => {
-  console.log('this is PromiseS1')
-  resolve('PromiseS1')
-})
-
-const PromiseS2 = new PromiseSelf((resolve, reject) => {
-  console.log('this is PromiseS2')
-  resolve('PromiseS2')
-})
-
-const PromiseS3 = PromiseSelf.reject('失败')
-
-PromiseSelf.all([PromiseS3, PromiseS1, PromiseS2]).then((res) => {
-  console.log('Promise.all', res);
-})
 
 WeixinUtils.initWxConfig({
   appId: '11111',

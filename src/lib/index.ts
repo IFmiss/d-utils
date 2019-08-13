@@ -30,7 +30,7 @@ import * as decorator from './decoratorUtils/index'
 // event事件
 import event from './eventUtils/index'
 // promise
-import promise from './promiseUtils/index'
+import * as promise from './promiseUtils/index'
 
 /**
  * Dom相关静态类
