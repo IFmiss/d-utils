@@ -89,7 +89,7 @@ export function randomDataFromArr (arr: any[], num: number): any {
   }
   if (newArr) {
     for (let i = 0; i < (num > l ? l : num) ; i++) {
-      let index = Math.floor(Math.random() * newArr.length)
+      let index = ~~(Math.random() * newArr.length)
       resultArr.push(newArr[index])
       newArr.splice(index,1)
     }

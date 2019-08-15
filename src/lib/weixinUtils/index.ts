@@ -32,6 +32,10 @@ export default class WeixinUtils {
     complete: (): void => {}
   }
 
+  /**
+   * ios 安卓需要验签的地址
+   * @returns { string } 浏览器url
+   */
   static sdkUrlIosOrAndorid (): string {
     if (isIOS() ||
         isAndroid() && !WeixinUtils.isUpThanWxVersion('6.3.31')) {

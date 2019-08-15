@@ -59,9 +59,9 @@ export function notification (options?: GenericType.INotification):Promise<any> 
  * console(color)
  */
 export function randomColor (opacity: number = 1): string {
-  const r = Math.floor(Math.random() * 256)
-  const g = Math.floor(Math.random() * 256)
-  const b = Math.floor(Math.random() * 256)
+  const r = ~~(Math.random() * 256)
+  const g = ~~(Math.random() * 256)
+  const b = ~~(Math.random() * 256)
   return `rgba(${r},${g},${b},${opacity})`
 }
 
@@ -241,7 +241,7 @@ export function formatDate (fmt: string, date: any = new Date()): any { // autho
     'h+': newDate.getHours(), // 小时
     'm+': newDate.getMinutes(), // 分
     's+': newDate.getSeconds(), // 秒
-    'q+': Math.floor((newDate.getMonth() + 3) / 3), // 季度
+    'q+': ~~((newDate.getMonth() + 3) / 3), // 季度
     'S': newDate.getMilliseconds() // 毫秒
   }
   if (/(y+)/.test(fmt)) { fmt = fmt.replace(RegExp.$1, (newDate.getFullYear() + '').substr(4 - RegExp.$1.length)) }
