@@ -31,6 +31,8 @@ import * as decorator from './decoratorUtils/index'
 import event from './eventUtils/index'
 // promise
 import * as promise from './promiseUtils/index'
+// function
+import * as fn from './fnUtils/index'
 
 /**
  * Dom相关静态类
@@ -102,6 +104,11 @@ export const EventUtils = event
  */
 export const PromiseUtils = promise
 
+/**
+ * 函数相关
+ */
+export const FnUtils = fn
+
 export default {
   DecoratorUtils: decorator,
   DeviceUtils: device,
@@ -116,5 +123,6 @@ export default {
   HttpRequestUtils: http,
   ImageUtils: img,
   EventUtils: event,
-  PromiseUtils: promise
+  PromiseUtils: promise,
+  FnUtils: fn
 }

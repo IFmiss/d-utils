@@ -12,9 +12,12 @@ import { StoreUtils } from './lib/index'
 import { LogUtils, GenericUtils, UrlUtils, WeixinUtils, ExpUtils, HttpRequestUtils, ImageUtils, PerformanceUtils, PromiseUtils } from './lib/index'
 import { axiosConfig } from './lib/httpRequestUtils/axiosConfig'
 import * as Dutils from './lib/index'
+import * as FnUtils from './lib/fnUtils'
 import * as DomUtils from './lib/domUtils';
 import { rejects } from 'assert';
 import EventUtils from './lib/eventUtils';
+import PaiXu from './test/paixu'
+import ErChaShu from './test/erchashu'
 EventUtils.on('axios-loading', (res) => {
   alert(1)
 })
@@ -126,3 +129,30 @@ LogUtils.logInfo(StoreUtils.uniqueArray([1, 2, 3, 4, 5, 3, 2, 1, 0]))
 LogUtils.logInfo(GenericUtils.strTrim(' asda '))
 
 // GenericUtils.notification()
+// FnUtils.compose(alert, GenericUtils.strTrim)(1)
+
+const arr = [1, 3, 44, 22, 0, -1, 9, 56, 99, 87, -5]
+
+LogUtils.logDefault(arr)
+console.log('-----------------------')
+LogUtils.logInfo(PaiXu.bubbling(arr.slice()), '冒泡排序')
+console.log('-----------------------')
+LogUtils.logInfo(PaiXu.choice(arr.slice()), '选择排序')
+console.log('-----------------------')
+LogUtils.logInfo(PaiXu.insert(arr.slice()), '插入排序')
+console.log('-----------------------')
+LogUtils.logInfo(PaiXu.quickSort(arr.slice()), '快速排序')
+
+const selfTree = new ErChaShu()
+selfTree.insert(1)
+selfTree.insert(2)
+selfTree.insert(3)
+selfTree.insert(4)
+selfTree.insert(5)
+selfTree.insert(6)
+selfTree.insert(-3)
+selfTree.insert(0)
+selfTree.insert(-3)
+
+console.log(selfTree)
+console.log('find', selfTree.find(0))
