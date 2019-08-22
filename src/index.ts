@@ -18,6 +18,7 @@ import { rejects } from 'assert';
 import EventUtils from './lib/eventUtils';
 import PaiXu from './test/paixu'
 import ErChaShu from './test/erchashu'
+import { combineArray } from './test/arr'
 EventUtils.on('axios-loading', (res) => {
   alert(1)
 })
@@ -144,15 +145,42 @@ console.log('-----------------------')
 LogUtils.logInfo(PaiXu.quickSort(arr.slice()), '快速排序')
 
 const selfTree = new ErChaShu()
-selfTree.insert(1)
+selfTree.insert(4)
 selfTree.insert(2)
 selfTree.insert(3)
-selfTree.insert(4)
+selfTree.insert(1)
+selfTree.insert(0)
 selfTree.insert(5)
 selfTree.insert(6)
-selfTree.insert(-3)
-selfTree.insert(0)
-selfTree.insert(-3)
+selfTree.insert(8)
+selfTree.insert(9)
+selfTree.insert(10)
 
 console.log(selfTree)
-console.log('find', selfTree.find(0))
+console.log('find', selfTree.find(9))
+console.log(selfTree.getDeep(selfTree.root, 0))
+
+// 中序
+const s = new ErChaShu()
+s.insert(2)
+s.insert(1)
+s.insert(3)
+s.insert(0)
+s.insert(1)
+LogUtils.logInfo(s.frontEach(s.root), '前序遍历')
+LogUtils.logInfo(s.midEach(s.root), '中序遍历')
+LogUtils.logInfo(s.afterEach(s.root), '后序遍历')
+console.log('s.frontEach(2)', s.frontEach(s.root))
+// console.log('s.midEachNoRecursion(2)', s.midEachNoRecursion(s.root))
+// s.frontEachNoRecursion(s.root)
+// console.log(s.afterEachNoRecursion(s.root))
+s.showTree()
+
+const a = x => y => z => {
+  console.log(x)
+  console.log(y)
+  console.log(z)
+}
+a(1)(2)(3)
+
+LogUtils.logInfo(combineArray(['1', '2', '3']), '数组全排列')
