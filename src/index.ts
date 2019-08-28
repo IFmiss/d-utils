@@ -18,7 +18,7 @@ import { rejects } from 'assert';
 import EventUtils from './lib/eventUtils';
 import PaiXu from './test/paixu'
 import ErChaShu from './test/erchashu'
-import { combineArray } from './test/arr'
+import { combineArray, lengthOfLongestSubstring } from './test/arr'
 EventUtils.on('axios-loading', (res) => {
   alert(1)
 })
@@ -184,3 +184,5 @@ const a = x => y => z => {
 a(1)(2)(3)
 
 LogUtils.logInfo(combineArray(['1', '2', '3']), '数组全排列')
+
+LogUtils.logInfo(lengthOfLongestSubstring("vvvcc"), 'lengthOfLongestSubstring')
