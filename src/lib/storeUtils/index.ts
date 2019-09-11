@@ -193,3 +193,36 @@ export function dataUrlToBlob (dataUrl: any): Blob {
   }
   return new Blob([u8arr], { type: mime })
 }
+
+/**
+ * @description 返回数组之间的并集
+ * @param { Array } args 可以是多个数组，数量不限制
+ * @return { Array } 返回数组
+ */
+export function union (...args: any[]): any[] {
+  return Array.from(new Set([].concat(...args)))
+}
+
+/**
+ * @description 返回两个数组之间的交集
+ * @param { Array } args 可以是多个数组，两个数组
+ * @return { Array } 返回数组
+ */
+export function intersection (a: any[], b: any[]): any[] {
+  const setB = new Set(b)
+  return a.filter((item) => {
+    return setB.has(item)
+  })
+}
+
+/**
+ * @description 返回两个数组之间的差集
+ * @param { Array } args 可以是多个数组，两个数组
+ * @return { Array } 返回数组
+ */
+export function diffset (a: any[], b: any[]): any[] {
+  const setB = new Set(b)
+  return a.filter((item) => {
+    return !setB.has(item)
+  })
+}

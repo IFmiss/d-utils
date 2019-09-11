@@ -186,3 +186,17 @@ a(1)(2)(3)
 LogUtils.logInfo(combineArray(['1', '2', '3']), '数组全排列')
 
 LogUtils.logInfo(lengthOfLongestSubstring("vvvcc"), 'lengthOfLongestSubstring')
+
+LogUtils.logInfo(StoreUtils.union([1, 2, 3], [2, 3, 4], 4, '3', '3', ['3']), '----------------')
+
+LogUtils.logInfo(StoreUtils.intersection([2], [2, 3, 4]))
+LogUtils.logInfo(StoreUtils.diffset([1, 2, 3], [2, 3, 4]))
+
+function add (a) {
+  return function (b) {
+    return function (c) {
+      return a + b + c
+    }
+  }
+}
+console.log(add(2)(3)(4))

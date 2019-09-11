@@ -188,3 +188,45 @@ StoreUtils.uniqueArray([1,2,3,3,,3,3,'4',"4",'4',])   // [1, 2, 3, undefined, "4
 ```ts
 StoreUtils.dataUrlToBlob(file[0])
 ```
+
+## union
+`union` 获取元素之间的并集
+```ts
+/**
+ * @description 返回数组之间的并集
+ * @param { Array } args 可以是多个数组，数量不限制
+ * @return { Array } 返回数组
+ */
+```
+##### `Demo`:
+```ts
+StoreUtils.union([1, 2, 3], [2, 3, 4], 4, '3', '3', ['3'])  // [1, 2, 3, 4, "3"]
+```
+
+## intersection
+`intersection` 返回两个数组之间的交集
+```ts
+/**
+ * @description 返回两个数组之间的交集
+ * @param { Array } args 可以是多个数组，两个数组
+ * @return { Array } 返回数组
+ */
+```
+##### `Demo`:
+```ts
+StoreUtils.intersection([1, 2, 3], [2, 3, 4])  // [2, 3]
+```
+
+## diffset
+`diffset` 返回两个数组之间的差集
+```ts
+/**
+ * @description 返回两个数组之间的差集
+ * @param { Array } args 可以是多个数组，两个数组
+ * @return { Array } 返回数组
+ */
+```
+##### `Demo`:
+```ts
+StoreUtils.diffset([1, 2, 3], [2, 3, 4])  // [1]
+```

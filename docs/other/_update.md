@@ -1,7 +1,10 @@
 # 更新内容
-### 3.0.0
+  - `2019-09-11` 添加 [`compose`](lib/_FnUtils#compose) 方法, [`union`](lib/_StoreUtils#union), [`intersection`](lib/_StoreUtils#intersection), [`diffset`](lib/_StoreUtils#diffset)
+  - `2019-08-13` 添加 [`wrap`](lib/_PromiseUtils#wrap) 方法
+  - `2019-08-9` 添加 [`plantIosReloadShim`](lib/_WeixinUtils#plantIosReloadShim)，以及[`reloadIosWhenCode`](lib/_WeixinUtils#reloadIosWhenCode)方法
   - `2019-08-08` 添加 [`deleteUrlParam`](lib/_UrlUtils#deleteUrlParam)方法
   - `2019-08-01` 移除 `weixinUtils` 的`wxShare` 方法
+### 3.0.0
   - 从@dw/d-utils包移到d-utils
 ### 1.1.47
   - `2019-02-20` 代码优化，支持部分utils tree-shaking的功能
