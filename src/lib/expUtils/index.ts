@@ -46,8 +46,8 @@ export function isIOS (): boolean {
  * isAndroid() // false
  */
 export function isAndroid (): boolean {
-  return ua.indexOf('Android') > -1 ||
-         ua.indexOf('Adr') > -1
+  return (!!~ua.indexOf('Android')) ||
+         (!!~ua.indexOf('Adr'))
 }
 
 /**
