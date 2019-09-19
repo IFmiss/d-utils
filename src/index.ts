@@ -200,3 +200,7 @@ function add (a) {
   }
 }
 console.log(add(2)(3)(4))
+
+LogUtils.logInfo(StoreUtils.calcQuantity([1, 2, 3, 4, 4, 4, 3, 4, 5,2, 1, 3, 4], 1), 'calcCountInArray')
+
+LogUtils.logInfo(StoreUtils.calcQuantity('1234443452134', '1'), 'calcCountInArray')
