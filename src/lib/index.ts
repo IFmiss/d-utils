@@ -110,19 +110,64 @@ export const PromiseUtils = promise
 export const FnUtils = fn
 
 export default {
+  /**
+   * 装饰器
+   */
   DecoratorUtils: decorator,
+  /**
+   * 设备相关
+   */
   DeviceUtils: device,
+  /**
+   * Dom相关
+   */
   DomUtils: dom,
+  /**
+   * 基本方法
+   */
   GenericUtils: utils,
+  /**
+   * 数据操作方法
+   */
   StoreUtils: store,
+  /**
+   * 正则判断方法
+   */
   ExpUtils: exp,
+  /**
+   * logger
+   */
   LogUtils: log,
+  /**
+   * 微信jssdk 封装的方法
+   */
   WeixinUtils: weixin,
+  /**
+   * 性能相关监控
+   */
   PerformanceUtils: performance,
+  /**
+   * url相关
+   */
   UrlUtils: url,
+  /**
+   * 基于axios的请求相关
+   */
   HttpRequestUtils: http,
+  /**
+   * 图片合成相关
+   */
   ImageUtils: img,
+  /**
+   * 自定义事件
+   */
   EventUtils: event,
+  /**
+   * promise封装方法
+   */
   PromiseUtils: promise,
+  /**
+   * 方法的包装
+   */
   FnUtils: fn
 }

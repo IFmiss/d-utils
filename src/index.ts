@@ -69,7 +69,7 @@ aaa()
 DeviceUtils.initRem()
 DeviceUtils.checkLayoutOrientation()
 console.log('-----------------------')
-console.log(GenericUtils.calcStringLength('♋☮✌☏1{', true))
+console.log(GenericUtils.calcStringLength('☮✌☏1{', true))
 
 async function bbb () {
   await PromiseUtils.sleep(5000)

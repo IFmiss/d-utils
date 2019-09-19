@@ -230,3 +230,19 @@ StoreUtils.intersection([1, 2, 3], [2, 3, 4])  // [2, 3]
 ```ts
 StoreUtils.diffset([1, 2, 3], [2, 3, 4])  // [1]
 ```
+
+## calcQuantity
+`calcQuantity` 判断元素在数组或者字符串里存在的次数
+```ts
+/**
+ * @description 判断元素在数组或者字符串里存在的次数
+ * @param { Array | String } target 存在的数组或字符串
+ * @param { String | Number | ... } s 目标元素  值类型的元素
+ * @return { Number } 数量
+ */
+```
+##### `Demo`
+```ts
+StoreUtils.calcQuantity('abcdefg', 'a')    // 1
+StoreUtils.calcQuantity(['1', '2', '3', '4', '5', '3', '2',  '3'], '3')    // 3
+``` 

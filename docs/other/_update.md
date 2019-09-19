@@ -1,4 +1,5 @@
 # 更新内容
+  - `2019-09-19` 添加 [`calcQuantity`](lib/_StoreUtils/#calcQuantity) 方法
   - `2019-09-11` 添加 [`compose`](lib/_FnUtils#compose) 方法, [`union`](lib/_StoreUtils#union), [`intersection`](lib/_StoreUtils#intersection), [`diffset`](lib/_StoreUtils#diffset)
   - `2019-08-13` 添加 [`wrap`](lib/_PromiseUtils#wrap) 方法
   - `2019-08-9` 添加 [`plantIosReloadShim`](lib/_WeixinUtils#plantIosReloadShim)，以及[`reloadIosWhenCode`](lib/_WeixinUtils#reloadIosWhenCode)方法

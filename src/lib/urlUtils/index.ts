@@ -10,7 +10,7 @@
  */
 export function parseUrl (url: string = window.location.search): any {
   const newUrl: string = url.slice(url.indexOf('?'))
-  const sp = new URLSearchParams(newUrl)
+  const sp: any = new URLSearchParams(newUrl)
   const obj = {}
   for (let [k, v] of sp.entries()) {
     obj[k] = v
