@@ -1,7 +1,7 @@
 # 更新内容
 ### 1.1.47
   - `2019-02-20` 代码优化，支持部分utils tree-shaking的功能
-  - 可树摇的模块：`decoratorUtils, deviceUtils, domUtils, expUtils, genericUtils, storeUtils, urlUtils`, 引入的时候需要单独引入‘@dw/d-utils/lib/decoratorUtils’的方式
+  - 可树摇的模块：`decoratorUtils, deviceUtils, domUtils, expUtils, genericUtils, storeUtils, urlUtils`, 引入的时候需要单独引入‘d-utils/lib/decoratorUtils’的方式
 
 ### 之后
   - `2019-05-29` 更新 StoreUtils.objectToString 至 UrlUtils.stringifyUrl
@@ -34,7 +34,7 @@
 
 ---
 ### 1.0.8 之前的版本
-  - `2018-10-17` 添加[`openFullScreen`](lib/_utils#openFullScreen), [`exitFullScreen`](lib/_utils#exitFullScreen)
+  - `2018-10-17` 添加[`openFullScreen`](lib/_utils#openFullScreen), [`exitFullScreen`](lib/_utils#exitFullScreen) (`3.0 被移除了`)
   - `2018-09-15` 添加[`uniqueArray`](lib/_store#uniqueArray)方法
 
   - `2018-09-04` 

@@ -22,15 +22,14 @@
   设备相关的检测与方法
 
 ## 快速使用
-#### 安装
+#### 安装 （3.0及以上的版本）
 使用npm安装 `d-utils` 依赖
 ```bash
-npm i @dw/d-utils
+npm i d-utils
 ```
-
-使用yarn安装 `d-utils` 依赖
-```bash
-yarn add @dw/d-utils
+yarn
+```hash
+yarn add d-utils
 ```
 
 或者直接引用js

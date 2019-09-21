@@ -54,28 +54,6 @@ StoreUtils.getCookie('test')
 StoreUtils.removeCookie('test')
 ```
 
-## fileToFormData
-`fileToFormData`将File文件转换成FormData对象
-##### 参数
-  - `obj` 对象内容 {file: e.target.files[0], id: '100001', name: 'hello world'}
-```js
-/**
- * 将File文件转换成FormData对象
- * @param {(Object|Blob)} obj 顺带传的参数如,文件内容必传
- * 如：{file: e.target.files[0], id: '100001', name: 'hello world'}
- */
-```
-##### `Demo`:
-```js
-  const data = {
-      file: e.target.files[0],
-      name: 'd-utils',
-      id: 123,
-      desc: 'hello'
-  }
-StoreUtils.fileToFormData(...data)
-```
-
 ## randomDataFromArr
 `randomDataFromArr`从数组中获取num 个随机不重复的元素
 ##### 参数
