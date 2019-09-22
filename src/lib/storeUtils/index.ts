@@ -89,7 +89,7 @@ export function randomDataFromArr (arr: any[], num: number): any {
   }
   if (newArr) {
     for (let i = 0; i < (num > l ? l : num) ; i++) {
-      let index = Math.floor(Math.random() * newArr.length)
+      let index = ~~(Math.random() * newArr.length)
       resultArr.push(newArr[index])
       newArr.splice(index,1)
     }
@@ -174,7 +174,7 @@ export function extend (...arg: any): any {
  * uniqueArray([1,2,3,3,,3,3,'4',"4",'4',])
  */
 export function uniqueArray (arr: any[]): any[] {
-  return Array.from(new Set(arr))
+  return [...new Set(arr)]
 }
 
 /**
@@ -192,4 +192,50 @@ export function dataUrlToBlob (dataUrl: any): Blob {
     u8arr[n] = bstr.charCodeAt(n)
   }
   return new Blob([u8arr], { type: mime })
+}
+
+/**
+ * @description 返回数组之间的并集
+ * @param { Array } args 可以是多个数组，数量不限制
+ * @return { Array } 返回数组
+ */
+export function union (...args: any[]): any[] {
+  return Array.from(new Set([].concat(...args)))
+}
+
+/**
+ * @description 返回两个数组之间的交集
+ * @param { Array } args 可以是多个数组，两个数组
+ * @return { Array } 返回数组
+ */
+export function intersection (a: any[], b: any[]): any[] {
+  const setB = new Set(b)
+  return a.filter((item) => {
+    return setB.has(item)
+  })
+}
+
+/**
+ * @description 返回两个数组之间的差集
+ * @param { Array } args 可以是多个数组，两个数组
+ * @return { Array } 返回数组
+ */
+export function diffset (a: any[], b: any[]): any[] {
+  const setB = new Set(b)
+  return a.filter((item) => {
+    return !setB.has(item)
+  })
+}
+
+/**
+ * @description 判断元素在数组或者字符串里存在的次数
+ * @param { Array | String } target 存在的数组或字符串
+ * @param { String | Number | ... } s 目标元素  值类型的元素
+ * @return { Number } 数量
+ */
+export function calcQuantity (target: any[] | string, s: any) {
+  let newTarget = typeof target === 'string' ? target.split('') : target
+  return newTarget.reduce((t, c) => {
+    return s === c ? t + 1 : t
+  }, 0)
 }

@@ -16,7 +16,8 @@ import http from './httpRequestUtils/index';
 import img from './imageUtils/index';
 import * as decorator from './decoratorUtils/index';
 import event from './eventUtils/index';
-import promise from './promiseUtils/index';
+import * as promise from './promiseUtils/index';
+import * as fn from './fnUtils/index';
 /**
  * Dom相关静态类
  */
@@ -73,20 +74,70 @@ export declare const EventUtils: typeof event;
  * promise相关
  */
 export declare const PromiseUtils: typeof promise;
+/**
+ * 函数相关
+ */
+export declare const FnUtils: typeof fn;
 declare const _default: {
+    /**
+     * 装饰器
+     */
     DecoratorUtils: typeof decorator;
+    /**
+     * 设备相关
+     */
     DeviceUtils: typeof device;
+    /**
+     * Dom相关
+     */
     DomUtils: typeof dom;
+    /**
+     * 基本方法
+     */
     GenericUtils: typeof utils;
+    /**
+     * 数据操作方法
+     */
     StoreUtils: typeof store;
+    /**
+     * 正则判断方法
+     */
     ExpUtils: typeof exp;
+    /**
+     * logger
+     */
     LogUtils: typeof log;
+    /**
+     * 微信jssdk 封装的方法
+     */
     WeixinUtils: typeof weixin;
+    /**
+     * 性能相关监控
+     */
     PerformanceUtils: typeof performance;
+    /**
+     * url相关
+     */
     UrlUtils: typeof url;
+    /**
+     * 基于axios的请求相关
+     */
     HttpRequestUtils: typeof http;
+    /**
+     * 图片合成相关
+     */
     ImageUtils: typeof img;
+    /**
+     * 自定义事件
+     */
     EventUtils: typeof event;
+    /**
+     * promise封装方法
+     */
     PromiseUtils: typeof promise;
+    /**
+     * 方法的包装
+     */
+    FnUtils: typeof fn;
 };
 export default _default;

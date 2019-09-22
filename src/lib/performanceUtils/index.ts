@@ -2,6 +2,7 @@
  * 网页性能监测
  */
 import LogUtils from './../logUtils/index'
+
 export default class PerformanceUtils {
   /**
    * @description window.performance对象
@@ -82,7 +83,7 @@ export default class PerformanceUtils {
   static logger (): void {
     window.addEventListener('load', () => {
       setTimeout(() => {
-        LogUtils.groupCollapsed('[d-utils] PerformanceUtils logger', LogUtils.infoColor)
+        LogUtils.group('[d-utils] PerformanceUtils logger - list: ', LogUtils.infoColor)
         LogUtils.logDefault(PerformanceUtils.dnsTime(), 'DNS查询耗时')
         LogUtils.logDefault(PerformanceUtils.loadTime(), '白屏时间')
         LogUtils.logDefault(PerformanceUtils.requestTime(), 'request请求耗时')

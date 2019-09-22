@@ -2,6 +2,8 @@
  * 通用工具类
  */
 import LogUtils from './../logUtils/index'
+import { GenericType } from './../type'
+
 /**
  * @description 浏览器提示
  * @param { object } options  参数为对象，以下都是对象内的属性配置
@@ -20,7 +22,7 @@ import LogUtils from './../logUtils/index'
  * }
  * notification(data)
  */
-export function notification (options?: any):Promise<any> {
+export function notification (options?: GenericType.INotification):Promise<any> {
   const defaultV = {
     title: '未曾遗忘的青春',
     body: 'Hello World !!!',
@@ -57,9 +59,9 @@ export function notification (options?: any):Promise<any> {
  * console(color)
  */
 export function randomColor (opacity: number = 1): string {
-  const r = Math.floor(Math.random() * 256)
-  const g = Math.floor(Math.random() * 256)
-  const b = Math.floor(Math.random() * 256)
+  const r = ~~(Math.random() * 256)
+  const g = ~~(Math.random() * 256)
+  const b = ~~(Math.random() * 256)
   return `rgba(${r},${g},${b},${opacity})`
 }
 
@@ -70,7 +72,7 @@ export function randomColor (opacity: number = 1): string {
  * showLayoutFramework()
  */
 export function  layoutFramework (): void {
-  Array.from( document.querySelectorAll('*'),function(a: any){  a.style.outline='1px solid #'+(~~(Math.random()*(1<<24))).toString(16) })
+  Array.from(document.querySelectorAll('*'),function(a: any){  a.style.outline='1px solid #'+(~~(Math.random()*(1<<24))).toString(16) })
 }
 
 /**
@@ -89,12 +91,10 @@ export function calcStringLength (str: string, isStrict?: boolean): number {
     return
   }
   if (!isStrict) return str.length
-  let a = 0
-  for (let i = 0; i < str.length; i++ ) {
-    let count = str.charCodeAt(i) > 255 ? 2 : 1
-    a += count
-  }
-  return a
+
+  return Array.from(str).reduce((total, current) => {
+    return total += current.charCodeAt(0) > 255 ? 2 : 1
+  }, 0)
 }
 
 /**
@@ -104,7 +104,7 @@ export function calcStringLength (str: string, isStrict?: boolean): number {
  * @return { String } 返回操作之后的字符串
  * @example
  * const str = ' d -js- ut ils '
- * // 0: 去除首位空格 默认为0
+ * // 0: 去除首尾空格 默认为0
  * strTrim(str)
  * strTrim(str, 0)
  * @example
@@ -117,7 +117,7 @@ export function calcStringLength (str: string, isStrict?: boolean): number {
  * // 3: 去除右边空格
  * strTrim(str, 3)
  */
-export function strTrim (str: string, type: number = 0): string {
+export function strTrim (str: string, type: GenericType.StrTrimType = GenericType.StrTrimType.LEFT_RIGHT): string {
   if (typeof str !== 'string') {
     LogUtils.logError(`str must be string but found ${typeof str}`, '[d-utils] GenericUtils strTrim error => ')
     return
@@ -192,7 +192,7 @@ export function throttle (fn: Function, t = 1000): any {
  * console.log('resize-debounce', arg1)
  * }, 1000)
  */
-export function debounce (fn: Function, t: number, immediate = true): any {
+export function debounce (fn: Function, t: number, immediate: boolean = true): any {
   if (typeof fn !== 'function') {
     LogUtils.logError(`第一个参数必须是方法`, '[d-utils] GenericUtils debounce error => ')
     return
@@ -241,7 +241,7 @@ export function formatDate (fmt: string, date: any = new Date()): any { // autho
     'h+': newDate.getHours(), // 小时
     'm+': newDate.getMinutes(), // 分
     's+': newDate.getSeconds(), // 秒
-    'q+': Math.floor((newDate.getMonth() + 3) / 3), // 季度
+    'q+': ~~((newDate.getMonth() + 3) / 3), // 季度
     'S': newDate.getMilliseconds() // 毫秒
   }
   if (/(y+)/.test(fmt)) { fmt = fmt.replace(RegExp.$1, (newDate.getFullYear() + '').substr(4 - RegExp.$1.length)) }

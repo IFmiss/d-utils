@@ -8,13 +8,13 @@
  * @example
  * UrlUtils.parseUrl('http://www.daiwei.org/?a=1&b=2')
  */
-export function parseUrl (url: string = window.location.href): any {
+export function parseUrl (url: string = window.location.search): any {
   const newUrl: string = url.slice(url.indexOf('?'))
-  const arr: any[] = newUrl.slice(1).split('&')
-  const obj: any = {}
-  arr.forEach(item => {
-    if (item.split('=')[0]) obj[item.split('=')[0]] = item.split('=')[1]
-  })
+  const sp: any = new URLSearchParams(newUrl)
+  const obj = {}
+  for (let [k, v] of sp.entries()) {
+    obj[k] = v
+  }
   return obj
 }
 
@@ -27,14 +27,31 @@ export function parseUrl (url: string = window.location.href): any {
  * UrlUtils.stringifyUrl({a: 1, b: 2})
  */
 export function stringifyUrl (obj: object): string {
-  const props = Object.keys(obj)
-  if (props && !props.length) return ''
-  if (props.length > 1) {
-    return Object.keys(obj).reduce((prevAll, currentItem, index) => {
-      const prev = index === 1 ? `${prevAll}=${obj[prevAll]}` : prevAll
-      const current = `${currentItem}=${obj[currentItem]}`
-      return `${prev}&${current}`
-    })
-  }
-  return `${props[0]}=${obj[props[0]]}`
+  const arr = Object.entries(obj)
+  return arr.map(item => {
+    let [k, v] = [...item]
+    return `${k}=${encodeURIComponent(v)}`
+  }).join('&')
+}
+
+/**
+ * @description 移除url的某一个参数
+ * @since 3.0.1
+ * @param { Array } paramNames 参数名称的数组
+ * @param { URL } url url地址
+ * @return { String } 返回一个新地址
+ * @example
+ * UrlUtils.deleteUrlParam(['code', 'name'], 'http://localhost:2008/#a?a=22&b=2&code=3')
+ * // 'http://localhost:2008/#a?a=22&b=2'
+ */
+export function deleteUrlParam (paramNames: string[], url: string = location.href) {
+  const newSearch: string = url.split('?')[1]
+  if (!newSearch) return url
+
+  const hostAndPath: string = url.split('?')[0]
+  const urlSearch = new URLSearchParams(newSearch)
+  paramNames.forEach((param: string) => {
+    urlSearch.delete(param)
+  })
+  return urlSearch.toString() ?  `${hostAndPath}?${urlSearch.toString()}` : hostAndPath
 }

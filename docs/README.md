@@ -27,8 +27,9 @@
 ```bash
 npm i d-utils
 ```
-yarn
-```hash
+
+使用yarn安装 `d-utils` 依赖
+```bash
 yarn add d-utils
 ```
 

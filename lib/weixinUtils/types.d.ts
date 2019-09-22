@@ -10,11 +10,13 @@ export interface IWeixinUtils {
     hideMenuItems(arr: string[]): Promise<string | object>;
     wxShare(sharInfo: any): Promise<string>;
 }
+/** 验签拿到的三个字段 */
 export interface IWxSign {
     timestamp: any;
     nonceStr: string;
     signature: string;
 }
+/** 微信config的配置信息 */
 export interface IWxConfig {
     debug?: boolean;
     appId: string;
@@ -23,10 +25,12 @@ export interface IWxConfig {
     signature: string;
     jsApiList: string[];
 }
+/** 微信分享回调的方法类型 */
 export interface IWxCallBackType {
     type: string;
     data: any;
 }
+/** 分享给朋友的分享字段 */
 export interface IWxShareToFriend {
     title: string;
     desc: string;
@@ -36,6 +40,7 @@ export interface IWxShareToFriend {
     cancel?: (res: IWxCallBackType) => void;
     complete?: (res: IWxCallBackType) => void;
 }
+/** 分享到朋友圈的分享字段 */
 export interface IWxShareToFriendsCircle {
     title: string;
     link: string;

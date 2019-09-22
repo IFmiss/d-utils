@@ -12,11 +12,13 @@ import { StoreUtils } from './lib/index'
 import { LogUtils, GenericUtils, UrlUtils, WeixinUtils, ExpUtils, HttpRequestUtils, ImageUtils, PerformanceUtils, PromiseUtils } from './lib/index'
 import { axiosConfig } from './lib/httpRequestUtils/axiosConfig'
 import * as Dutils from './lib/index'
+import * as FnUtils from './lib/fnUtils'
 import * as DomUtils from './lib/domUtils';
-import PromiseSelf from './lib/PromiseSelf';
 import { rejects } from 'assert';
-import './lib/fnUtils'
 import EventUtils from './lib/eventUtils';
+import PaiXu from './test/paixu'
+import ErChaShu from './test/erchashu'
+import { combineArray, lengthOfLongestSubstring } from './test/arr'
 EventUtils.on('axios-loading', (res) => {
   alert(1)
 })
@@ -32,34 +34,42 @@ setTimeout(() => {
   t = 1
 }, 5000)
 
-const log = function () {
-  console.log('clickHandler')
+const log = function (e) {
+  console.log('clickHandler', e)
 }
 
-const clickHandler = function () {
-  GenericUtils.throttle(log, 1000)()
-}
-document.getElementById('disc').addEventListener('click', () => {
-  GenericUtils.debounce((e) => {
-    console.log('this is disc', e)
-  }, 1000, false)
-})
+const clickHandler = GenericUtils.debounce(function (e) {
+  log(e)
+}, 1000)
+
+document.getElementById('disc').onclick = clickHandler
 
 async function aaa () {
   console.log('start')
-  await PromiseUtils.wait(() => {
-    return t > 0
-  }, 1000, 10000).then(() => {
-    console.log('end')
-  }).catch(() => {
-    console.log('time out')
-  })
+  // const [err, res] = await PromiseUtils.wrap(PromiseUtils.wait(() => {
+  //   console.log('t', t)
+  //   return t > 0
+  // }, 1000, 500).then(() => {
+  //   console.log('end')
+  // }).catch(e => {
+  //   console.log(e)
+  // }))
+  // console.log(err, res)
+  await PromiseUtils.sleep(3000)
+  const [err, res] = await PromiseUtils.wrap(HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
+    inAjax: 1,
+    do: 'getImageByBingJson'
+  }))
+  console.log(err, res)
+  console.log('this is realy end')
 }
 aaa()
 
+
 DeviceUtils.initRem()
-// DeviceUtils.checkLayoutOrientation()
-GenericUtils.calcStringLength('1111')
+DeviceUtils.checkLayoutOrientation()
+console.log('-----------------------')
+console.log(GenericUtils.calcStringLength('☮✌☏1{', true))
 
 async function bbb () {
   await PromiseUtils.sleep(5000)
@@ -71,42 +81,6 @@ DomUtils.cssFilter(document.body, 'grayscale', '1')
 
 console.log(GenericUtils.base64Encode('hello world!'))
 console.log(GenericUtils.base64Decode('aGVsbG8gd29ybGQh'))
-
-// const promiseS = new PromiseSelf((reslove, reject) => {
-//   console.log('start reslove')
-//   setTimeout(() => {
-//     reject(100)
-//   }, 3000)
-// })
-
-const PromiseS1 = new PromiseSelf((resolve, reject) => {
-  console.log('this is PromiseS1')
-  resolve('PromiseS1')
-})
-
-const PromiseS2 = new PromiseSelf((resolve, reject) => {
-  console.log('this is PromiseS2')
-  resolve('PromiseS2')
-})
-
-const PromiseS3 = PromiseSelf.reject('失败')
-
-PromiseSelf.all([PromiseS3, PromiseS1, PromiseS2]).then((res) => {
-  console.log('Promise.all', res);
-})
-
-// PromiseSelf.race([PromiseS3, PromiseS2, PromiseS1]).then((res) => {
-//   console.log('Promise.race', res);
-// })
-
-// console.log(promiseS)
-
-// promiseS.then().then((res) => {
-//   console.log('next onFulfilled', res)
-//   return res
-// }).catch((e) => {
-//   console.log('catch', e)
-// })
 
 WeixinUtils.initWxConfig({
   appId: '11111',
@@ -140,15 +114,93 @@ let Person1 = {
   lastName: 'w',
 }
 
-Person.say.selfCall(Person1, 222, '111')
-Person.say.selfCall(Person1, 999)
-Student.getName.selfCall(Person1)
-Person.say.selfApply(Person1, [333, 111, 222])
-Person.say.selfApply(Person1, 333, 111, 222)
-Person.say.selfBind(Person1, 'dwdwdwdwdwdwdw', '111')()
 
 LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1}))
 LogUtils.logDefault(UrlUtils.stringifyUrl({}))
 LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1, b: '2'}))
 LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1, b: '2', c: 3, d: 'c'}))
 LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1, b: '2', c: 3, d: 'c', e: 'f'}))
+
+LogUtils.logDefault(UrlUtils.parseUrl('http://www.daiwei.org/?a=1&b=2&url=a.html?b=1&c=1'))
+
+LogUtils.logInfo(UrlUtils.deleteUrlParam(['code', 'name']))
+
+LogUtils.logInfo(StoreUtils.uniqueArray([1, 2, 3, 4, 5, 3, 2, 1, 0]))
+
+LogUtils.logInfo(GenericUtils.strTrim(' asda '))
+
+// GenericUtils.notification()
+// FnUtils.compose(alert, GenericUtils.strTrim)(1)
+
+const arr = [1, 3, 44, 22, 0, -1, 9, 56, 99, 87, -5]
+
+LogUtils.logDefault(arr)
+console.log('-----------------------')
+LogUtils.logInfo(PaiXu.bubbling(arr.slice()), '冒泡排序')
+console.log('-----------------------')
+LogUtils.logInfo(PaiXu.choice(arr.slice()), '选择排序')
+console.log('-----------------------')
+LogUtils.logInfo(PaiXu.insert(arr.slice()), '插入排序')
+console.log('-----------------------')
+LogUtils.logInfo(PaiXu.quickSort(arr.slice()), '快速排序')
+
+const selfTree = new ErChaShu()
+selfTree.insert(4)
+selfTree.insert(2)
+selfTree.insert(3)
+selfTree.insert(1)
+selfTree.insert(0)
+selfTree.insert(5)
+selfTree.insert(6)
+selfTree.insert(8)
+selfTree.insert(9)
+selfTree.insert(10)
+
+console.log(selfTree)
+console.log('find', selfTree.find(9))
+console.log(selfTree.getDeep(selfTree.root, 0))
+
+// 中序
+const s = new ErChaShu()
+s.insert(2)
+s.insert(1)
+s.insert(3)
+s.insert(0)
+s.insert(1)
+LogUtils.logInfo(s.frontEach(s.root), '前序遍历')
+LogUtils.logInfo(s.midEach(s.root), '中序遍历')
+LogUtils.logInfo(s.afterEach(s.root), '后序遍历')
+console.log('s.frontEach(2)', s.frontEach(s.root))
+// console.log('s.midEachNoRecursion(2)', s.midEachNoRecursion(s.root))
+// s.frontEachNoRecursion(s.root)
+// console.log(s.afterEachNoRecursion(s.root))
+s.showTree()
+
+const a = x => y => z => {
+  console.log(x)
+  console.log(y)
+  console.log(z)
+}
+a(1)(2)(3)
+
+LogUtils.logInfo(combineArray(['1', '2', '3']), '数组全排列')
+
+LogUtils.logInfo(lengthOfLongestSubstring("vvvcc"), 'lengthOfLongestSubstring')
+
+LogUtils.logInfo(StoreUtils.union([1, 2, 3], [2, 3, 4], 4, '3', '3', ['3']), '----------------')
+
+LogUtils.logInfo(StoreUtils.intersection([2], [2, 3, 4]))
+LogUtils.logInfo(StoreUtils.diffset([1, 2, 3], [2, 3, 4]))
+
+function add (a) {
+  return function (b) {
+    return function (c) {
+      return a + b + c
+    }
+  }
+}
+console.log(add(2)(3)(4))
+
+LogUtils.logInfo(StoreUtils.calcQuantity([1, 2, 3, 4, 4, 4, 3, 4, 5,2, 1, 3, 4], 1), 'calcCountInArray')
+
+LogUtils.logInfo(StoreUtils.calcQuantity('1234443452134', '1'), 'calcCountInArray')

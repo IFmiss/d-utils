@@ -1,12 +1,12 @@
 # 快速使用
-#### 安装 （1.1.14及以上的版本）
-使用npm安装 `d-utils` 
+#### 安装 （3.0.0及以上的版本）
+使用npm安装 `d-utils` 依赖
 ```bash
-npm i @dw/d-utils
+npm i d-utils
 ```
 yarn
 ```hash
-yarn add @dw/d-utils
+yarn add d-utils
 ```
 #### 3.0正式使用 d-utils 包 ， 现默认使用最新模式
 ```bash

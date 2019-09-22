@@ -49,22 +49,26 @@ export default class HttpRequestUtils {
    * @param { object } config 相关axios的配置信息
    * @return { Promise }
    */
-  static get (url: string, params?: any, config?: any): Promise<any> {
-    if (!HttpRequestUtils.isInit) {
-      LogUtils.logError('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作', `[d-utils] http_request: => error`)
-      return
-    }
-    const getInfo: any = Object.assign({}, {params}, config)
-    axios.get(url, getInfo).then((res: any) => {
-      LogUtils.groupCollapsed(`[d-utils] http_request get 请求成功 => ${url}`, LogUtils.successColor)
-      LogUtils.logInfo(res, `http_request response => `)
-      LogUtils.groupEnd()
-      return Promise.resolve(res)
-    }).catch((e: any) => {
-      LogUtils.groupCollapsed(`[d-utils] http_request get 请求成功 ${url}`, LogUtils.successColor)
-      LogUtils.logInfo(e, `http_request error => `)
-      LogUtils.groupEnd()
-      return Promise.reject(e)
+  static async get (url: string, params?: any, config?: any): Promise<any> {
+    return new Promise ((resolve, reject) => {
+      if (!HttpRequestUtils.isInit) {
+        LogUtils.logError('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作', `[d-utils] http_request: => error`)
+        reject('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作')
+      }
+      const getInfo: any = Object.assign({}, {params}, config)
+      axios.get(url, getInfo).then((res: any) => {
+        LogUtils.group(`[d-utils] http_request get 请求成功 => ${url}`, LogUtils.successColor)
+        LogUtils.logInfo(res.data, `http_request response => `)
+        LogUtils.logInfo(res.config, `http_request config => `)
+        LogUtils.logInfo(res.config.params, `http_request params => `)
+        LogUtils.groupEnd()
+        resolve(res)
+      }).catch(async (e: any) => {
+        LogUtils.group(`[d-utils] http_request get 请求失败 ${url}`, LogUtils.errorColor)
+        LogUtils.logInfo(e, `http_request error => `)
+        LogUtils.groupEnd()
+        resolve(e)
+      })
     })
   }
 
@@ -76,21 +80,25 @@ export default class HttpRequestUtils {
    * @return { Promise }
    */
   static post (url: string, data?: any, config?: any): Promise<any> {
-    if (!HttpRequestUtils.isInit) {
-      LogUtils.logError('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作', `[d-utils] http_request error => `)
-      return
-    }
-    const postInfo:any = Object.assign({}, {data: data}, config)
-    axios.post(url, postInfo).then((res: any) => {
-      LogUtils.groupCollapsed(`[d-utils] http_request post 请求成功 => ${url}`, LogUtils.successColor)
-      LogUtils.logInfo(res, `http_request response => `)
-      LogUtils.groupEnd()
-      return Promise.resolve(res)
-    }).catch((e: any) => {
-      LogUtils.groupCollapsed(`[d-utils] http_request post 请求失败 => ${url}`, LogUtils.errorColor)
-      LogUtils.logInfo(e, `http_request error => `)
-      LogUtils.groupEnd()
-      return Promise.reject(e)
+    return new Promise ((resolve, reject) => {
+      if (!HttpRequestUtils.isInit) {
+        LogUtils.logError('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作', `[d-utils] http_request error => `)
+        reject('需要执行HttpRequestUtils.isInit()方法，才可以执行请求操作')
+      }
+      const postInfo:any = Object.assign({}, {data: data}, config)
+      axios.post(url, postInfo).then((res: any) => {
+        LogUtils.group(`[d-utils] http_request post 请求成功 => ${url}`, LogUtils.successColor)
+        LogUtils.logInfo(res.data, `http_request response => `)
+        LogUtils.logInfo(res.config, `http_request config => `)
+        LogUtils.logInfo(res.config.params, `http_request params => `)
+        LogUtils.groupEnd()
+        resolve(res)
+      }).catch((e: any) => {
+        LogUtils.group(`[d-utils] http_request post 请求失败 => ${url}`, LogUtils.errorColor)
+        LogUtils.logInfo(e, `http_request error => `)
+        LogUtils.groupEnd()
+        reject(e)
+      })
     })
   }
 }

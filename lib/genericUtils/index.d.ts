@@ -1,3 +1,4 @@
+import { GenericType } from './../type';
 /**
  * @description 浏览器提示
  * @param { object } options  参数为对象，以下都是对象内的属性配置
@@ -16,7 +17,7 @@
  * }
  * notification(data)
  */
-export declare function notification(options?: any): Promise<any>;
+export declare function notification(options?: GenericType.INotification): Promise<any>;
 /**
  * @description 返回rgba随机色
  * @param { Number } opacity    透明度 0～1之间
@@ -51,7 +52,7 @@ export declare function calcStringLength(str: string, isStrict?: boolean): numbe
  * @return { String } 返回操作之后的字符串
  * @example
  * const str = ' d -js- ut ils '
- * // 0: 去除首位空格 默认为0
+ * // 0: 去除首尾空格 默认为0
  * strTrim(str)
  * strTrim(str, 0)
  * @example
@@ -64,7 +65,7 @@ export declare function calcStringLength(str: string, isStrict?: boolean): numbe
  * // 3: 去除右边空格
  * strTrim(str, 3)
  */
-export declare function strTrim(str: string, type?: number): string;
+export declare function strTrim(str: string, type?: GenericType.StrTrimType): string;
 /**
  * @description 函数节流
  * @param { Function } fn 需要节流的函数

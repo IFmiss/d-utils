@@ -1,5 +1,6 @@
 import { isIOS, isAndroid } from './../expUtils/index'
 import LogUtils from './../logUtils/index'
+import { parseUrl } from './../urlUtils/index'
 import { IWxSign,
          IWxShareToFriend,
          IWxCallBackType,
@@ -14,14 +15,14 @@ const sha1 = require('sha1')
  */
 export default class WeixinUtils {
   static wx: any = wx
+
   /**
    * @description 初始化微信请求 js-sdk 的url地址 需要区分两种情况
    * IOS 或者 Android 微信版本小于6.3.31, Android 微信版本大于6.3.31
    * 当前这种只支持与VUE单页面模式
    * @returns 返回获取jssdk的url参数值
    */
-
-   private static defaultShareInfo = {
+  private static defaultShareInfo = {
     title: '这是一个微信分享的title',
     desc: '这是一个微信分享的desc',
     link: '这是一个微信分享的link',
@@ -29,8 +30,12 @@ export default class WeixinUtils {
     success: (): void => {},
     cancel: (): void => {},
     complete: (): void => {}
-   }
+  }
 
+  /**
+   * ios 安卓需要验签的地址
+   * @returns { string } 浏览器url
+   */
   static sdkUrlIosOrAndorid (): string {
     if (isIOS() ||
         isAndroid() && !WeixinUtils.isUpThanWxVersion('6.3.31')) {
@@ -54,8 +59,9 @@ export default class WeixinUtils {
   }
 
   /**
-   * @description wxSign
+   * @description wxSign 微信验签的动作
    * @param { String }  jsapi_ticket  公众号用于调用微信JS接口的临时票据
+   * @return { IWxSign } 返回 timestamp， nonceStr， signature
    */
 
   static wxSign (ticket: string): IWxSign {
@@ -68,7 +74,7 @@ export default class WeixinUtils {
   }
 
   /**
-   * 跳转微信oauth2授权登录
+   * 跳转微信oauth2授权登录 非静默授权
    * @param { String }  appId
    */
   static routerAuthorized (appId: string): void {
@@ -104,7 +110,7 @@ export default class WeixinUtils {
    * @param { String } version
    * @returns { Boolean } 返回是否满足条件
    */
-  private static isUpThanWxVersion (version: string): boolean {
+  private static isUpThanWxVersion (version: string = '6.3.31'): boolean {
     const str = window.navigator.userAgent
     const v0 = version.split('.').map((v) => {
       return parseInt(v, 10);
@@ -158,8 +164,9 @@ export default class WeixinUtils {
    * @props { Function } sharInfo.success 成功的回调
    * @props { Function } sharInfo.cancel  取消的回调
    * @props { Function } sharInfo.complete 完成的回调
+   * @return { Promise<IWxCallBackType> } 返回一个promise
    */
-  static wxShareToFriend (sharInfo: IWxShareToFriend): Promise<string> {
+  static wxShareToFriend (sharInfo: IWxShareToFriend): Promise<IWxCallBackType> {
     const selfShareInfo = Object.assign({}, this.defaultShareInfo, sharInfo)
     return new Promise ((resolve, reject) => {
       try {
@@ -170,30 +177,37 @@ export default class WeixinUtils {
             link: selfShareInfo.link,
             imgUrl: selfShareInfo.imgUrl,
             success: function (res) {
-              selfShareInfo.success({
+              const data: IWxCallBackType = {
                 type: 'onMenuShareAppMessage',
                 data: res
-              })
-              resolve('onMenuShareAppMessage')
+              }
+              selfShareInfo.success(data)
+              resolve(data)
             },
             cancel: function (res) {
-              selfShareInfo.cancel({
+              const data: IWxCallBackType = {
                 type: 'onMenuShareAppMessage',
                 data: res
-              })
-              resolve('onMenuShareAppMessage')
+              }
+              selfShareInfo.cancel(data)
+              resolve(data)
             },
             complete: function (res) {
-              selfShareInfo.complete({
+              const data: IWxCallBackType = {
                 type: 'onMenuShareAppMessage',
                 data: res
-              })
-              resolve('onMenuShareAppMessage')
+              }
+              selfShareInfo.complete(data)
+              resolve(data)
             }
           })
         })
       } catch (e) {
-        reject(e)
+        const data: IWxCallBackType = {
+          type: 'onMenuShareAppMessage',
+          data: e
+        }
+        reject(data)
       }
     })
   }
@@ -207,8 +221,9 @@ export default class WeixinUtils {
    * @props { Function } sharInfo.success 成功的回调
    * @props { Function } sharInfo.cancel  取消的回调
    * @props { Function } sharInfo.complete 完成的回调
+   * @return { Promise<IWxCallBackType> } 返回一个promise
    */
-  static wxShareToFriendCircle (sharInfo: IWxShareToFriendsCircle): Promise<string> {
+  static wxShareToFriendCircle (sharInfo: IWxShareToFriendsCircle): Promise<IWxCallBackType> {
     const selfShareInfo = Object.assign({}, this.defaultShareInfo, sharInfo)
     return new Promise ((resolve, reject) => {
       try {
@@ -218,38 +233,46 @@ export default class WeixinUtils {
             link: selfShareInfo.link,
             imgUrl: selfShareInfo.imgUrl,
             success: function (res) {
-              selfShareInfo.success({
+              const data: IWxCallBackType = {
                 type: 'onMenuShareTimeline',
                 data: res
-              })
-              resolve('onMenuShareTimeline')
+              }
+              selfShareInfo.success(data)
+              resolve(data)
             },
             cancel: function (res) {
-              selfShareInfo.cancel({
+              const data: IWxCallBackType = {
                 type: 'onMenuShareTimeline',
                 data: res
-              })
-              resolve('onMenuShareTimeline')
+              }
+              selfShareInfo.cancel(data)
+              resolve(data)
             },
             complete: function (res) {
-              selfShareInfo.complete({
+              const data: IWxCallBackType = {
                 type: 'onMenuShareTimeline',
                 data: res
-              })
-              resolve('onMenuShareTimeline')
+              }
+              selfShareInfo.complete(data)
+              resolve(data)
             }
           })
         })
       } catch (e) {
-        reject(e)
+        const data: IWxCallBackType = {
+          type: 'onMenuShareTimeline',
+          data: e
+        }
+        reject(data)
       }
     })
   }
   
   /**
    * 隐藏所有非基础按钮接口
+   * @return { Promise<IWxCallBackType> } 返回一个promise
    */
-  static hideAllNonBaseMenuItem (): Promise<string | object> {
+  static hideAllNonBaseMenuItem (): Promise<IWxCallBackType> {
     return new Promise((resolve, reject) => {
       wx.ready(() => {
           try {
@@ -273,8 +296,9 @@ export default class WeixinUtils {
   /**
    * 批量隐藏功能按钮接口
    * @param { array } arr // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+   * @return { Promise<IWxCallBackType> } 返回一个promise
    */
-  static hideMenuItems (arr: string[] = []): Promise<string | object> {
+  static hideMenuItems (arr: string[] = []): Promise<IWxCallBackType> {
     return new Promise((resolve, reject) => {
       wx.ready(() => {
         try {
@@ -298,78 +322,31 @@ export default class WeixinUtils {
   }
 
   /**
-   * @description 微信分享初始化
-   * @param { Object } sharInfo  分享的内容
-   * @props { String } sharInfo.title 分享的title
-   * @props { String } sharInfo.desc 分享描述
-   * @props { String } sharInfo.link 分享链接
-   * @props { String } sharInfo.imgUrl 分享图标
+   * ios 手机在code过期之后会重新静默授权，会导致分享失败，通过url中是否存在code，针对ios用户执行reload的操作
+   * @since 3.0.1
    */
-  static wxShare (sharInfo: any): Promise<string> {
-    // 返回promise
-    return new Promise((resolve, reject) => {
-      wx.ready(() => {
-        // 分享给好友
-        wx.onMenuShareAppMessage({
-          title: sharInfo.title,
-          desc: sharInfo.desc,
-          link: sharInfo.link,
-          imgUrl: sharInfo.imgUrl,
-          success: function () {
-            resolve('onMenuShareAppMessage')
-          },
-          cancel: function () {
-            reject('onMenuShareAppMessage')
-          },
-          complete: function () {
-            resolve('onMenuShareAppMessage')
-          }
-        })
+  static plantIosReloadShim = () => {
+    const query = parseUrl()
+    if (Object.keys(query).includes('code') && isIOS()) {
+      localStorage.setItem('weixin-utils-reload', 'true')
+    }
+  }
 
-        // 自定义“分享给朋友”及“分享到QQ”按钮的分享内容（1.4.0）
-        // wx.updateAppMessageShareData({
-        //   title: sharInfo.title,
-        //   desc: sharInfo.desc,
-        //   link: sharInfo.link,
-        //   imgUrl: sharInfo.imgUrl,
-        //   success: function () {
-        //     resolve('updateAppMessageShareData')
-        //   },
-        //   cancel: function () {
-        //     reject('updateAppMessageShareData')
-        //   }
-        // })
-
-        // 分享到朋友圈
-        wx.onMenuShareTimeline({
-          title: sharInfo.title,
-          link: sharInfo.link,
-          imgUrl: sharInfo.imgUrl,
-          success: function () {
-            resolve('onMenuShareTimeline')
-          },
-          cancel: function () {
-            reject('onMenuShareTimeline')
-          },
-          complete: function () {
-            resolve('onMenuShareTimeline')
-          }
-        })
-
-        // 自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容（1.4.0）
-        // wx.updateTimelineShareData({
-        //   title: sharInfo.title,
-        //   desc: sharInfo.desc,
-        //   link: sharInfo.link,
-        //   imgUrl: sharInfo.imgUrl,
-        //   success: function () {
-        //     resolve('updateTimelineShareData')
-        //   },
-        //   cancel: function () {
-        //     reject('updateTimelineShareData')
-        //   }
-        // })
-      })
-    })
+  /**
+   * 在其他页面都需要添加改方法，用户在页面加载之后重新reload，已保证微信分享正常
+   * @since 3.0.1
+   */
+  static reloadIosWhenCode = () => {
+    const hostAndPath = window.location.href.split('?')[0]
+    const reload = localStorage.getItem('weixin-utils-reload')
+    const urlSearch = new URLSearchParams(window.location.search)
+    urlSearch.delete('code')
+    const newUrl = urlSearch.toString() ?  `${hostAndPath}?${urlSearch.toString()}` : hostAndPath
+    if (reload === 'true') {
+      localStorage.removeItem('weixin-utils-reload')
+      setTimeout(() => {
+        location.replace(newUrl)
+      }, 88)
+    }
   }
 }

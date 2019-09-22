@@ -1,4 +1,4 @@
-import { IWxSign, IWxShareToFriend, IWxShareToFriendsCircle, IWxConfig } from './types';
+import { IWxSign, IWxShareToFriend, IWxCallBackType, IWxShareToFriendsCircle, IWxConfig } from './types';
 /**
  * 微信相关的工具
  * 微信jssdk的操作
@@ -12,18 +12,23 @@ export default class WeixinUtils {
      * @returns 返回获取jssdk的url参数值
      */
     private static defaultShareInfo;
+    /**
+     * ios 安卓需要验签的地址
+     * @returns { string } 浏览器url
+     */
     static sdkUrlIosOrAndorid(): string;
     /**
      * @description IOS 或者 Android 微信版本小于6.3.31 需要种植首次进入页面的URL，用于解决微信签名错误
      */
     static plantSdkUrlIosOrAndorid(): void;
     /**
-     * @description wxSign
+     * @description wxSign 微信验签的动作
      * @param { String }  jsapi_ticket  公众号用于调用微信JS接口的临时票据
+     * @return { IWxSign } 返回 timestamp， nonceStr， signature
      */
     static wxSign(ticket: string): IWxSign;
     /**
-     * 跳转微信oauth2授权登录
+     * 跳转微信oauth2授权登录 非静默授权
      * @param { String }  appId
      */
     static routerAuthorized(appId: string): void;
@@ -61,8 +66,9 @@ export default class WeixinUtils {
      * @props { Function } sharInfo.success 成功的回调
      * @props { Function } sharInfo.cancel  取消的回调
      * @props { Function } sharInfo.complete 完成的回调
+     * @return { Promise<IWxCallBackType> } 返回一个promise
      */
-    static wxShareToFriend(sharInfo: IWxShareToFriend): Promise<string>;
+    static wxShareToFriend(sharInfo: IWxShareToFriend): Promise<IWxCallBackType>;
     /**
      * 分享到朋友圈
      * @param {Object} sharInfo
@@ -72,24 +78,28 @@ export default class WeixinUtils {
      * @props { Function } sharInfo.success 成功的回调
      * @props { Function } sharInfo.cancel  取消的回调
      * @props { Function } sharInfo.complete 完成的回调
+     * @return { Promise<IWxCallBackType> } 返回一个promise
      */
-    static wxShareToFriendCircle(sharInfo: IWxShareToFriendsCircle): Promise<string>;
+    static wxShareToFriendCircle(sharInfo: IWxShareToFriendsCircle): Promise<IWxCallBackType>;
     /**
      * 隐藏所有非基础按钮接口
+     * @return { Promise<IWxCallBackType> } 返回一个promise
      */
-    static hideAllNonBaseMenuItem(): Promise<string | object>;
+    static hideAllNonBaseMenuItem(): Promise<IWxCallBackType>;
     /**
      * 批量隐藏功能按钮接口
      * @param { array } arr // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+     * @return { Promise<IWxCallBackType> } 返回一个promise
      */
-    static hideMenuItems(arr?: string[]): Promise<string | object>;
+    static hideMenuItems(arr?: string[]): Promise<IWxCallBackType>;
     /**
-     * @description 微信分享初始化
-     * @param { Object } sharInfo  分享的内容
-     * @props { String } sharInfo.title 分享的title
-     * @props { String } sharInfo.desc 分享描述
-     * @props { String } sharInfo.link 分享链接
-     * @props { String } sharInfo.imgUrl 分享图标
+     * ios 手机在code过期之后会重新静默授权，会导致分享失败，通过url中是否存在code，针对ios用户执行reload的操作
+     * @since 3.0.1
      */
-    static wxShare(sharInfo: any): Promise<string>;
+    static plantIosReloadShim: () => void;
+    /**
+     * 在其他页面都需要添加改方法，用户在页面加载之后重新reload，已保证微信分享正常
+     * @since 3.0.1
+     */
+    static reloadIosWhenCode: () => void;
 }

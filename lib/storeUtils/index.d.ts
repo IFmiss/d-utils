@@ -90,3 +90,28 @@ export declare function uniqueArray(arr: any[]): any[];
  * @return { Blob } 返回新的文件流  可以append到formdata中
  */
 export declare function dataUrlToBlob(dataUrl: any): Blob;
+/**
+ * @description 返回数组之间的并集
+ * @param { Array } args 可以是多个数组，数量不限制
+ * @return { Array } 返回数组
+ */
+export declare function union(...args: any[]): any[];
+/**
+ * @description 返回两个数组之间的交集
+ * @param { Array } args 可以是多个数组，两个数组
+ * @return { Array } 返回数组
+ */
+export declare function intersection(a: any[], b: any[]): any[];
+/**
+ * @description 返回两个数组之间的差集
+ * @param { Array } args 可以是多个数组，两个数组
+ * @return { Array } 返回数组
+ */
+export declare function diffset(a: any[], b: any[]): any[];
+/**
+ * @description 判断元素在数组或者字符串里存在的次数
+ * @param { Array | String } target 存在的数组或字符串
+ * @param { String | Number | ... } s 目标元素  值类型的元素
+ * @return { Number } 数量
+ */
+export declare function calcQuantity(target: any[] | string, s: any): any;
