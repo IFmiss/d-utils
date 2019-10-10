@@ -8,6 +8,13 @@ yarn
 ```hash
 yarn add d-utils
 ```
+#### 3.0正式使用 d-utils 包 ， 现默认使用最新模式
+```bash
+npm i d-utils
+or
+yarn add d-utils
+```
+
 #### 使用
 获取所有方法
 ```js
@@ -31,11 +38,5 @@ LogUtils.logInfo('d-utils')
 复制一下代码在控制台打印一下，看会有什么变化
 ```js
 Dutils.DomUtils.cssFilter(document.body, 'grayscale', 1)
-```
-```js
-Dutils.GenericUtils.openFullScreen(document.getElementsByTagName('html')[0])
-```
-```js
-Dutils.GenericUtils.exitFullScreen()
 ```
 ##### 后续demo都会使用对应的class名称

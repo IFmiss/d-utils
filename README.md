@@ -76,3 +76,9 @@ LogUtils.logInfo('d-utils')
 Dutils.DomUtils.cssFilter(document.body, 'grayscale', 1)
 ```
 
+#### 新版本支持部分代码tree-shacking
+可树摇的模块：`decoratorUtils, deviceUtils, domUtils, expUtils, genericUtils, storeUtils, urlUtils`
+**example:**
+```ts
+import { isEmptyStr } from 'd-utils/lib/expUtils'
+```

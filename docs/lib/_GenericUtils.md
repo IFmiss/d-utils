@@ -193,33 +193,6 @@ GenericUtils.formatDate(`yyyy-MM-dd hh:mm:ss`, new Date())
 GenericUtils.copyCode('hello world')
 ```
 
-## openFullScreen
-`openFullScreen`用于打开全屏的操作，参数为要全屏的元素
-  - `ele`要全屏的元素
-```js
-/**
- * 设置元素在网页中全屏
- * 兼容性支持 ie11及以上, firefox 10+, chrome 15+, safari 5.1+, opera 12.1+
- * @param { element } ele  需要全屏的元素
- */
-```
-### `Demo`:
-```js
-GenericUtils.openFullScreen(document.querySelector('video'))
-```
-
-## exitFullScreen
-`exitFullScreen` 用于关闭全面屏的操作
-```js
-/**
- * 关闭网页全屏操作
- */
-```
-### `Demo`:
-```js
-GenericUtils.exitFullScreen()
-```
-
 ## base64Encode
 `base64Encode` 字符串转成base64编码
 ```ts
