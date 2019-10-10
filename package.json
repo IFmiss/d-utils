@@ -1,7 +1,7 @@
 {
-  "name": "d-utils",
-  "version": "3.0.1",
-  "description": "d-utils",
+  "name": "d-utils-lite",
+  "version": "0.0.3",
+  "description": "d-utils-lite",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {

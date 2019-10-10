@@ -23,7 +23,7 @@ module.exports = {
 		index: './src/lib/index.ts'
 	},
 	output: {
-		path: path.resolve(__dirname, 'commonjs'),
+		path: path.resolve(__dirname, 'lib'),
 		publicPath: '',
 		filename: '[name].js',
 		libraryTarget: importType,
