@@ -1,6 +1,6 @@
 {
   "name": "d-utils-lite",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "d-utils-lite",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -67,7 +67,9 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "d-utils": "^3.0.1",
     "promise.prototype.finally": "^3.1.0",
+    "remove": "^0.1.5",
     "sha1": "^1.1.1",
     "weixin-js-sdk": "^1.4.0-test"
   }

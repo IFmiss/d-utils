@@ -26,27 +26,3 @@ DutilsLite.addClass(document.body, 'd-utils-lite')
 import { addClass } from 'd-utils-lite'
 addClass(document.body, 'd-utils-lite')
 ```
-
-#### 一下模块需要自己引入可使用
-- `HttpRequestUtils`
-  基于axios请求的封装
-
-- `LogUtils`
-  日志相关
-
-- `PerformanceUtils`
-  浏览器性能相关
-
-- `WeixinUtils`
-  微信jssdk相关的方法
-
-- `ImageUtils`
-  图片合成相关
-
-- `HttpRequestUtils`
-  网络请求
-
-#### 如何引用他们
-```ts
-import ImageUtils from 'd-utils-lite/lib/imageUtils/index'
-```

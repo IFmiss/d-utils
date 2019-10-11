@@ -1,4 +1,4 @@
-import { isObject } from './../expUtils/index'
+import { isObject } from './../index'
 /**
  * 日志的打印封装
  */
