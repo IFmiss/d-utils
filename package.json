@@ -1,6 +1,6 @@
 {
   "name": "d-utils",
-  "version": "3.0.2",
+  "version": "3.0.1",
   "description": "d-utils",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -13,7 +13,10 @@
     "build:tsc": "tsc",
     "dev": "webpack-dev-server --mode development --progress --colors",
     "watch": "webpack --progress --colors --watch",
-    "publish": "npm publish"
+    "publish": "npm publish",
+    "publish:patch": "npm version patch && npm publish",
+    "publish:minor": "npm version minor && npm publish",
+    "publish:major": "npm version major && npm publish"
   },
   "files": [
     "lib/",
