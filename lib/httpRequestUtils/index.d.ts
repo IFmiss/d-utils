@@ -25,7 +25,7 @@ export default class HttpRequestUtils {
      * 方法内部有两个参数，一个是axios，另外一个是 HttpRequestUtils 的class
      * @return { class } HttpRequestUtils 返回一个构造函数
      */
-    static init(fn?: Function): any;
+    static init(fn?: Function): HttpRequestUtils;
     /**
      * @description get的请求操作
      * @param { string } url 请求的url

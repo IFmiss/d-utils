@@ -1,17 +1,6 @@
-interface Resourse {
-    content: string;
-    left: number;
-    top: number;
-    needRound: boolean;
-    type: string;
-    fanmily?: string;
-    color?: string;
-    width?: number;
-    maxWidth?: number;
-    height?: number;
-}
+import { ImageUtilsType } from './../type';
 interface IImageUtils {
-    addSourse: (resourse: Resourse) => ImageUtils;
+    addSourse: (resourse: ImageUtilsType.Resourse) => ImageUtils;
     compose: () => Promise<any>;
     convertCanvasToImage: () => any;
 }
@@ -45,7 +34,7 @@ export default class ImageUtils implements IImageUtils {
      * 资源列表
      */
     private resourceList;
-    addSourse(resourse: Resourse): ImageUtils;
+    addSourse(resourse: ImageUtilsType.Resourse): ImageUtils;
     /**
      * 加载图片
      */

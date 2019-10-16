@@ -1,4 +1,5 @@
 import { isObject } from './../expUtils/index'
+import { LogUtilsType } from './../type'
 /**
  * 日志的打印封装
  */
@@ -117,7 +118,7 @@ export default class LogUtils {
    *  colors: ['#fa709a', '#fee140', '#ffb199']
    * })
    */
-  static logBeauty (text: string = '未曾遗忘的青春', options?: any): void {
+  static logBeauty (text: string = '未曾遗忘的青春', options?: LogUtilsType.ILogBeautyOptions): void {
     if (options && typeof options !== 'object') throw new TypeError(`options is an object, but found ${typeof options}`)
     let data = {
       isMax: false,

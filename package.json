@@ -34,7 +34,7 @@
     "@babel/preset-env": "^7.4.3",
     "@babel/runtime": "^7.4.3",
     "@dw/webpack-prompt-plugin": "^1.0.8",
-    "@types/node": "^11.13.2",
+    "@types/node": "^11.13.22",
     "atob": ">=2.1.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",

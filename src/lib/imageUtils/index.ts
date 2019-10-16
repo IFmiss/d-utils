@@ -2,32 +2,10 @@
  * 图片合成等操作
  */
 import LogUtils from './../logUtils/index'
-
-interface Resourse {
-  content: string;
-  left: number;
-  top: number;
-  needRound: boolean;
-  type: string;
-  fanmily?: string;
-  color?: string;
-  width?: number;
-  maxWidth?: number;
-  height?: number;
-}
-
-enum FontStyle {
-  fanmily = '14px Arial',
-  color = '#d4546f'
-}
-
-enum TextType {
-  Text = 'text',
-  Image = 'image'
-}
+import { ImageUtilsType } from './../type'
 
 interface IImageUtils {
-  addSourse: (resourse: Resourse) => ImageUtils;
+  addSourse: (resourse: ImageUtilsType.Resourse) => ImageUtils;
   compose: () => Promise<any>;
   convertCanvasToImage: () => any;
 }
@@ -73,9 +51,9 @@ export default class ImageUtils implements IImageUtils {
   /**
    * 资源列表 
    */
-  private resourceList: Resourse[] = []
+  private resourceList: ImageUtilsType.Resourse[] = []
 
-  public addSourse (resourse: Resourse): ImageUtils {
+  public addSourse (resourse: ImageUtilsType.Resourse): ImageUtils {
     this.resourceList.push(resourse)
     return this
   }
@@ -83,7 +61,7 @@ export default class ImageUtils implements IImageUtils {
   /**
    * 加载图片
    */
-  private async loadResourse (src: string, resourse?: Resourse): Promise<any> {
+  private async loadResourse (src: string, resourse?: ImageUtilsType.Resourse): Promise<any> {
     const image = new Image()
     image.crossOrigin = 'anonymous'
     image.src = src
@@ -170,13 +148,13 @@ export default class ImageUtils implements IImageUtils {
 
     // 开始执行
     const composeQueue: any[] = []
-    const resourceL = this.resourceList.reduce((total: any[], item: Resourse, index: number): any[] => {
-      if (item.type === TextType.Image) {
+    const resourceL = this.resourceList.reduce((total: any[], item: ImageUtilsType.Resourse, index: number): any[] => {
+      if (item.type === ImageUtilsType.TextType.Image) {
         const data = this.loadResourse(item.content, item)
         total.push(data)
       } else {
-        this.context.font = item.fanmily || FontStyle.fanmily
-        this.context.fillStyle = item.color || FontStyle.color
+        this.context.font = item.fanmily || ImageUtilsType.FontStyle.fanmily
+        this.context.fillStyle = item.color || ImageUtilsType.FontStyle.color
         this.context.fillText(item.content,
                               item.left * this.canvasWidth,
                               item.top * this.canvasHeight)
@@ -187,7 +165,7 @@ export default class ImageUtils implements IImageUtils {
     const resolveQueue: any = await Promise.all(resourceL)
 
     // 再次绘制
-    await resolveQueue.forEach((item: Resourse) => {
+    await resolveQueue.forEach((item: ImageUtilsType.Resourse) => {
       this.renderResource(item)
     })
     

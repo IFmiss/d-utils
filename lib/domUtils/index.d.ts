@@ -30,7 +30,7 @@ export declare function removeClass(el: HTMLElement, className: string | string[
  * @example
  * computedStyle(document.body, 'width')
  */
-export declare function computedStyle(el: any, cssProp: any): void;
+export declare function computedStyle(el: any, cssProp: string): void;
 /**
  * @description js设置元素的filter样式
  * @param { HTMLElement } el dom元素

@@ -1,3 +1,4 @@
+import { LogUtilsType } from './../type';
 /**
  * 日志的打印封装
  */
@@ -85,7 +86,7 @@ export default class LogUtils {
      *  colors: ['#fa709a', '#fee140', '#ffb199']
      * })
      */
-    static logBeauty(text?: string, options?: any): void;
+    static logBeauty(text?: string, options?: LogUtilsType.ILogBeautyOptions): void;
     /**
      * log打印一个group组  默认全部展示折叠
      */
