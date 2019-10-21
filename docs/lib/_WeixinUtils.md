@@ -1,5 +1,5 @@
 # WeixinUtils
-WeixinUtils 是微信公众号相关的操作，主要是微信jssdk，暂时没有测试过，可能会有问题
+WeixinUtils 是微信公众号相关的操作，主要是微信jssdk
 
 ## wx
 `wx`: 属性， wxjssdk的实例
