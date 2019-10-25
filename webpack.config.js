@@ -23,13 +23,13 @@ module.exports = {
 		index: './src/lib/index.ts'
 	},
 	output: {
-		path: path.resolve(__dirname, 'commonjs'),
+		path: path.resolve(__dirname, 'd-utils'),
 		publicPath: '',
-		filename: '[name].js',
-		libraryTarget: importType,
-		// libraryExport: 'Dutils'
-		// library: 'Dutils',
-		// umdNamedDefine: true,
+		filename: 'd-utils.js',
+		// libraryTarget: importType,
+		libraryTarget: 'var',
+		library: 'Dutils',
+		libraryExport: 'default'
 	},
 	module: {
 		rules: [
