@@ -1,6 +1,6 @@
 ## 关于d-utils
 
-[文档地址](https://ifmiss.github.io/d-utils/)
+[文档地址](https://d-utils.daiwei.site)
 
 #### 产生背景
 这是关于个人日常比较通用代码的收集，方便日后使用，编写文档为了以后方便查阅
