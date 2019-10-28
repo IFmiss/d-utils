@@ -70,7 +70,8 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "eslint-utils": "^1.4.3",
+    "eslint-utils": "1.4.1",
+    "js-yaml": "3.13.1",
     "promise.prototype.finally": "^3.1.0",
     "sha1": "^1.1.1",
     "weixin-js-sdk": "^1.4.0-test"
