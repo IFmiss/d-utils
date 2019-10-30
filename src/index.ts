@@ -24,7 +24,7 @@ EventUtils.on('axios-loading', (res) => {
 })
 PerformanceUtils.logger()
 HttpRequestUtils.init(axiosConfig)
-HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
+HttpRequestUtils.get('https://www.daiwei.site/php/web_v2_api/home.php', {
   inAjax: 1,
   do: 'getImageByBingJson'
 })
@@ -56,7 +56,7 @@ async function aaa () {
   // }))
   // console.log(err, res)
   await PromiseUtils.sleep(3000)
-  const [err, res] = await PromiseUtils.wrap(HttpRequestUtils.get('http://www.daiwei.org/vue/server/home.php', {
+  const [err, res] = await PromiseUtils.wrap(HttpRequestUtils.get('https://www.daiwei.site/php/web_v2_api/home.php', {
     inAjax: 1,
     do: 'getImageByBingJson'
   }))
@@ -121,7 +121,7 @@ LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1, b: '2'}))
 LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1, b: '2', c: 3, d: 'c'}))
 LogUtils.logDefault(UrlUtils.stringifyUrl({a: 1, b: '2', c: 3, d: 'c', e: 'f'}))
 
-LogUtils.logDefault(UrlUtils.parseUrl('http://www.daiwei.org/?a=1&b=2&url=a.html?b=1&c=1'))
+LogUtils.logDefault(UrlUtils.parseUrl('https://www.daiwei.site/?a=1&b=2&url=a.html?b=1&c=1'))
 
 LogUtils.logInfo(UrlUtils.deleteUrlParam(['code', 'name']))
 
@@ -204,3 +204,25 @@ console.log(add(2)(3)(4))
 LogUtils.logInfo(StoreUtils.calcQuantity([1, 2, 3, 4, 4, 4, 3, 4, 5,2, 1, 3, 4], 1), 'calcCountInArray')
 
 LogUtils.logInfo(StoreUtils.calcQuantity('1234443452134', '1'), 'calcCountInArray')
+
+
+const testCompose = (name, age) => {
+  console.log('this name is: ', name)
+  console.log('this age is: ', age)
+  return [name, age]
+}
+const full = (name, age) => {
+  console.log(`this is full: ${name} & ${age}`)
+}
+
+FnUtils.compose(full, testCompose)('d-utils', 1)
+
+console.log('----------split----------')
+const testCur = function (a, b, c) {
+  console.log('a - b - c', a - b - c)
+}
+const c = FnUtils.curry(testCur, 4)
+const d = FnUtils.curry(testCur)
+c(2)(3);
+
+d(1, 2, 3);
