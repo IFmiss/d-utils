@@ -225,15 +225,15 @@ export function debounce (fn: Function, t: number, immediate: boolean = true): a
 
 /**
  * @description 日期格式化 可转换成自己想要的格式
- * @param { String } fmt 格式模板 'yyyy-MM-dd hh:mm:ss'
  * @param { Date } date 日期内容  如 当前日期 new Date()
+ * @param { String } fmt 格式模板 'yyyy-MM-dd hh:mm:ss'
  * @return { String } '2018-08-15 01:46:22'
  * @example
- * formatDate(`yyyy-MM-dd hh:mm:ss`, new Date())
+ * formatDate(new Date(), `yyyy-MM-dd hh:mm:ss`)
  * @example
- * formatDate(`yyyy-MM-dd`, new Date())
+ * formatDate(new Date(), `yyyy-MM-dd`)
  */
-export function formatDate (fmt: string, date: any = new Date()): any { // author: meizz
+export function formatDate (date: any = new Date(), fmt: string = 'yyyy-MM-dd hh:mm:ss'): any { // author: meizz
   const newDate = new Date(date)
   let o: any = {
     'M+': newDate.getMonth() + 1, // 月份

@@ -52,7 +52,7 @@
  * reduce(1)(2)(3)    // a - b - c -1
  * reduce1(1, 2, 3)    // a - b - c -3
  */
-export function curry (fn: Function): any {
+export function curry (fn: Function, ...arg: any): any {
   const _this = this
   const args = Array.from(arguments).slice(1)
   // fn.length 属性指明函数的形参个数。

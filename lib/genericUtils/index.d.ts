@@ -101,15 +101,15 @@ export declare function throttle(fn: Function, t?: number): any;
 export declare function debounce(fn: Function, t: number, immediate?: boolean): any;
 /**
  * @description 日期格式化 可转换成自己想要的格式
- * @param { String } fmt 格式模板 'yyyy-MM-dd hh:mm:ss'
  * @param { Date } date 日期内容  如 当前日期 new Date()
+ * @param { String } fmt 格式模板 'yyyy-MM-dd hh:mm:ss'
  * @return { String } '2018-08-15 01:46:22'
  * @example
- * formatDate(`yyyy-MM-dd hh:mm:ss`, new Date())
+ * formatDate(new Date(), `yyyy-MM-dd hh:mm:ss`)
  * @example
- * formatDate(`yyyy-MM-dd`, new Date())
+ * formatDate(new Date(), `yyyy-MM-dd`)
  */
-export declare function formatDate(fmt: string, date?: any): any;
+export declare function formatDate(date?: any, fmt?: string): any;
 /**
  * @description 复制网页文字到剪切板，之后可以粘贴在任何可粘贴的地方
  * @param { String } str 拷贝的内容

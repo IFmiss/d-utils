@@ -18,6 +18,7 @@ import { rejects } from 'assert';
 import EventUtils from './lib/eventUtils';
 import PaiXu from './test/paixu'
 import ErChaShu from './test/erchashu'
+
 import { combineArray, lengthOfLongestSubstring } from './test/arr'
 EventUtils.on('axios-loading', (res) => {
   alert(1)
