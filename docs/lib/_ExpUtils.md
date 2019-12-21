@@ -158,3 +158,17 @@ ExpUtils.isEmptyStr('') // true
 ExpUtils.isEmptyStr('    ') // true
 ExpUtils.isEmptyStr('  isEmptyStr  ') // false
 ```
+
+## isJson
+`isJson` 用于判断字符串是否是json格式 实际上就是判断是否能被反序列化
+```ts
+/**
+ * 判断是否是JOSN字符串
+ * @param str 需要校验的字符串
+ * @return Boolean 是否是JSON格式的字符串
+ */
+ExpUtils.isJson('') // false
+ExpUtils.isJson('{}') // true
+ExpUtils.isJson(1)  // false
+ExpUtils.isJson("{"a": 1}") // true
+```

@@ -151,3 +151,20 @@ export function isEmptyObject (obj: any): boolean {
 export function isEmptyStr (str): boolean {
   return str.replace(/(^\s*)|(\s*$)/g, '').length === 0
 }
+
+/**
+ * 判断是否是JOSN字符串
+ * @param str 需要校验的字符串
+ * @return Boolean 是否是JSON格式的字符串
+ */
+export function isJson (str: string): boolean {
+  if (typeof str == 'string') {
+    try {
+      JSON.parse(str)
+      return str.includes('{')
+    } catch (e) {
+      return false
+    }
+  }
+  return false
+}
