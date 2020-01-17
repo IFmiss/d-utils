@@ -134,6 +134,7 @@ export function checkType (data: any): string {
  * // 此时修改a.d[0]的值， a对象变化了，b对象没有随之改变
  */
 export function deepClone (obj: any): any {
+  LogUtils.logWarning('deepClone 方法没有做对象引用的优化，可食用 lodash 的 cloneDeep 方法')
   const result: any = {}
   const keys: any = Object.keys(obj)
   let type

@@ -68,3 +68,27 @@ export function curry (fn: Function, ...arg: any): any {
     return fn.apply(_this, args)
   }
 }
+
+/**
+ * @description 缓存函数
+ * @param { Function } fn  需要被缓存的函数
+ * @example
+ * const memoFn = memo((a) => {
+ *    console.log('fn 被执行')
+ *    return a * 1000
+ * })
+ * 
+ * memoFn(10)
+ * 结果： console.log('fn 被执行')
+ * memoFn(10)
+ * 结果： 无console的打印，返回对象中存储的结果
+ */
+export function memo (fn: Function) {
+  let cache = {}
+  const arg: string = Array.from(arguments).slice(0).toString()
+  return function (str: string | number | boolean | null | undefined) {
+    let newStr = str.toString()
+    let res = cache[newStr]
+    return res || (cache[newStr] = fn(str))
+  } 
+}

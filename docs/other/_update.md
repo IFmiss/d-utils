@@ -1,4 +1,7 @@
 # 更新内容
+  - `2020-01-17`
+    - 添加 [`memo`](lib/_FnUtils/#memo) 方法
+    - `deepClone` 方法添加 warnning 提示，暴露对象引用问题
   - `2019-09-19` 添加 [`calcQuantity`](lib/_StoreUtils/#calcQuantity) 方法
   - `2019-09-11` 添加 [`compose`](lib/_FnUtils#compose) 方法, [`union`](lib/_StoreUtils#union), [`intersection`](lib/_StoreUtils#intersection), [`diffset`](lib/_StoreUtils#diffset)
   - `2019-08-13` 添加 [`wrap`](lib/_PromiseUtils#wrap) 方法
