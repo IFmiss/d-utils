@@ -3,21 +3,21 @@
  * @version 2.0
  * @description 关于通用js的收录以及整合方便日后使用
  */
-import * as dom from './domUtils';
-import * as utils from './genericUtils';
-import * as store from './storeUtils';
-import * as exp from './expUtils';
-import * as device from './deviceUtils';
-import weixin from './weixinUtils';
-import performance from './performanceUtils';
-import log from './logUtils';
-import * as url from './urlUtils';
-import http from './httpRequestUtils';
-import img from './imageUtils';
+import * as dom from './domUtils/index';
+import * as utils from './genericUtils/index';
+import * as store from './storeUtils/index';
+import * as exp from './expUtils/index';
+import * as device from './deviceUtils/index';
+import weixin from './weixinUtils/index';
+import performance from './performanceUtils/index';
+import log from './logUtils/index';
+import * as url from './urlUtils/index';
+import http from './httpRequestUtils/index';
+import img from './imageUtils/index';
 import * as decorator from './decoratorUtils';
-import event from './eventUtils';
-import * as promise from './promiseUtils';
-import * as fn from './fnUtils';
+import event from './eventUtils/index';
+import * as promise from './promiseUtils/index';
+import * as fn from './fnUtils/index';
 /**
  * Dom相关静态类
  */

@@ -4,35 +4,35 @@
  * @description 关于通用js的收录以及整合方便日后使用
  */
 // dom操作
-import * as dom from './domUtils/index'
+import * as dom from './domUtils'
 // 工具类
-import * as utils from './genericUtils/index'
+import * as utils from './genericUtils'
 // 数据存储类
-import * as store from './storeUtils/index'
+import * as store from './storeUtils'
 // 验证类
-import * as exp from './expUtils/index'
+import * as exp from './expUtils'
 // 设备信息类
-import * as device from './deviceUtils/index'
+import * as device from './deviceUtils'
 // 微信相关
-import weixin from './weixinUtils/index'
+import weixin from './weixinUtils'
 // 性能
-import performance from './performanceUtils/index'
+import performance from './performanceUtils'
 // 打印
-import log from './logUtils/index'
+import log from './logUtils'
 // url相关
-import * as url from './urlUtils/index'
+import * as url from './urlUtils'
 // http相关
-import http from './httpRequestUtils/index'
+import http from './httpRequestUtils'
 // 图片合成操作
-import img from './imageUtils/index'
+import img from './imageUtils'
 // 装饰器相关
-import * as decorator from './decoratorUtils/index'
+import * as decorator from './decoratorUtils'
 // event事件
-import event from './eventUtils/index'
+import event from './eventUtils'
 // promise
-import * as promise from './promiseUtils/index'
+import * as promise from './promiseUtils'
 // function
-import * as fn from './fnUtils/index'
+import * as fn from './fnUtils'
 
 /**
  * Dom相关静态类

@@ -18,18 +18,35 @@ const resolve = function (dir) {
 module.exports = {
 	entry: {
 		// 这里只是编译的时候用的
-		index: './src/index.ts'
-		// index: './lib/index.js'
-		// index: './src/lib/index.ts'
+		// index: './src/index.ts',
+		index: './src/lib/index.ts',
+		decoratorUtils: './src/lib/decoratorUtils.ts',
+		deviceUtils: './src/lib/deviceUtils.ts',
+		domUtils: './src/lib/domUtils.ts',
+		eventUtils: './src/lib/eventUtils.ts',
+		expUtils: './src/lib/expUtils.ts',
+		fnUtils: './src/lib/fnUtils.ts',
+		genericUtils: './src/lib/genericUtils.ts',
+		httpRequestUtils: './src/lib/httpRequestUtils.ts',
+		imageUtils: './src/lib/imageUtils.ts',
+		logUtils: './src/lib/logUtils.ts',
+		performanceUtils: './src/lib/performanceUtils.ts',
+		promiseUtils: './src/lib/promiseUtils.ts',
+		storeUtils: './src/lib/storeUtils.ts',
+		urlUtils: './src/lib/urlUtils.ts',
+		weixinUtils: './src/lib/weixinUtils.ts',
 	},
 	output: {
-		path: path.resolve(__dirname, 'd-utils'),
-		publicPath: '',
-		filename: 'd-utils.js',
-		// libraryTarget: importType,
-		libraryTarget: 'var',
-		library: 'Dutils',
-		libraryExport: 'default'
+		// path: path.resolve(__dirname, 'd-utils'),
+		// publicPath: '',
+		// filename: 'd-utils.js',
+		// // libraryTarget: importType,
+		// libraryTarget: 'var',
+		// library: 'Dutils',
+		// libraryExport: 'default'
+		path: path.resolve(__dirname, './lib/'),
+		libraryTarget: 'umd',
+		filename: '[name].js'
 	},
 	module: {
 		rules: [
@@ -109,12 +126,12 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new HtmlWebpackPlugin ({
-			filename: 'index.html',
-			template: 'index.html',
-			inject: true
-		}),
-		extractSass,
+		// new HtmlWebpackPlugin ({
+		// 	filename: 'index.html',
+		// 	template: 'index.html',
+		// 	inject: true
+		// }),
+		// extractSass,
 		// new CleanWebpackPlugin({
 		// 	verbose: false
 		// }),

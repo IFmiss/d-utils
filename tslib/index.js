@@ -3,141 +3,155 @@
  * @version 2.0
  * @description 关于通用js的收录以及整合方便日后使用
  */
+// dom操作
 import * as dom from './domUtils';
+// 工具类
 import * as utils from './genericUtils';
+// 数据存储类
 import * as store from './storeUtils';
+// 验证类
 import * as exp from './expUtils';
+// 设备信息类
 import * as device from './deviceUtils';
+// 微信相关
 import weixin from './weixinUtils';
+// 性能
 import performance from './performanceUtils';
+// 打印
 import log from './logUtils';
+// url相关
 import * as url from './urlUtils';
+// http相关
 import http from './httpRequestUtils';
+// 图片合成操作
 import img from './imageUtils';
+// 装饰器相关
 import * as decorator from './decoratorUtils';
+// event事件
 import event from './eventUtils';
+// promise
 import * as promise from './promiseUtils';
+// function
 import * as fn from './fnUtils';
 /**
  * Dom相关静态类
  */
-export declare const DomUtils: typeof dom;
+export const DomUtils = dom;
 /**
  * 装饰器
  */
-export declare const DecoratorUtils: typeof decorator;
+export const DecoratorUtils = decorator;
 /**
  * 性能相关静态类
  */
-export declare const PerformanceUtils: typeof performance;
+export const PerformanceUtils = performance;
 /**
  * 设备相关静态类
  */
-export declare const DeviceUtils: typeof device;
+export const DeviceUtils = device;
 /**
  * 数据存储静态类
  */
-export declare const StoreUtils: typeof store;
+export const StoreUtils = store;
 /**
  * 日志 打印静态类
  */
-export declare const LogUtils: typeof log;
+export const LogUtils = log;
 /**
  * 通用工具静态类
  */
-export declare const GenericUtils: typeof utils;
+export const GenericUtils = utils;
 /**
  * url相关
  */
-export declare const UrlUtils: typeof url;
+export const UrlUtils = url;
 /**
  * 微信相关
  */
-export declare const WeixinUtils: typeof weixin;
+export const WeixinUtils = weixin;
 /**
  * 正则相关静态类
  */
-export declare const ExpUtils: typeof exp;
+export const ExpUtils = exp;
 /**
  * axios二次封装
  */
-export declare const HttpRequestUtils: typeof http;
+export const HttpRequestUtils = http;
 /**
  * 图片合成类
  */
-export declare const ImageUtils: typeof img;
+export const ImageUtils = img;
 /**
  * 事件相关
  */
-export declare const EventUtils: typeof event;
+export const EventUtils = event;
 /**
  * promise相关
  */
-export declare const PromiseUtils: typeof promise;
+export const PromiseUtils = promise;
 /**
  * 函数相关
  */
-export declare const FnUtils: typeof fn;
-declare const _default: {
+export const FnUtils = fn;
+export default {
     /**
      * 装饰器
      */
-    DecoratorUtils: typeof decorator;
+    DecoratorUtils,
     /**
      * 设备相关
      */
-    DeviceUtils: typeof device;
+    DeviceUtils,
     /**
      * Dom相关
      */
-    DomUtils: typeof dom;
+    DomUtils,
     /**
      * 基本方法
      */
-    GenericUtils: typeof utils;
+    GenericUtils,
     /**
      * 数据操作方法
      */
-    StoreUtils: typeof store;
+    StoreUtils,
     /**
      * 正则判断方法
      */
-    ExpUtils: typeof exp;
+    ExpUtils,
     /**
      * logger
      */
-    LogUtils: typeof log;
+    LogUtils,
     /**
      * 微信jssdk 封装的方法
      */
-    WeixinUtils: typeof weixin;
+    WeixinUtils,
     /**
      * 性能相关监控
      */
-    PerformanceUtils: typeof performance;
+    PerformanceUtils,
     /**
      * url相关
      */
-    UrlUtils: typeof url;
+    UrlUtils,
     /**
      * 基于axios的请求相关
      */
-    HttpRequestUtils: typeof http;
+    HttpRequestUtils,
     /**
      * 图片合成相关
      */
-    ImageUtils: typeof img;
+    ImageUtils,
     /**
      * 自定义事件
      */
-    EventUtils: typeof event;
+    EventUtils,
     /**
      * promise封装方法
      */
-    PromiseUtils: typeof promise;
+    PromiseUtils,
     /**
      * 方法的包装
      */
-    FnUtils: typeof fn;
+    FnUtils
 };
-export default _default;

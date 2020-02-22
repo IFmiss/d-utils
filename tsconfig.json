@@ -4,7 +4,7 @@
     "module": "esnext",
     "removeComments": false,
     "declaration": true,
-    "outDir": "./lib",
+    "outDir": "./tslib",
     "declarationDir": "./lib",
     "baseUrl": "./",
     "jsx": "react",
