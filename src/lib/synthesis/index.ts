@@ -1,7 +1,7 @@
 /**
  * 图片合成等操作
  */
-import LogUtils from './../logUtils/index'
+import LogUtils from './../log/index'
 import { ImageUtilsType } from './../type'
 
 interface IImageUtils {

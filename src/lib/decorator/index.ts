@@ -1,7 +1,7 @@
 /**
  * 通用的装饰器
  */
-import LogUtils from './../logUtils/index'
+import LogUtils from './../log/index'
 
 /**
  * 装饰器，作用在类的方法上

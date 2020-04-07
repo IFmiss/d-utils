@@ -1,5 +1,5 @@
-import { debounce } from './../genericUtils'
-import EventUtils from './../eventUtils'
+import debounce from './../debounce'
+import EventUtils from './../event'
 
 let loadingRequestCount: number = 0
 
