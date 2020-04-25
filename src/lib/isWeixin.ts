@@ -4,8 +4,10 @@
  * @example
  * isWeiXin()  // true
  */
-export function isWeiXin (): boolean {
+function isWeiXin (): boolean {
   const ua = window.navigator.userAgent
   const uaLower = ua.toLowerCase()
   return String(uaLower.match(/MicroMessenger/i)) === 'micromessenger'
 }
+
+export default isWeiXin

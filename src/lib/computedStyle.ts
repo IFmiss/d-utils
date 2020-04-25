@@ -7,7 +7,7 @@
  * computedStyle(document.body, 'width')
  */
 
-export function computedStyle (el: any, cssProp: string): void {
+function computedStyle (el: any, cssProp: string): void {
   if (!el) {
     return
   }
@@ -16,3 +16,5 @@ export function computedStyle (el: any, cssProp: string): void {
   }
   return document.defaultView.getComputedStyle ? document.defaultView.getComputedStyle(el, '')[cssProp] : el.currentStyle[cssProp]
 }
+
+export default computedStyle

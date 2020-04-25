@@ -8,6 +8,8 @@ import deepClone from "./deepClone";
  * extend({a: 1}, {a: 2})   // {a: 1}
  * ⚠️ Object.assign属于浅拷贝,为了后续的操作不影响到之前的数据,最好在extend的第一个参数设置为{}
  */
-export function extend (...arg: any): any {
+function extend (...arg: any): any {
   return deepClone(Object.assign({}, ...arg))
 }
+
+export default extend

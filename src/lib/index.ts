@@ -1,173 +1,114 @@
 /**
- * @author ifmiss
- * @version 2.0
- * @description 关于通用js的收录以及整合方便日后使用
+ * name: d-utils
+ * version: v4
+ * author: ifmiss
  */
-// dom操作
-import * as dom from './domUtils/index'
-// 工具类
-import * as utils from './genericUtils/index'
-// 数据存储类
-import * as store from './storeUtils/index'
-// 验证类
-import * as exp from './expUtils/index'
-// 设备信息类
-import * as device from './deviceUtils/index'
-// 微信相关
-import weixin from './weixinUtils/index'
-// 性能
-import performance from './performanceUtils/index'
-// 打印
-import log from './logUtils/index'
-// url相关
-import * as url from './urlUtils/index'
-// http相关
-import http from './httpRequestUtils/index'
-// 图片合成操作
-import img from './imageUtils/index'
-// 装饰器相关
-import * as decorator from './decoratorUtils/index'
-// event事件
-import event from './eventUtils/index'
-// promise
-import * as promise from './promiseUtils/index'
-// function
-import * as fn from './fnUtils/index'
 
-/**
- * Dom相关静态类
- */
-export const DomUtils = dom
-
-/**
- * 装饰器
- */
-export const DecoratorUtils = decorator
-
-/**
- * 性能相关静态类
- */
-export const PerformanceUtils = performance
-
-/**
- * 设备相关静态类
- */
-export const DeviceUtils = device
-
-/**
- * 数据存储静态类
- */
-export const StoreUtils = store
-
-/**
- * 日志 打印静态类
- */
-export const LogUtils = log
-
-/**
- * 通用工具静态类
- */
-export const GenericUtils = utils
-
-/**
- * url相关
- */
-export const UrlUtils = url
-
-/**
- * 微信相关
- */
-export const WeixinUtils = weixin
-
-/**
- * 正则相关静态类
- */
-export const ExpUtils = exp
-
-/**
- * axios二次封装
- */
-export const HttpRequestUtils = http
-
-/**
- * 图片合成类
- */
-export const ImageUtils = img
-
-/**
- * 事件相关
- */
-export const EventUtils = event
-
-/**
- * promise相关
- */
-export const PromiseUtils = promise
-
-/**
- * 函数相关
- */
-export const FnUtils = fn
-
-export default {
-  /**
-   * 装饰器
-   */
-  DecoratorUtils,
-  /**
-   * 设备相关
-   */
-  DeviceUtils,
-  /**
-   * Dom相关
-   */
-  DomUtils,
-  /**
-   * 基本方法
-   */
-  GenericUtils,
-  /**
-   * 数据操作方法
-   */
-  StoreUtils,
-  /**
-   * 正则判断方法
-   */
-  ExpUtils,
-  /**
-   * logger
-   */
-  LogUtils,
-  /**
-   * 微信jssdk 封装的方法
-   */
-  WeixinUtils,
-  /**
-   * 性能相关监控
-   */
-  PerformanceUtils,
-  /**
-   * url相关
-   */
-  UrlUtils,
-  /**
-   * 基于axios的请求相关
-   */
-  HttpRequestUtils,
-  /**
-   * 图片合成相关
-   */
-  ImageUtils,
-  /**
-   * 自定义事件
-   */
-  EventUtils,
-  /**
-   * promise封装方法
-   */
-  PromiseUtils,
-  /**
-   * 方法的包装
-   */
-  FnUtils
-}
+export { default as addClass } from './addClass';
+ 
+export { default as base64Decode } from './base64Decode';
+ 
+export { default as base64Encode } from './base64Encode';
+ 
+export { default as calcSameEleLength } from './calcSameEleLength';
+ 
+export { default as calcStrLength } from './calcStrLength';
+ 
+export { default as checkType } from './checkType';
+ 
+export { default as compose } from './compose';
+ 
+export { default as computedStyle } from './computedStyle';
+ 
+export { default as copyText } from './copyText';
+ 
+export { default as cssFilter } from './cssFilter';
+ 
+export { default as curry } from './curry';
+ 
+export { default as debounce } from './debounce';
+ 
+export { default as Decorator } from './decorator/index';
+ 
+export { default as deepClone } from './deepClone';
+ 
+export { default as deleteUrlParam } from './deleteUrlParam';
+ 
+export { default as Device } from './device/index';
+ 
+export { default as diffset } from './diffset';
+ 
+export { default as Event } from './event/index';
+ 
+export { default as extend } from './extend';
+ 
+export { default as fileToBlob } from './fileToBlob';
+ 
+export { default as formatDate } from './formatDate';
+ 
+export { default as getCookie } from './getCookie';
+ 
+export { default as hasClass } from './hasClass';
+ 
+export { default as HttpRequestUtils } from './httpRequestUtils/index';
+ 
+export { default as intersection } from './intersection';
+ 
+export { default as isAndroid } from './isAndroid';
+ 
+export { default as isChinese } from './isChinese';
+ 
+export { default as isEmail } from './isEmail';
+ 
+export { default as isEmptyObject } from './isEmptyObject';
+ 
+export { default as isEmptyStr } from './isEmptyStr';
+ 
+export { default as isIOS } from './isIOS';
+ 
+export { default as isJson } from './isJson';
+ 
+export { default as isMobile } from './isMobile';
+ 
+export { default as isObject } from './isObject';
+ 
+export { default as isPhoneNum } from './isPhoneNum';
+ 
+export { default as isWeixin } from './isWeixin';
+ 
+export { default as Log } from './log/index';
+ 
+export { default as memo } from './memo';
+ 
+export { default as parseUrl } from './parseUrl';
+ 
+export { default as Performance } from './performance/index';
+ 
+export { default as promiseWrap } from './promiseWrap';
+ 
+export { default as randomColor } from './randomColor';
+ 
+export { default as removeClass } from './removeClass';
+ 
+export { default as removeCookie } from './removeCookie';
+ 
+export { default as setCookie } from './setCookie';
+ 
+export { default as sleep } from './sleep';
+ 
+export { default as strTrim } from './strTrim';
+ 
+export { default as stringifyUrl } from './stringifyUrl';
+ 
+export { default as Synthesis } from './synthesis/index';
+ 
+export { default as throttle } from './throttle';
+ 
+export { default as union } from './union';
+ 
+export { default as uniqueArray } from './uniqueArray';
+ 
+export { default as wait } from './wait';
+ 
+export { default as Wx } from './wx/index';
+ 

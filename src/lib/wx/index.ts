@@ -1,11 +1,16 @@
-import { isIOS, isAndroid } from './../expUtils/index'
-import LogUtils from './../logUtils/index'
-import { parseUrl } from './../urlUtils/index'
-import { IWxSign,
-         IWxShareToFriend,
-         IWxCallBackType,
-         IWxShareToFriendsCircle,
-         IWxConfig } from './types'
+import isIOS from '../isIOS'
+import isAndroid from './../isAndroid'
+import LogUtils from './../log/index'
+import parseUrl from './../parseUrl'
+
+import {
+  IWxSign,
+  IWxShareToFriend,
+  IWxCallBackType,
+  IWxShareToFriendsCircle,
+  IWxConfig
+} from './types'
+
 const wx = require('weixin-js-sdk')
 const sha1 = require('sha1')
 

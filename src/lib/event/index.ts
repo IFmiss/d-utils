@@ -8,7 +8,7 @@ interface IHandler {
   name: string
 }
 
-export default class EventUtils {
+class Event {
   /**
    * 键值对 对应事件名称以及数组的值
    */
@@ -17,25 +17,25 @@ export default class EventUtils {
   /**
    * on 方法 添加监听事件
    */
-  static on (name: string, handler: Function): EventUtils {
+  static on (name: string, handler: Function): Event {
     const i:IHandler = {
       fn: handler,
       type: 'on',
       name: name
     }
-    if (Object.keys(EventUtils.handler).includes(name)) {
-      EventUtils.handler[name].push(i)
-      return EventUtils
+    if (Object.keys(Event.handler).includes(name)) {
+      Event.handler[name].push(i)
+      return Event
     }
-    EventUtils.handler[name] = [].concat(i)
-    return EventUtils
+    Event.handler[name] = [].concat(i)
+    return Event
   }
 
   /**
    * off 方法 移除监听事件
    */
-  static off (name: string, handler: Function): EventUtils {
-    const event: any[] = EventUtils.handler[name]
+  static off (name: string, handler: Function): Event {
+    const event: any[] = Event.handler[name]
     if (event) {
       for (let i = event.length - 1; i >= 0; i--) {
         if (event[i].fn === handler) {
@@ -43,14 +43,14 @@ export default class EventUtils {
         }
       }
     }
-    return EventUtils
+    return Event
   }
 
   /**
    * emit 方法 触发监听的事件
    */
-  static emit (name: string, ...args: any): EventUtils {
-    const event = EventUtils.handler[name]
+  static emit (name: string, ...args: any): Event {
+    const event = Event.handler[name]
     let newEvent = []
     event && event.length && event.forEach((item: IHandler, index: number) => {
       item.fn.call(this, ...args)
@@ -66,18 +66,20 @@ export default class EventUtils {
     })
 
     if (hasOnce) {
-      EventUtils.handler[name] = newEvent
+      Event.handler[name] = newEvent
     }
 
     // 这里做一个执行完成之后的 once代码 off 的操作
-    return EventUtils
+    return Event
   }
 
   /**
    * once 方法 添加事件 只会被执行一次
    */
   static once (name: string, handler: Function): void {
-    EventUtils.on(name, handler)
-    EventUtils.handler[name][0]['type'] = 'once'
+    Event.on(name, handler)
+    Event.handler[name][0]['type'] = 'once'
   }
 }
+
+export default Event

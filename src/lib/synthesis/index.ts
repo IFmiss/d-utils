@@ -1,7 +1,7 @@
 /**
  * 图片合成等操作
  */
-import LogUtils from './../log/index'
+import Log from './../log/index'
 import { ImageUtilsType } from './../type'
 
 interface IImageUtils {
@@ -75,7 +75,7 @@ export default class ImageUtils implements IImageUtils {
       }
 
       image.onerror = () => {
-        LogUtils.logError(src, '[d-utils] ImageUtils loadResourse 裁剪图片加载错误')
+        Log.logError(src, '[d-utils] ImageUtils loadResourse 裁剪图片加载错误')
         reject()
       }
     })
@@ -179,7 +179,7 @@ export default class ImageUtils implements IImageUtils {
   public convertCanvasToImage (): any {
     const image = new Image()
     image.src = this.canvas.toDataURL('image/png', 1)
-    LogUtils.logSuccess(image, '[d-utils] ImageUtils convertCanvasToImage 图片对象创建成功')
+    Log.logSuccess(image, '[d-utils] ImageUtils convertCanvasToImage 图片对象创建成功')
     return image
   }
 }

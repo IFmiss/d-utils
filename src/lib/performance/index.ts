@@ -1,7 +1,7 @@
 /**
  * 网页性能监测
  */
-import LogUtils from './../logUtils/index'
+import Log from './../log/index'
 
 export default class PerformanceUtils {
   /**
@@ -83,15 +83,15 @@ export default class PerformanceUtils {
   static logger (): void {
     window.addEventListener('load', () => {
       setTimeout(() => {
-        LogUtils.group('[d-utils] PerformanceUtils logger - list: ', LogUtils.infoColor)
-        LogUtils.logDefault(PerformanceUtils.dnsTime(), 'DNS查询耗时')
-        LogUtils.logDefault(PerformanceUtils.loadTime(), '白屏时间')
-        LogUtils.logDefault(PerformanceUtils.requestTime(), 'request请求耗时')
-        LogUtils.logDefault(PerformanceUtils.tcpTime(), 'TCP链接耗时')
-        LogUtils.logDefault(PerformanceUtils.renderDomTime(), '解析dom树耗时')
-        LogUtils.logDefault(PerformanceUtils.readyDomTime(), '用户可操作时间节点')
-        LogUtils.logDefault(PerformanceUtils.loadFullTime(), 'onload时间')
-        LogUtils.groupEnd()
+        Log.group('[d-utils] PerformanceUtils logger - list: ', Log.infoColor)
+        Log.logDefault(PerformanceUtils.dnsTime(), 'DNS查询耗时')
+        Log.logDefault(PerformanceUtils.loadTime(), '白屏时间')
+        Log.logDefault(PerformanceUtils.requestTime(), 'request请求耗时')
+        Log.logDefault(PerformanceUtils.tcpTime(), 'TCP链接耗时')
+        Log.logDefault(PerformanceUtils.renderDomTime(), '解析dom树耗时')
+        Log.logDefault(PerformanceUtils.readyDomTime(), '用户可操作时间节点')
+        Log.logDefault(PerformanceUtils.loadFullTime(), 'onload时间')
+        Log.groupEnd()
       }, 300)
     })
   }

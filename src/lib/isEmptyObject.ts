@@ -12,9 +12,11 @@ import isObject from './isObject'
   * isEmptyObject(obj)   // false
   * isEmptyObject(obj1)   // true
   */
-export function isEmptyObject (obj: any): boolean {
+function isEmptyObject (obj: any): boolean {
   if (!isObject(obj)) {
     return false
   }
   return Object.keys(obj).length === 0
 }
+
+export default isEmptyObject

@@ -4,11 +4,11 @@
  * @param { String | Number | ... } s 目标元素  值类型的元素
  * @return { Number } 数量
  */
-function calcQuantity (target: any[] | string, s: any) {
+function calcSameEleLength (target: any[] | string, s: any) {
   let newTarget = typeof target === 'string' ? target.split('') : target
   return newTarget.reduce((t, c) => {
     return s === c ? t + 1 : t
   }, 0)
 }
 
-export default calcQuantity
+export default calcSameEleLength
