@@ -50,8 +50,6 @@ export { default as getCookie } from './getCookie';
  
 export { default as hasClass } from './hasClass';
  
-export { default as HttpRequestUtils } from './httpRequestUtils/index';
- 
 export { default as intersection } from './intersection';
  
 export { default as isAndroid } from './isAndroid';

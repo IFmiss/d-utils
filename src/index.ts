@@ -1,7 +1,4 @@
-import './style.less'
+import { addClass, base64Decode } from './lib/index'
 
-import {
-  calcSameEleLength
-} from './lib'
-
-console.log(calcSameEleLength([123, false, 3, 3], false))
+console.log(addClass)
+console.log(base64Decode)
