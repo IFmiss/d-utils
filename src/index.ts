@@ -1,4 +1,9 @@
-import { addClass, base64Decode } from './lib/index'
+import { omitStr, memo } from './lib/index'
 
-console.log(addClass)
-console.log(base64Decode)
+const add = memo((a) => {
+  console.log(100 + a)
+  return 100 + a
+})
+
+add(2)
+add(2)

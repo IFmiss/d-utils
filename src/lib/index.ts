@@ -78,6 +78,8 @@ export { default as Log } from './log/index';
  
 export { default as memo } from './memo';
  
+export { default as omitStr } from './omitStr';
+ 
 export { default as parseUrl } from './parseUrl';
  
 export { default as Performance } from './performance/index';
@@ -105,6 +107,12 @@ export { default as throttle } from './throttle';
 export { default as union } from './union';
  
 export { default as uniqueArray } from './uniqueArray';
+ 
+export { default as useCutDown } from './useCutDown';
+ 
+export { default as useQuery } from './useQuery';
+ 
+export { default as useTitle } from './useTitle';
  
 export { default as wait } from './wait';
  

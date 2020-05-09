@@ -12,9 +12,8 @@
  * memoFn(10)
  * 结果： 无console的打印，返回对象中存储的结果
  */
-function memo (fn: Function) {
+function memo(fn: Function) {
   let cache = {}
-  const arg: string = Array.from(arguments).slice(0).toString()
   return function (str: string | number | boolean | null | undefined) {
     let newStr = str.toString()
     let res = cache[newStr]
