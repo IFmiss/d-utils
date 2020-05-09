@@ -57,6 +57,7 @@
     "style-loader": "^0.20.3",
     "ts-loader": "^5.3.3",
     "typescript": "^3.3.3333",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^1.0.1",
     "url-parse": ">=1.4.3",
     "webpack": "^4.41.5",
@@ -65,11 +66,12 @@
     "webpack-dev-server": "^3.2.1",
     "webpack-merge": "^4.2.2",
     "webpack-node-externals": "^1.7.2",
-    "webpack-prompt-plugin": "^1.1.3",
-    "uglifyjs-webpack-plugin": "^2.2.0"
+    "webpack-prompt-plugin": "^1.1.3"
   },
   "dependencies": {
     "promise.prototype.finally": "^3.1.0",
+    "react": "^16.13.1",
+    "react-router-dom": "^5.1.2",
     "sha1": "^1.1.1",
     "weixin-js-sdk": "^1.4.0-test"
   }
