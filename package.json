@@ -1,6 +1,6 @@
 {
   "name": "d-utils",
-  "version": "4.0.0-beta",
+  "version": "4.0.0",
   "description": "d-utils",
   "main": "es/index.js",
   "module": "es/index.js",
