@@ -14,7 +14,6 @@
  */
 function memo(fn) {
     let cache = {};
-    const arg = Array.from(arguments).slice(0).toString();
     return function (str) {
         let newStr = str.toString();
         let res = cache[newStr];
