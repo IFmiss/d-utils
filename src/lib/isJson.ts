@@ -4,15 +4,14 @@
  * @return Boolean 是否是JSON格式的字符串
  */
 function isJson (str: string): boolean {
-  if (typeof str == 'string') {
-    try {
-      JSON.parse(str)
-      return str.includes('{')
-    } catch (e) {
-      return false
+  try {
+    if (typeof JSON.parse(str) == "object") {
+      return true;
     }
+    return false
+  } catch (e) {
+    return false
   }
-  return false
 }
 
 export default isJson
