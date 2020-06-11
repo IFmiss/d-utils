@@ -1,5 +1,5 @@
 /**
- * 判断是否是JOSN字符串
+ * 判断是否是JSON字符串
  * @param str 需要校验的字符串
  * @return Boolean 是否是JSON格式的字符串
  */
