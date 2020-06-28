@@ -50,6 +50,8 @@ export { default as getCookie } from './getCookie';
  
 export { default as hasClass } from './hasClass';
  
+export { default as Http } from './http/index';
+ 
 export { default as intersection } from './intersection';
  
 export { default as isAndroid } from './isAndroid';
@@ -111,6 +113,8 @@ export { default as uniqueArray } from './uniqueArray';
 export { default as useCutDown } from './useCutDown';
  
 export { default as useQuery } from './useQuery';
+ 
+export { default as useStateFallBack } from './useStateFallBack';
  
 export { default as useTitle } from './useTitle';
  

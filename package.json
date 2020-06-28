@@ -2,17 +2,18 @@
   "name": "d-utils",
   "version": "4.0.0",
   "description": "d-utils",
-  "main": "es/index.js",
-  "module": "es/index.js",
+  "main": "dist/umd/index.js",
+  "module": "dist/es/index.js",
+  "commonjs": "dist/cjs/index.js",
   "sideEffects": false,
-  "types": "es/index.d.ts",
+  "types": "dist/es/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "collect": "node src/collect.js",
     "dev": "webpack-dev-server --config ./config/webpack.dev.js --progress",
     "build": "yarn collect && webpack --progress --config ./config/webpack.prod.js && tsc",
     "beta": "npm publish --tag=beta",
-    "build:c": "rollup -c"
+    "build:c": "yarn collect && rollup -c"
   },
   "files": [
     "es/",
@@ -76,14 +77,10 @@
     "webpack-node-externals": "^1.7.2",
     "webpack-prompt-plugin": "^1.1.3"
   },
-  "peerDependencies": {
+  "dependencies": {
     "react": ">16.8.0",
     "react-router-dom": ">5.0.0",
     "sha1": "^1.1.1",
     "weixin-js-sdk": "^1.4.0"
-  },
-  "dependencies": {
-    "react": "^16.13.1",
-    "react-router-dom": "^5.2.0"
   }
 }
