@@ -21,6 +21,6 @@ Dutils.addClass(document.body, 'd-utils')
 按需引入
 ```js
 import { addClass, Log } from 'd-utils'
-DomUtils.addClass(document.body, 'd-utils')
+addClass(document.body, 'd-utils')
 Log.info('d-utils')
 ```
