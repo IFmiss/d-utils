@@ -1,1 +1,0 @@
-* [github](https://www.github.com/ifmiss/d-utils)

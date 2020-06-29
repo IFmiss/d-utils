@@ -1,7 +1,5 @@
 ## d-utils
 
-[老版本文档地址](https://d-utils.daiwei.site)
-
 v4版本将所有方法拆分
 
 # 快速使用

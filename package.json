@@ -16,7 +16,7 @@
     "build:c": "yarn collect && rollup -c"
   },
   "files": [
-    "es/",
+    "dist/",
     "README.md"
   ],
   "keywords": [
