@@ -14,7 +14,7 @@
  * }, 1000)
  */
 
-function throttle (fn: Function, t = 1000): Function {
+function throttle (fn: Function, t: number = 1000): Function {
   if (typeof fn !== 'function') {
     console.error(`第一个参数必须是方法`, '[d-utils] GenericUtils throttle error => ')
     return

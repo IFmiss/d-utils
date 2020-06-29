@@ -3,7 +3,7 @@
  * @param { number } timer  睡眠时长  执行后续的操作
  * @return promise
  */
-function sleep (timer) {
+function sleep (timer: number): Promise<void> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve()
