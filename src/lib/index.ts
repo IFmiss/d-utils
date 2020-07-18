@@ -76,6 +76,10 @@ export { default as isPhoneNum } from './isPhoneNum';
  
 export { default as isWeixin } from './isWeixin';
  
+export { default as loadCss } from './loadCss';
+ 
+export { default as loadScript } from './loadScript';
+ 
 export { default as Log } from './log/index';
  
 export { default as memo } from './memo';

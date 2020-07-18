@@ -42,7 +42,7 @@ module.exports = merge(common, {
 		// contentBase: "./",
 		host: '0.0.0.0',
 		// 端口号
-		port: 2000,
+		port: 2001,
 		//当有编译器错误或警告时，在浏览器中显示全屏覆盖。默认禁用。如果您只想显示编译器错误：
 		noInfo: true,
 		// 配置端口号

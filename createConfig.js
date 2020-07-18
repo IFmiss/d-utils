@@ -99,6 +99,7 @@ export const createConfig = (input, moduleType) => {
       dir:  path.resolve(__dirname,  `dist/${moduleType}`),
       format: moduleType,
       banner: HEADER_TEXT,
+      exports: 'auto',
       name: '[name].js'
     },
     external,
