@@ -114,14 +114,6 @@ export { default as union } from './union';
  
 export { default as uniqueArray } from './uniqueArray';
  
-export { default as useCutDown } from './useCutDown';
- 
-export { default as useQuery } from './useQuery';
- 
-export { default as useStateFallBack } from './useStateFallBack';
- 
-export { default as useTitle } from './useTitle';
- 
 export { default as wait } from './wait';
  
 export { default as Wx } from './wx/index';

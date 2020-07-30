@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es6", 
-    "module": "esnext",
+    "target": "es5", 
+    "module": "ESNext",
     "removeComments": false,
     "declaration": true,
     "outDir": "./es",
     "declarationDir": "./es",
     "baseUrl": "./",
+    "allowSyntheticDefaultImports": true,
     "jsx": "react",
     "experimentalDecorators": true,
     "downlevelIteration": true,
