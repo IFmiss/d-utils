@@ -1,6 +1,7 @@
 const assert = require('assert')
 const jsdom = require("jsdom");
-const addClass = require('./../dist/cjs/addClass')
+const addClass = require('./../src/lib/addClass').default
+
 const { JSDOM } = jsdom;
 const dom = new JSDOM(``, {
   url: "https://daiwei.site/",
