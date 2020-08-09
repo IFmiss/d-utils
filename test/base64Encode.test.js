@@ -1,5 +1,5 @@
 const assert = require('assert')
-const base64Encode = require('./../dist/cjs/base64Encode')
+const base64Encode = require('./../src/lib/base64Encode').default
 
 describe('base64Encode', function() {
   test('正常字符串转码', function() {
