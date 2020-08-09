@@ -1,6 +1,6 @@
 {
   "name": "d-utils",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "d-utils",
   "main": "dist/umd/index.js",
   "module": "dist/es/index.js",

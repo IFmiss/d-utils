@@ -8,6 +8,7 @@ import babel from 'rollup-plugin-babel';
 import typescript2 from 'rollup-plugin-typescript2';
 import clear from 'rollup-plugin-clear';
 import pkg from './package.json';
+import { terser } from 'rollup-plugin-terser';
 import fs from 'fs';
 
 export const LIB_DIR = path.join(__dirname, './', 'src/lib')
@@ -59,6 +60,11 @@ const plugins = [
         'useLocation'
       ]
     }
+  }),
+  terser({
+    output: {
+      comments: true
+    }
   })
 ]
 
@@ -86,8 +92,6 @@ export const moduleLists = [
 ]
 
 const external = [
-  'react',
-  'react-router-dom',
   'sha1',
   'weixin-js-sdk'
 ]
