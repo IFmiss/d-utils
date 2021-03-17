@@ -6,7 +6,7 @@
 function wrap (promise: Promise<any>) {
   return promise
     .then((res: any) => [null, res])
-    .catch((err: any) => [err, null])
+    .catch((err: any) => [err, null]);
 }
 
-export default wrap
+export default wrap;

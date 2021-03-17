@@ -10,19 +10,19 @@ function wait (callback: () => boolean, loopTime: number = 100, timeout: number 
     if (typeof callback === 'function' && typeof callback() === 'boolean') {
       const t = setInterval(() => {
         if (callback()) {
-          clearTimeout(t)
-          clearTimeout(out)
-          resolve()
+          clearTimeout(t);
+          clearTimeout(out);
+          resolve();
         }
-      }, loopTime)
+      }, loopTime);
 
       const out = setTimeout(() => {
-        clearTimeout(t)
-        clearTimeout(out)
-        reject()
-      }, timeout)
+        clearTimeout(t);
+        clearTimeout(out);
+        reject();
+      }, timeout);
     }
-  })
+  });
 }
 
-export default wait
+export default wait;

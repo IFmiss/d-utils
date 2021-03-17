@@ -10,14 +10,14 @@ function loadCss (url: string, config?: Partial<Omit<HTMLLinkElement, 'href'>>):
       const link = document.createElement('link');
       link.href = url;
       for (let k in config) {
-        link[k] = config[k]
+        link[k] = config[k];
       }
       document.getElementsByTagName('head')[0].appendChild(link);
-      resolve()
+      resolve();
     } catch (e) {
-      reject(e)
+      reject(e);
     }
-  })
+  });
 }
 
-export default loadCss
+export default loadCss;

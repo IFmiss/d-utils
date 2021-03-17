@@ -1,7 +1,7 @@
 /**
  * @description 正则表达式是否全部是
  */
-export const EXP_CHINESE: RegExp = /^[\u3220-\uFA29]+$/
+export const EXP_CHINESE: RegExp = /^[\u3220-\uFA29]+$/;
 
 /**
  * @description 判断字符串是否都是中文
@@ -13,7 +13,7 @@ export const EXP_CHINESE: RegExp = /^[\u3220-\uFA29]+$/
  * isChinese('world')   // false
  */
 function isChinese (str: string): boolean {
-  return EXP_CHINESE.test(str)
+  return EXP_CHINESE.test(str);
 }
 
-export default isChinese
+export default isChinese;

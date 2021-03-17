@@ -8,9 +8,9 @@
  * setCookie('test', '12345', 60 * 60 * 1000)
  */
 function setCookie (name: string, value: string, exp: number = 60 * 60 * 2 * 1000): void {
-  const date = new Date()
-  date.setTime(date.getTime() + exp)
-  document.cookie = `${name}=${escape(value)};expires=${date.toUTCString()}`
+  const date = new Date();
+  date.setTime(date.getTime() + exp);
+  document.cookie = `${name}=${escape(value)};expires=${date.toUTCString()}`;
 }
 
-export default setCookie
+export default setCookie;

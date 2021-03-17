@@ -15,18 +15,18 @@
  */
 function cssFilter(el: HTMLElement, type: any, option: string | number): void {
   if (typeof type === 'object' && !option) {
-    let cssText = ''
+    let cssText = '';
     for (let k in type) {
       if (type.hasOwnProperty(k)) {
-        cssText+= `${k}(${type[k]})`
+        cssText+= `${k}(${type[k]})`;
       }
     }
-    el.style.filter = cssText
-    el.style.webkitFilter = cssText
-    return
+    el.style.filter = cssText;
+    el.style.webkitFilter = cssText;
+    return;
   }
-  el.style.filter = `${type}(${option})`
-  el.style.webkitFilter = `${type}(${option})`
+  el.style.filter = `${type}(${option})`;
+  el.style.webkitFilter = `${type}(${option})`;
 }
 
-export default cssFilter
+export default cssFilter;

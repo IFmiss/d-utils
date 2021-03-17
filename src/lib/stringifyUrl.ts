@@ -7,11 +7,11 @@
  * UrlUtils.stringifyUrl({a: 1, b: 2})
  */
 function stringifyUrl (obj: object): string {
-  const arr = Object.entries(obj)
+  const arr = Object.entries(obj);
   return arr.map(item => {
-    let [k, v] = [...item]
-    return `${k}=${encodeURIComponent(v)}`
-  }).join('&')
+    let [k, v] = [...item];
+    return `${k}=${encodeURIComponent(v)}`;
+  }).join('&');
 }
 
-export default stringifyUrl
+export default stringifyUrl;

@@ -4,7 +4,7 @@
  * @return { Array } 返回数组
  */
 function union (...args: any[]): any[] {
-  return Array.from(new Set([].concat(...args)))
+  return Array.from(new Set([].concat(...args)));
 }
 
-export default union
+export default union;

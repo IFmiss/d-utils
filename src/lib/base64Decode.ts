@@ -4,7 +4,7 @@
  * @return 返回str字符串
  */
 function base64Decode (str: string): string {
-  return window.atob(decodeURIComponent(str))
+  return window.atob(decodeURIComponent(str));
 }
 
-export default base64Decode
+export default base64Decode;

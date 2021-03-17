@@ -5,13 +5,13 @@
  * UrlUtils.parseUrl('http://www.daiwei.org/?a=1&b=2')
  */
 function parseUrl (url: string = window.location.search): any {
-  const newUrl: string = url.slice(url.indexOf('?'))
-  const sp: any = new URLSearchParams(newUrl)
-  const obj = {}
+  const newUrl: string = url.slice(url.indexOf('?'));
+  const sp: any = new URLSearchParams(newUrl);
+  const obj = {};
   for (let [k, v] of sp.entries()) {
-    obj[k] = v
+    obj[k] = v;
   }
-  return obj
+  return obj;
 }
 
-export default parseUrl
+export default parseUrl;

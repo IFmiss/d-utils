@@ -1,7 +1,7 @@
 /**
  * @description 正则表达式 判断是否为IOS设备
  */
-export const EXP_IOS: RegExp = /(iPhone|iPad|iPod|iOS)/i
+export const EXP_IOS: RegExp = /(iPhone|iPad|iPod|iOS)/i;
 
 /**
  * @description 判断是否是IOS操作系统
@@ -10,8 +10,8 @@ export const EXP_IOS: RegExp = /(iPhone|iPad|iPod|iOS)/i
  * isIOS() // false
  */
 export function isIOS(): boolean {
-  const ua = window.navigator.userAgent
-  return EXP_IOS.test(ua)
+  const ua = window.navigator.userAgent;
+  return EXP_IOS.test(ua);
 }
 
-export default isIOS
+export default isIOS;

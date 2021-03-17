@@ -5,13 +5,13 @@
  * copyText('hello world')
  */
 function copyText (str: string): void {
-  const textArea = document.createElement('textarea')
-  textArea.style.cssText = 'position: absolute; top: -1000px; right: -1000px; z-index: -1000;'
-  document.body.appendChild(textArea)
-  textArea.value = str
-  textArea.select()
-  document.execCommand('copy')
-  document.body.removeChild(textArea)
+  const textArea = document.createElement('textarea');
+  textArea.style.cssText = 'position: absolute; top: -1000px; right: -1000px; z-index: -1000;';
+  document.body.appendChild(textArea);
+  textArea.value = str;
+  textArea.select();
+  document.execCommand('copy');
+  document.body.removeChild(textArea);
 }
 
-export default copyText
+export default copyText;

@@ -1,4 +1,4 @@
- /**
+/**
   * @description 方法的从右往左执行
   * @param { Function } fns 各种方法
   * @example
@@ -23,9 +23,9 @@
 function compose (...fn: Function[]) {
   return function (...args: any) {
     return fn.reduceRight((prevResult, currentFn) => {
-      return currentFn.call(this, ...prevResult)
-    }, args)
-  }
+      return currentFn.call(this, ...prevResult);
+    }, args);
+  };
 }
 
-export default compose
+export default compose;

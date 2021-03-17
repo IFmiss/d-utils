@@ -6,9 +6,9 @@
 function sleep (timer: number): Promise<void> {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve()
-    }, timer)
-  })
+      resolve();
+    }, timer);
+  });
 }
 
-export default sleep
+export default sleep;

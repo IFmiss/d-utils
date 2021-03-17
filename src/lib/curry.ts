@@ -19,20 +19,20 @@
  * reduce1(1, 2, 3)    // a - b - c -3
  */
 function curry (fn: Function, ...arg: any): any {
-  const _this = this
-  const args = Array.from(arguments).slice(1)
+  const _this = this;
+  const args = Array.from(arguments).slice(1);
   // fn.length 属性指明函数的形参个数。
-  const len = fn.length
+  const len = fn.length;
 
   return function () {
-    const _args = Array.from(arguments)
-    args.push(..._args)
+    const _args = Array.from(arguments);
+    args.push(..._args);
     if (args.length < len) {
-      return curry.call(_this, fn, ...args)
+      return curry.call(_this, fn, ...args);
     }
 
-    return fn.apply(_this, args)
-  }
+    return fn.apply(_this, args);
+  };
 }
 
-export default curry
+export default curry;

@@ -13,12 +13,12 @@
  * 结果： 无console的打印，返回对象中存储的结果
  */
 function memo(fn: Function) {
-  let cache = {}
+  let cache = {};
   return function (str: string | number | boolean | null | undefined) {
-    let newStr = str.toString()
-    let res = cache[newStr]
-    return res || (cache[newStr] = fn(str))
-  } 
+    let newStr = str.toString();
+    let res = cache[newStr];
+    return res || (cache[newStr] = fn(str));
+  }; 
 }
 
-export default memo
+export default memo;

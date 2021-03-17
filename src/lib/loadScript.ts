@@ -7,19 +7,19 @@
 function loadScript (url: string, config?: Partial<Omit<HTMLScriptElement, 'src' | 'onload' | 'onerror' >>): Promise<Event> {
   return new Promise((resolve, reject) => {
     try {
-      const body = document.body || document.getElementsByTagName('body')[0]
-      const script = document.createElement('script')
-      script.src = url
-      script.onload = resolve
-      script.onerror = reject
+      const body = document.body || document.getElementsByTagName('body')[0];
+      const script = document.createElement('script');
+      script.src = url;
+      script.onload = resolve;
+      script.onerror = reject;
       for (let k in config) {
-        script[k] = config[k]
+        script[k] = config[k];
       }
-      body.appendChild(script)
+      body.appendChild(script);
     } catch (e) {
-      reject(e)
+      reject(e);
     }
-  })
+  });
 }
 
-export default loadScript
+export default loadScript;

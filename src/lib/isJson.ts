@@ -5,13 +5,13 @@
  */
 function isJson (str: string): boolean {
   try {
-    if (typeof JSON.parse(str) == "object") {
+    if (typeof JSON.parse(str) == 'object') {
       return true;
     }
-    return false
+    return false;
   } catch (e) {
-    return false
+    return false;
   }
 }
 
-export default isJson
+export default isJson;

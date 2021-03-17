@@ -7,7 +7,7 @@
  * uniqueArray([1,2,3,3,,3,3,'4',"4",'4',])
  */
 function uniqueArray (arr: any[]): any[] {
-  return [...new Set(arr)]
+  return [...new Set(arr)];
 }
 
-export default uniqueArray
+export default uniqueArray;

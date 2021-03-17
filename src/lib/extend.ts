@@ -1,4 +1,4 @@
-import deepClone from "./deepClone";
+import deepClone from './deepClone';
 
 /**
  * @description extend继承方法 Object.assign(...arg)的包装
@@ -9,7 +9,7 @@ import deepClone from "./deepClone";
  * ⚠️ Object.assign属于浅拷贝,为了后续的操作不影响到之前的数据,最好在extend的第一个参数设置为{}
  */
 function extend (...arg: any): any {
-  return deepClone(Object.assign({}, ...arg))
+  return deepClone(Object.assign({}, ...arg));
 }
 
-export default extend
+export default extend;

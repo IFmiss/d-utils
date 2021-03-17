@@ -4,10 +4,10 @@
  * @return { Array } 返回数组
  */
 function intersection (a: any[], b: any[]): any[] {
-  const setB = new Set(b)
+  const setB = new Set(b);
   return a.filter((item) => {
-    return setB.has(item)
-  })
+    return setB.has(item);
+  });
 }
 
-export default intersection
+export default intersection;

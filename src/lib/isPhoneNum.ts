@@ -1,7 +1,7 @@
 /**
  * @description 正则表达式 手机的合法校验 /^1[3-9]\d{9}$/
  */
-export const EXP_PHONE_NUM: RegExp = /^1[3-9]\d{9}$/
+export const EXP_PHONE_NUM: RegExp = /^1[3-9]\d{9}$/;
 
 /**
  * @description 判断手机格式是否正确
@@ -12,9 +12,9 @@ export const EXP_PHONE_NUM: RegExp = /^1[3-9]\d{9}$/
  */
 function isPhoneNum (num: string): boolean {
   if (typeof num !== 'string') {
-    return false
+    return false;
   }
-  return EXP_PHONE_NUM.test(num)
+  return EXP_PHONE_NUM.test(num);
 }
 
-export default isPhoneNum
+export default isPhoneNum;

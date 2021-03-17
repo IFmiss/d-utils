@@ -9,12 +9,12 @@
 
 function computedStyle (el: any, cssProp: string): void {
   if (!el) {
-    return
+    return;
   }
   if (!cssProp) {
-    return
+    return;
   }
-  return document.defaultView.getComputedStyle ? document.defaultView.getComputedStyle(el, '')[cssProp] : el.currentStyle[cssProp]
+  return document.defaultView.getComputedStyle ? document.defaultView.getComputedStyle(el, '')[cssProp] : el.currentStyle[cssProp];
 }
 
-export default computedStyle
+export default computedStyle;

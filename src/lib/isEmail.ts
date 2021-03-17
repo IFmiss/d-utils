@@ -1,7 +1,7 @@
 /**
  * @description 正则表达式 邮箱是否合法
  */
-export const EXP_EMAIL: RegExp = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
+export const EXP_EMAIL: RegExp = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
 
 /**
  * @description 判断email格式是否正确
@@ -11,7 +11,7 @@ export const EXP_EMAIL: RegExp = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
  * isEmail('185098535@qq.com')  // true
  */
 function isEmail (email: string): boolean {
-  return EXP_EMAIL.test(email)
+  return EXP_EMAIL.test(email);
 }
 
-export default isEmail
+export default isEmail;

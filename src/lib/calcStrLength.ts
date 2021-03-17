@@ -10,14 +10,14 @@
  */
 function calcStrLength (str: string, isStrict?: boolean): number {
   if (typeof str !== 'string') {
-    return 0
+    return 0;
   }
 
-  if (!isStrict) return str.length
+  if (!isStrict) return str.length;
 
   return Array.from(str).reduce((total, current) => {
-    return total += current.charCodeAt(0) > 255 ? 2 : 1
-  }, 0)
+    return total += current.charCodeAt(0) > 255 ? 2 : 1;
+  }, 0);
 }
 
-export default calcStrLength
+export default calcStrLength;

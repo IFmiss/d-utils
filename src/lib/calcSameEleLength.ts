@@ -6,7 +6,9 @@
  */
 function calcSameEleLength<T> (target: T[] | string, s: T): number {
   if (typeof s == 'string' && s.length > 1) throw Error('元素只支持长度为1的字符查询')
-  let newTarget = typeof target === 'string' ? target.split('') : target
+  let newTarget = typeof target === 'string'
+    ? target.split('')
+    : target;
   return (newTarget as []).reduce((t: number, c: T | string) => {
     return s === c ? t + 1 : t
   }, 0)

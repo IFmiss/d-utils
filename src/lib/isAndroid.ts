@@ -5,9 +5,9 @@
  * isAndroid() // false
  */
 function isAndroid (): boolean {
-  const ua = window.navigator.userAgent
+  const ua = window.navigator.userAgent;
   return (!!~ua.indexOf('Android')) ||
-         (!!~ua.indexOf('Adr'))
+         (!!~ua.indexOf('Adr'));
 }
 
-export default isAndroid
+export default isAndroid;

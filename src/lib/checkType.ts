@@ -11,8 +11,8 @@
  * checkType(localStorage)   // storage
  */
 function checkType<T> (data: T): string {
-  let str = Object.prototype.toString.call(data)
-  return str.match(/\[object (.*?)\]/)[1].toLowerCase()
+  let str = Object.prototype.toString.call(data);
+  return str.match(/\[object (.*?)\]/)[1].toLowerCase();
 }
 
-export default checkType
+export default checkType;
