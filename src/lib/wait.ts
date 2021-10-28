@@ -5,24 +5,28 @@
  * @param { number } timeout 超时的时间   默认10000毫秒  10秒
  * @return Promise
  */
-function wait (callback: () => boolean, loopTime: number = 100, timeout: number = 10000): Promise<any> {
+function wait(
+  callback: () => boolean,
+  loopTime: number = 100,
+  timeout: number = 10000
+): Promise<any> {
   return new Promise((resolve, reject) => {
-    if (typeof callback === 'function' && typeof callback() === 'boolean') {
+    if (typeof callback === "function" && typeof callback() === "boolean") {
       const t = setInterval(() => {
         if (callback()) {
-          clearTimeout(t)
-          clearTimeout(out)
-          resolve()
+          clearTimeout(t);
+          clearTimeout(out);
+          resolve();
         }
-      }, loopTime)
+      }, loopTime);
 
       const out = setTimeout(() => {
-        clearTimeout(t)
-        clearTimeout(out)
-        reject()
-      }, timeout)
+        clearTimeout(t);
+        clearTimeout(out);
+        reject();
+      }, timeout);
     }
-  })
+  });
 }
 
-export default wait
+export default wait;

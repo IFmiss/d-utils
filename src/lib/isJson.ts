@@ -3,15 +3,15 @@
  * @param str 需要校验的字符串
  * @return Boolean 是否是JSON格式的字符串
  */
-function isJson (str: string): boolean {
+function isJson(str: string): boolean {
   try {
-    if (typeof JSON.parse(str) == "object") {
+    if (typeof JSON.parse(str) === "object") {
       return true;
     }
-    return false
+    return false;
   } catch (e) {
-    return false
+    return false;
   }
 }
 
-export default isJson
+export default isJson;

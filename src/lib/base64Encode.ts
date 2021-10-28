@@ -3,8 +3,8 @@
  * @param str 字符串
  * @return str base64 字符串
  */
-function base64Encode (str: string): string {
-  return window.btoa(str)
+function base64Encode(str: string): string {
+  return window.btoa(str);
 }
 
-export default base64Encode
+export default base64Encode;

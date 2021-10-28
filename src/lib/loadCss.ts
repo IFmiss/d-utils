@@ -4,20 +4,23 @@
  * @param config link属性配置
  * @returns Promise<void>
  */
-function loadCss (url: string, config?: Partial<Omit<HTMLLinkElement, 'href'>>): Promise<Event> {
+function loadCss(
+  url: string,
+  config?: Partial<Omit<HTMLLinkElement, "href">>
+): Promise<Event> {
   return new Promise((resolve, reject) => {
     try {
-      const link = document.createElement('link');
+      const link = document.createElement("link");
       link.href = url;
-      for (let k in config) {
-        link[k] = config[k]
+      for (const k in config) {
+        link[k] = config[k];
       }
-      document.getElementsByTagName('head')[0].appendChild(link);
-      resolve()
+      document.getElementsByTagName("head")[0].appendChild(link);
+      resolve();
     } catch (e) {
-      reject(e)
+      reject(e);
     }
-  })
+  });
 }
 
-export default loadCss
+export default loadCss;

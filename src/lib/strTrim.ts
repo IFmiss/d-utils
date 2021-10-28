@@ -1,4 +1,4 @@
-import { GenericType } from './type'
+import { GenericType } from "./type";
 /**
  * @description 字符串的去除空格
  * @param { String } str 操作的字符串
@@ -19,23 +19,29 @@ import { GenericType } from './type'
  * // 3: 去除右边空格
  * strTrim(str, 3)
  */
-function strTrim (str: string, type: GenericType.StrTrimType = GenericType.StrTrimType.LEFT_RIGHT): string {
-  if (typeof str !== 'string') {
-    console.error(`str must be string but found ${typeof str}`, '[d-utils] GenericUtils strTrim error => ')
-    return
+function strTrim(
+  str: string,
+  type: GenericType.StrTrimType = GenericType.StrTrimType.LEFT_RIGHT
+): string {
+  if (typeof str !== "string") {
+    console.error(
+      `str must be string but found ${typeof str}`,
+      "[d-utils] GenericUtils strTrim error => "
+    );
+    return;
   }
   switch (type) {
-  case 0:
-    return str.replace(/(^\s*)|(\s*$)/g, '')
-  case 1:
-    return str.replace(/\s/g, '')
-  case 2: 
-    return str.replace(/(^\s*)/g, '')
-  case 3:
-    return str.replace(/(\s*$)/g, '')
-  default:
-    return str.replace(/(^\s*)|(\s*$)/g, '')
+    case 0:
+      return str.replace(/(^\s*)|(\s*$)/g, "");
+    case 1:
+      return str.replace(/\s/g, "");
+    case 2:
+      return str.replace(/(^\s*)/g, "");
+    case 3:
+      return str.replace(/(\s*$)/g, "");
+    default:
+      return str.replace(/(^\s*)|(\s*$)/g, "");
   }
 }
 
-export default strTrim
+export default strTrim;

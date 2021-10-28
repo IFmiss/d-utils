@@ -1,4 +1,4 @@
-import getCookie from "./getCookie"
+import getCookie from "./getCookie";
 
 /**
  * @description 删除Cookie
@@ -7,20 +7,22 @@ import getCookie from "./getCookie"
  * @example
  * removeCookie('test')
  */
-function removeCookie (name: string): any {
-  const date = new Date()
-  date.setTime(date.getTime() - 1)
+function removeCookie(name: string): any {
+  const date = new Date();
+  date.setTime(date.getTime() - 1);
   if (name) {
-    const cookieInfo = getCookie(name)
+    const cookieInfo = getCookie(name);
     if (cookieInfo !== null) {
-      document.cookie = `${name}=${cookieInfo};expires=${date.toUTCString()}`
+      document.cookie = `${name}=${cookieInfo};expires=${date.toUTCString()}`;
     }
-    return
+    return;
   }
-  const allCookies = getCookie()
-  for (let k in allCookies) {
-    document.cookie = `${allCookies[k].name}=${allCookies[k].value};expires=${date.toUTCString()}`
+  const allCookies = getCookie();
+  for (const k in allCookies) {
+    document.cookie = `${allCookies[k].name}=${
+      allCookies[k].value
+    };expires=${date.toUTCString()}`;
   }
 }
 
-export default removeCookie
+export default removeCookie;

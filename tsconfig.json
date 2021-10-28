@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5", 
+    "target": "es5",
     "module": "ESNext",
     "removeComments": false,
     "declaration": true,
@@ -11,7 +11,7 @@
     "jsx": "react",
     "experimentalDecorators": true,
     "downlevelIteration": true,
-    "allowJs": false,
+    "allowJs": true,
     "skipLibCheck": true,
     "typeRoots": [
       "node_modules/@types",

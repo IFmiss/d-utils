@@ -8,11 +8,20 @@
  * console.log(omitStr('185098535', 2, 3, '*'))
  * // 18****535
  */
-function omitStr (str: string, start?: number, end?: number, replaceStr: string = '*'): string {
+function omitStr(
+  str: string,
+  start?: number,
+  end?: number,
+  replaceStr: string = "*"
+): string {
   const startPosition = start || 0;
   const endPosition = end || 0;
-  const count = str.length - startPosition - endPosition
-  return str.substr(0, startPosition) + replaceStr.repeat(count) + str.substr(count + startPosition, end)
+  const count = str.length - startPosition - endPosition;
+  return (
+    str.substr(0, startPosition) +
+    replaceStr.repeat(count) +
+    str.substr(count + startPosition, end)
+  );
 }
 
-export default omitStr
+export default omitStr;

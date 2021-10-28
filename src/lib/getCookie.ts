@@ -5,27 +5,25 @@
  * @example
  * getCookie('test')
  */
-function getCookie (name?: string): string | any {
+function getCookie(name?: string): string | any {
   if (name) {
-    const reg = new RegExp(`(^| )${name}=([^;]*)(;|$)`)
-    const arr = document.cookie.match(reg)
-    return arr&&arr[2] ? arr[2] : null
+    const reg = new RegExp(`(^| )${name}=([^;]*)(;|$)`);
+    const arr = document.cookie.match(reg);
+    return arr && arr[2] ? arr[2] : null;
   }
-  const getAllCookies = []
+  const getAllCookies = [];
   if (document.cookie.length) {
-    const arrCookie = document
-                      .cookie
-                      .split('; ')
-    for (let k in arrCookie) {
+    const arrCookie = document.cookie.split("; ");
+    for (const k in arrCookie) {
       getAllCookies.push({
-        name: `${unescape(arrCookie[k].split('=')[0])}`,
-        value: `${unescape(arrCookie[k].split('=')[1])}`
-      })
+        name: `${unescape(arrCookie[k].split("=")[0])}`,
+        value: `${unescape(arrCookie[k].split("=")[1])}`,
+      });
     }
-    return getAllCookies
+    return getAllCookies;
   } else {
-    return null
+    return null;
   }
 }
 
-export default getCookie
+export default getCookie;

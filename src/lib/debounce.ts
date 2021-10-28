@@ -14,35 +14,42 @@
  * console.log('resize-debounce', arg1)
  * }, 1000)
  */
-export function debounce (fn: Function, t: number, immediate: boolean = true): any {
-  if (typeof fn !== 'function') {
-    console.error(`第一个参数必须是方法`, '[d-utils] GenericUtils debounce error => ')
-    return
+export function debounce(
+  fn: Function,
+  t: number,
+  immediate: boolean = true
+): any {
+  if (typeof fn !== "function") {
+    console.error(
+      `第一个参数必须是方法`,
+      "[d-utils] GenericUtils debounce error => "
+    );
+    return;
   }
-  let time: any
+  let time: any;
   //  立刻执行第一次该方法
   if (immediate) {
     return function () {
-      clearTimeout(time)
+      clearTimeout(time);
       if (!time) {
-        fn.apply(this, arguments)
+        fn.apply(this, arguments);
       }
       time = setTimeout(function () {
-        setTimeout(time)
-        time = null
-      }, t)
-    }
+        setTimeout(time);
+        time = null;
+      }, t);
+    };
   } else {
     // 满足 time 时间结束之后自动执行一次该方法
     return function () {
-      clearTimeout(time)
+      clearTimeout(time);
       time = setTimeout(function () {
-        setTimeout(time)
-        fn.apply(this, arguments)
-        time = null
-      }, t)
-    }
+        setTimeout(time);
+        fn.apply(this, arguments);
+        time = null;
+      }, t);
+    };
   }
 }
 
-export default debounce
+export default debounce;

@@ -6,12 +6,14 @@
  * // 'a=1&b=2'
  * UrlUtils.stringifyUrl({a: 1, b: 2})
  */
-function stringifyUrl (obj: object): string {
-  const arr = Object.entries(obj)
-  return arr.map(item => {
-    let [k, v] = [...item]
-    return `${k}=${encodeURIComponent(v)}`
-  }).join('&')
+function stringifyUrl(obj: object): string {
+  const arr = Object.entries(obj);
+  return arr
+    .map((item) => {
+      const [k, v] = [...item];
+      return `${k}=${encodeURIComponent(v)}`;
+    })
+    .join("&");
 }
 
-export default stringifyUrl
+export default stringifyUrl;

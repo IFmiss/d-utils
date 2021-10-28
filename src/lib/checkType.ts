@@ -10,9 +10,9 @@
  * @example
  * checkType(localStorage)   // storage
  */
-function checkType<T> (data: T): string {
-  let str = Object.prototype.toString.call(data)
-  return str.match(/\[object (.*?)\]/)[1].toLowerCase()
+function checkType<T>(data: T): string {
+  const str = Object.prototype.toString.call(data);
+  return str.match(/\[object (.*?)\]/)[1].toLowerCase();
 }
 
-export default checkType
+export default checkType;

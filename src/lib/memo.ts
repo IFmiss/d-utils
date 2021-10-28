@@ -6,19 +6,19 @@
  *    console.log('fn 被执行')
  *    return a * 1000
  * })
- * 
+ *
  * memoFn(10)
  * 结果： console.log('fn 被执行')
  * memoFn(10)
  * 结果： 无console的打印，返回对象中存储的结果
  */
 function memo(fn: Function) {
-  let cache = {}
+  const cache = {};
   return function (str: string | number | boolean | null | undefined) {
-    let newStr = str.toString()
-    let res = cache[newStr]
-    return res || (cache[newStr] = fn(str))
-  } 
+    const newStr = str.toString();
+    const res = cache[newStr];
+    return res || (cache[newStr] = fn(str));
+  };
 }
 
-export default memo
+export default memo;

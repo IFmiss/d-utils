@@ -6,7 +6,7 @@
  * hasClass(document.body, 'd-utils')
  */
 function hasClass(el: HTMLElement, className: string): boolean {
-  return el.classList.contains(className)
+  return el.classList.contains(className);
 }
 
-export default hasClass
+export default hasClass;

@@ -8,16 +8,21 @@
  * UrlUtils.deleteUrlParam(['code', 'name'], 'http://localhost:2008/#a?a=22&b=2&code=3')
  * // 'http://localhost:2008/#a?a=22&b=2'
  */
-export function deleteUrlParam (paramNames: string[], url: string = location.href) {
-  const newSearch: string = url.split('?')[1]
-  if (!newSearch) return url
+export function deleteUrlParam(
+  paramNames: string[],
+  url: string = location.href
+) {
+  const newSearch: string = url.split("?")[1];
+  if (!newSearch) return url;
 
-  const hostAndPath: string = url.split('?')[0]
-  const urlSearch = new URLSearchParams(newSearch)
+  const hostAndPath: string = url.split("?")[0];
+  const urlSearch = new URLSearchParams(newSearch);
   paramNames.forEach((param: string) => {
-    urlSearch.delete(param)
-  })
-  return urlSearch.toString() ?  `${hostAndPath}?${urlSearch.toString()}` : hostAndPath
+    urlSearch.delete(param);
+  });
+  return urlSearch.toString()
+    ? `${hostAndPath}?${urlSearch.toString()}`
+    : hostAndPath;
 }
 
-export default deleteUrlParam
+export default deleteUrlParam;

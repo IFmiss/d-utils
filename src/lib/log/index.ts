@@ -1,5 +1,5 @@
-import isObject from './../isObject'
-import { LogUtilsType } from './../type'
+import isObject from "./../isObject";
+import { LogUtilsType } from "./../type";
 /**
  * 日志的打印封装
  */
@@ -7,27 +7,27 @@ class Log {
   /**
    * 提示色  '#9E9E9E'   默认灰色
    */
-  static defaultColor: string = '#9E9E9E'
+  static defaultColor: string = "#9E9E9E";
 
   /**
    * 提示色  '#0099FF'   蓝色
    */
-  static infoColor: string = '#0099FF'
+  static infoColor: string = "#0099FF";
 
   /**
    * 提示色  '#00CC99'   绿色
    */
-  static successColor: string = '#00CC99'
+  static successColor: string = "#00CC99";
 
   /**
    * 提示色  '#CC3366'   红色
    */
-  static errorColor: string = '#CC0000'
+  static errorColor: string = "#CC0000";
 
   /**
    * 提示色  '#CC9966'   黄色
    */
-  static warningColor: string = '#FF9966'
+  static warningColor: string = "#FF9966";
 
   /**
    * console提示信息
@@ -37,16 +37,26 @@ class Log {
    * @example
    * Log.console(window.screen, 'window:', 'red')
    */
-  static console (data: any, dataTitile: string = '数据信息', color: string = Log.defaultColor): void {
+  static console(
+    data: any,
+    dataTitile: string = "数据信息",
+    color: string = Log.defaultColor
+  ): void {
     if (isObject(data)) {
       if (Array.isArray(data)) {
-        console.log(`%c${dataTitile}`, `color: ${color}; font-weight: bold`, data)
+        console.info(
+          `%c${dataTitile}`,
+          `color: ${color}; font-weight: bold`,
+          data
+        );
       } else {
-        console.log(`%c${dataTitile}`, `color: ${color}; font-weight: bold`, {...data})
+        console.info(`%c${dataTitile}`, `color: ${color}; font-weight: bold`, {
+          ...data,
+        });
       }
-      return
+      return;
     }
-    console.log(`%c${dataTitile}`, `color: ${color}; font-weight: bold`, data)
+    console.info(`%c${dataTitile}`, `color: ${color}; font-weight: bold`, data);
   }
 
   /**
@@ -56,8 +66,11 @@ class Log {
    * @example
    * Log.default('date', 'default')
    */
-  static default (data: any, dataTitile: string = '[d-utils] log_utils default => '): void {
-    Log.console(data, dataTitile, Log.defaultColor)
+  static default(
+    data: any,
+    dataTitile: string = "[d-utils] log_utils default => "
+  ): void {
+    Log.console(data, dataTitile, Log.defaultColor);
   }
 
   /**
@@ -67,8 +80,11 @@ class Log {
    * @example
    * Log.info('date', 'info')
    */
-  static info (data: any, dataTitile: string = '[d-utils] log_utils info => '): void {
-    Log.console(data, dataTitile, Log.infoColor)
+  static info(
+    data: any,
+    dataTitile: string = "[d-utils] log_utils info => "
+  ): void {
+    Log.console(data, dataTitile, Log.infoColor);
   }
 
   /**
@@ -78,8 +94,11 @@ class Log {
    * @example
    * Log.info('date', 'success')
    */
-  static success (data: any, dataTitile: string = '[d-utils] log_utils success => '): void {
-    Log.console(data, dataTitile, Log.successColor)
+  static success(
+    data: any,
+    dataTitile: string = "[d-utils] log_utils success => "
+  ): void {
+    Log.console(data, dataTitile, Log.successColor);
   }
 
   /**
@@ -89,8 +108,11 @@ class Log {
    * @example
    * Log.info('date', 'error')
    */
-  static error (data: any, dataTitile: string = '[d-utils] log_utils error => '): void {
-    Log.console(data, dataTitile, Log.errorColor)
+  static error(
+    data: any,
+    dataTitile: string = "[d-utils] log_utils error => "
+  ): void {
+    Log.console(data, dataTitile, Log.errorColor);
   }
 
   /**
@@ -100,8 +122,11 @@ class Log {
    * @example
    * Log.info('date', 'warn')
    */
-  static warn (data: any, dataTitile: string = '[d-utils] log_utils warning => '): void {
-    Log.console(data, dataTitile, Log.warningColor)
+  static warn(
+    data: any,
+    dataTitile: string = "[d-utils] log_utils warning => "
+  ): void {
+    Log.console(data, dataTitile, Log.warningColor);
   }
 
   /**
@@ -118,48 +143,67 @@ class Log {
    *  colors: ['#fa709a', '#fee140', '#ffb199']
    * })
    */
-  static beauty (text: string = '未曾遗忘的青春', options?: LogUtilsType.ILogBeautyOptions): void {
-    if (options && typeof options !== 'object') throw new TypeError(`options is an object, but found ${typeof options}`)
-    let data = {
+  static beauty(
+    text: string = "未曾遗忘的青春",
+    options?: LogUtilsType.ILogBeautyOptions
+  ): void {
+    if (options && typeof options !== "object")
+      throw new TypeError(`options is an object, but found ${typeof options}`);
+    const data = {
       isMax: false,
-      colors: ['#a18cd1', '#fbc2eb', '#8ec5fc']
-    }
-    let opt = Object.assign({}, data, options)
+      colors: ["#a18cd1", "#fbc2eb", "#8ec5fc"],
+    };
+    const opt = Object.assign({}, data, options);
     if (opt.isMax) {
-      console.log(`%c${text}`, `background-size: 100%;background-image: -moz-linear-gradient(left, ${opt.colors.toString()});background-image: -webkit-linear-gradient(left, ${opt.colors.toString()});background-image: linear-gradient(to right, ${opt.colors.toString()});padding:20px 40px;color:#fff;font-size:18px;`)
+      console.info(
+        `%c${text}`,
+        `background-size: 100%;background-image: -moz-linear-gradient(left, ${opt.colors.toString()});background-image: -webkit-linear-gradient(left, ${opt.colors.toString()});background-image: linear-gradient(to right, ${opt.colors.toString()});padding:20px 40px;color:#fff;font-size:18px;`
+      );
     } else {
-      console.log(`%c${text}`, `background-size: 100%;background-image: -moz-linear-gradient(left, ${opt.colors.toString()});background-image: -webkit-linear-gradient(left, ${opt.colors.toString()});background-image: linear-gradient(to right, ${opt.colors.toString()});padding:2px 5px;color:#fff;font-size:12px;`)
+      console.info(
+        `%c${text}`,
+        `background-size: 100%;background-image: -moz-linear-gradient(left, ${opt.colors.toString()});background-image: -webkit-linear-gradient(left, ${opt.colors.toString()});background-image: linear-gradient(to right, ${opt.colors.toString()});padding:2px 5px;color:#fff;font-size:12px;`
+      );
     }
   }
 
   /**
    * log打印一个group组  默认全部展示折叠
    */
-  static group (dataTitile: string = '[d-utils] log_utils group => ', color: string = Log.defaultColor): void {
-    console.group(`%c${dataTitile}`, `color: ${color}; font-weight: bold`)
+  static group(
+    dataTitile: string = "[d-utils] log_utils group => ",
+    color: string = Log.defaultColor
+  ): void {
+    console.group(`%c${dataTitile}`, `color: ${color}; font-weight: bold`);
   }
 
   /**
    * log打印一个group组  折叠的
    */
-  static groupCollapsed (dataTitile: string = '[d-utils] log_utils group_collapsed => ', color: string = Log.defaultColor): void {
-    console.groupCollapsed(`%c${dataTitile}`, `color: ${color}; font-weight: bold`)
+  static groupCollapsed(
+    dataTitile: string = "[d-utils] log_utils group_collapsed => ",
+    color: string = Log.defaultColor
+  ): void {
+    console.groupCollapsed(
+      `%c${dataTitile}`,
+      `color: ${color}; font-weight: bold`
+    );
   }
 
   /**
    * 关闭一个console.group
    */
-  static groupEnd (): void {
-    console.groupEnd()
+  static groupEnd(): void {
+    console.groupEnd();
   }
 
   /**
    * 打印一个table的表格数据
    * @param data 数组对象数据
    */
-  static table (data: any[]): void {
-    console.table(data)
+  static table(data: any[]): void {
+    console.table(data);
   }
 }
 
-export default Log
+export default Log;

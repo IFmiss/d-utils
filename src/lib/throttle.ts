@@ -14,29 +14,32 @@
  * }, 1000)
  */
 
-function throttle (fn: Function, t: number = 1000): Function {
-  if (typeof fn !== 'function') {
-    console.error(`第一个参数必须是方法`, '[d-utils] GenericUtils throttle error => ')
-    return
+function throttle(fn: Function, t: number = 1000): Function {
+  if (typeof fn !== "function") {
+    console.error(
+      `第一个参数必须是方法`,
+      "[d-utils] GenericUtils throttle error => "
+    );
+    return;
   }
-  const _fn = fn
-  let time: any = null
-  let first = true
+  const _fn = fn;
+  let time: any = null;
+  let first = true;
   return function () {
-    let arg = arguments
-    let _this = this
+    const arg = arguments;
+    const _this = this;
     if (first) {
-      _fn.apply(_this, arg)
-      first = false
-      return
+      _fn.apply(_this, arg);
+      first = false;
+      return;
     }
-    if (time) return
+    if (time) return;
     time = setTimeout(function () {
-      setTimeout(time)
-      time = null
-      _fn.apply(_this, arg)
-    }, t)
-  }
+      setTimeout(time);
+      time = null;
+      _fn.apply(_this, arg);
+    }, t);
+  };
 }
 
-export default throttle
+export default throttle;

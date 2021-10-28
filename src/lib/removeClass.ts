@@ -5,20 +5,20 @@
  * @example
  * removeClass(document.body, 'd-utils')
  */
-import hasClass from './hasClass'
+import hasClass from "./hasClass";
 
 function removeClass(el: HTMLElement, className: string | string[]): void {
   if (Array.isArray(className)) {
     className.forEach((item: string) => {
       if (hasClass(el, item)) {
-        el.classList.remove(item)
+        el.classList.remove(item);
       }
-    })
-    return
+    });
+    return;
   }
   if (hasClass(el, className)) {
-    el.classList.remove(className)
+    el.classList.remove(className);
   }
 }
 
-export default removeClass
+export default removeClass;

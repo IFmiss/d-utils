@@ -4,7 +4,7 @@
  * @return Boolean 是否是空字符串
  */
 function isEmptyStr(str): boolean {
-  return str.replace(/(^\s*)|(\s*$)/g, '').length === 0
+  return str.replace(/(^\s*)|(\s*$)/g, "").length === 0;
 }
 
-export default isEmptyStr
+export default isEmptyStr;
