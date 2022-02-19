@@ -14,9 +14,8 @@
     "lint:es": "eslint . --ext .js,.ts,.tsx src/",
     "lint:es:fix": "eslint . --ext .js,.ts,.tsx,.jsx src/ --fix",
     "dev": "webpack-dev-server --config ./config/webpack.dev.js --progress",
-    "build": "yarn collect && webpack --progress --config ./config/webpack.prod.js && tsc",
-    "beta": "npm publish --tag=beta",
-    "build:c": "yarn collect && rollup -c"
+    "build": "tsc",
+    "beta": "npm publish --tag=beta"
   },
   "files": [
     "dist/",
@@ -37,6 +36,7 @@
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.9.4",
     "@babel/runtime": "^7.4.3",
+    "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/pluginutils": "^3.1.0",
     "@types/jest": "^26.0.24",
     "@types/node": "^11.13.22",
@@ -53,7 +53,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "html-webpack-plugin": "^3.0.6",
+    "html-webpack-plugin": "^3.2.0",
     "jest": "^26.2.0",
     "jsdom": "^16.3.0",
     "less": "^3.9.0",
@@ -79,9 +79,5 @@
     "webpack-merge": "^4.2.2",
     "webpack-node-externals": "^1.7.2",
     "webpack-prompt-plugin": "^1.1.3"
-  },
-  "dependencies": {
-    "sha1": "^1.1.1",
-    "weixin-js-sdk": "^1.4.0"
   }
 }

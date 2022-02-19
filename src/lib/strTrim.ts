@@ -6,17 +6,17 @@ import { GenericType } from "./type";
  * @return { String } 返回操作之后的字符串
  * @example
  * const str = ' d -js- ut ils '
- * // 0: 去除首尾空格 默认为0
+ * 0: 去除首尾空格 默认为0
  * strTrim(str)
  * strTrim(str, 0)
  * @example
- * // 1: 去除所有空格
+ * 1: 去除所有空格
  * strTrim(str, 1)
  * @example
- * // 2: 去除左边空格
+ * 2: 去除左边空格
  * strTrim(str, 2)
  * @example
- * // 3: 去除右边空格
+ * 3: 去除右边空格
  * strTrim(str, 3)
  */
 function strTrim(

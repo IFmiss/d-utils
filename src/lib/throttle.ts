@@ -25,8 +25,7 @@ function throttle(fn: Function, t: number = 1000): Function {
   const _fn = fn;
   let time: any = null;
   let first = true;
-  return function () {
-    const arg = arguments;
+  return function (...arg) {
     const _this = this;
     if (first) {
       _fn.apply(_this, arg);
